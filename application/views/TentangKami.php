@@ -28,13 +28,6 @@
   <!-- Template Main CSS Files -->
   <link href="<?php echo base_url()?>assets/css/variables.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: ZenBlog - v1.3.0
-  * Template URL: https://bootstrapmade.com/zenblog-bootstrap-blog-template/
-  * Author: BootstrapMade.com
-  * License: https:///bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
