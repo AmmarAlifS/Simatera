@@ -27,7 +27,7 @@ class user extends CI_Controller {
 	public function kontak()
 	{
 		$this->load->view('guest/v_header');
-		$this->load->view('guest/contact');
+		$this->load->view('guest/kontak');
 		$this->load->view('guest/v_footer');
 	}
 }
