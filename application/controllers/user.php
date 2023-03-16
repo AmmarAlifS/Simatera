@@ -12,12 +12,23 @@ class user extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('Home');
+		$this->load->view('guest/v_header');
+		$this->load->view('guest/Home');
+		$this->load->view('guest/v_footer');
 	}
 
 	public function tentangkami()
 	{
-		$this->load->view('TentangKami');
+		$this->load->view('guest/v_header');
+		$this->load->view('guest/TentangKami');
+		$this->load->view('guest/v_footer');
+	}
+
+	public function kontak()
+	{
+		$this->load->view('guest/v_header');
+		$this->load->view('guest/contact');
+		$this->load->view('guest/v_footer');
 	}
 }
 ?>
