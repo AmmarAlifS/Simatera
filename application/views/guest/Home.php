@@ -34,6 +34,11 @@
 <body>
   <main id="main">
 
+    <?php 
+      foreach($data_artikel as $row){
+      }
+    ?>
+
     <!-- ======= Hero Slider Section ======= -->
     <section id="hero-slider" class="hero-slider">
       <div class="container-md" data-aos="fade-in">
@@ -97,10 +102,10 @@
         <div class="row g-5">
           <div class="col-lg-4">
             <div class="post-entry-1 lg">
-              <a href="single-post.html"><img src="assets/img/Gedung Balai Kota.jpg" alt="" class="img-fluid"></a>
+              <a href="single-post.html"><img src="assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid"></a>
               <div class="post-meta"><span>Jul 5th '22</span></div>
-              <h2><a href="single-post.html">Sejarah Gedung Balai Kota Bandung</a></h2>
-              <p class="mb-4 d-block" style="text-align: justify;">Gedung Balai Kota Bandung adalah sebuah gedung yang menjadi pusat pemerintahan Kota Bandung, Indonesia. Gedung ini terletak di Jalan Wastukencana Nomor 2, Bandung. Gedung Balai Kota Bandung memiliki arsitektur bergaya art deco yang khas, dengan dinding berwarna putih dan hijau muda, serta ornamen-ornamen geometris yang cantik.</p>
+              <h2><a href="single-post.html"><?php echo $row->judul ?></a></h2>
+              <p class="mb-4 d-block" style="text-align: justify;">G<?php echo $row->artikel ?></p>
 
               <div class="d-flex align-items-center author">
                 <div class="photo"><img src="<?php echo base_url()?>assets/img/person-1.jpg" alt="" class="img-fluid"></div>

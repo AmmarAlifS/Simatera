@@ -7,13 +7,16 @@ class user extends CI_Controller {
 	{	
 		parent::__construct();
 		$this->load->helper('url');
-
+		$this->load->model('MArtikel');
 	}
 
 	public function index()
-	{
+	{	
+		$recordArticle = $this->MArtikel->getDataArtikel();
+		$DATA = array('data_artikel' => $recordArticle);
+
 		$this->load->view('guest/v_header');
-		$this->load->view('guest/Home');
+		$this->load->view('guest/Home', $DATA);
 		$this->load->view('guest/v_footer');
 	}
 
