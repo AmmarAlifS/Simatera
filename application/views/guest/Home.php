@@ -203,7 +203,6 @@
   </main><!-- End #main -->
 
 
-
   <!-- Vendor JS Files -->
   <script src="<?php echo base_url()?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="<?php echo base_url()?>assets/vendor/swiper/swiper-bundle.min.js"></script>
