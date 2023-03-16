@@ -22,7 +22,7 @@ class user extends CI_Controller {
 		$this->load->view('guest/v_header');
 		$this->load->view('guest/TentangKami');
 		$this->load->view('guest/v_footer');
-<<<<<<< Updated upstream
+
 	}
 
 	public function kontak()
@@ -30,8 +30,7 @@ class user extends CI_Controller {
 		$this->load->view('guest/v_header');
 		$this->load->view('guest/kontak');
 		$this->load->view('guest/v_footer');
-=======
->>>>>>> Stashed changes
+
 	}
 }
 ?>
