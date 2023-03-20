@@ -25,7 +25,7 @@
 
   <!-- Template Main CSS Files -->
   <link href="<?php echo base_url()?>assets/css/variables.css" rel="stylesheet">
-  <link href="<?php echo base_url()?>assets/css/contact.css" rel="stylesheet">
+  <link href="<?php echo base_url()?>assets/css/main.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: ZenBlog - v1.3.0
@@ -60,7 +60,7 @@
             <div class="info-item info-item-borders">
               <i class="bi bi-phone"></i>
               <h3>Nomor Telepon</h3>
-              <p><a href="tel:+6285722053080">022-4234793</a></p>
+              <p><a href="tel:+62224234793">022-4234793</a></p>
             </div>
           </div><!-- End Info Item -->
 
@@ -68,7 +68,7 @@
             <div class="info-item">
               <i class="bi bi-envelope"></i>
               <h3>Email</h3>
-              <p><a href="mailto:info@example.com"> diskominfo@bandung.go.id</a></p>
+              <p><a href="diskominfo@bandung.go.id"> diskominfo@bandung.go.id</a></p>
             </div>
           </div><!-- End Info Item -->
 
