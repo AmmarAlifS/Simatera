@@ -23,7 +23,7 @@
 				<p><?= $feedback->message ?>
 				</p>
 				<a href="#" 
-					data-delete-url="<?= site_url('admin/feedback/delete/'.$feedback->id) ?>" 
+					data-delete-url="<?= site_url('admin/kontak/delete/'.$feedback->id) ?>" 
 					class="button button-danger button-small" 
 					role="button"
 					onclick="deleteConfirm(this)">Delete</a>

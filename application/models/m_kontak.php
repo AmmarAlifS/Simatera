@@ -1,6 +1,6 @@
 <?php
 
-class m_feedback extends CI_Model
+class m_kontak extends CI_Model
 {
 	private $_table = "kontak";
 

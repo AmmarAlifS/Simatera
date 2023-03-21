@@ -110,6 +110,7 @@
             <div class="text-center"><button type="submit">Kirim Pesan</button></div>
           </form>
 
+            
         </div><!-- End Contact Form -->
 
       </div>
