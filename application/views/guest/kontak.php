@@ -60,7 +60,7 @@
             <div class="info-item info-item-borders">
               <i class="bi bi-phone"></i>
               <h3>Nomor Telepon</h3>
-              <p><a href="tel:+62224234793">022-4234793</a></p>
+              <p><a href="tel:+6224234793">022-4234793</a></p>
             </div>
           </div><!-- End Info Item -->
 
@@ -87,7 +87,7 @@
         </div>
 
         <div class="form mt-2">
-          <form action="#" method="post" role="form" class="php-email-form">
+          <form action="" method="post" role="form" class="php-email-form">
             <div class="row">
               <div class="form-group col-md-6">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Nama" required>
@@ -110,7 +110,6 @@
             <div class="text-center"><button type="submit">Kirim Pesan</button></div>
           </form>
 
-            
         </div><!-- End Contact Form -->
 
       </div>
