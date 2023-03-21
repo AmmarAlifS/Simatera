@@ -16,14 +16,14 @@
 				<div class="card">
 				<div class="card-header">
 					<div>
-						<b><?= $feedback->name?></b> <small class="text-gray"><?= $feedback->email?></small>
+						<b><?= $feedback->nama?></b> <small class="text-gray"><?= $feedback->email?></small>
 					</div>
 					<div><small class="text-gray"><?= $feedback->created_at ?></small></div>
 				</div>
-				<p><?= $feedback->message ?>
+				<p><?= $feedback->pesan ?>
 				</p>
 				<a href="#" 
-					data-delete-url="<?= site_url('admin/kontak/delete/'.$feedback->id) ?>" 
+					data-delete-url="<?= site_url('admin/kontak/delete/'.$feedback->id_kontak) ?>" 
 					class="button button-danger button-small" 
 					role="button"
 					onclick="deleteConfirm(this)">Delete</a>

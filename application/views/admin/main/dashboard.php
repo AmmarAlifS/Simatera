@@ -11,7 +11,7 @@
 
 		<div class="content">
 			<h1>Overview</h1>
-			<p><b>13</b> <span class="text-gray">Post</span></p>
+			<p><b>121</b> <span class="text-gray">Post</span></p>
 			<p><b>11</b> <span class="text-gray">Feedback</span></p>	
 			
 			<?php $this->load->view('admin/themes/footer.php') ?>
