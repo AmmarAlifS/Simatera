@@ -87,32 +87,29 @@
         </div>
 
       
-          <div class="form mt-2">
-            <form action="#" method="post" role="form" class="php-email-form">
-            <?php echo validation_errors(); ?>
-            <?php echo form_open('Register'); ?>
-            <div class="row">
-              <div class="form-group col-md-6">
-                <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama">
-              </div>
-              <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subjek" id="subjek" placeholder="Subjek">
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="pesan" id="subjek" rows="5" placeholder="Pesan"></textarea>
-            </div>
-            <div class="text-center">
-              <button type="submit">Kirim Pesan</button>
+        <div class="form mt-2">
+  <?php echo validation_errors(); ?>    
+  <form action="<?php echo base_url()?>application/controllers/admin/kontak .php" method="post" role="form" class="php-email-form">
+    <div class="row">
+      <div class="form-group col-md-6">
+        <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama">
+      </div>
+      <div class="form-group col-md-6">
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="subjek" id="subjek" placeholder="Subjek">
+    </div>
+    <div class="form-group">
+      <textarea class="form-control" name="pesan" id="pesan" rows="5" placeholder="Pesan"></textarea>
+    </div>
+    <div class="text-center">
+      <button type="submit">Kirim Pesan</button>
+    </div>
+  </form>
+</div>
 
-            </div>
-
-          <?php echo form_close(); ?>
-            </form>
-        </div>
 
 
       </div>
