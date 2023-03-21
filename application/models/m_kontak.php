@@ -19,12 +19,12 @@ class m_kontak extends CI_Model
 		return $query->result();
 	}
 
-	public function delete($id)
+	public function delete($id_kontak)
 	{
-		if(!$id){
+		if(!$id_kontak){
 			return;
 		}
 
-		$this->db->delete($this->_table, ['id' => $id]);
+		$this->db->delete($this->_table, ['id_kontak' => $id_kontak]);
 	}
 }

@@ -1,7 +1,7 @@
 <?php 
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Feedback extends CI_Controller {
+class Kontak extends CI_Controller {
 
 	public function __construct()
 	{	
@@ -22,14 +22,14 @@ class Feedback extends CI_Controller {
 		// }
 	}
 
-	public function delete($id = null)
+	public function delete($id_kontak = null)
 	{
-		if(!$id){
+		if(!$id_kontak){
 			show_404();
 		}
 
 		$this->load->model('m_kontak');
-		$this->m_feedback->delete($id);
+		$this->m_kontak->delete($id_kontak);
 
 		$this->session->set_flashdata('message', 'Data berhasil dihapus');
 		redirect(site_url('admin/Kontak'));
