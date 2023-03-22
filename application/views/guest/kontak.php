@@ -25,7 +25,7 @@
 
   <!-- Template Main CSS Files -->
   <link href="<?php echo base_url()?>assets/css/variables.css" rel="stylesheet">
-  <link href="<?php echo base_url()?>assets/css/main.css" rel="stylesheet">
+  <link href="<?php echo base_url()?>assets/css/mains.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: ZenBlog - v1.3.0
@@ -88,30 +88,27 @@
 
       
           <div class="form mt-2">
-            <form action="#" method="post" role="form" class="php-email-form">
-            <?php echo validation_errors(); ?>
-            <?php echo form_open('Register'); ?>
-            <div class="row">
-              <div class="form-group col-md-6">
-                <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama">
-              </div>
-              <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subjek" id="subjek" placeholder="Subjek">
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="pesan" id="subjek" rows="5" placeholder="Pesan"></textarea>
-            </div>
-            <div class="text-center">
-              <button type="submit">Kirim Pesan</button>
-
-            </div>
-
-          <?php echo form_close(); ?>
+              <form class="kin" method="post" action="<?php echo site_url('register/create'); ?>" >
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="subjek" id="subjek" placeholder="Subjek" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="pesan" id="pesan" rows="5" placeholder="Pesan" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit">Kirim Pesan</button>
+                </div>
             </form>
+
+            
         </div>
 
 
@@ -126,7 +123,6 @@
   <script src="<?php echo base_url()?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="<?php echo base_url()?>assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="<?php echo base_url()?>assets/vendor/aos/aos.js"></script>
-  <script src="<?php echo base_url()?>assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="<?php echo base_url()?>assets/js/main.js"></script>
