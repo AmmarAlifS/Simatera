@@ -45,7 +45,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="<?php echo base_url().'user/index';?>">Home</a></li>
-          <li><a href="single-post.html">Artikel</a></li>
+          <li><a href="<?php echo base_url();?>user/artikel">Artikel</a></li>
           <li><a href="<?php echo base_url();?>user/tentangkami">Tentang Kami</a></li>
           <li><a href="<?php echo base_url();?>user/kontak">Kontak</a></li>
         </ul>

@@ -35,5 +35,13 @@ class user extends CI_Controller {
 		$this->load->view('guest/v_footer');
 
 	}
+
+	public function artikel()
+	{
+		$this->load->view('guest/v_header');
+		$this->load->view('guest/artikel');
+		$this->load->view('guest/v_footer');
+
+	}
 }
 ?>
