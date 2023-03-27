@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SIMATERA Kota Bandung Login & Registration</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="<?= base_url('assets/style.css')?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/style.css')?>">
   </head>
   <body>
     <header>
@@ -85,7 +85,7 @@
         </form>
       </div>
     </div>
-    <script src="<?= base_url('assets/script.js')?>"></script>
+    <script src="<?= base_url('assets/js/script.js')?>"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
@@ -96,3 +96,7 @@
     ></script>
   </body>
 </html>
+
+<style type="text/css">
+    
+</style>
