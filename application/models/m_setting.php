@@ -2,25 +2,21 @@
 
 class m_setting extends CI_Model
 {
-	private $_table = "setting";
+	
 
-	public function input($setting)
-	{
-		return $this->db->insert($this->_table, $article);
-	}
+	function input_data($alamat,$no_telp,$email,$tentang_kami){
+	    $data = array(
+	      'alamat' => $alamat,
+	      'no_telp' => $no_telp,
+	      'email' => $email,
+	      'tentang_kami' => $tentang_kami
+	    );
+	    $this->db->insert('setting',$data);
+  	}
 
-	public function tampil()
-	{
-		$query = $this->db->get($this->_table);
-		return $query->result();
-	}
+	function tampil(){
+    	$result = $this->db->get('setting');
+    return $result;
+  	}
 
-	public function update($setting)
-	{
-		if (!isset($setting['id_setting'])) {
-			return;
-		}
-
-		return $this->db->update($this->_table, $setting, ['id_setting' => $setting['id_setting']]);
-	}
 }
