@@ -7,6 +7,6 @@
 		<a href="<?= site_url('admin/post') ?>">Post</a>
 		<a href="<?= site_url('admin/Kontak') ?>">Kontak</a>
 		<a href="<?= site_url('admin/setting') ?>">Setting</a>
-		<a href="<?= site_url('auth/logout') ?>">Logout</a>
+		<a href="<?= site_url('CLogin/CLogout') ?>">Logout</a>
 	</nav>
 </aside>
