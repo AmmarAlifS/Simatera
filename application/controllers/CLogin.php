@@ -22,7 +22,7 @@ class CLogin extends CI_Controller {
 		}
 		else{
 			echo '<script>alert("Login berhasil");</script>';
-			redirect('welcome','refresh');
+			redirect('admin/dashboard','refresh');
 		}
 		
 	}
@@ -30,6 +30,7 @@ class CLogin extends CI_Controller {
 	public function CLogout()
 	{
 		$this->session->unset_userdata('username');
-		redirect('welcome');
+		echo '<script>alert("Logout berhasil!!!");</script>';
+		redirect('CLogin/index', 'refresh');
 	}
 }

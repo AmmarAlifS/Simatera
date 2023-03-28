@@ -12,8 +12,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("img/background-01.jpg") no-repeat;
   background-size: cover;
+  background-image: url(background-01.jpg);
   background-position: center;
 }
 
