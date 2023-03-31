@@ -34,7 +34,7 @@
           </ul>
         </li>
         <li>
-          <a href="pages/widgets.html">
+          <a href="admin/dashboard">
             <i class="fa fa-envelope"></i> <span>Kontak</span>
           </a>
         </li>
