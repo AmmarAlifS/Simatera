@@ -81,7 +81,7 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-12 text-center mt-5q mb-1">
+          <div class="col-lg-12 text-center mt-5 mb-1">
             <h1 class="form-title">Untuk Kritik & Saran Gunakan Form Di Bawah</h1>
           </div>
         </div>
