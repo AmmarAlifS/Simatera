@@ -14,7 +14,11 @@ class Setting extends CI_Controller {
 	function index()
 	{
 		$data['setting'] = $this->m_setting->tampil();
+		$this->load->view('admin/themes/header.php');
+		$this->load->view('admin/themes/side_nav.php');
 		$this->load->view('admin/main/setting.php', $data);
+		$this->load->view('admin/themes/footer.php');
+
 	}
 
 	function simpan_data(){
