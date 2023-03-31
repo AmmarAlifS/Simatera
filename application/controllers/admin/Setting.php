@@ -25,8 +25,11 @@ class Setting extends CI_Controller {
 	    $alamat = $this->input->post('alamat');
 	    $no_telp = $this->input->post('no_telp');
 	    $email = $this->input->post('email');
+		$facebook = $this->input->post('facebook');
+		$twitter = $this->input->post('twitter');
+		$instagram = $this->input->post('instagram');
 	    $tentang_kami = $this->input->post('tentang_kami');
-	    $this->m_setting->input_data($alamat,$no_telp,$email,$tentang_kami);
+	    $this->m_setting->input_data($alamat,$no_telp,$email,$facebook,$twitter,$instagram,$tentang_kami);
 	    redirect('admin/Setting');
   	}
 
