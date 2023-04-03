@@ -28,6 +28,34 @@ class CRegister extends CI_Controller {
 
         $this->MRegister->register_user($data);
 
+        if ($this->_sendEmail()){
+            return true;
+        } else {
+            echo $this->email->print_debugger();
+            die;
+        }
+
         redirect('CRegister/index');
+    }
+
+    private function _sendEmail(){
+        $config = [
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_user' => 'arrijalm12@gmail.com',
+            'smtp_pass' => 'zcetjfvlksjmoeep',
+            'smtp_port' => '465',
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'newline' => "\r\n",
+        ];
+        $this->load->library('email', $config);
+        $this->email->initialize($config);
+        $this->email->from('arrijalm12@gmail.com', 'Arrijal Mutaqin');
+        $this->email->to('rekid127@gmail.com');
+        $this->email->subject('kont');
+        $this->email->message('ol');
+
+        $this->email->send();
     }
 }

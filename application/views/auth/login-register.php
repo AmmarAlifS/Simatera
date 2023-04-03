@@ -40,7 +40,7 @@
           </div>
           <div class="remember-forgot">
             <label><input type="checkbox" /> Remember me</label>
-            <a href="#">Forgot Password</a>
+            <a href="<?php echo site_url('CForgot'); ?>">Forgot Password</a>
           </div>
           <button type="submit" class="btn">Login</button>
           <div class="login-register">
@@ -73,7 +73,7 @@
           </div>
           <div class="remember-forgot">
             <label
-              ><input type="checkbox" />I agree to the terms & condition</label
+              ><input type="checkbox" required />I agree to the terms & condition</label
             >
           </div>
           <button type="submit" class="btn">Register</button>
