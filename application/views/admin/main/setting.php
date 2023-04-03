@@ -32,7 +32,6 @@
 
 <body>
 	<div class="content-wrapper">
-		<!-- Content Header (Page header) -->
 		<section class="content-header">
 			<h1>
 				Setting Web
@@ -47,78 +46,61 @@
 		<section class="content">
       		<div class="row">
 			  	<?php foreach($setting->result() as $row): ?>
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<div class="box box-info">
 							<div class="box-header with-border">
 								<h3 class="box-title">Setting Web</h3>
 							</div>
-							<form class="form-horizontal">
-							<?php echo form_open_multipart('admin/seting/simpan_data'); ?>
+							<form class="form-horizontal" action="<?php echo base_url(). 'admin/setting/simpan'; ?>" method="post">
 								<div class="box-body">
 									<div class="form-group">
 										<label for="inputEmail3" class="col-sm-2 control-label">Alamat</label>
 
 										<div class="col-sm-10">
-											<input type="address" class="form-control" name="alamat" value="<?php echo $row->alamat; ?>" placeholder="Alamat">
+											<input type="hidden" name="id_setting" value="<?php echo $row->id_setting ?>">
+											<input type="address" class="form-control" name="alamat" value="<?php echo $row->alamat; ?>">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputPassword3" class="col-sm-2 control-label">Email</label>
 
 										<div class="col-sm-10">
-											<input type="email" class="form-control" name="email" value="<?php echo $row->email; ?>" placeholder="Email">
+											<input type="email" class="form-control" name="email" value="<?php echo $row->email; ?>">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputPassword3" class="col-sm-2 control-label">No Telp</label>
 
 										<div class="col-sm-10">
-											<input type="no Telp" class="form-control" name="no_telp" value="<?php echo $row->no_telp; ?>" placeholder="No Telp">
+											<input type="no Telp" class="form-control" name="no_telp" value="<?php echo $row->no_telp; ?>">
 										</div>
 									</div>
-									<div class="box-footer">
-									
-									</div>
-								</div>
-							
-							</form>
-						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="box box-info">
-							<div class="box-header with-border">
-								<h3 class="box-title">Social Media</h3>
-							</div>
-							<form class="form-horizontal">
-							
-								<div class="box-body">
 									<div class="form-group">
 										<label for="inputEmail3" class="col-sm-2 control-label">Facebook</label>
 
 										<div class="col-sm-10">
-											<input type="sm" class="form-control" name="facebook" value="<?php echo $row->facebook; ?>" placeholder="facebook">
+											<input type="sm" class="form-control" name="facebook" value="<?php echo $row->facebook; ?>">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputPassword3" class="col-sm-2 control-label">Twitter</label>
 
 										<div class="col-sm-10">
-											<input type="sm" class="form-control" name="twitter" value="<?php echo $row->twitter; ?>" placeholder="twitter">
+											<input type="sm" class="form-control" name="twitter" value="<?php echo $row->twitter; ?>">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputPassword3" class="col-sm-2 control-label">Instagram</label>
-
 										<div class="col-sm-10">
-											<input type="sm" class="form-control" name="instragram" value="<?php echo $row->instagram; ?>" placeholder="instagram">
+											<input type="sm" class="form-control" name="instagram" value="<?php echo $row->instagram; ?>">
 										</div>
 									</div>
 								</div>
 								<div class="box-footer">
 									<button type="submit" value="Submit"class="btn btn-info pull-right">Simpan</button>
 								</div>
-							<?php echo form_close(); ?>
+								</div>
+							
 							</form>
 						</div>
 					</div>

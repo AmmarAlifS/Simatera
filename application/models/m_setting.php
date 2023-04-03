@@ -1,25 +1,15 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_setting extends CI_Model
 {
 	
+    function tampil_data(){
+        return $this->db->get('setting');
+    }
 
-	function input_data($alamat,$no_telp,$email,$facebook,$twitter,$instagram,$tentang_kami){
-	    $data = array(
-	      'alamat' => $alamat,
-	      'no_telp' => $no_telp,
-	      'email' => $email,
-		  'facebook' => $facebook,
-		  'twitter' => $twitter,
-		  'instagram' => $instagram,
-	      'tentang_kami' => $tentang_kami
-	    );
-	    $this->db->insert('setting',$data);
-  	}
-
-	function tampil(){
-    	$result = $this->db->get('setting');
-    return $result;
-  	}
-
+    function simpan_Data($alamat,$no_telp,$email,$facebook,$twitter,$instagram){
+		$hsl=$this->db->query("UPDATE setting set alamat='$alamat',no_telp='$no_telp',email='$email',facebook='$facebook',twitter='$twitter',instagram='$instagram'");
+		return $hsl;
+	}
 }

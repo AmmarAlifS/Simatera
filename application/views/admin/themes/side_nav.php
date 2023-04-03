@@ -34,7 +34,7 @@
           </ul>
         </li>
         <li>
-          <a href="admin/dashboard">
+          <a href="<?php echo base_url();?>admin/kontak">
             <i class="fa fa-envelope"></i> <span>Kontak</span>
           </a>
         </li>
