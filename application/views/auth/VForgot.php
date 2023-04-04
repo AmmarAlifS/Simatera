@@ -22,7 +22,7 @@
         style="width: 15%; height: 120%"
       />
       <nav class="navigation">
-        <a href="CLogin"><i class="bi bi-backspace"></i> Back</a>
+        <a href="<?php echo base_url().'CLogin';?>"><i class="bi bi-backspace"></i> Back</a>
       </nav>
     </header>
     <div class="wrapper-forgot" style=" margin-top: 0px; position: relative; width: 400px;
@@ -40,7 +40,7 @@
         <h2 style="font-size: 2em;
   color: #162938;
   text-align: center;">Forgot Password</h2>
-        <form method="post" action="<?= base_url('CForgot')?>" style="margin: 10%;">
+        <form method="post" action="<?= base_url('CForgot/Forgot')?>" style="margin: 10%;">
           <div class="input-box">
             <span class="icon"><ion-icon name="mail"></ion-icon></span>
             <input type="email" name="email" id="email" required />
