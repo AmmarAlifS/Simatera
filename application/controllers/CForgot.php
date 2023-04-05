@@ -41,10 +41,13 @@ class CForgot extends CI_Controller {
 
         $this->load->library('email', $config);
         $this->email->initialize($config);
-        $this->email->from('arrijalm12@gmail.com', 'Arrijal Mutaqin');
+        $this->email->from('noreply@simatera.com', 'Simatera');
+		$this->email->reply_to('noreply@simatera.com', 'Simatera');
         $this->email->to($this->input->post('email'));
-        $this->email->subject('Forgot Passsword');
-        $this->email->message('Your Password is '.$hasil->password);
+        $this->email->subject('Passsword Reminder');
+        $email_message = $this->load->view('auth/email_message', ['hasil' => $hasil], TRUE);
+
+        $this->email->message($email_message);
 
         $this->email->send();
     }
