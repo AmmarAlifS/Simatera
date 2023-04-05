@@ -2,29 +2,21 @@
 
 class m_kontak extends CI_Model
 {
-	private $_table = "kontak";
+	
 
-	public function insert($kontak)
-	{
-		if(!$kontak){
-			return;
-		}
+	function input_data($nama,$email,$subjek,$pesan){
+	    $data = array(
+	      'nama' => $nama,
+	      'email' => $email,
+	      'subjek' => $subjek,
+	      'pesan' => $pesan
+	    );
+	    $this->db->insert('user_masukan',$data);
+  	}
 
-		return $this->db->insert($this->_table, $kontak);
-	}
+	function tampil(){
+    	$result = $this->db->get('user_masukan');
+    return $result;
+  	}
 
-	public function get()
-	{
-		$query = $this->db->get($this->_table);
-		return $query->result();
-	}
-
-	public function delete($id_kontak)
-	{
-		if(!$id_kontak){
-			return;
-		}
-
-		$this->db->delete($this->_table, ['id_kontak' => $id_kontak]);
-	}
 }
