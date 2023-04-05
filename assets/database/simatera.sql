@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2023 at 05:43 AM
+-- Generation Time: Apr 05, 2023 at 06:39 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -69,6 +69,30 @@ INSERT INTO `login_admin` (`id`, `username`, `email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `setting`
+--
+
+CREATE TABLE `setting` (
+  `id_setting` int(16) NOT NULL,
+  `alamat` varchar(50) NOT NULL,
+  `no_telp` int(14) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `facebook` varchar(55) NOT NULL,
+  `twitter` varchar(55) NOT NULL,
+  `instagram` varchar(55) NOT NULL,
+  `tentang_kami` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `setting`
+--
+
+INSERT INTO `setting` (`id_setting`, `alamat`, `no_telp`, `email`, `facebook`, `twitter`, `instagram`, `tentang_kami`) VALUES
+(1, 'Jl. Wastukencana No.2, Babakan Ciamis, Kec. Sumur ', 224234793, 'diskominfo@bandung.go.id', 'https://www.facebook.com/DiskominfoBandung', 'https://twitter.com/DiskominfoBdg', 'https://www.instagram.com/diskominfobdg', 'Selamat datang di website kami! Kami adalah platform yang didedikasikan untuk menyediakan informasi dan layanan yang bermanfaat bagi pengunjung kami. Website kami menyajikan berbagai informasi terkini dan terpercaya tentang tempat bersejarah di kota Bandung.\r\n\r\nKami selalu berusaha untuk memberikan pengalaman terbaik bagi pengunjung kami dengan menyediakan tampilan yang mudah digunakan dan responsif di berbagai perangkat. Website kami juga dilengkapi dengan fitur pencarian dan navigasi yang mudah untuk membantu pengunjung menemukan informasi yang mereka cari dengan cepat.\r\n\r\nKami berharap website kami dapat membantu meningkatkan pengetahuan dan kehidupan sehari-hari pengunjung kami dan menjadi sumber informasi yang terpercaya dan berguna. Terima kasih telah mengunjungi website kami!');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user_masukan`
 --
 
@@ -116,6 +140,12 @@ ALTER TABLE `login_admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `setting`
+--
+ALTER TABLE `setting`
+  ADD PRIMARY KEY (`id_setting`);
+
+--
 -- Indexes for table `user_masukan`
 --
 ALTER TABLE `user_masukan`
@@ -130,6 +160,12 @@ ALTER TABLE `user_masukan`
 --
 ALTER TABLE `login_admin`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `setting`
+--
+ALTER TABLE `setting`
+  MODIFY `id_setting` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_masukan`
