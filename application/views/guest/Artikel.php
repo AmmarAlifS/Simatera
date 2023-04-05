@@ -282,7 +282,7 @@
           </div>
         </div><!-- End Video -->
 
-        <div class="aside-block">
+        <!-- <div class="aside-block">
           <h3 class="aside-title">Tags</h3>
           <ul class="aside-tags list-unstyled">
             <li><a href="category.html">Museum</a></li>
@@ -291,7 +291,7 @@
             <li><a href="category.html">Pariwisata</a></li>
             <li><a href="category.html">Politics</a></li>
           </ul>
-        </div><!-- End Tags -->
+        </div>End Tags -->
 
           </div>
     </section>
