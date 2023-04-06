@@ -34,10 +34,7 @@
 <body>
   <main id="main">
 
-    <?php 
-      foreach($data_artikel as $row){
-      }
-    ?>
+    
 
     <!-- ======= Hero Slider Section ======= -->
     <section id="hero-slider" class="hero-slider">
@@ -96,116 +93,68 @@
       </div>
     </section><!-- End Hero Slider Section -->
 
+<section id="trending" class="mb-5">
+  <h2 class="section-title">Trending</h2>
+  <?php $count = 1; ?>
+  <?php foreach($data_artikel as $row): ?>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title mb-0">
+        <span class="trending-number"><?php echo $count ?>.</span> <?php echo $row->judul ?>
+      </h5>
+      <p class="card-text"><small class="text-muted"><?php echo date('F j, Y', strtotime($row->tanggal)); ?></small></p>
+    </div>
+  </div>
+  <?php $count++; ?>
+  <?php endforeach; ?>
+</section>
+
+
     <!-- ======= Post Grid Section ======= -->
-    <section id="posts" class="posts">
-      <div class="container" data-aos="fade-up">
-        <div class="row g-5">
-          <div class="col-lg-4">
-            <div class="post-entry-1 lg">
-              <a href="single-post.html"><img src="assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid"></a>
-              <div class="post-meta"><span>Jul 5th '22</span></div>
-              <h2><a href="single-post.html"><?php echo $row->judul ?></a></h2>
-              <p class="mb-4 d-block" style="text-align: justify;">G<?php echo $row->artikel ?></p>
-
-              <div class="d-flex align-items-center author">
-                <div class="photo"><img src="<?php echo base_url()?>assets/img/person-1.jpg" alt="" class="img-fluid"></div>
-                <div class="name">
-                  <h3 class="m-0 p-0">Cameron Williamson</h3>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-8">
-            <div class="row g-5">
-              <div class="col-lg-4 border-start custom-border">
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/Gereja.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"> <span>Jul 5th '22</span></div>
-                  <h2><a href="single-post.html">Sejarah Gereja Katedral st. Petrus Bandung</a></h2>
-                </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/Gedung Priangan.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"> <span>Jul 17th '22</span></div>
-                  <h2><a href="single-post.html">Sejarah Gedung Residen Priangan Bandung</a></h2>
-                </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/Gedung Sri Baduga.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"> <span>Mar 15th '22</span></div>
-                  <h2><a href="single-post.html">Sejarah Museum Sri Baduga Bandung</a></h2>
-                </div>
-              </div>
-              <div class="col-lg-4 border-start custom-border">
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/Gedung Dwi Warna.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"> <span>Jul 5th '22</span></div>
-                  <h2><a href="single-post.html">Sejarah Gedung Dwi Warna</a></h2>
-                </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/Tugu 0.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"> <span>Mar 1st '22</span></div>
-                  <h2><a href="single-post.html">Sejarah Gedung Kilometer 0 Bandung</a></h2>
-                </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/Pieters Park.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"> <span>Jul 5th '22</span></div>
-                  <h2><a href="single-post.html">Sejarah Pieters Park Bandung</a></h2>
-                </div>
-              </div>
-
-              <!-- Trending Section -->
-              <div class="col-lg-4">
-
-                <div class="trending">
-                  <h3>Trending</h3>
-                  <ul class="trending-post">
-                    <li>
-                      <a href="single-post.html">
-                        <span class="number">1</span>
-                        <h3>Sejarah Gedung Sate Bandung</h3>
-                        <span class="author">Jane Cooper</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="single-post.html">
-                        <span class="number">2</span>
-                        <h3>Sejarah Goa Jepang di Bandung</h3>
-                        <span class="author">Wade Warren</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="single-post.html">
-                        <span class="number">3</span>
-                        <h3>Sejarah Museum Sri Baduga Bandung</h3>
-                        <span class="author">Esther Howard</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="single-post.html">
-                        <span class="number">4</span>
-                        <h3>Sejarah Museum Mandala Wangsit Bandung Bandung</h3>
-                        <span class="author">Cameron Williamson</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="single-post.html">
-                        <span class="number">5</span>
-                        <h3>Sejarah Gedung Merdeka Bandung</h3>
-                        <span class="author">Jenny Wilson</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-              </div> <!-- End Trending Section -->
-            </div>
-          </div>
-
-        </div> <!-- End .row -->
+<section id="posts" class="posts">
+  <div class="container">
+    <div class="row">
+      
+      <?php 
+      $count = 0;
+      foreach($data_artikel as $row){
+        $count = $count + 1;
+        
+        // Set the class for post entry
+        $post_entry_class = "col-lg-4";
+        if ($count == 1) {
+          $post_entry_class = "col-lg-8 post-entry-highlight";
+          $highlight_title_class = "post-highlight-title";
+        } else {
+          $highlight_title_class = "";
+        }
+        
+        // Create shortened description with "read more" button
+        $short_description = substr($row->artikel, 0, 100);
+        if (strlen($row->artikel) > 20) {
+          $short_description .= '...';
+        }
+      ?>
+      
+      <div class="<?php echo $post_entry_class ?>">
+        <div class="post-entry-1">
+          <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail"></a>
+          <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
+          <h2 class="<?php echo $highlight_title_class ?>"><a href="single-post.html"><?php echo $row->judul ?></a></h2>
+          <?php if ($count != 1) { ?>
+            <p style="text-align: justify;"><?php echo $short_description ?></p>
+          <?php } ?>
+          <button href="single-post.html" class="btn btn-primary">Read More</button>
+        </div>
       </div>
-    </section> <!-- End Post Grid Section -->
-  </main><!-- End #main -->
+      
+      <?php } ?>
+    </div>
+  </div>
+</section>
+
+
+<!-- End #main -->
 
 
   <!-- Vendor JS Files -->
@@ -221,3 +170,57 @@
 </body>
 
 </html>
+
+<style type="text/css">
+  #trending {
+  float: right;
+  width: 25%;
+  padding: 0 20px;
+}
+
+#trending h2.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+#trending .card {
+  margin-bottom: 20px;
+}
+
+#trending .card-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#trending .card-text {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 0;
+}
+
+#trending img {
+  width: 100%;
+  height: auto;
+}
+.trending-number {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.post-entry-highlight a{
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+</style>
