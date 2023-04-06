@@ -16,7 +16,6 @@ class m_kontak extends CI_Model
 
 	function tampil(){
     	$result = $this->db->get('user_masukan');
-    return $result;
   	}
 
 }

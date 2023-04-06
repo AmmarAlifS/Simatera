@@ -12,10 +12,10 @@ class Kontak extends CI_Controller {
 
 	public function index()
 	{
-		// $data['hsl'] = $this->m_kontak->get();
+		$data['form'] = $this->m_kontak->tampil();
 		$this->load->view('admin/themes/header.php');
 		$this->load->view('admin/themes/side_nav.php');
-		$this->load->view('admin/main/kontak_list.php');
+		$this->load->view('admin/main/kontak_list.php', $data);
 		$this->load->view('admin/themes/footer.php');
 	}
 
@@ -37,5 +37,6 @@ class Kontak extends CI_Controller {
 	// 	$this->session->set_flashdata('message', 'Data berhasil dihapus');
 	// 	redirect(site_url('admin/Kontak'));
 	// }
+
 }
 ?>

@@ -62,15 +62,15 @@
                 </thead>
                 <tbody>
                   <?php
-                    $admin=$mysqli->query("SELECT * FROM user_masukan");
-                    while($m-mysqli_fetch_array($admin)){
+                    $id_pesan = 1;
+                    foreach($form as $u) {
                   ?>
                   <tr>
-                    <td><?php echo $m['nama']; ?></td>
-                    <td><?php echo $m['email']; ?></td>
-                    <td><?php echo $m['subjek']; ?></td>
-                    <td><?php echo $m['pesan']; ?></td>
-                    <td><?php echo $m['timestamp']; ?></td>
+                    <td><?php echo $u->nama ?></td>
+                    <td><?php echo $u->email ?></td>
+                    <td><?php echo $u->subjek  ?></td>
+                    <td><?php echo $u->pesan ?></td>
+                    <td><?php echo $u->timestamp ?></td>
                   </tr>
                   <?php } ?>
           
