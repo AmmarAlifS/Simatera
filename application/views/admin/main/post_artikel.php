@@ -2,12 +2,7 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Admin | Dashboard</title>
-	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
-	<link rel="stylesheet" href="<?= base_url('assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>">
+<link rel="stylesheet" href="<?= base_url('assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>">
 
 	<link rel="stylesheet" href="<?= base_url('assets/admin/bower_components/font-awesome/css/font-awesome.min.css') ?>">
 
@@ -16,6 +11,16 @@
 	<link rel="stylesheet" href="<?= base_url('assets/admin/dist/css/AdminLTE.min.css') ?>">
 
 	<link rel="stylesheet" href="<?= base_url('assets/admin/dist/css/skins/_all-skins.min.css') ?>">
+
+	<link rel="stylesheet" href="<?= base_url('assets/admin/bower_components/morris.js/morris.css') ?>">
+
+	<link rel="stylesheet" href="<?= base_url('assets/admin/bower_components/jvectormap/jquery-jvectormap.css') ?>">
+
+	<link rel="stylesheet" href="<?= base_url('assets/admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') ?>">
+
+	<link rel="stylesheet" href="<?= base_url('assets/admin/bower_components/bootstrap-daterangepicker/daterangepicker.css') ?>">
+
+	<link rel="stylesheet" href="<?= base_url('assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') ?>">
 
 	<link rel="stylesheet" href="<?= base_url('assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') ?>">
 
@@ -39,18 +44,96 @@
         <section class="content">
             <div class="row">
                 <div class="col-md-12">
-                <div class="box box-info">
-                    <div class="box-header">
-                        <h3 class="box-title">Tambah Artikel</h3>
-                    </div>
-                    <div class="box-body pad">
-                        <form action="" method="POST">
-                                <textarea id="content" name="content"></textarea>
-                                <br>
-                                <button type="submit" class="btn btn-info">Simpan</button>
-                        </form>
+                    <div class="box-body">
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title"></h3>
+                            </div>
+                            <form class="form-horizontal" action="<?php echo base_url(). 'admin/setting/simpan'; ?>" method="post">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="inputTitle" class="col-sm-1 control-label">Judul</label>
+                                        <div class="col-sm-10">
+                                            <input type="Title" class="form-control" name="judul">
+                                        </div>
+                                    </div>
+                                    <hr style="border: 1px solid DeepSkyBlue; border-radius: 5px;">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="inputTitle" class="col-sm-2 control-label">Gambar</label>
+                                            <div class="col-sm-10">
+                                                <input type="file" name="gambar" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="inputTitle" class="col-sm-2 control-label">Vidio</label>
+                                            <div class="col-sm-10">
+                                                <input type="file" name="vidio" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title"></h3>
+                            </div>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="inputTitle" class="col-sm-2 control-label">Gambar</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" name="gambar" required>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title"></h3>
+                            </div>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="inputTitle" class="col-sm-2 control-label">Vidio</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" name="vidio" required>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="col-md-12">
+                    <div class="box-body">
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Artikel</h3>
+                            </div>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <textarea id="content" name="content"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="box-footer">
+                                        <button type="submit" value="Submit"class="btn btn-info pull-right">Simpan</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -72,6 +155,6 @@
 
 	<script>
 		CKEDITOR.replace('content');
-		CKEDITOR.replace('conten2');
-        </script>
+    </script>
 </html>
+
