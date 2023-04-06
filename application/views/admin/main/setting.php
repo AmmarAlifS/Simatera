@@ -108,7 +108,6 @@
 			</div>
 		</section>
 	</div>
-</main>
 </body>
 	<script src="<?= base_url('assets/admin/bower_components/jquery/dist/jquery.min.js') ?>"></script>
 

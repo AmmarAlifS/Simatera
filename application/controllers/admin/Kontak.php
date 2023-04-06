@@ -12,7 +12,7 @@ class Kontak extends CI_Controller {
 
 	public function index()
 	{
-		$data['form'] = $this->m_kontak->tampil();
+		$data['form'] = $this->m_kontak->tampil()->result();
 		$this->load->view('admin/themes/header.php');
 		$this->load->view('admin/themes/side_nav.php');
 		$this->load->view('admin/main/kontak_list.php', $data);
