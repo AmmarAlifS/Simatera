@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2023 at 06:38 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Waktu pembuatan: 06 Apr 2023 pada 09.49
+-- Versi server: 10.1.36-MariaDB
+-- Versi PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,24 +25,46 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `artikel_simatera`
+-- Struktur dari tabel `artikel_simatera`
 --
 
 CREATE TABLE `artikel_simatera` (
-  `judul_id` int(50) NOT NULL,
+  `id_artikel` int(11) NOT NULL,
   `judul` varchar(50) NOT NULL,
   `artikel` varchar(10000) NOT NULL,
   `Foto` varchar(255) NOT NULL,
-  `Video` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Video` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `artikel_simatera`
+-- Dumping data untuk tabel `artikel_simatera`
 --
 
-INSERT INTO `artikel_simatera` (`judul_id`, `judul`, `artikel`, `Foto`, `Video`) VALUES
-(0, 'Sejarah Balai Kota Bandung', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus', 'BalaiKotaBandung.jpg', 'BalaiKotaBandung.mp4'),
-(1, 'Sejarah Balai Kota Bandung', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus', 'BalaiKotaBandung.jpg', 'BalaiKotaBandung.mp4');
+INSERT INTO `artikel_simatera` (`id_artikel`, `judul`, `artikel`, `Foto`, `Video`, `tanggal`) VALUES
+(1, 'Sejarah Balai Kota Bandung', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus', 'BalaiKotaBandung.jpg', 'BalaiKotaBandung.mp4', '0000-00-00'),
+(2, 'Sejarah Gedung Priangan', 'Lorem ipsum', 'GedungPriangan.jpg', 'Gedung Sri Baduga.mp4', '2023-04-06'),
+(10, 'Sejarah Gereja Katedral st. Petrus Bandung', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus', 'Gereja.jpg', 'Gereja.mp4', '0000-00-00');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `artikel_simatera`
+--
+ALTER TABLE `artikel_simatera`
+  ADD PRIMARY KEY (`id_artikel`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `artikel_simatera`
+--
+ALTER TABLE `artikel_simatera`
+  MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -34,50 +34,32 @@
 <body>
   <main id="main">
 
-    
-
     <!-- ======= Hero Slider Section ======= -->
+    
     <section id="hero-slider" class="hero-slider">
       <div class="container-md" data-aos="fade-in">
         <div class="row">
           <div class="col-12">
             <div class="swiper sliderFeaturedPosts">
               <div class="swiper-wrapper">
+                <?php 
+        $counter = 0;
+        shuffle($data_artikel); // shuffle the array randomly
+        foreach($data_artikel as $row):
+        if ($counter >= 3) break;
+    ?>
                 <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/post-slide-1.jpg);">
+                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
                     <div class="img-bg-inner">
-                      <h2>Sejarah Tugu Kilometer 0 Bandung</h2>
-                      <p style="text-align: justify;">Tugu Kilometer 0 Bandung adalah sebuah monumen yang terletak di pusat kota Bandung, Jawa Barat, Indonesia. Monumen ini merupakan titik awal pengukuran jarak dari kota Bandung ke berbagai kota di Indonesia.</p>
+                      <h2><?php echo $row->judul ?></h2>
+                      <p style="text-align: justify;"><?php echo $row->artikel ?></p>
                     </div>
                   </a>
                 </div>
-
-                <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/post-slide-2.jpg);">
-                    <div class="img-bg-inner">
-                      <h2>Sejarah Gedung Merdeka</h2>
-                      <p style="text-align: justify;">Gedung Merdeka Bandung adalah sebuah gedung bersejarah yang terletak di kota Bandung, Jawa Barat, Indonesia. Gedung ini dibangun pada tahun 1895 dan awalnya dikenal sebagai Gedung Societeit Concordia, sebuah klub sosial bagi para peranakan Belanda di kota Bandung.</p>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/post-slide-3.jpg);">
-                    <div class="img-bg-inner">
-                      <h2>Sejarah Gedung Sate Bandung</h2>
-                      <p style="text-align: justify;">Gedung Sate adalah sebuah bangunan bersejarah yang terletak di Kota Bandung, Jawa Barat, Indonesia. Gedung yang awalnya dibangun pada tahun 1920-an ini dikenal karena menara setinggi 67 meter dengan tujuh puncak yang menyerupai tusuk sate, sehingga dinamai Gedung Sate.</p>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/post-slide-4.jpg);">
-                    <div class="img-bg-inner">
-                      <h2>Sejarah Museum Sri Baduga</h2>
-                      <p style="text-align: justify;">Museum Sri Baduga terletak di Kota Bandung, Jawa Barat, Indonesia. Museum ini didirikan pada tahun 1974 dan dinamakan sesuai dengan nama raja legendaris Sunda, Sri Baduga Maharaja.</p>
-                    </div>
-                  </a>
-                </div>
+                <?php 
+        $counter++;
+        endforeach; 
+    ?>              
               </div>
               <div class="custom-swiper-button-next">
                 <span class="bi-chevron-right"></span>
@@ -94,9 +76,12 @@
     </section><!-- End Hero Slider Section -->
 
 <section id="trending" class="mb-5">
-  <h2 class="section-title">Trending</h2>
-  <?php $count = 1; ?>
-  <?php foreach($data_artikel as $row): ?>
+  <h2 class="section-title">New post</h2>
+  <?php 
+    $count = 1;
+    $reverse_data_artikel = array_reverse($data_artikel); // Reverse the order of the array
+  ?>
+  <?php foreach($reverse_data_artikel as $row): ?>
   <div class="card mb-3">
     <div class="card-body">
       <h5 class="card-title mb-0">
@@ -109,49 +94,63 @@
   <?php endforeach; ?>
 </section>
 
-
     <!-- ======= Post Grid Section ======= -->
 <section id="posts" class="posts">
   <div class="container">
     <div class="row">
-      
       <?php 
-      $count = 0;
-      foreach($data_artikel as $row){
-        $count = $count + 1;
+        // Randomly select one article for the highlight section
+        $highlight_article = $data_artikel[array_rand($data_artikel)];
+        // Remove the highlight article from the list of articles to display in the regular section
+        $regular_articles = array_filter($data_artikel, function($article) use ($highlight_article) {
+          return $article->id_artikel != $highlight_article->id_artikel;
+        });
         
-        // Set the class for post entry
-        $post_entry_class = "col-lg-4";
-        if ($count == 1) {
-          $post_entry_class = "col-lg-8 post-entry-highlight";
-          $highlight_title_class = "post-highlight-title";
-        } else {
-          $highlight_title_class = "";
-        }
+        // Display the highlight article
+      ?>
+        <div class="col-lg-8 post-entry-highlight">
+          <?php
+          $short_description = substr($row->artikel, 0, 20);
+          if (strlen($row->artikel) > 20) {
+            $short_description .= '...';
+          }
+          ?>
+          <div class="post-entry-1">
+            <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $highlight_article->Foto ?>" alt="" class="img-fluid post-thumbnail"></a>
+            <div class="post-meta"> <span><?php echo $highlight_article->tanggal ?></span></div>
+            <h2 class="post-highlight-title"><a href="single-post.html"><?php echo $highlight_article->judul ?></a></h2>
+            <p style="text-align: justify;"><?php echo $short_description ?></p>
+            <button href="single-post.html" class="btn btn-primary">Read More</button>
+          </div>
+        </div>
         
-        // Create shortened description with "read more" button
-        $short_description = substr($row->artikel, 0, 100);
-        if (strlen($row->artikel) > 20) {
-          $short_description .= '...';
+        <?php
+        // Display the regular articles
+        foreach($regular_articles as $row) {
+          $post_entry_class = "col-lg-4";
+          
+          // Create shortened description with "read more" button
+          $short_description = substr($row->artikel, 0, 100);
+          if (strlen($row->artikel) > 20) {
+            $short_description .= '...';
+          }
+          ?>
+          <div class="<?php echo $post_entry_class ?>">
+            <div class="post-entry-1">
+              <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail"></a>
+              <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
+              <h2><a href="single-post.html"><?php echo $row->judul ?></a></h2>
+              <p style="text-align: justify;"><?php echo $short_description ?></p>
+              <button href="single-post.html" class="btn btn-primary">Read More</button>
+            </div>
+          </div>
+          <?php
         }
       ?>
-      
-      <div class="<?php echo $post_entry_class ?>">
-        <div class="post-entry-1">
-          <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail"></a>
-          <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
-          <h2 class="<?php echo $highlight_title_class ?>"><a href="single-post.html"><?php echo $row->judul ?></a></h2>
-          <?php if ($count != 1) { ?>
-            <p style="text-align: justify;"><?php echo $short_description ?></p>
-          <?php } ?>
-          <button href="single-post.html" class="btn btn-primary">Read More</button>
-        </div>
-      </div>
-      
-      <?php } ?>
     </div>
   </div>
 </section>
+
 
 
 <!-- End #main -->
@@ -223,4 +222,18 @@
   line-height: 1.2;
   margin-bottom: 1rem;
 }
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .btn:hover {
+    background-color: #D3D3D3;
+  }
 </style>
