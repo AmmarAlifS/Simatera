@@ -26,15 +26,19 @@ class Artikel extends CI_Controller {
 		$this->load->view('admin/main/post_artikel.php');
 		$this->load->view('admin/themes/footer.php');
 
-		// $title = $this->input->post('title');
-		// $content = $this->input->post('content');
-		// $data = array(
-		// 	'title' => $title,
-		// 	'content' => $content
-		// );
-		// $this->db->insert('posts', $data);
-		// redirect('post/view');
-		// 	}
+		$judul = $this->input->post('judul');
+		$Foto = $this->input->post('Foto');
+		$Video = $this->input->post('Video');
+		$artikel = $this->input->post('artikel');
+		$data = array(
+			'judul' => $judul,
+			'artikel' => $artikel,
+			'Foto' => $Foto,
+			'Video' => $Video
+		);
+			$this->db->insert('artikel_simatera', $data);
+			redirect('admin/Artikel/post');
+		
 
 	}
 	public function delete($id_artikel){
