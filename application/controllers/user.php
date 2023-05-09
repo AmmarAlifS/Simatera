@@ -12,11 +12,10 @@ class user extends CI_Controller {
 
 	public function index()
 	{	
-		$recordArticle = $this->MArtikel->getDataArtikel();
-		$DATA = array('data_artikel' => $recordArticle);
+		$data['art'] = $this->MArtikel->tampil()->result();
 
 		$this->load->view('guest/v_header');
-		$this->load->view('guest/Home', $DATA);
+		$this->load->view('guest/Home', $data);
 		$this->load->view('guest/v_footer');
 	}
 

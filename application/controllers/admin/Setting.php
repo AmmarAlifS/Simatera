@@ -27,7 +27,7 @@ class Setting extends CI_Controller {
 		$facebook = $this->input->post('facebook');
 		$twitter = $this->input->post('twitter');
 		$instagram = $this->input->post('instagram');
-		// $tentang_kami = $this->input->post('tentang_kami');
+		$tentang_kami = $this->input->post('tentang_kami');
  
 		$data = array(
 			'alamat' => $alamat,
@@ -35,8 +35,8 @@ class Setting extends CI_Controller {
 			'email' => $email,
 			'facebook' => $facebook,
 			'twitter' => $twitter,
-			'instagram' => $instagram
-			// 'tentang_kami' => $tentang_kami
+			'instagram' => $instagram,
+			'tentang_kami' => $tentang_kami
 			);
 		$this->m_setting->simpan_data($alamat,$no_telp,$email,$facebook,$twitter,$instagram);
 		redirect('admin/setting/index');

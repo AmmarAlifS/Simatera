@@ -95,6 +95,13 @@
 											<input type="sm" class="form-control" name="instagram" value="<?php echo $row->instagram; ?>">
 										</div>
 									</div>
+									<div class="form-group">
+										<label for="inputPassword3" class="col-sm-2 control-label">Tentang Kami</label>
+										<div class="col-sm-10">
+											<textarea style="width:750px; height:250px" id="tentang_kami" name="tentang_kami"><?php echo $row->tentang_kami; ?></textarea>
+											
+										</div>
+									</div>
 								</div>
 								<div class="box-footer">
 									<button type="submit" value="Submit"class="btn btn-info pull-right">Simpan</button>
