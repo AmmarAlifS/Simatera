@@ -36,6 +36,13 @@ class Artikel extends CI_Controller {
 		// redirect('post/view');
 		// 	}
 
+	}
+	public function delete($id_artikel){
+		$this->db->where('id_artikel',$id_artikel);
+		$this->db->delete('artikel_simatera');
+
+		redirect('admin/Artikel/index');
+	}
 }
-}
+
 ?>

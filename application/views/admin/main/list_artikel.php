@@ -53,6 +53,7 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
+                  	<th>ID</th>
                     <th>Judul</th>
                     <th>Artikel</th>
                     <th>Foto</th>
@@ -66,11 +67,14 @@
                     foreach($art as $u) {
                   ?>
                   <tr>
+                  	<td><?php echo $u->id_artikel ?></td>
                     <td><?php echo $u->judul ?></td>
                     <td><?php echo $u->artikel ?></td>
-                    <td></td>
-                    <td></td>
-					<td></td>
+                    <td><?php echo $u->Foto ?></td>
+                    <td><?php echo $u->Video ?></td>
+										<td><a href="" class="btn btn-primary">Update</a></td>
+	      						<td><a href="<?= base_url('admin/Artikel/delete/'.$u->id_artikel) ?>" class="btn btn-danger">Delete</a></td>
+	      						</td>
                   </tr>
                   <?php } ?>
           
