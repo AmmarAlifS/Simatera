@@ -27,7 +27,6 @@ class Artikel extends CI_Controller {
 		$this->load->view('admin/themes/footer.php');
 	}
 
-<<<<<<< HEAD
 	function simpan_tulisan(){
 		$config['upload_path'] = './assets/images/'; 
 		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; 
@@ -78,29 +77,3 @@ class Artikel extends CI_Controller {
 		}
 	}
 }
-=======
-		$judul = $this->input->post('judul');
-		$Foto = $this->input->post('Foto');
-		$Video = $this->input->post('Video');
-		$artikel = $this->input->post('artikel');
-		$data = array(
-			'judul' => $judul,
-			'artikel' => $artikel,
-			'Foto' => $Foto,
-			'Video' => $Video
-		);
-			$this->db->insert('artikel_simatera', $data);
-			redirect('admin/Artikel/post');
-		
-
-	}
-	public function delete($id_artikel){
-		$this->db->where('id_artikel',$id_artikel);
-		$this->db->delete('artikel_simatera');
-
-		redirect('admin/Artikel/index');
-	}
-}
-
->>>>>>> 33fdd20e5c80c147c36ec79e28f6a767cd1a3998
-?>

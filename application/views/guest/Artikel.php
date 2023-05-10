@@ -102,105 +102,25 @@
             </div><!-- End  Halaman Artikel -->
        
        <!-- ======= Comments ======= -->
-       <div class="comments">
-        <h5 class="comment-title py-4">2 Komentar</h5>
-        <div class="comment d-flex mb-4">
-          <div class="flex-shrink-0">
-            <div class="avatar avatar-sm rounded-circle">
-              <img class="avatar-img" src="<?php echo base_url()?>assets/img/Rijal.jpg" alt="" class="img-fluid">
-            </div>
-          </div>
-          <div class="flex-grow-1 ms-2 ms-sm-3">
-            <div class="comment-meta d-flex align-items-baseline">
-              <h6 class="me-2">Rijal Fauzi</h6>
-              <span class="text-muted">2d</span>
-            </div>
-            <div class="comment-body">
-              Kenapa nama Gedung De Javasche Bank bisa berubah jmenjadi Bank Indonesia?
-            </div>
-
-            <div class="comment-replies bg-light p-3 mt-3 rounded">
-              <h6 class="comment-replies-title mb-4 text-muted text-uppercase">2 replies</h6>
-
-              <div class="reply d-flex mb-4">
-                <div class="flex-shrink-0">
-                  <div class="avatar avatar-sm rounded-circle">
-                    <img class="avatar-img" src="<?php echo base_url()?>assets/img/ammar.jpg" alt="" class="img-fluid">
-                  </div>
-                </div>
-                <div class="flex-grow-1 ms-2 ms-sm-3">
-                  <div class="reply-meta d-flex align-items-baseline">
-                    <h6 class="mb-0 me-2">Ammar Alif</h6>
-                    <span class="text-muted">2d</span>
-                  </div>
-                  <div class="reply-body">
-                    Ya mana saya tau.
-                  </div>
-                </div>
-              </div>
-              <div class="reply d-flex">
-                <div class="flex-shrink-0">
-                  <div class="avatar avatar-sm rounded-circle">
-                    <img class="avatar-img" src="<?php echo base_url()?>assets/img/rikon.jpg" alt="" class="img-fluid">
-                  </div>
-                </div>
-                <div class="flex-grow-1 ms-2 ms-sm-3">
-                  <div class="reply-meta d-flex align-items-baseline">
-                    <h6 class="mb-0 me-2">Riko</h6>
-                    <span class="text-muted">1d</span>
-                  </div>
-                  <div class="reply-body">
-                    Lah ko tanya saya.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="comment d-flex">
-          <div class="flex-shrink-0">
-            <div class="avatar avatar-sm rounded-circle">
-              <img class="avatar-img" src="<?php echo base_url()?>assets/img/Gilang.jpg" alt="" class="img-fluid">
-            </div>
-          </div>
-          <div class="flex-shrink-1 ms-2 ms-sm-3">
-            <div class="comment-meta d-flex">
-              <h6 class="me-2">Gilang Yuzka</h6>
-              <span class="text-muted">4d</span>
-            </div>
-            <div class="comment-body">
-             Kok bisa masih masih menemukan sejarah tentang De Javasche Bank di Kota Bandung?
-            </div>
-          </div>
-        </div>
-      </div><!-- End Comments -->
-
-      <!-- ======= Comments Form ======= -->
-      <div class="row justify-content-center mt-5">
-
-        <div class="col-lg-12">
-          <h5 class="comment-title">Tinggalkan Komentar</h5>
-          <div class="row">
-            <div class="col-lg-6 mb-3">
-              <label for="comment-name">Nama</label>
-              <input type="text" class="form-control" id="comment-name" placeholder="Silahkan Isi Nama">
-            </div>
-            <div class="col-lg-6 mb-3">
-              <label for="comment-email">Email</label>
-              <input type="text" class="form-control" id="comment-email" placeholder="Silahkan Isi Email">
-            </div>
-            <div class="col-12 mb-3">
-              <label for="comment-message">Pesan</label>
-
-              <textarea class="form-control" id="comment-message" placeholder="Silahkan Isi Pesan" cols="30" rows="10"></textarea>
-            </div>
-            <div class="col-12">
-              <input type="submit" class="btn btn-primary" value="Kirim Pesan">
-            </div>
-          </div>
-        </div>
-      </div><!-- End Comments Form -->
-
+       <div id="disqus_thread"></div>
+          <script>
+              /**
+              *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+              *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+              /*
+              var disqus_config = function () {
+              this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+              this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+              };
+              */
+              (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://simatera.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
     <div class="col-md-3">
       <!-- ======= Sidebar ======= -->

@@ -49,11 +49,7 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title"></h3>
                             </div>
-<<<<<<< HEAD
                             <form class="form-horizontal" action="<?php echo base_url(). 'admin/Artikel/simpan_tulisan'; ?>" method="post">
-=======
-                            <form class="form-horizontal" action="<?php base_url(). 'admin/Artikel/post'; ?>" method="post">
->>>>>>> 33fdd20e5c80c147c36ec79e28f6a767cd1a3998
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label for="inputTitle" class="col-sm-1 control-label">Judul</label>
@@ -129,7 +125,7 @@
                                 <div class="box-body">
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <textarea id="artikel" name="artikel"></textarea>
+                                            <textarea id="content" name="artikel"></textarea>
                                         </div>
                                     </div>
                                     <div class="box-footer">
