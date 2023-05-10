@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Apr 2023 pada 09.49
+-- Waktu pembuatan: 10 Bulan Mei 2023 pada 05.19
 -- Versi server: 10.1.36-MariaDB
 -- Versi PHP: 7.2.10
 
@@ -43,8 +43,7 @@ CREATE TABLE `artikel_simatera` (
 
 INSERT INTO `artikel_simatera` (`id_artikel`, `judul`, `artikel`, `Foto`, `Video`, `tanggal`) VALUES
 (1, 'Sejarah Balai Kota Bandung', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus', 'BalaiKotaBandung.jpg', 'BalaiKotaBandung.mp4', '0000-00-00'),
-(2, 'Sejarah Gedung Priangan', 'Lorem ipsum', 'GedungPriangan.jpg', 'Gedung Sri Baduga.mp4', '2023-04-06'),
-(10, 'Sejarah Gereja Katedral st. Petrus Bandung', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus', 'Gereja.jpg', 'Gereja.mp4', '0000-00-00');
+(2, 'Sejarah Gedung Priangan', 'Lorem ipsum', 'GedungPriangan.jpg', 'Gedung Sri Baduga.mp4', '2023-04-06');
 
 --
 -- Indexes for dumped tables
@@ -64,7 +63,7 @@ ALTER TABLE `artikel_simatera`
 -- AUTO_INCREMENT untuk tabel `artikel_simatera`
 --
 ALTER TABLE `artikel_simatera`
-  MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

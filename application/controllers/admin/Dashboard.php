@@ -15,6 +15,10 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/themes/side_nav.php');
 		$this->load->view('admin/main/dashboard.php');
 		$this->load->view('admin/themes/footer.php');
+
+		$total_users = $this->db->count_all_results('login_admin');
+		$data['total_users'] = $total_users;
+		$this->load->view('admin/main/Dashboard/index', $data);
 	}
 }
 ?>
