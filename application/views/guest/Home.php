@@ -44,8 +44,8 @@
               <div class="swiper-wrapper">
                 <?php 
         $counter = 0;
-        shuffle($data_artikel); // shuffle the array randomly
-        foreach($data_artikel as $row):
+        shuffle($art); // shuffle the array randomly
+        foreach($art as $row):
         if ($counter >= 3) break;
     ?>
                 <div class="swiper-slide">
@@ -79,9 +79,9 @@
   <h2 class="section-title">New post</h2>
   <?php 
     $count = 1;
-    $reverse_data_artikel = array_reverse($data_artikel); // Reverse the order of the array
+    $reverse_art = array_reverse($art); // Reverse the order of the array
   ?>
-  <?php foreach($reverse_data_artikel as $row): ?>
+  <?php foreach($reverse_art as $row): ?>
   <div class="card mb-3">
     <div class="card-body">
       <h5 class="card-title mb-0">
@@ -100,15 +100,15 @@
     <div class="row">
       <?php 
         // Randomly select one article for the highlight section
-        $highlight_article = $data_artikel[array_rand($data_artikel)];
+        $highlight_article = $art[array_rand($art)];
         // Remove the highlight article from the list of articles to display in the regular section
-        $regular_articles = array_filter($data_artikel, function($article) use ($highlight_article) {
+        $regular_articles = array_filter($art, function($article) use ($highlight_article) {
           return $article->id_artikel != $highlight_article->id_artikel;
         });
         
         // Display the highlight article
       ?>
-        <div class="col-lg-8 post-entry-highlight">
+        <div class="col-lg-12 post-entry-highlight">
           <?php
           $short_description = substr($row->artikel, 0, 20);
           if (strlen($row->artikel) > 20) {
