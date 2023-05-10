@@ -49,12 +49,13 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title"></h3>
                             </div>
-                            <form class="form-horizontal" action="<?php echo base_url(). 'admin/setting/simpan'; ?>" method="post">
+                            <form class="form-horizontal" action="<?php echo base_url(). 'admin/Artikel/simpan_tulisan'; ?>" method="post">
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label for="inputTitle" class="col-sm-1 control-label">Judul</label>
                                         <div class="col-sm-10">
-                                            <input type="Title" class="form-control" name="judul">
+                                            <input type="Title" class="form-control" name="artikel_judul">
+                                            <input type="hidden" class="form-control" name="tanggal">
                                         </div>
                                     </div>
                                     <hr style="border: 1px solid DeepSkyBlue; border-radius: 5px;">
