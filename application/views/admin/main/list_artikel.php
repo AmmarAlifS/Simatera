@@ -56,8 +56,9 @@
                   	<th>ID</th>
                     <th>Judul</th>
                     <th>Artikel</th>
-                    <th>Foto</th>
-                    <th>Vidio</th>
+                    <th>Tanggal</th>
+					<th>Vidio</th>
+					<th>Foto</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -70,8 +71,9 @@
                   	<td><?php echo $u->id_artikel ?></td>
                     <td><?php echo $u->judul ?></td>
                     <td><?php echo $u->artikel ?></td>
-                    <td><?php echo $u->Foto ?></td>
+                    <td><?php echo $u->tanggal ?></td>
                     <td><?php echo $u->Video ?></td>
+					<td><?php echo $u->Foto ?></td>
 										<td><a href="" class="btn btn-primary">Update</a></td>
 	      						<td><a href="<?= base_url('admin/Artikel/delete/'.$u->id_artikel) ?>" class="btn btn-danger">Delete</a></td>
 	      						</td>

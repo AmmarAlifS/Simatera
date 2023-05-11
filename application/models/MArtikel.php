@@ -6,8 +6,8 @@ class MArtikel extends CI_Model {
     	return $this->db->get('artikel_simatera');
   	}
 
-	function simpan_tulisan($judul,$artikel,$foto,$video,$tanggal){
-		$hsl=$this->db->query("insert into artikel_simatera(judul,artikel,foto,video,tanggal)  values ('$judul','$artikel','$foto','$video','$tanggal')");
+	function simpan_tulisan($judul,$artikel,$foto,$video){
+		$hsl=$this->db->query("insert into artikel_simatera(judul,artikel,foto,video)  values ('$judul','$artikel','$foto','$video')");
 		return $hsl;
 	}
 

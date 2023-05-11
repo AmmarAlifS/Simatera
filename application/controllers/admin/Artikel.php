@@ -37,14 +37,12 @@ class Artikel extends CI_Controller {
 		$judul=strip_tags($this->input->post('judul'));
 		$artikel=strip_tags($this->input->post('artikel'));
 		$video=strip_tags($this->input->post('video'));
-		$tanggal=strip_tags($this->input->post('tanggal'));
  
 		$data = array(
 			'id_artikel' => $id_artikel,
 			'judul' => $judul,
 			'artikel' => $artikel,
 			'video' => $video,
-			'tanggal' => $tanggal,
 			);
 		$this->upload->initialize($config);
 		if(!empty($_FILES['filefoto']['name']))
@@ -64,7 +62,7 @@ class Artikel extends CI_Controller {
 				$this->image_lib->resize();
 
 				$foto=$gbr['file_name'];
-				$this->MArtikel->simpan_tulisan($judul,$artikel,$foto,$video,$tanggal);
+				$this->MArtikel->simpan_tulisan($judul,$artikel,$foto,$video);
 				redirect('admin/Artikel/index');
 			}else{
 				redirect('admin/Artikel/index');
