@@ -6,6 +6,7 @@ class Artikel extends CI_Controller {
 	public function __construct()
 	{	
 		parent::__construct();
+		$this->load->library('upload');
 		$this->load->helper('url');
 		$this->load->model('MArtikel');
 	}
@@ -27,24 +28,23 @@ class Artikel extends CI_Controller {
 		$this->load->view('admin/themes/footer.php');
 	}
 
-	function simpan_tulisan(){
-		$config['upload_path'] = './assets/images/'; 
+
+	public function simpan_tulisan(){
+		$config['upload_path'] = './assets/img/'; 
 		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; 
 		$config['encrypt_name'] = TRUE;
-		$artikel_id=strip_tags($this->input->post('artikel_id'));	
-		$artikel_judul=strip_tags($this->input->post('artikel_judul'));
-		$artikel_isi=strip_tags($this->input->post('artikel_isi'));
+		$id_artikel=strip_tags($this->input->post('id_artikel'));	
+		$judul=strip_tags($this->input->post('judul'));
+		$artikel=strip_tags($this->input->post('artikel'));
+		$video=strip_tags($this->input->post('video'));
 		$tanggal=strip_tags($this->input->post('tanggal'));
-		$vidio=strip_tags($this->input->post('vidio'));
-		$author=strip_tags($this->input->post('author'));
  
 		$data = array(
-			'artikel_id' => $artikel_id,
-			'artikel_judul' => $artikel_judul,
-			'artikel_isi' => $artikel_isi,
+			'id_artikel' => $id_artikel,
+			'judul' => $judul,
+			'artikel' => $artikel,
+			'video' => $video,
 			'tanggal' => $tanggal,
-			'vidio' => $vidio,
-			'author' => $author,
 			);
 		$this->upload->initialize($config);
 		if(!empty($_FILES['filefoto']['name']))
@@ -53,22 +53,20 @@ class Artikel extends CI_Controller {
 			{
 				$gbr = $this->upload->data();
 				$config['image_library']='gd2';
-				$config['source_image']='./assets/images/'.$gbr['file_name'];
+				$config['source_image']='./assets/img/'.$gbr['file_name'];
 				$config['create_thumb']= FALSE;
 				$config['maintain_ratio']= FALSE;
 				$config['quality']= '60%';
 				$config['width']= 848;
 				$config['height']= 480;
-				$config['new_image']= './assets/images/'.$gbr['file_name'];
+				$config['new_image']= './assets/img/'.$gbr['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
 
-				$gambar=$gbr['file_name'];
-				$this->MArtikel->simpan_tulisan($artikel_judul,$artikel_isi,$tanggal,$gambar,$vidio,$author);
-				echo $this->session->set_flashdata('msg','success');
+				$foto=$gbr['file_name'];
+				$this->MArtikel->simpan_tulisan($judul,$artikel,$foto,$video,$tanggal);
 				redirect('admin/Artikel/index');
 			}else{
-				echo $this->session->set_flashdata('msg','warning');
 				redirect('admin/Artikel/index');
 			}
 

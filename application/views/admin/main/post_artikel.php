@@ -42,101 +42,87 @@
         </section>
 
         <section class="content">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="box-body">
-                        <div class="box box-info">
-                            <div class="box-header with-border">
-                                <h3 class="box-title"></h3>
-                            </div>
-                            <form class="form-horizontal" action="<?php echo base_url(). 'admin/Artikel/simpan_tulisan'; ?>" method="post">
-                                <div class="box-body">
-                                    <div class="form-group">
-                                        <label for="inputTitle" class="col-sm-1 control-label">Judul</label>
-                                        <div class="col-sm-10">
-                                            <input type="Title" class="form-control" name="artikel_judul">
-                                            <input type="hidden" class="form-control" name="tanggal">
-                                        </div>
-                                    </div>
-                                    <hr style="border: 1px solid DeepSkyBlue; border-radius: 5px;">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="inputTitle" class="col-sm-2 control-label">Gambar</label>
-                                            <div class="col-sm-10">
-                                                <input type="file" name="Foto" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="inputTitle" class="col-sm-2 control-label">Vidio</label>
-                                            <div class="col-sm-10">
-                                                <input type="file" name="Video" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- SELECT2 EXAMPLE -->
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <h3 class="box-title">Post Artikel</h3>
+      </div>
 
-                <!-- <div class="col-md-6">
-                    <div class="box-body">
-                        <div class="box box-info">
-                            <div class="box-header with-border">
-                                <h3 class="box-title"></h3>
-                            </div>
-                                <div class="box-body">
-                                    <div class="form-group">
-                                        <label for="inputTitle" class="col-sm-2 control-label">Gambar</label>
-                                        <div class="col-sm-10">
-                                            <input type="file" name="gambar" required>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                </div>
+      <form action="<?php echo base_url().'admin/Artikel/simpan_tulisan'?>" method="post" enctype="multipart/form-data">
 
-                <div class="col-md-6">
-                    <div class="box-body">
-                        <div class="box box-info">
-                            <div class="box-header with-border">
-                                <h3 class="box-title"></h3>
-                            </div>
-                                <div class="box-body">
-                                    <div class="form-group">
-                                        <label for="inputTitle" class="col-sm-2 control-label">Vidio</label>
-                                        <div class="col-sm-10">
-                                            <input type="file" name="vidio" required>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                </div> -->
-
-                <div class="col-md-12">
-                    <div class="box-body">
-                        <div class="box box-info">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Artikel</h3>
-                            </div>
-                                <div class="box-body">
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <textarea id="content" name="artikel"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="box-footer">
-                                        <button type="submit" value="Submit"class="btn btn-info pull-right">Simpan</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-10">
+              <input type="text" name="judul" class="form-control" placeholder="Judul artikel" required/>
             </div>
+            <!-- /.col -->
+            <div class="col-md-2">
+              <div class="form-group">
+                <button type="submit" id="simpan" class="btn btn-primary btn-flat pull-right"><span class="fa fa-pencil"></span> Publish</button>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.box-body -->
+
+        </div>
+      </div>
+      <!-- /.box -->
+
+      <div class="row">
+        <div class="col-md-8">
+
+          <div class="box box-danger">
+            <div class="box-header">
+              <h3 class="box-title">Artikel</h3>
+            </div>
+            <div class="box-body">
+
+              <textarea id="content" name="artikel" required></textarea>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col (left) -->
+        <div class="col-md-4">
+          <div class="box box-primary">
+            <div class="box-header">
+              <h3 class="box-title">Pengaturan Lainnya</h3>
+            </div>
+            <div class="box-body">
+              <div class="form-group">
+                <input type="text" name="video" class="form-control" placeholder="Link Video" required/>
+              </div>
+
+             <div class="form-group">
+              <label>Gambar</label>
+              <input type="file" name="filefoto" name="foto" style="width: 100%;" required>
+            </div>
+            <!-- /.form group -->
+            <div class="form-group">
+              <!--<label>
+                  <input type="checkbox" class="minimal" name="ximgslider" value="1">
+                   Tampilkan pada Image Slider
+                </label>
+              </div>-->
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </form>
+
+        <!-- /.box -->
+      </div>
+      <!-- /.col (right) -->
+    </div>
+    <!-- /.row -->
         </section>
     </div>
 </body>

@@ -1,5 +1,5 @@
 <body class="hold-transition skin-blue sidebar-mini">
-    <div class="">
+    <div class="wrapper">
         <header class="main-header">
 
             <a href="index2.html" class="logo">
@@ -64,4 +64,4 @@
                 </div>
             </nav>
         </header>
-    </div>
+    
