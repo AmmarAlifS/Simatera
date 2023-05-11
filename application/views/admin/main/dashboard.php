@@ -63,7 +63,7 @@
 				      <p>Admin User</p>
 				    </div>
 				    <div class="icon">
-				      <i class="ion ion-person-add"></i>
+				      <i class="ion ion-person"></i>
 				    </div>
 				    <a href="<?php echo base_url('admin/adminUser/')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 				  </div>
@@ -79,6 +79,19 @@
 				    </div>
 				    <a href="<?php echo base_url('admin/kontak')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 				  </div>
+				</div>
+				<div class="col-lg-3 col-xs-6">
+				<div class="small-box bg-blue">
+				    <div class="inner">
+				      <h3>About</h3>
+				      <p>Setting</p>
+				    </div>
+				    <div class="icon">
+				      <i class="ion ion-gear-b"></i>
+				    </div>
+				    <a href="<?php echo base_url('admin/Setting')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				  </div>
+				  
 				</div>
 			</div>
 		</section>
