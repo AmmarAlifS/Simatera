@@ -34,6 +34,11 @@
           </ul>
         </li>
         <li>
+          <a href="<?php echo base_url();?>admin/adminUser">
+            <i class="fa fa-user"></i> <span>Admin</span>
+          </a>
+        </li>
+        <li>
           <a href="<?php echo base_url();?>admin/kontak">
             <i class="fa fa-envelope"></i> <span>Kontak</span>
           </a>

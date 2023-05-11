@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 </head>
-
 <body>
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">

@@ -6,4 +6,7 @@ class MRegister extends CI_Model
     {
         return $this->db->insert('login_admin', $data);
     }
+    function tampil(){
+        return $this->db->get('login_admin');
+    }
 }
