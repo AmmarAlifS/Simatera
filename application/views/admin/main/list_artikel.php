@@ -74,8 +74,12 @@
                     <td><?php echo $u->tanggal ?></td>
                     <td><?php echo $u->Video ?></td>
                     <td><img width="100" height="100" src="<?= base_url('assets/img/')?><?php echo $u->Foto ?>"></td>
-										<td><a href="" class="btn btn-primary">Update</a></td>
-	      						<td><a href="<?= base_url('admin/Artikel/delete/'.$u->id_artikel) ?>" class="btn btn-danger">Delete</a></td>
+										<td>
+                      <a href="<?php echo base_url().'admin/Artikel/get_update/'.$u->id_artikel;?>"><span class="fa fa-pencil"></span></a>
+                      &nbsp;&nbsp;&nbsp;
+                      <a href='<?php echo site_url('admin/Artikel/hapus/'.$u->id_artikel,''); ?>' onClick='return confirm("Anda yakin ingin menghapus data ini?")'><span class="fa fa-trash"></a>
+	      						  <!-- <a href="<?= base_url('admin/Artikel/hapus/'.$u->id_artikel) ?>"><span class="fa fa-trash"></span></a> -->
+                    </td>
                   </tr>
                   <?php } ?>
                 </tbody>
