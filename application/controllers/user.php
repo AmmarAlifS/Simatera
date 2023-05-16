@@ -42,5 +42,19 @@ class user extends CI_Controller {
 		$this->load->view('guest/v_footer');
 
 	}
+
+	public function search()
+	{
+		$this->load->model('m_art');
+		$data['artikel']= $this->m_art->get_data();
+		if( $this->input->post('keyword')) {
+			$data['artikel']=$this->m_art->get_keyword();
+		}
+
+		$this->load->view('guest/v_header');
+		$this->load->view('guest/searchResult', $data);
+		$this->load->view('guest/v_footer');
+
+	}
 }
 ?>
