@@ -34,14 +34,20 @@ class Auth_login extends CI_Controller
             $login_simatera = $this->db->get_where('login_simatera', ['email' => $email])->row_array();
 
             if($login_simatera){
-               if($login_simatera['is_active'] == 1) {
+               if($login_simatera['is_active'] == 'yes') {
                     if(password_verify($password, $login_simatera['password'])){
                         $data = array (
                             'email' => $login_simatera['email'],
-                            'role_id' => $login_simatera['role_id']
+                            'role_id' => $login_simatera['role_id'],
+                            'date_created' => $login_simatera['date_created']
                         );
                         $this->session->set_userdata($data);
-                        redirect('User'); //Tampilan user
+                        if($login_simatera['role_id'] == 'admin'){
+                            redirect('admin/dashboard'); //Tampilan Admin
+                        }else{
+                            redirect('User'); //Tampilan user
+                        }
+                        
                     }else{
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                         Wrong password
