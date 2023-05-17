@@ -48,7 +48,7 @@
         <h3 class="box-title">Post Artikel</h3>
       </div>
 
-      <form action="<?php echo base_url().'admin/Artikel/simpan_tulisan'?>" method="post" enctype="multipart/form-data">
+      <form action="<?php echo base_url().'admin/Artikel/simpan_artikel'?>" method="post" enctype="multipart/form-data">
 
         <!-- /.box-header -->
         <div class="box-body">
