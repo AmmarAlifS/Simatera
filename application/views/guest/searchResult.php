@@ -88,14 +88,12 @@
                 </div>
                 <?php endforeach; ?>
               </div>
-
+                  
                 <?php else : ?>
-                  <?php if ($artikel) : ?>
-
-                    <div style="height: 400px;">
-                      <h1>TIDAK ADA</h1>
+                    <div>
+                      <h3 class="category-title">Search Result</h3>
+                      <h1>Tidak Ditemukan Hasil Pencarian Untuk : </input></h1>
                     </div>
-                  <?php endif ?>
                 <?php endif ?>
 
               </div>
