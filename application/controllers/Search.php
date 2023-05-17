@@ -2,14 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Search extends CI_Controller {
-
-	public function __construct()
-	{	
-		parent::__construct();
-		$this->load->library('upload');
-		$this->load->helper('url');
-		$this->load->model('m_art');
-	}
+	
 	public function index()
 	{
 		$this->load->model('m_art');
