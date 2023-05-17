@@ -104,7 +104,7 @@ class Artikel extends CI_Controller {
 			'judul' => $judul,
 			'artikel' => $artikel,
 			'video' => $video,
-			'foto_lama' => $foto_lama
+			'foto_lama' => $foto_lama,
 			);
 		
 
@@ -115,13 +115,13 @@ class Artikel extends CI_Controller {
 			{
 				$gbr = $this->upload->data();
 				$config['image_library']='gd2';
-				$config['source_image']='./assets/images/'.$gbr['file_name'];
+				$config['source_image']='./assets/img/'.$gbr['file_name'];
 				$config['create_thumb']= FALSE;
 				$config['maintain_ratio']= FALSE;
 				$config['quality']= '60%';
 				$config['width']= 848;
 				$config['height']= 480;
-				$config['new_image']= './assets/images/'.$gbr['file_name'];
+				$config['new_image']= './assets/img/'.$gbr['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
 
@@ -133,7 +133,7 @@ class Artikel extends CI_Controller {
 				$video=strip_tags($this->input->post('video'));
 				$foto_lama=strip_tags($this->input->post('foto_lama'));
 
-				$path='./assets/images/'.$foto_lama;
+				$path='./assets/img/'.$foto_lama;
 				unlink($path);
 
 				$this->MArtikel->update_artikel($id_artikel,$judul,$artikel,$foto,$video);

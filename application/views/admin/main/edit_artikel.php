@@ -99,7 +99,7 @@
             </div>
             <div class="box-body">
               <div class="form-group">
-                <input type="text" name="video" class="form-control" value="<?php echo $x['video'];?>" required/>
+                <input type="text" name="video" class="form-control" value="<?php echo $x['Video'];?>" required/>
               </div>
 
              <div class="form-group">
