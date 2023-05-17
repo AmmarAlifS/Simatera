@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Admin | List Kontak</title>
+	<title>Admin | Dashboard</title>
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 	<link rel="stylesheet" href="<?= base_url('assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>">
@@ -25,69 +25,70 @@
 </head>
 
 <body>
-	<!-- Content Wrapper. Contains page content -->
-	<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Data Form
-        <small>Form Kontak</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Kontak</a></li>
-        <li class="active">Data Form</li>
-      </ol>
-    </section>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Data Form
+          <small>Form Kontak</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="#">Kontak</a></li>
+          <li class="active">Data Form</li>
+        </ol>
+      </section>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Data Input User</h3>
+      <!-- Main content -->
+      <section class="content">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="box">
+              <div class="box-header">
+                <h3 class="box-title">Data Input User</h3>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Nama</th>
+                      <th>Email</th>
+                      <th>Subjek</th>
+                      <th>Pesan</th>
+                      <th>Waktu Mengisi Form</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                      $id_pesan = 1;
+                      foreach($form as $u) {
+                    ?>
+                    <tr>
+                      <td><?php echo $u->nama ?></td>
+                      <td><?php echo $u->email ?></td>
+                      <td><?php echo $u->subjek  ?></td>
+                      <td><?php echo $u->pesan ?></td>
+                      <td><?php echo $u->timestamp ?></td>
+                    </tr>
+                    <?php } ?>
+            
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.box-body -->
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Subjek</th>
-                    <th>Pesan</th>
-                    <th>Waktu Mengisi Form</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                    $id_pesan = 1;
-                    foreach($form as $u) {
-                  ?>
-                  <tr>
-                    <td><?php echo $u->nama ?></td>
-                    <td><?php echo $u->email ?></td>
-                    <td><?php echo $u->subjek  ?></td>
-                    <td><?php echo $u->pesan ?></td>
-                    <td><?php echo $u->timestamp ?></td>
-                  </tr>
-                  <?php } ?>
-          
-                </tbody>
-              </table>
-            </div>
-            <!-- /.box-body -->
+            <!-- /.box -->
           </div>
-          <!-- /.box -->
+          <!-- /.col -->
         </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+        <!-- /.row -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+  </main>
 </body>
 	<script src="<?= base_url('assets/admin/bower_components/jquery/dist/jquery.min.js') ?>"></script>
 

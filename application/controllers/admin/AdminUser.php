@@ -8,6 +8,9 @@ class AdminUser extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('MRegister');
+		if(!$this->session->userdata('email')){
+			redirect('Auth_login');
+		}
 	}
 
 	public function index()
