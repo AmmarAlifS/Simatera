@@ -68,7 +68,7 @@
 
                 <?php foreach ($artikel as $art) : ?>
 
-                <a href="single-post.html" class="me-4 thumbnail">
+                <a href="#" class="me-4 thumbnail">
                   
                 </a>
 
@@ -79,11 +79,11 @@
                   </div>
                   <h3>
                     <a href="#"
-                      ><?php echo $art['judul_artikel']; ?></a
+                      ><?php echo $art['judul']; ?></a
                     >
                   </h3>
                   <p>
-                    <?php echo $art['deskripsi_artikel']; ?>
+                    <?php echo $art['artikel']; ?>
                   </p>
                 </div>
                 <?php endforeach; ?>
