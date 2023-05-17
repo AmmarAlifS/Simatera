@@ -1,9 +1,3 @@
-/**
-* Template Name: ZenBlog - v1.3.0
-* Template URL: https://bootstrapmade.com/zenblog-bootstrap-blog-template/
-* Author: BootstrapMade.com
-* License: https:///bootstrapmade.com/license/
-*/
 document.addEventListener('DOMContentLoaded', () => {
   "use strict";
 
@@ -128,6 +122,24 @@ document.addEventListener('DOMContentLoaded', () => {
     searchWrap.classList.remove("active");
   });
 
+    /**
+     * Search
+     */
+
+    const input = document.getElementById('text');
+
+    function Alert(){
+      alert(input.value);
+    }
+
+    input.addEventListener('keyup', (e) => {
+      if(e.keyCode === 13){
+        Alert();
+      }
+    }
+    );
+
+    
   /**
    * Initiate glightbox
    */

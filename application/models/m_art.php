@@ -9,7 +9,7 @@ class M_art extends CI_Model {
 	public function get_keyword()
 	{
 		$keyword=$this->input->post('keyword', true);
-		$this->db->like('id_artikel', $keyword);
+		$this->db->like('judul', $keyword);
 		return $this->db->get('artikel_simatera')->result_array();
 	}
 
