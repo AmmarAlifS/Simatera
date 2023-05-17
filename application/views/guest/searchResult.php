@@ -78,27 +78,16 @@
                     <span class="mx-1">&bullet;</span> <span>Mar 6th '23</span>
                   </div>
                   <h3>
-                    <a href="single-post.html"
+                    <a href="#"
                       ><?php echo $art['judul_artikel']; ?></a
                     >
                   </h3>
                   <p>
                     <?php echo $art['deskripsi_artikel']; ?>
                   </p>
-                  <div class="d-flex align-items-center author">
-                    <div class="photo">
-                      <img
-                        src="<?php echo base_url(); ?>assets/img/blank-profile-picture.jpg"
-                        alt=""
-                        class="img-fluid"
-                      />
-                    </div>
-                    <div class="name">
-                      <h3 class="m-0 p-0">Author</h3>
-                    </div>
-                  </div>
-                  <?php endforeach; ?>
                 </div>
+                <?php endforeach; ?>
+              </div>
 
                 <?php else : ?>
                   <?php if ($artikel) : ?>
