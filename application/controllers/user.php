@@ -45,10 +45,10 @@ class user extends CI_Controller {
 
 	public function search()
 	{
-		$this->load->model('m_art');
-		$data['artikel']= $this->m_art->get_data();
+		$this->load->model('m_search');
+		$data['artikel']= $this->m_search->get_data();
 		if( $this->input->post('keyword')) {
-			$data['artikel']=$this->m_art->get_keyword();
+			$data['artikel']=$this->m_search->get_keyword();
 		}
 
 		$this->load->view('guest/v_header');

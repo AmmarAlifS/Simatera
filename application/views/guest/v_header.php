@@ -22,7 +22,7 @@
   <link href="<?php echo base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="<?php echo base_url()?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="<?php echo base_url()?>assets/vendor/glightbox/css/glightbox.min.cssg" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS Files -->
@@ -37,7 +37,7 @@
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="<?php echo base_url().'guest/index';?>" style="padding-left: 8%;" class="logo d-flex align-items-center">
+      <a href="<?php echo base_url().'user/index';?>" style="padding-left: 8%;" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>SIMATERA</h1>
@@ -45,11 +45,11 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="<?php echo base_url().'guest/index';?>">Home</a></li>
-          <li><a href="<?php echo base_url();?>guest/artikel">Artikel</a></li>
-          <li><a href="<?php echo base_url();?>guest/tentangkami">Tentang Kami</a></li>
-          <li><a href="<?php echo base_url();?>guest/kontak">Kontak</a></li>
-          <li><a href="<?php echo base_url();?>guest/search">Search</a></li>
+          <li><a href="<?php echo base_url().'user/index';?>">Home</a></li>
+          <li><a href="<?php echo base_url();?>user/artikel">Artikel</a></li>
+          <li><a href="<?php echo base_url();?>user/tentangkami">Tentang Kami</a></li>
+          <li><a href="<?php echo base_url();?>user/kontak">Kontak</a></li>
+          <li><a href="<?php echo base_url();?>user/search">Search</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -63,7 +63,7 @@
 
         <!-- ======= Search Form ======= -->
         <div class="search-form-wrap js-search-form-wrap">
-          <form action="<?php echo base_url().'Search/index'?>" method="post" class="search-form">
+          <form action="<?php echo base_url();?>user/search" method="post" class="search-form">
             <span class="icon bi-search"></span>
             <input type="text" placeholder="Search" class="form-control" name="keyword" />
             <button id="submit" onclick="Alert()"></button>
