@@ -22,7 +22,7 @@
   <link href="<?php echo base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="<?php echo base_url()?>assets/vendor/glightbox/css/glightbox.min.cssg" rel="stylesheet">
+  <link href="<?php echo base_url()?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS Files -->
@@ -92,7 +92,6 @@
                     </div>
                   </div>
                 </section><!-- End Hero Slider Section -->
-                <p><?php echo $artikel;?></p>
               <!-- <p>Sehubung dengan hal tersebut, J. Reijsenbach Presiden ke-10 De Javasche Bank mengirim surat No. 165 pada tanggal 7 Mei 1902 kepada Dewan Militer Hindia Belanda dan surat No. 420 tanggal 16 Juni 1902  kepada pemerintah Hindia-Belanda yang isinya meminta izin untuk membuka Kantor Cabang De Javasche Bank di Bandung. Tanggal 29 Oktober 1906 Direksi De Javasche Bank menerima surat dari Gubernur Jenderal Hindia-Belanda No. 52 tertanggal 24 Oktober 1906 tentang penyerahan sebidang tanah seluas 10.40 m2 di District Oedjoengbroengkoelon, desa Kejaksangirang kepada De Javasche Bank dengan Sertifikat Hak Milik No.103 tanggal 8 Maret 1907 berikut Surat Ukur N0. 153 tanggal 13 Februari 1907 dan No.Kadester 1022.</p>
               <p>Lahan Gedung De Javasche Bank adalah bekas Gudang tempat penyimpanan garam yang terbakar pada tahun 1901 dan kemudian menjadi sebuah lahan terbuka (plein) tempat pertunjukan sirku, sandiwara, dan pertunjukan seni lainnya. Pada malam minggu, para preanger planters saling jual tampang, bersantai, makan minum dan pamer mobil keluaran anyar milik mereka. Lahan ini terletak di seberang rumah kediaman keluarga belanda kaya soesman, pemilik kuda pacu dan lapangan pacuan kuda Tegallega. Rumah keluarga Siesnab sejarang menjadi Gedung Kerta Mukti.</p>
               <p>Gedung Javasche Bank (sekarang Gedung Bank Indonesia) dirancang oleh Edward Cuypers, Fermont, dan Hulswit terdiri dari dua buah gedung. Yang pertama disebut dengan Gedung Perintis yang terletak di sisi Jalan Perintis Kemerdekaan. Sedangkan gedung kedua disebut dengan Gedung Braga yang dibangun di ruas Jalan Braga, di depan Gedung Kertamukti</p>

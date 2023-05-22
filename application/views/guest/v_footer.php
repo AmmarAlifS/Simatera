@@ -17,10 +17,10 @@
           <div class="col-6 col-lg-2">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
-              <li><a href="<?php echo base_url().'user/index';?>"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="<?php echo base_url();?>user/artikel"><i class="bi bi-chevron-right"></i> Artikel</a></li>
-              <li><a href="<?php echo base_url();?>user/tentangkami"><i class="bi bi-chevron-right"></i> Tentang Kami</a></li>
-              <li><a href="<?php echo base_url();?>user/kontak"><i class="bi bi-chevron-right"></i> Kontak</a></li>
+              <li><a href="<?php echo base_url().'guest/index';?>"><i class="bi bi-chevron-right"></i> Home</a></li>
+              <li><a href="<?php echo base_url();?>guest/artikel"><i class="bi bi-chevron-right"></i> Artikel</a></li>
+              <li><a href="<?php echo base_url();?>guest/tentangkami"><i class="bi bi-chevron-right"></i> Tentang Kami</a></li>
+              <li><a href="<?php echo base_url();?>guest/kontak"><i class="bi bi-chevron-right"></i> Kontak</a></li>
             </ul>
           </div>
 
