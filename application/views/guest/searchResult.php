@@ -74,8 +74,8 @@
 
                 <div>
                   <div class="post-meta">
-                    <span class="date">SEJARAH</span>
-                    <span class="mx-1">&bullet;</span> <span>Mar 6th '23</span>
+                    <span class="date"><?php echo $art['Kategori']; ?></span>
+                    <span class="mx-1">&bullet;</span> <span><?php echo $art['tanggal']; ?></span>
                   </div>
                   <h3>
                     <a href="#"
@@ -90,9 +90,9 @@
               </div>
                   
                 <?php else : ?>
-                    <div>
-                      <h3 class="category-title">Search Result</h3>
-                      <h1>Tidak Ditemukan Hasil Pencarian Untuk : </input></h1>
+
+                    <div style="height: 400px;">
+                      <h3>Hasil Pencarian Tidak Ditemukan</h3>
                     </div>
                 <?php endif ?>
 
@@ -156,7 +156,6 @@
                           Dunia</a
                         >
                       </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
                     </div>
 
                     <div class="post-entry-1 border-bottom">
@@ -170,7 +169,6 @@
                           >Stasiun Bandung dalam Lintasan Sejarah Kereta Api</a
                         >
                       </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
                     </div>
 
                     <div class="post-entry-1 border-bottom">

@@ -1,6 +1,6 @@
 <?php
 
-class M_art extends CI_Model {
+class M_search extends CI_Model {
 	public function get_data()
 	{
 		return $this->db->get('artikel_simatera')->result_array();
