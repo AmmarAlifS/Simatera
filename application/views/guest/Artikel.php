@@ -195,7 +195,7 @@
         <div class="aside-block">
           <h3 class="aside-title">Video</h3>
           <div class="video-post">
-            <a href="https://youtu.be/JPCA2RLoibA" class="glightbox link-video">
+            <a target="_blank" href="https://youtu.be/JPCA2RLoibA" class="glightbox link-video">
               <span class="bi-play-fill"></span>
               <img src="<?php echo base_url()?>assets/img/De-Javasche-Bank4.jpg" alt="" class="img-fluid">
             </a>
