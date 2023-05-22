@@ -49,7 +49,7 @@
           <li><a href="<?php echo base_url();?>guest/artikel">Artikel</a></li>
           <li><a href="<?php echo base_url();?>guest/tentangkami">Tentang Kami</a></li>
           <li><a href="<?php echo base_url();?>guest/kontak">Kontak</a></li>
-          <li><a href="<?php echo base_url();?>search">Search</a></li>
+          <li><a href="<?php echo base_url();?>guest/search">Search</a></li>
         </ul>
       </nav><!-- .navbar -->
 
