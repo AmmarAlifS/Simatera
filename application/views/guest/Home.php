@@ -165,7 +165,13 @@
 
   <!-- Template Main JS File -->
   <script src="<?php echo base_url()?>assets/js/main.js"></script>
-
+  <script src="<?php echo base_url()?>assets/js/main.js"></script>
+    <script>
+      AOS.init({
+        offset: 120,
+        duration: 3000,
+      });
+    </script>
 </body>
 
 </html>
