@@ -59,7 +59,10 @@
           <div class="row">
             <div class="col-lg-9 col-md-8">
 
-              <h3 class="category-title">Search Result</h3>
+              <h3 class="category-title">Menampilkan  hasil untuk pencarian '<?php if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $input = $_POST["keyword"];
+            echo "$input";
+        } ?>'</h3>
 
 
                 <!-- Post Result 1 -->
