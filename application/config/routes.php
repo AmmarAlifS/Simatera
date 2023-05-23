@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['admin'] = 'Auth_login';
 $route['default_controller'] = 'guest';
-$route['user'] = 'user';
+$route['user'] = 'user/index';
 $route['admin'] = 'CLogin';
 // $route['user'] = 'User';
 $route['404_override'] = '';

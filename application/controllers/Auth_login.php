@@ -45,7 +45,7 @@ class Auth_login extends CI_Controller
                         if($login_simatera['role_id'] == 'admin'){
                             redirect('admin/dashboard'); //Tampilan Admin
                         }else{
-                            redirect('User'); //Tampilan user
+                            redirect('user/index'); //Tampilan user
                         }
                         
                     }else{
