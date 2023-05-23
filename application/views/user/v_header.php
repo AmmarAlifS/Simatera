@@ -73,7 +73,7 @@
       </div>
       
     </div>
-    <li style="padding-right: 8%;" id="navbar" class="navbar"><a href="#">Logout</a></li>
+    <li style="padding-right: 8%;" id="navbar" class="navbar"><a href="<?= base_url('Auth_logout') ?>">Logout</a></li>
   </header><!-- End Header -->
 
     <!-- Vendor JS Files -->
