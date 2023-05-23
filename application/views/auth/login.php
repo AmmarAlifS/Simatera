@@ -46,7 +46,7 @@
                                 <a class="small" href="<?= base_url('Auth_forgot') ?>">Forgot Password?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="Auth_changePassword">Create an Account!</a>
+                                <a class="small" href="Auth_registration">Create an Account!</a>
                             </div>
                         </div>
                     </div>
