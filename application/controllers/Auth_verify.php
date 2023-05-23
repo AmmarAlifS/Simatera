@@ -49,14 +49,5 @@ class Auth_verify extends CI_Controller
                </div>');
                  redirect('Auth_login');
             }
-
-        //     if($login_simatera) {
-        //         $login_simatera_token = $this->db->get_where('login_simatera_token', ['token' => $token])->row_array();
-        //     }else{
-        //         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-        //    Account activation failed! Wrong email
-        //   </div>');
-        //     redirect('Auth_login');
-        //     }
         }
     }

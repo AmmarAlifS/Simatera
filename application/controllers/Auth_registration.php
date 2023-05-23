@@ -19,7 +19,7 @@ class Auth_registration extends CI_Controller
                 'matches' => 'password dont match!',
                 'min_length' => 'Password too short'
             ]);
-            $this->form_validation->set_rules('password2', 'Password', 'required|trim|min_length[6]|matches[password1]');
+            $this->form_validation->set_rules('password2', 'Password', 'required|trim|min_length[5]|matches[password1]');
             if($this->form_validation->run() == false)
             {
             $data['title'] = 'Simatera User Registration';
