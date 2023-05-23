@@ -22,7 +22,7 @@
   <link href="<?php echo base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="<?php echo base_url()?>assets/vendor/glightbox/css/glightbox.min.cssg" rel="stylesheet">
+  <link href="<?php echo base_url()?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS Files -->
@@ -165,7 +165,13 @@
 
   <!-- Template Main JS File -->
   <script src="<?php echo base_url()?>assets/js/main.js"></script>
-
+  <script src="<?php echo base_url()?>assets/js/main.js"></script>
+    <script>
+      AOS.init({
+        offset: 120,
+        duration: 3000,
+      });
+    </script>
 </body>
 
 </html>

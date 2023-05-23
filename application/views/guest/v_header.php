@@ -31,12 +31,13 @@
 
 </head>
 
+
 <body>
 <!-- ======= Header ======= -->
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="<?php echo base_url().'user/index';?>" class="logo d-flex align-items-center">
+      <a href="<?php echo base_url().'guest/index';?>" style="padding-left: 8%;" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>SIMATERA</h1>
@@ -44,35 +45,35 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="<?php echo base_url().'user/index';?>">Home</a></li>
-          <li><a href="<?php echo base_url();?>user/artikel">Artikel</a></li>
-          <li><a href="<?php echo base_url();?>user/tentangkami">Tentang Kami</a></li>
-          <li><a href="<?php echo base_url();?>user/kontak">Kontak</a></li>
-          <li><a href="<?php echo base_url();?>user/search">Search</a></li>
+          <li><a href="<?php echo base_url().'guest/index';?>">Home</a></li>
+          <li><a href="<?php echo base_url();?>guest/artikel">Artikel</a></li>
+          <li><a href="<?php echo base_url();?>guest/tentangkami">Tentang Kami</a></li>
+          <li><a href="<?php echo base_url();?>guest/kontak">Kontak</a></li>
+          <li><a href="<?php echo base_url();?>guest/search">Search</a></li>
         </ul>
       </nav><!-- .navbar -->
 
       <div class="position-relative">
-        <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
+        <!-- <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
-        <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
+        <a href="#" class="mx-2"><span class="bi-instagram"></span></a> -->
 
         <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
         <i class="bi bi-list mobile-nav-toggle"></i>
 
         <!-- ======= Search Form ======= -->
         <div class="search-form-wrap js-search-form-wrap">
-          <form action="search-result.html" class="search-form">
+          <form action="<?php echo base_url();?>search" method="post" class="search-form">
             <span class="icon bi-search"></span>
-            <input type="text" placeholder="Search" class="form-control">
+            <input type="text" placeholder="Search" class="form-control" name="keyword" />
+            <button id="submit" onclick="Alert()"></button>
             <button class="btn js-search-close"><span class="bi-x"></span></button>
           </form>
         </div><!-- End Search Form -->
-
       </div>
-
+      
     </div>
-
+    <li style="padding-right: 8%;" id="navbar" class="navbar"><a href="#">Login</a></li>
   </header><!-- End Header -->
 
     <!-- Vendor JS Files -->

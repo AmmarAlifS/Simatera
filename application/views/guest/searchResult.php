@@ -59,7 +59,10 @@
           <div class="row">
             <div class="col-lg-9 col-md-8">
 
-              <h3 class="category-title">Search Result</h3>
+              <h3 class="category-title">Menampilkan  hasil untuk pencarian '<?php if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $input = $_POST["keyword"];
+            echo "$input";
+        } ?>'</h3>
 
 
                 <!-- Post Result 1 -->
@@ -68,45 +71,32 @@
 
                 <?php foreach ($artikel as $art) : ?>
 
-                <a href="single-post.html" class="me-4 thumbnail">
+                <a href="#" class="me-4 thumbnail">
                   
                 </a>
 
                 <div>
                   <div class="post-meta">
-                    <span class="date">SEJARAH</span>
-                    <span class="mx-1">&bullet;</span> <span>Mar 6th '23</span>
+                    <span class="date"><?php echo $art['Kategori']; ?></span>
+                    <span class="mx-1">&bullet;</span> <span><?php echo $art['tanggal']; ?></span>
                   </div>
                   <h3>
-                    <a href="single-post.html"
-                      ><?php echo $art['judul_artikel']; ?></a
+                    <a href="#"
+                      ><?php echo $art['judul']; ?></a
                     >
                   </h3>
                   <p>
-                    <?php echo $art['deskripsi_artikel']; ?>
+                    <?php echo $art['artikel']; ?>
                   </p>
-                  <div class="d-flex align-items-center author">
-                    <div class="photo">
-                      <img
-                        src="<?php echo base_url(); ?>assets/img/blank-profile-picture.jpg"
-                        alt=""
-                        class="img-fluid"
-                      />
-                    </div>
-                    <div class="name">
-                      <h3 class="m-0 p-0">Author</h3>
-                    </div>
-                  </div>
-                  <?php endforeach; ?>
                 </div>
-
+                <?php endforeach; ?>
+              </div>
+                  
                 <?php else : ?>
-                  <?php if ($artikel) : ?>
 
                     <div style="height: 400px;">
-                      <h1>TIDAK ADA</h1>
+                      <h3>Hasil Pencarian Tidak Ditemukan</h3>
                     </div>
-                  <?php endif ?>
                 <?php endif ?>
 
               </div>
@@ -169,7 +159,6 @@
                           Dunia</a
                         >
                       </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
                     </div>
 
                     <div class="post-entry-1 border-bottom">
@@ -183,7 +172,6 @@
                           >Stasiun Bandung dalam Lintasan Sejarah Kereta Api</a
                         >
                       </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
                     </div>
 
                     <div class="post-entry-1 border-bottom">
