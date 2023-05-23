@@ -20,9 +20,7 @@ class Auth_changePassword extends CI_Controller {
         if($this->form_validation->run() == false)
         {
             $data['title'] = 'Simatera Forgot Password';
-            $this->load->view('templates/auth_header', $data);
-            $this->load->view('auth/change-password');
-            $this->load->view('templates/auth_footer');
+            $this->load->view('auth/change-password', $data);
         }else {
             $password = password_hash($this->input->post('password1'),PASSWORD_DEFAULT);
             $email = $this->session->userdata('reset_email');
