@@ -63,7 +63,7 @@
 
         <!-- ======= Search Form ======= -->
         <div class="search-form-wrap js-search-form-wrap">
-          <form action="<?php echo base_url();?>search" method="post" class="search-form">
+          <form action="<?php echo base_url();?>user/search" method="post" class="search-form">
             <span class="icon bi-search"></span>
             <input type="text" placeholder="Search" class="form-control" name="keyword" />
             <button id="submit" onclick="Alert()"></button>

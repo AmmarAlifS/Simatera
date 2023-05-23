@@ -51,7 +51,7 @@
   <body>
 
     <main id="main">
-      <!-- Search Results -->
+
       <?php if ($artikel) : ?>
 
       <section id="search-result" class="search-result">
@@ -59,21 +59,17 @@
           <div class="row">
             <div class="col-lg-9 col-md-8">
 
-              <h3 class="category-title">Menampilkan  hasil untuk pencarian '<?php if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $input = $_POST["keyword"];
-            echo "$input";
-        } ?>'</h3>
-
+              <?php $resulttotal = 0;foreach ($artikel as $art) : ?>
+              <?php $resulttotal++;endforeach; ?>
+              
+              <h5 class="category-title">Menampilkan <?php echo $resulttotal ?> hasil untuk pencarian '<?php echo $_POST['keyword']; ?>'</h5>
 
                 <!-- Post Result 1 -->
               <div class="d-md-flex-column post-entry-2 small-img">
 
-
                 <?php foreach ($artikel as $art) : ?>
 
-                <a href="#" class="me-4 thumbnail">
-                  
-                </a>
+                <a href="#" class="me-4 thumbnail"></a>
 
                 <div>
                   <div class="post-meta">
@@ -88,12 +84,17 @@
                   <p>
                     <?php echo $art['artikel']; ?>
                   </p>
-                </div>
-                <?php endforeach; ?>
+                </div>  
+                <?php 
+                endforeach; ?>
               </div>
                   
                 <?php else : ?>
-
+                  <?php $resulttotal = 0;foreach ($artikel as $art) : ?>
+                  <?php $resulttotal++;endforeach; ?>
+                  
+                  <h5 class="category-title">Menampilkan <?php echo $resulttotal ?> hasil untuk pencarian '<?php echo $_POST['keyword']; ?>'</h5>
+                  
                     <div style="height: 400px;">
                       <h3>Hasil Pencarian Tidak Ditemukan</h3>
                     </div>
@@ -101,7 +102,7 @@
 
               </div>
 
-            <div class="co  l-lg-3 col-md-4">
+            <div class="col-lg-3 col-md-4">
               <!-- ======= Sidebar ======= -->
               <div class="aside-block">
                 <ul

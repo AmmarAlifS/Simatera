@@ -11,6 +11,6 @@ class M_search extends CI_Model {
 		$keyword=$this->input->post('keyword', true);
 		$this->db->like('judul', $keyword);
 		return $this->db->get('artikel_simatera')->result_array();
-	}
+	}	
 
 }

@@ -63,7 +63,7 @@
 
         <!-- ======= Search Form ======= -->
         <div class="search-form-wrap js-search-form-wrap">
-          <form action="<?php echo base_url();?>search" method="post" class="search-form">
+          <form action="<?php echo base_url();?>guest/search" method="post" class="search-form">
             <span class="icon bi-search"></span>
             <input type="text" placeholder="Search" class="form-control" name="keyword" />
             <button id="submit" onclick="Alert()"></button>
@@ -73,7 +73,7 @@
       </div>
       
     </div>
-    <li style="padding-right: 8%;" id="navbar" class="navbar"><a href="<?= base_url('Auth_login') ?>">Login</a></li>
+    <li style="padding-right: 8%;" id="navbar" class="navbar"><a href="#">Login</a></li>
   </header><!-- End Header -->
 
     <!-- Vendor JS Files -->
