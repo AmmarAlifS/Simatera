@@ -89,7 +89,7 @@ class Artikel extends CI_Controller {
 
 	}
 	function update_artikel(){
-		$config['upload_path'] = './assets/images/';
+		$config['upload_path'] = './assets/img/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
 		$config['encrypt_name'] = TRUE;
 		$id_artikel=strip_tags($this->input->post('id_artikel'));
@@ -97,14 +97,12 @@ class Artikel extends CI_Controller {
 		$artikel=strip_tags($this->input->post('artikel'));
 		$foto=strip_tags($this->input->post('foto'));
 		$video=strip_tags($this->input->post('video'));
-		$foto_lama=strip_tags($this->input->post('foto_lama'));
 
 		$data = array(
 			'id_artikel' => $id_artikel,
 			'judul' => $judul,
 			'artikel' => $artikel,
 			'video' => $video,
-			'foto_lama' => $foto_lama,
 			);
 		
 
@@ -129,12 +127,10 @@ class Artikel extends CI_Controller {
 				$id_artikel=strip_tags($this->input->post('id_artikel'));
 				$judul=strip_tags($this->input->post('judul'));
 				$artikel=strip_tags($this->input->post('artikel'));
-				$foto=strip_tags($this->input->post('foto'));
 				$video=strip_tags($this->input->post('video'));
-				$foto_lama=strip_tags($this->input->post('foto_lama'));
 
-				$path='./assets/img/'.$foto_lama;
-				unlink($path);
+				// $path='./assets/img/'.$foto;
+				// unlink($path);
 
 				$this->MArtikel->update_artikel($id_artikel,$judul,$artikel,$foto,$video);
 				echo $this->session->set_flashdata('msg','info');
@@ -151,7 +147,7 @@ class Artikel extends CI_Controller {
 			$video=strip_tags($this->input->post('video'));
 			$this->MArtikel->update_artikel_tanpaimg($id_artikel,$judul,$artikel,$video);
 			echo $this->session->set_flashdata('msg','info');
-			redirect('admin/Artikel/post');
+			redirect('admin/Artikel/index');
 		} 
 	}
 }

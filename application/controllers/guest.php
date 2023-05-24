@@ -38,13 +38,15 @@ class guest extends CI_Controller {
 
 	}
 
-	public function artikel()
+	// Detail Artikel
+	public function artikel($id_artikel)
 	{
 		$data['setting'] = $this->m_setting->tampil_data();
+		$xdetail = $this->MArtikel->detail_data($id_artikel);
+		$detail['xdetail'] = $xdetail;
 		$this->load->view('guest/v_header');
-		$this->load->view('guest/Artikel');
+		$this->load->view('guest/Artikel', $detail);
 		$this->load->view('guest/v_footer', $data);
-
 	}
 
 	public function search()
@@ -61,6 +63,7 @@ class guest extends CI_Controller {
 		$this->load->view('guest/v_footer', $data);
 
 	}
+
 
 }
 ?>

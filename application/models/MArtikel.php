@@ -38,7 +38,13 @@ class MArtikel extends CI_Model {
     }
 
     function get_tulisan_by_kode($id_artikel){
-		$hsl=$this->db->query("SELECT artikel_simatera.*,DATE_FORMAT(tanggal,'%d/%m/%Y') AS tanggal FROM artikel_simatera where id_artikel='$id_artikel'");
-		return $hsl;
-	}
+        $hsl=$this->db->query("SELECT artikel_simatera.*, DATE_FORMAT(tanggal, '%d/%m/%y') AS tanggal FROM artikel_simatera where id_artikel='$id_artikel'");
+        return $hsl;
+    }
+
+    public function detail_data($id_artikel = NULL){
+        $query = $this->db->get_where('artikel_simatera', array('id_artikel' => $id_artikel))->row();
+        return $query;
+    }
+ 
 }

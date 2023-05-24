@@ -28,6 +28,7 @@
   <!-- Template Main CSS Files -->
   <link href="<?php echo base_url()?>assets/css/variables.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/css/main.css" rel="stylesheet">
+  
 
 </head>
 
@@ -141,7 +142,8 @@
               <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
               <h2><a href="single-post.html"><?php echo $row->judul ?></a></h2>
               <p style="text-align: justify;"><?php echo $short_description ?></p>
-              <button href="single-post.html" class="btn btn-primary">Read More</button>
+              <!-- <button href="<?php echo anchor('guest/artikel/'.$row->id_artikel)?>" class="btn btn-primary">Read More</button> -->
+              <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
             </div>
           </div>
           <?php

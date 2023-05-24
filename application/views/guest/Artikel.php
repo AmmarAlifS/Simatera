@@ -40,10 +40,10 @@
 
             <!-- ======= Halaman Artikel ======= -->
             <div class="Artikel">
-              <div class="post-meta"><span class="date">Sejarah</span> <span class="mx-1">&bullet;</span> <span>March 15TH'23</span></div>
-              <h1 class="mb-5">Sejarah gedung De Javasche Bank atau sekarang biasa disebut dengan Museum Bank Indonesia</h1>
-              <p><span class="firstcharacter">P</span>ada tahun 1800-an pemahaman ekonomi pada umumnya menggunakan pandangan merkantilisme, yaitu kemakmuran dan kejayaan sebuah negara diukur dari jumlah persediaan emas yang dimiliki oleh negara tersebut akibat Perang boer di Afrika Selatan dan kekawatiran ekspansi negara Inggris yang merupakan negara adidaya saat itu pemerintah hindia-belanda merasa perlu untuk membuka cabang De Javasche Bank di Bandung (yang memang direncanakan untuk mendirikan ibukota Hindia-Belanda) untuk melindungi kekayaan negara dengan menjauhkannya dari daerah pesisir (Batavia) ke pedalaman (Bandung).</p>
-
+              <div class="post-meta"><span class="date">Sejarah</span> <span class="mx-1">&bullet;</span> <span><?php echo $xdetail->tanggal ?></span></div>
+              <h1 class="mb-5"><?php echo $xdetail->judul; ?></h1>
+              <!-- <p><span class="firstcharacter">P</span>ada tahun 1800-an pemahaman ekonomi pada umumnya menggunakan pandangan merkantilisme, yaitu kemakmuran dan kejayaan sebuah negara diukur dari jumlah persediaan emas yang dimiliki oleh negara tersebut akibat Perang boer di Afrika Selatan dan kekawatiran ekspansi negara Inggris yang merupakan negara adidaya saat itu pemerintah hindia-belanda merasa perlu untuk membuka cabang De Javasche Bank di Bandung (yang memang direncanakan untuk mendirikan ibukota Hindia-Belanda) untuk melindungi kekayaan negara dengan menjauhkannya dari daerah pesisir (Batavia) ke pedalaman (Bandung).</p> -->
+              <span><?php echo $xdetail->artikel; ?></span>
 
                   <!-- ======= Hero Slider Section ======= -->
                 <section id="hero-slider" class="hero-slider">
@@ -195,7 +195,7 @@
         <div class="aside-block">
           <h3 class="aside-title">Video</h3>
           <div class="video-post">
-            <a target="_blank" href="https://youtu.be/JPCA2RLoibA" class="glightbox link-video">
+            <a target="_blank" href="<?= $xdetail->Video;?>" class="glightbox link-video">
               <span class="bi-play-fill"></span>
               <img src="<?php echo base_url()?>assets/img/De-Javasche-Bank4.jpg" alt="" class="img-fluid">
             </a>

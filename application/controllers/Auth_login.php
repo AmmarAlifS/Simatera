@@ -7,6 +7,7 @@ class Auth_login extends CI_Controller
         {
             parent::__construct();
             $this->load->library('form_validation');
+            $this->load->library('session');
         }
 
         public function index()
