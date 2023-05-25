@@ -49,14 +49,23 @@
         foreach($art as $row):
         if ($counter >= 3) break;
     ?>
-                <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
-                    <div class="img-bg-inner">
-                      <h2><?php echo $row->judul ?></h2>
-                      <p style="text-align: justify;"><?php echo $row->artikel ?></p>
-                    </div>
-                  </a>
-                </div>
+<div class="swiper-slide">
+  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
+    <div class="img-bg-inner">
+      <h2><?php echo $row->judul ?></h2>
+      <p style="text-align: justify;">
+        <?php
+          $content = $row->artikel;
+          $words = explode(' ', $content);
+          $truncatedContent = implode(' ', array_slice($words, 0, 25));
+          echo $truncatedContent . (count($words) > 25 ? '...' : '');
+        ?>
+      </p>
+    </div>
+  </a>
+</div>
+
+
                 <?php 
         $counter++;
         endforeach; 
@@ -121,7 +130,7 @@
             <div class="post-meta"> <span><?php echo $highlight_article->tanggal ?></span></div>
             <h2 class="post-highlight-title"><a href="single-post.html"><?php echo $highlight_article->judul ?></a></h2>
             <p style="text-align: justify;"><?php echo $short_description ?></p>
-            <button href="single-post.html" class="btn btn-primary">Read More</button>
+            <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
           </div>
         </div>
         
