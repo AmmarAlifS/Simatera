@@ -28,6 +28,7 @@
   <!-- Template Main CSS Files -->
   <link href="<?php echo base_url()?>assets/css/variables.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/css/main.css" rel="stylesheet">
+  
 
 </head>
 
@@ -48,14 +49,23 @@
         foreach($art as $row):
         if ($counter >= 3) break;
     ?>
-                <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
-                    <div class="img-bg-inner">
-                      <h2><?php echo $row->judul ?></h2>
-                      <p style="text-align: justify;"><?php echo $row->artikel ?></p>
-                    </div>
-                  </a>
-                </div>
+<div class="swiper-slide">
+  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
+    <div class="img-bg-inner">
+      <h2><?php echo $row->judul ?></h2>
+      <p style="text-align: justify;">
+        <?php
+          $content = $row->artikel;
+          $words = explode(' ', $content);
+          $truncatedContent = implode(' ', array_slice($words, 0, 25));
+          echo $truncatedContent . (count($words) > 25 ? '...' : '');
+        ?>
+      </p>
+    </div>
+  </a>
+</div>
+
+
                 <?php 
         $counter++;
         endforeach; 
@@ -110,8 +120,8 @@
       ?>
         <div class="col-lg-12 post-entry-highlight">
           <?php
-          $short_description = substr($row->artikel, 0, 20);
-          if (strlen($row->artikel) > 20) {
+          $short_description = implode(' ', array_slice(explode(' ', $row->artikel), 0, 20));
+          if (str_word_count($row->artikel) > 20) {
             $short_description .= '...';
           }
           ?>
@@ -120,7 +130,7 @@
             <div class="post-meta"> <span><?php echo $highlight_article->tanggal ?></span></div>
             <h2 class="post-highlight-title"><a href="single-post.html"><?php echo $highlight_article->judul ?></a></h2>
             <p style="text-align: justify;"><?php echo $short_description ?></p>
-            <button href="single-post.html" class="btn btn-primary">Read More</button>
+            <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
           </div>
         </div>
         
@@ -130,18 +140,42 @@
           $post_entry_class = "col-lg-4";
           
           // Create shortened description with "read more" button
-          $short_description = substr($row->artikel, 0, 100);
-          if (strlen($row->artikel) > 20) {
-            $short_description .= '...';
-          }
+$words = explode(' ', $row->artikel);
+$short_description = '';
+$lineCount = 0;
+$lineLength = 0;
+
+foreach ($words as $word) {
+  $short_description .= $word . ' ';
+  $lineLength += strlen($word) + 1; // +1 for the space after the word
+
+  if ($lineLength > 50) { // Adjust the line length limit as per your requirements
+    $short_description .= '...';
+    break;
+  }
+
+  if (substr_count($short_description, "\n") >= 2) {
+    $short_description .= '...';
+    break;
+  }
+
+  if (substr_count($short_description, "\n") > $lineCount) {
+    $lineCount++;
+    $lineLength = 0;
+  }
+}
+
+
+
           ?>
           <div class="<?php echo $post_entry_class ?>">
             <div class="post-entry-1">
-              <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail"></a>
+              <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
               <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
-              <h2><a href="single-post.html"><?php echo $row->judul ?></a></h2>
-              <p style="text-align: justify;"><?php echo $short_description ?></p>
-              <button href="single-post.html" class="btn btn-primary">Read More</button>
+              <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
+              <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
+              <!-- <button href="<?php echo anchor('guest/artikel/'.$row->id_artikel)?>" class="btn btn-primary">Read More</button> -->
+              <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
             </div>
           </div>
           <?php
@@ -177,6 +211,17 @@
 </html>
 
 <style type="text/css">
+.post-entry-1 {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.post-entry-1 .post-thumbnail {
+  width: 100%;
+  height: 500px;
+}
+
   #trending {
   float: right;
   width: 25%;

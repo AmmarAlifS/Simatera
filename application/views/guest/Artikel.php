@@ -40,59 +40,62 @@
 
             <!-- ======= Halaman Artikel ======= -->
             <div class="Artikel">
-              <div class="post-meta"><span class="date">Sejarah</span> <span class="mx-1">&bullet;</span> <span><?php echo $xdetail->tanggal ?></span></div>
-              <h1 class="mb-5"><?php echo $xdetail->judul; ?></h1>
+  <div class="post-meta"><span class="date">Sejarah</span> <span class="mx-1">&bullet;</span> <span><?php echo $xdetail->tanggal ?></span></div>
+  <h1 class="mb-5"><?php echo $xdetail->judul; ?></h1>
               
-              <span><?php echo $xdetail->artikel; ?></span>
-              <!-- <p><span class="firstcharacter">P</span>ada tahun 1800-an pemahaman ekonomi pada umumnya menggunakan pandangan merkantilisme, yaitu kemakmuran dan kejayaan sebuah negara diukur dari jumlah persediaan emas yang dimiliki oleh negara tersebut akibat Perang boer di Afrika Selatan dan kekawatiran ekspansi negara Inggris yang merupakan negara adidaya saat itu pemerintah hindia-belanda merasa perlu untuk membuka cabang De Javasche Bank di Bandung (yang memang direncanakan untuk mendirikan ibukota Hindia-Belanda) untuk melindungi kekayaan negara dengan menjauhkannya dari daerah pesisir (Batavia) ke pedalaman (Bandung).</p> -->
+  <span><?php echo $xdetail->artikel; ?></span>
 
-                  <!-- ======= Hero Slider Section ======= -->
-                <section id="hero-slider" class="hero-slider">
-                  <div class="container-md" data-aos="fade-in">
-                    <div class="row">
-                      <div class="col-12">
-                        <div class="swiper sliderFeaturedPosts">
-                          <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                              <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('<?php echo base_url()?>assets/img/De-Javasche-Bank1.jpg');">
-                                <div class="img-bg-inner">
-                                  <h2>Gedung De Javasche Bank 1909.</h2>
-                                  <p>Gedung De Javasche Bank dibangun pada tahun1909 dan menghadap ke Landraadweg (Jl. Perintis Kemerdekaan).</p>
-                                </div>
-                              </a>
-                            </div>
-
-                            <div class="swiper-slide">
-                              <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('<?php echo base_url()?>assets/img/De-Javasche-Bank2.jpg');">
-                                <div class="img-bg-inner">
-                                  <h2>Gedung De Javasche Bank Tahun 1930.</h2>
-                                  <p>Gedung De Javasche Bank Bandung yang baru menghadap ke Logeweg (Jl. Braga) pada awal tahun 1930-an.</p>
-                                </div>
-                              </a>
-                            </div>
-
-                            <div class="swiper-slide">
-                              <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('<?php echo base_url()?>assets/img/De-Javasche-Bank3.jpg');">
-                                <div class="img-bg-inner">
-                                  <h2>Gedung De Javasche Bank Tahun </h2>
-                                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                          <div class="custom-swiper-button-next">
-                            <span class="bi-chevron-right"></span>
-                          </div>
-                          <div class="custom-swiper-button-prev">
-                            <span class="bi-chevron-left"></span>
-                          </div>
-
-                          <div class="swiper-pagination"></div>
-                        </div>
-                      </div>
+  <div class="image-slider">
+    <!-- ======= Hero Slider Section ======= -->
+    <section id="hero-slider" class="hero-slider">
+      <div class="container-md" data-aos="fade-in">
+        <div class="row">
+          <div class="col-12">
+            <div class="swiper sliderFeaturedPosts">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('<?php echo base_url()?>assets/img/De-Javasche-Bank1.jpg');">
+                    <div class="img-bg-inner">
+                      <h2>Gedung De Javasche Bank 1909.</h2>
+                      <p>Gedung De Javasche Bank dibangun pada tahun1909 dan menghadap ke Landraadweg (Jl. Perintis Kemerdekaan).</p>
                     </div>
-                  </div>
-                </section><!-- End Hero Slider Section -->
+                  </a>
+                </div>
+
+                <div class="swiper-slide">
+                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('<?php echo base_url()?>assets/img/De-Javasche-Bank2.jpg');">
+                    <div class="img-bg-inner">
+                      <h2>Gedung De Javasche Bank Tahun 1930.</h2>
+                      <p>Gedung De Javasche Bank Bandung yang baru menghadap ke Logeweg (Jl. Braga) pada awal tahun 1930-an.</p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="swiper-slide">
+                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('<?php echo base_url()?>assets/img/De-Javasche-Bank3.jpg');">
+                    <div class="img-bg-inner">
+                      <h2>Gedung De Javasche Bank Tahun </h2>
+                      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="custom-swiper-button-next">
+                <span class="bi-chevron-right"></span>
+              </div>
+              <div class="custom-swiper-button-prev">
+                <span class="bi-chevron-left"></span>
+              </div>
+
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<!-- End Hero Slider Section -->
               <!-- <p>Sehubung dengan hal tersebut, J. Reijsenbach Presiden ke-10 De Javasche Bank mengirim surat No. 165 pada tanggal 7 Mei 1902 kepada Dewan Militer Hindia Belanda dan surat No. 420 tanggal 16 Juni 1902  kepada pemerintah Hindia-Belanda yang isinya meminta izin untuk membuka Kantor Cabang De Javasche Bank di Bandung. Tanggal 29 Oktober 1906 Direksi De Javasche Bank menerima surat dari Gubernur Jenderal Hindia-Belanda No. 52 tertanggal 24 Oktober 1906 tentang penyerahan sebidang tanah seluas 10.40 m2 di District Oedjoengbroengkoelon, desa Kejaksangirang kepada De Javasche Bank dengan Sertifikat Hak Milik No.103 tanggal 8 Maret 1907 berikut Surat Ukur N0. 153 tanggal 13 Februari 1907 dan No.Kadester 1022.</p>
               <p>Lahan Gedung De Javasche Bank adalah bekas Gudang tempat penyimpanan garam yang terbakar pada tahun 1901 dan kemudian menjadi sebuah lahan terbuka (plein) tempat pertunjukan sirku, sandiwara, dan pertunjukan seni lainnya. Pada malam minggu, para preanger planters saling jual tampang, bersantai, makan minum dan pamer mobil keluaran anyar milik mereka. Lahan ini terletak di seberang rumah kediaman keluarga belanda kaya soesman, pemilik kuda pacu dan lapangan pacuan kuda Tegallega. Rumah keluarga Siesnab sejarang menjadi Gedung Kerta Mukti.</p>
               <p>Gedung Javasche Bank (sekarang Gedung Bank Indonesia) dirancang oleh Edward Cuypers, Fermont, dan Hulswit terdiri dari dua buah gedung. Yang pertama disebut dengan Gedung Perintis yang terletak di sisi Jalan Perintis Kemerdekaan. Sedangkan gedung kedua disebut dengan Gedung Braga yang dibangun di ruas Jalan Braga, di depan Gedung Kertamukti</p>
