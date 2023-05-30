@@ -50,7 +50,7 @@
         if ($counter >= 3) break;
     ?>
 <div class="swiper-slide">
-  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
+  <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
     <div class="img-bg-inner">
       <h2><?php echo $row->judul ?></h2>
       <p style="text-align: justify;">
@@ -120,8 +120,8 @@
       ?>
         <div class="col-lg-12 post-entry-highlight">
           <?php
-          $short_description = implode(' ', array_slice(explode(' ', $row->artikel), 0, 20));
-          if (str_word_count($row->artikel) > 20) {
+          $short_description = implode(' ', array_slice(explode(' ', $row->artikel), 0, 25));
+          if (str_word_count($row->artikel) > 25) {
             $short_description .= '...';
           }
           ?>
