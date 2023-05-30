@@ -43,7 +43,7 @@
   <div class="post-meta"><span class="date">Sejarah</span> <span class="mx-1">&bullet;</span> <span><?php echo $xdetail->tanggal ?></span></div>
   <h1 class="mb-5"><?php echo $xdetail->judul;?></h1>
               
-<?php
+  <?php
 $artikel = $xdetail->artikel;
 
 // Split the article into an array of words
@@ -53,7 +53,7 @@ $words = str_word_count($artikel, 1);
 $total_words = count($words);
 
 // Find the midpoint index
-$midpoint = $total_words / 2;
+$midpoint = intval($total_words / 2);
 
 // Extract the first half of the article
 $first_half = implode(' ', array_slice($words, 0, $midpoint));
@@ -119,6 +119,7 @@ $combined = '<div class="text-justify" style="text-align: justify">' . $first_ha
 // Output the combined result
 echo $combined;
 ?>
+
 <?php
 $video = $xdetail->Video;
 
