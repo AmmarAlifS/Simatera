@@ -51,24 +51,18 @@
   <body>
 
     <main id="main">
-
-      <?php if ($artikel) : ?>
+      <!-- Search Results -->
 
       <section id="search-result" class="search-result">
         <div class="container">
           <div class="row">
             <div class="col-lg-9 col-md-8">
-
-              <?php $resulttotal = 0;foreach ($artikel as $art) : $resulttotal++;endforeach; ?>
-              
-              <h5 class="category-title">Menampilkan <?php echo $resulttotal ?> hasil untuk pencarian '<?php echo $_POST['keyword']; ?>'</h5>
-
                 <!-- Post Result 1 -->
               <div class="d-md-flex-column post-entry-2 small-img">
 
-                <?php foreach ($artikel as $art) : ?>
+              <?php foreach ($artikel as $art) : ?>
 
-                <a href="#" class="me-4 thumbnail"></a>
+              <a href="#" class="me-4 thumbnail"></a>
 
                 <div>
                   <div class="post-meta">
@@ -86,20 +80,10 @@
                 </div>  
                 <?php endforeach; ?>
               </div>
-                  
-                <?php else : ?>
-                  <?php $resulttotal = 0;foreach ($artikel as $art) : ?>
-                  <?php $resulttotal++;endforeach; ?>
-                  
-                  <h5 class="category-title">Menampilkan <?php echo $resulttotal ?> hasil untuk pencarian '<?php echo $this->session->userdata('keyword'); ?>'</h5>
-
-                    <div style="height: 400px;">
-                      <h3>Hasil Pencarian Tidak Ditemukan</h3>
-                    </div>
-                <?php endif ?>
             </div>
-
-            <div class="col-lg-3 col-md-4">
+          </div>
+   
+          <div class="col-lg-3 col-md-4">
               <!-- ======= Sidebar ======= -->
               <div class="aside-block">
                 <ul
@@ -454,7 +438,7 @@
               <!-- End Tags -->
             </div>
 
-            <?php echo $this->pagination->create_links().'&keyword='.$this->session->userdata('keyword'); ?>
+            <?php echo $this->pagination->create_links(); ?>
             
               <!-- Paging -->
               <div class="text-start py-4">
