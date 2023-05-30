@@ -51,7 +51,7 @@
 						<p>Jumlah Artikel</p>
 						</div>
 						<div class="icon">
-						<i class="ion ion-document-text"></i>
+						<i class="ion ion-compose"></i>
 						</div>
 						<a href="<?php echo base_url('admin/artikel/')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 					</div>
@@ -83,13 +83,13 @@
 				<div class="col-lg-3 col-xs-6">
 				<div class="small-box bg-blue">
 				    <div class="inner">
-				      <h3>About</h3>
-				      <p>Setting</p>
+				      <h3><?php echo $total_kategori; ?></h3>
+				      <p>Kategori</p>
 				    </div>
 				    <div class="icon">
-				      <i class="ion ion-gear-b"></i>
+				      <i class="ion ion-navicon"></i>
 				    </div>
-				    <a href="<?php echo base_url('admin/Setting')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				    <a href="<?php echo base_url('admin/Kategori')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 				  </div>
 				  
 				</div>

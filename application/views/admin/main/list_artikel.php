@@ -56,6 +56,7 @@
 				            <th>ID</th>
                     <th>Judul</th>
                     <th>Artikel</th>
+                    <th>Kategori</th>
                     <th>Tanggal</th>
 					          <th>Vidio</th>
 					          <th>Foto</th>
@@ -70,18 +71,24 @@
                   <tr>
 				            <td><?php echo $u->id_artikel ?></td>
                     <td><?php echo $u->judul ?></td>
-                    <td><?php echo $u->artikel ?></td>
+                    <td style="text-align: justify;"><?php echo character_limiter($u->artikel, 500); ?></td>
+                    <td><?php echo $u->kategori ?></td>
                     <td><?php echo $u->tanggal ?></td>
                     <td><?php echo $u->Video ?></td>
-                    <td><img width="100" height="100" src="<?= base_url('assets/img/')?><?php echo $u->Foto ?>"></td>
+                    <td>
+                      <img width="100" height="100" src="<?= base_url('assets/img/')?><?php echo $u->Foto ?>">
+                      <br>
+                      <img width="100" height="100" src="<?= base_url('assets/img/')?><?php echo $u->Foto2 ?>">
+                      <br>
+                      <img width="100" height="100" src="<?= base_url('assets/img/')?><?php echo $u->Foto3 ?>">
 										<td>
-                      <a href="<?php echo base_url().'admin/Artikel/get_update/'.$u->id_artikel;?>"><span class="fa fa-pencil"></span></a>
+                      <a class="btn btn-info btn-sm glyphicon glyphicon-edit" href="<?php echo base_url().'admin/Artikel/get_update/'.$u->id_artikel;?>"></a>
                       &nbsp;&nbsp;&nbsp;
-                      <a href='<?php echo site_url('admin/Artikel/hapus/'.$u->id_artikel,''); ?>' onClick='return confirm("Anda yakin ingin menghapus data ini?")'><span class="fa fa-trash"></a>
+                      <a class="btn btn-danger btn-sm glyphicon glyphicon-trash" href='<?php echo site_url('admin/Artikel/hapus/'.$u->id_artikel,''); ?>' onClick='return confirm("Anda yakin ingin menghapus data ini?")'></a>
 	      						  <!-- <a href="<?= base_url('admin/Artikel/hapus/'.$u->id_artikel) ?>"><span class="fa fa-trash"></span></a> -->
                     </td>
                   </tr>
-                  <?php } ?>
+                  <?php $judul_id++; } ?>
                 </tbody>
               </table>
             </div>
