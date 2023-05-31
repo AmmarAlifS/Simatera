@@ -68,7 +68,7 @@ class guest extends CI_Controller {
 	{
 		$config['base_url'] = 'http://localhost/Simatera/guest/list'; // URL for the pagination links
 		$config['total_rows'] = $this->m_list->count_list(); // Total number of records to paginate		
-		$config['per_page'] = 10; // Number of records to display per page
+		$config['per_page'] = 9; // Number of records to display per page
 		
 		$this->pagination->initialize($config);
 		
