@@ -73,7 +73,7 @@ class guest extends CI_Controller {
 		$this->pagination->initialize($config);
 		
 		$content['page'] = $this->uri->segment(3);
-		$content['artikel']=$this->m_list->get_data($config['per_page'], $content['page']);
+		$content['artikel']=$this->m_list->get_data($config['per_page'], $content['page'])->result();
 		
 		$data['setting'] = $this->m_setting->tampil_data();
 		

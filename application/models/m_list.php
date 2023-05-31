@@ -4,7 +4,7 @@ class M_list extends CI_Model {
 
 public function get_data($limit, $start)
 	{
-		return $this->db->get('artikel_simatera', $limit, $start)->result_array();
+		return $this->db->get('artikel_simatera', $limit, $start);
 	}
 
 public function count_list()

@@ -52,36 +52,33 @@
 
     <main id="main">
       <!-- Search Results -->
-
       <section id="search-result" class="search-result">
         <div class="container">
           <div class="row">
             <div class="col-lg-9 col-md-8">
-                <!-- Post Result 1 -->
+            <?php foreach($artikel as $row);?>
+            <?php
+            $short_description = implode(' ', array_slice(explode(' ', $row->artikel), 0, 20));
+            if (str_word_count($row->artikel) > 20) {
+              $short_description .= '...';
+            } ?>
+              <!-- Post Result 1 -->
               <div class="d-md-flex-column post-entry-2 small-img">
-
-              <?php foreach ($artikel as $art) : ?>
-
-              <a href="#" class="me-4 thumbnail"></a>
-
-                <div>
-                  <div class="post-meta">
-                    <span class="date"><?php echo $art['Kategori']; ?></span>
-                    <span class="mx-1">&bullet;</span> <span><?php echo $art['tanggal']; ?></span>
+                <?php foreach ($artikel as $row) :
+                  $post_entry_class = "col-lg-4 col-md-6";
+                ?>
+                  <div class="<?php echo $post_entry_class ?>">
+                    <div class="post-entry-1">
+                      <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
+                      <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
+                      <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
+                      <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
+                      <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
+                    </div>
                   </div>
-                  <h3>
-                    <a href="#"
-                      ><?php echo $art['judul']; ?></a
-                    >
-                  </h3>
-                  <p>
-                    <?php echo $art['artikel']; ?>
-                  </p>
-                </div>  
                 <?php endforeach; ?>
               </div>
             </div>
-          </div>
    
           <div class="col-lg-3 col-md-4">
               <!-- ======= Sidebar ======= -->
@@ -478,3 +475,82 @@
     <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
   </body>
 </html>
+
+<style type="text/css">
+.post-entry-1 {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.post-entry-1 .post-thumbnail {
+  width: 100%;
+  height: 500px;
+}
+
+  #trending {
+  float: right;
+  width: 25%;
+  padding: 0 20px;
+}
+
+#trending h2.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+#trending .card {
+  margin-bottom: 20px;
+}
+
+#trending .card-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#trending .card-text {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 0;
+}
+
+#trending img {
+  width: 100%;
+  height: auto;
+}
+.trending-number {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.post-entry-highlight a{
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .btn:hover {
+    background-color: #D3D3D3;
+  }
+</style>
