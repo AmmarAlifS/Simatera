@@ -9924,20 +9924,21 @@ a:focus {
 	}
 }
 .bg-login-image {
-	background: url(../img/Login_image.jpg);
+	background: url(../img/Login_img.jpg);
 	background-position: center;
 	background-size: cover;
 }
 .bg-register-image {
-	background: url(../img/Register_image.jpg);
+	background: url(../img/Register_img.jpg);
 	background-position: center;
 	background-size: cover;
 }
 .bg-password-image {
-	background: url(../img/password_image.jpg);
+	background: url(../img/password_img.jpg);
 	background-position: center;
 	background-size: cover;
 }
+
 form.user .custom-checkbox.small label {
 	line-height: 1.5rem;
 }

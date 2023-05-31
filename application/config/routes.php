@@ -54,6 +54,7 @@ $route['admin'] = 'Auth_login';
 $route['default_controller'] = 'guest';
 $route['user'] = 'user/index';
 $route['admin'] = 'CLogin';
+$route['google-login'] = 'google_login';
 // $route['user'] = 'User';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
