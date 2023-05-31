@@ -59,8 +59,7 @@
           <div class="row">
             <div class="col-lg-9 col-md-8">
 
-              <?php $resulttotal = 0;foreach ($artikel as $art) : ?>
-              <?php $resulttotal++;endforeach; ?>
+              <?php $resulttotal = 0;foreach ($artikel as $art) : $resulttotal++;endforeach; ?>
               
               <h5 class="category-title">Menampilkan <?php echo $resulttotal ?> hasil untuk pencarian '<?php echo $_POST['keyword']; ?>'</h5>
 
@@ -85,22 +84,20 @@
                     <?php echo $art['artikel']; ?>
                   </p>
                 </div>  
-                <?php 
-                endforeach; ?>
+                <?php endforeach; ?>
               </div>
                   
                 <?php else : ?>
                   <?php $resulttotal = 0;foreach ($artikel as $art) : ?>
                   <?php $resulttotal++;endforeach; ?>
                   
-                  <h5 class="category-title">Menampilkan <?php echo $resulttotal ?> hasil untuk pencarian '<?php echo $_POST['keyword']; ?>'</h5>
-                  
+                  <h5 class="category-title">Menampilkan <?php echo $resulttotal ?> hasil untuk pencarian '<?php echo $this->session->userdata('keyword'); ?>'</h5>
+
                     <div style="height: 400px;">
                       <h3>Hasil Pencarian Tidak Ditemukan</h3>
                     </div>
                 <?php endif ?>
-
-              </div>
+            </div>
 
             <div class="col-lg-3 col-md-4">
               <!-- ======= Sidebar ======= -->
@@ -457,6 +454,8 @@
               <!-- End Tags -->
             </div>
 
+            <?php echo $this->pagination->create_links().'&keyword='.$this->session->userdata('keyword'); ?>
+            
               <!-- Paging -->
               <div class="text-start py-4">
                 <div class="custom-pagination">

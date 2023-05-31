@@ -104,6 +104,25 @@
               <label>Gambar</label>
               <input type="file" name="filefoto" name="foto" style="width: 100%;" required>
             </div>
+
+            <div class="form-group">
+              <label>Gambar 2</label>
+              <input type="file" name="filefoto2" name="foto2" style="width: 100%;" required>
+            </div>
+
+            <div class="form-group">
+              <label>Gambar 3</label>
+              <input type="file" name="filefoto3" name="foto3" style="width: 100%;" required>
+            </div>
+
+            <div class="form-group">
+              <select  class="form-control" name="kategori">
+                  <option selected="selected">Pilih Kategori</option>
+                  <?php foreach($dd as $u) { ?>
+                  <option value="<?= $u->nama_kategori ?>"><?= $u->nama_kategori ?></option>
+                  <?php } ?>
+                </select>
+              </div>
             <!-- /.form group -->
             <div class="form-group">
               <!--<label>

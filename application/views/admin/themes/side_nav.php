@@ -33,6 +33,11 @@
           </ul>
         </li>
         <li>
+          <a href="<?php echo base_url();?>admin/Kategori">
+            <i class="fa fa-list-alt"></i> <span>Kategori</span>
+          </a>
+        </li>
+        <li>
           <a href="<?php echo base_url();?>admin/adminUser">
             <i class="fa fa-user"></i> <span>Admin</span>
           </a>

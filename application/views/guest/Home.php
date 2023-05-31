@@ -50,7 +50,7 @@
         if ($counter >= 3) break;
     ?>
 <div class="swiper-slide">
-  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
+  <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
     <div class="img-bg-inner">
       <h2><?php echo $row->judul ?></h2>
       <p style="text-align: justify;">
@@ -120,8 +120,8 @@
       ?>
         <div class="col-lg-12 post-entry-highlight">
           <?php
-          $short_description = implode(' ', array_slice(explode(' ', $row->artikel), 0, 20));
-          if (str_word_count($row->artikel) > 20) {
+          $short_description = implode(' ', array_slice(explode(' ', $row->artikel), 0, 25));
+          if (str_word_count($row->artikel) > 25) {
             $short_description .= '...';
           }
           ?>
@@ -130,7 +130,7 @@
             <div class="post-meta"> <span><?php echo $highlight_article->tanggal ?></span></div>
             <h2 class="post-highlight-title"><a href="single-post.html"><?php echo $highlight_article->judul ?></a></h2>
             <p style="text-align: justify;"><?php echo $short_description ?></p>
-            <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
+            <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
           </div>
         </div>
         
@@ -174,8 +174,8 @@ foreach ($words as $word) {
               <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
               <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
               <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
-              <!-- <button href="<?php echo anchor('guest/artikel/'.$row->id_artikel)?>" class="btn btn-primary">Read More</button> -->
-              <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
+              <!-- <button href="<?php echo anchor('guest/single_post/'.$row->id_artikel)?>" class="btn btn-primary">Read More</button> -->
+              <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
             </div>
           </div>
           <?php
