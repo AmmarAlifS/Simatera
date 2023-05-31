@@ -56,66 +56,64 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-9 col-md-8">
-            <?php foreach($artikel as $row);?>
-            <?php
-            $short_description = implode(' ', array_slice(explode(' ', $row->artikel), 0, 20));
-            if (str_word_count($row->artikel) > 20) {
-              $short_description .= '...';
-            } ?>
-              <!-- Post Result 1 -->
-              <div class="d-md-flex-column post-entry-2 small-img">
-              <div class="row">
-  <?php $count = 0; ?>
-  <?php foreach ($artikel as $row) :
-    $post_entry_class = "col-lg-4 col-md-6";
-    // Create shortened description with "read more" button
-    $words = explode(' ', $row->artikel);
-    $short_description = '';
-    $lineCount = 0;
-    $lineLength = 0;
+              <?php foreach($artikel as $row);?>
+              <?php
+              $short_description = implode(' ', array_slice(explode(' ', $row->artikel), 0, 20));
+              if (str_word_count($row->artikel) > 20) {
+                $short_description .= '...';
+              } ?>
+                <!-- Post Result 1 -->
+                <div class="d-md-flex-column post-entry-2 small-img">
+                  <div class="row">
+                    <?php $count = 0; ?>
+                    <?php foreach ($artikel as $row) :
+                      $post_entry_class = "col-lg-4 col-md-6";
+                      // Create shortened description with "read more" button
+                      $words = explode(' ', $row->artikel);
+                      $short_description = '';
+                      $lineCount = 0;
+                      $lineLength = 0;
 
-    foreach ($words as $word) {
-      $short_description .= $word . ' ';
-      $lineLength += strlen($word) + 1; // +1 for the space after the word
+                      foreach ($words as $word) {
+                        $short_description .= $word . ' ';
+                        $lineLength += strlen($word) + 1; // +1 for the space after the word
 
-      if ($lineLength > 50) { // Adjust the line length limit as per your requirements
-        $short_description .= '...';
-        break;
-      }
+                        if ($lineLength > 50) { // Adjust the line length limit as per your requirements
+                          $short_description .= '...';
+                          break;
+                        }
 
-      if (substr_count($short_description, "\n") >= 2) {
-        $short_description .= '...';
-        break;
-      }
+                        if (substr_count($short_description, "\n") >= 2) {
+                          $short_description .= '...';
+                          break;
+                        }
 
-      if (substr_count($short_description, "\n") > $lineCount) {
-        $lineCount++;
-        $lineLength = 0;
-      }
-    }
-  ?>
+                        if (substr_count($short_description, "\n") > $lineCount) {
+                          $lineCount++;
+                          $lineLength = 0;
+                        }
+                      } ?>
 
-    <div class="<?php echo $post_entry_class ?>">
-      <div class="post-entry-1">
-        <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
-        <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
-        <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
-        <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
-        <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
-      </div>
-    </div>
+                    <div class="<?php echo $post_entry_class ?>">
+                      <div class="post-entry-1">
+                        <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
+                        <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
+                        <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
+                        <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
+                        <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
+                      </div>
+                    </div>
 
-    <?php
-    $count++;
-    if ($count % 3 === 0) {
-      echo '</div><div class="row">';
-    }
-    ?>
+                    <?php
+                    $count++;
+                    if ($count % 3 === 0) {
+                      echo '</div><div class="row">';
+                    }
+                    ?>
 
-  <?php endforeach; ?>
-</div>
-
-              </div>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
             </div>
    
           <div class="col-lg-3 col-md-4">
@@ -137,336 +135,37 @@
                       aria-controls="pills-popular"
                       aria-selected="true"
                     >
-                      Popular
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link"
-                      id="pills-trending-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-trending"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-trending"
-                      aria-selected="false"
-                    >
-                      Latest
+                      New Post 
+                      <!-- Populer -->
                     </button>
                   </li>
                 </ul>
 
-                <div class="tab-content" id="pills-tabContent">
-                  <!-- Populer -->
-                  <div
-                    class="tab-pane fade show active"
-                    id="pills-popular"
-                    role="tabpanel"
-                    aria-labelledby="pills-popular-tab"
-                  >
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 13rd '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
-                          Dunia</a
-                        >
-                      </h2>
-                    </div>
+                <?php 
+                    $count = 1;
+                    $reverse_art = array_reverse($art); // Reverse the order of the array
+                  ?>
+                  <?php foreach($reverse_art as $row): ?>
 
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 13rd '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Stasiun Bandung dalam Lintasan Sejarah Kereta Api</a
-                        >
-                      </h2>
-                    </div>
 
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 13rd '23</span>
+                    <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                      <div class="post-entry-3 border-bottom">
+                        <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                        <h2 class="mb-2"><a href="#"> </span> <?php echo $row->judul ?></a></h2>
+                        <span class="author d-block">Rendy Riansyah</span>
                       </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Pemandian Cihampelas: Kolam Renang Pertama di
-                          Indonesia Peninggalan Belanda</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
                     </div>
-
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 13rd '22</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Sejarah Tugu Prasasti Peringatan Pertempuran Gedung
-                          Sate</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
+                  <!-- <div class="card mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title mb-0">
+                        <span class="trending-number"><?php echo $count ?>.</span> <?php echo $row->judul ?>
+                      </h5>
+                      <p class="card-text"><small class="text-muted"><?php echo date('F j, Y', strtotime($row->tanggal)); ?></small></p>
                     </div>
-
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 13rd '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Sejarah Lengkap Gedung Lanraad (Gedung Indonesia
-                          Menggugat)</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 13rd '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Taman Tegallega, Tempat Balap Kuda Favorit Orang
-                          Belanda Tempo Doeloe</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-                  </div>
-                  <!-- End Populer -->
-
-                  <!-- Trending -->
-                  <div
-                    class="tab-pane fade"
-                    id="pills-trending"
-                    role="tabpanel"
-                    aria-labelledby="pills-trending-tab"
-                  >
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
-                          Dunia</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Taman Tegallega, Tempat Balap Kuda Favorit Orang
-                          Belanda Tempo Doeloe</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Sejarah Tugu Prasasti Peringatan Pertempuran Gedung
-                          Sate</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Pemandian Cihampelas: Kolam Renang Pertama di
-                          Indonesia Peninggalan Belanda</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Stasiun Bandung dalam Lintasan Sejarah Kereta Api</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Sejarah Lengkap Gedung Lanraad (Gedung Indonesia
-                          Menggugat)</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-                  </div>
-                  <!-- End Trending -->
-
-                  <!-- Latest -->
-                  <div
-                    class="tab-pane fade"
-                    id="pills-latest"
-                    role="tabpanel"
-                    aria-labelledby="pills-latest-tab"
-                  >
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Sejarah Lengkap Gedung Lanraad (Gedung Indonesia
-                          Menggugat)</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah Bandung</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Stasiun Bandung dalam Lintasan Sejarah Kereta Api</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah Bandung</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Pemandian Cihampelas: Kolam Renang Pertama di
-                          Indonesia Peninggalan Belanda</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah Bandung</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Sejarah Tugu Prasasti Peringatan Pertempuran Gedung
-                          Sate</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Jenny Wilson</span>
-                    </div>
-
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah Bandung</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Taman Tegallega, Tempat Balap Kuda Favorit Orang
-                          Belanda Tempo Doeloe</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah Bandung</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
-                          Dunia</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-                  </div>
-                  <!-- End Latest -->
-                </div>
+                  </div> -->
+                  <?php $count++; ?>
+                  <?php endforeach; ?>
               </div>
-
-              <div class="aside-block">
-                <h3 class="aside-title">Video</h3>
-                <div class="video-post">
-                  <a
-                    href="https://www.youtube.com/watch?v=dQw4w9WfgXcQ"
-                    class="glightbox link-video"
-                  >
-                    <span class="bi-play-fill"></span>
-                    <img
-                      src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </a>
-                </div>
-              </div>
-              <!-- End Video -->
 
               <!-- End Categories -->
 
@@ -591,4 +290,40 @@
   .btn:hover {
     background-color: #D3D3D3;
   }
+        
+  /* SideBar */
+  .post-entry-3 {
+    margin-bottom: 35px;
+  }
+
+  .post-entry-3 img {
+    margin-bottom: 30px;
+  }
+
+  .post-entry-3 h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+
+  .post-entry-3 h2 a {
+    color: var(--color-black);
+  }
+
+  .post-entry-3.lg h2 {
+    font-size: 40px;
+    line-height: 1;
+  }
+
+  .post-meta-3 {
+    font-size: 11px;
+    letter-spacing: 0.07rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: var(--font-secondary);
+    color: rgba(var(--color-black-rgb), 0.4);
+    margin-bottom: 10px;
+}
 </style>

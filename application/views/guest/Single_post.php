@@ -113,31 +113,31 @@ $html_snippet = '<div class="image-slider">
   </div>';
 
 
-// Combine the first half, HTML snippet, and second half
-$combined = '<div class="text-justify" style="text-align: justify">' . $first_half . ' ' . $html_snippet . ' ' . $second_half . '</div>';
+    // Combine the first half, HTML snippet, and second half
+    $combined = '<div class="text-justify" style="text-align: justify">' . $first_half . ' ' . $html_snippet . ' ' . $second_half . '</div>';
 
-// Output the combined result
-echo $combined;
-?>
+    // Output the combined result
+    echo $combined;
+    ?>
 
-<?php
-$video = $xdetail->Video;
+    <?php
+    $video = $xdetail->Video;
 
-// Extract the video ID from the YouTube URL
-$video_id = '';
-$matches = [];
-$pattern = '/(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/|y2u\.be\/)([a-zA-Z0-9_-]{11})/';
-preg_match($pattern, $video, $matches);
-if (isset($matches[1])) {
-    $video_id = $matches[1];
-}
-?>
+    // Extract the video ID from the YouTube URL
+    $video_id = '';
+    $matches = [];
+    $pattern = '/(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/|y2u\.be\/)([a-zA-Z0-9_-]{11})/';
+    preg_match($pattern, $video, $matches);
+    if (isset($matches[1])) {
+        $video_id = $matches[1];
+    }
+    ?>
 
-<center>
-<div class="video-container" style="margin-top: 20px;">
-    <iframe width="503" height="250" src="https://www.youtube.com/embed/<?= $video_id; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-</center>
+    <center>
+    <div class="video-container" style="margin-top: 20px;">
+        <iframe width="503" height="250" src="https://www.youtube.com/embed/<?= $video_id; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    </center>
 
 
 
