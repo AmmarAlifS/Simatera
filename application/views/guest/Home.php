@@ -105,7 +105,7 @@
 </section>
 
     <!-- ======= Post Grid Section ======= -->
-<section id="posts" class="posts">
+<!-- <section id="posts" class="posts">
   <div class="container">
     <div class="row">
       <?php 
@@ -172,15 +172,182 @@ foreach ($words as $word) {
               <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
               <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
               <!-- <button href="<?php echo anchor('guest/single_post/'.$row->id_artikel)?>" class="btn btn-primary">Read More</button> -->
-              <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
-            </div>
-          </div>
-          <?php
+              <!-- <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a> -->
+            <!-- </div> -->
+          <!-- </div> -->
+          <!-- <?php 
         }
       ?>
     </div>
   </div>
+</section> -->
+<section id="posts" class="posts" style="margin-left: 100px;">
+  <div class="container">
+    <div class="row">
+      <?php
+      $counter = 0; // Initialize counter
+
+      foreach($art as $row) {
+        // Create shortened description with "read more" button
+        $words = explode(' ', $row->artikel);
+        $short_description = '';
+        $lineCount = 0;
+        $lineLength = 0;
+
+        foreach ($words as $word) {
+          $short_description .= $word . ' ';
+          $lineLength += strlen($word) + 1; // +1 for the space after the word
+
+          if ($lineLength > 50) { // Adjust the line length limit as per your requirements
+            $short_description .= '...';
+            break;
+          }
+
+          if (substr_count($short_description, "\n") >= 2) {
+            $short_description .= '...';
+            break;
+          }
+
+          if (substr_count($short_description, "\n") > $lineCount) {
+            $lineCount++;
+            $lineLength = 0;
+          }
+        }
+      ?>
+
+      <div class="thumb-box">
+        <a href="">
+          <div class="image-container">
+            <img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="">
+          </div>
+          <span class="overlay-box">
+            <span class="meta"><?php echo $row->tanggal ?></span>
+            <span class="main-titlee"><?php echo $row->judul ?></span>
+            <span class="description"><?php echo $short_description ?></span>
+          </span>
+        </a>
+      </div>
+
+      <?php
+        $counter++;
+        if ($counter % 3 == 0) {
+          echo '</div><div class="row">'; // Start a new row after every 3 posts
+        }
+      } ?>
+    </div>
+  </div>
 </section>
+
+<style type="text/css">
+
+  #posts.posts a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  #posts.posts * {
+    outline: 0;
+  }
+
+  #posts.posts body {
+    margin-top: 100px;
+    font-size: 11px;
+    color: #aaa;
+    font-family: "Poppins", sans-serif;
+  }
+
+  #posts.posts .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  #posts.posts .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  #posts.posts .thumb-box {
+    display: flex;
+    width: calc(33.3333% - 20px);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  #posts.posts .thumb-box a {
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+/*  #posts.posts .image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+  }*/
+
+  #posts.posts .thumb-box img {
+/*    position: absolute;*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  #posts.posts .overlay-box {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 3;
+    left: 0;
+    padding: 5%;
+    background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.75));
+  }
+
+  #posts.posts .meta {
+    font-size: 14px;
+    display: block;
+  }
+
+  #posts.posts .main-titlee {
+    font-size: 16px;
+    display: block;
+    font-weight: 700;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  }
+
+  #posts.posts .description {
+    color: #ccc;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+    color: #ccc;
+    max-height: 0;
+    line-height: 18px;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease-out, max-height 0.4s ease-out, margin 0.4s;
+  }
+
+  #posts.posts .thumb-box a:hover .description {
+    opacity: 1;
+    max-height: 100px;
+    margin-top: 5px;
+    transition: opacity 0.4s ease-out, max-height 0.9s ease-out;
+  }
+
+  #posts.posts .thumb-box a:hover .overlay-box {
+    background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1));
+  }
+</style>
+
 
 
 
