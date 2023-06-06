@@ -72,7 +72,7 @@
 
                 <div>
                   <div class="post-meta">
-                    <span class="date"><?php echo $art['Kategori']; ?></span>
+                    <span class="date"><?php echo $art['kategori']; ?></span>
                     <span class="mx-1">&bullet;</span> <span><?php echo $art['tanggal']; ?></span>
                   </div>
                   <h3>

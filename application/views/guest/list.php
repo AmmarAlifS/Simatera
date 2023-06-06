@@ -152,7 +152,7 @@
                       <div class="post-entry-3 border-bottom">
                         <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
                         <h2 class="mb-2"><a href="#"> </span> <?php echo $row->judul ?></a></h2>
-                        <span class="author d-block">Rendy Riansyah</span>
+                        <span class="author d-block"></span>
                       </div>
                     </div>
                   <!-- <div class="card mb-3">

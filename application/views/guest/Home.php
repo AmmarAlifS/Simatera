@@ -49,27 +49,27 @@
         foreach($art as $row):
         if ($counter >= 3) break;
     ?>
-      <div class="swiper-slide">
-        <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
-          <div class="img-bg-inner">
-            <h2><?php echo $row->judul ?></h2>
-            <p style="text-align: justify;">
-              <?php
-                $content = $row->artikel;
-                $words = explode(' ', $content);
-                $truncatedContent = implode(' ', array_slice($words, 0, 25));
-                echo $truncatedContent . (count($words) > 25 ? '...' : '');
-              ?>
-            </p>
-          </div>
-        </a>
-      </div>
+<div class="swiper-slide">
+  <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
+    <div class="img-bg-inner">
+      <h2><?php echo $row->judul ?></h2>
+      <p style="text-align: justify;">
+        <?php
+          $content = $row->artikel;
+          $words = explode(' ', $content);
+          $truncatedContent = implode(' ', array_slice($words, 0, 25));
+          echo $truncatedContent . (count($words) > 25 ? '...' : '');
+        ?>
+      </p>
+    </div>
+  </a>
+</div>
 
 
-      <?php 
+                <?php 
         $counter++;
         endforeach; 
-      ?>              
+    ?>              
               </div>
               <div class="custom-swiper-button-next">
                 <span class="bi-chevron-right"></span>
@@ -85,59 +85,27 @@
       </div>
     </section><!-- End Hero Slider Section -->
 
-<section id="trending" class="mb-5" style="margin-right: 95px; margin-top: 53px;">
-  <div class="aside-block">
-                <ul
-                  class="nav nav-pills custom-tab-nav mb-4"
-                  id="pills-tab"
-                  role="tablist"
-                >
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link active"
-                      id="pills-popular-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-popular"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-popular"
-                      aria-selected="true"
-                    >
-                      New Post 
-                      <!-- Populer -->
-                    </button>
-                  </li>
-                </ul>
-
-                <?php 
-                    $count = 1;
-                    $reverse_art = array_reverse($art); // Reverse the order of the array
-                  ?>
-                  <?php foreach($reverse_art as $row): ?>
-
-
-                    <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
-                      <div class="post-entry-3 border-bottom">
-                        <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                        <h2 class="mb-2"><a href="#"> </span> <?php echo $row->judul ?></a></h2>
-                        <span class="author d-block">Rendy Riansyah</span>
-                      </div>
-                    </div>
-                  <!-- <div class="card mb-3">
-                    <div class="card-body">
-                      <h5 class="card-title mb-0">
-                        <span class="trending-number"><?php echo $count ?>.</span> <?php echo $row->judul ?>
-                      </h5>
-                      <p class="card-text"><small class="text-muted"><?php echo date('F j, Y', strtotime($row->tanggal)); ?></small></p>
-                    </div>
-                  </div> -->
-                  <?php $count++; ?>
-                  <?php endforeach; ?>
+<section id="trending" clas s="mb-5">
+  <h2 class="section-title">New post</h2>
+  <?php 
+    $count = 1;
+    $reverse_art = array_reverse($art); // Reverse the order of the array
+  ?>
+  <?php foreach($reverse_art as $row): ?>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title mb-0">
+        <span class="trending-number"><?php echo $count ?>.</span> <?php echo $row->judul ?>
+      </h5>
+      <p class="card-text"><small class="text-muted"><?php echo date('F j, Y', strtotime($row->tanggal)); ?></small></p>
+    </div>
   </div>
+  <?php $count++; ?>
+  <?php endforeach; ?>
 </section>
 
     <!-- ======= Post Grid Section ======= -->
-<section id="posts" class="posts" style="margin-left: 100px;">
+<section id="posts" class="posts">
   <div class="container">
     <div class="row">
       <?php 
@@ -162,8 +130,7 @@
             <div class="post-meta"> <span><?php echo $highlight_article->tanggal ?></span></div>
             <h2 class="post-highlight-title"><a href="single-post.html"><?php echo $highlight_article->judul ?></a></h2>
             <p style="text-align: justify;"><?php echo $short_description ?></p>
-            <p><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>" class="footer-link-more">Read More</a></p>
-            <!-- <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a> -->
+            <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
           </div>
         </div>
         
@@ -173,45 +140,44 @@
           $post_entry_class = "col-lg-4";
           
           // Create shortened description with "read more" button
-            $words = explode(' ', $row->artikel);
-            $short_description = '';
-            $lineCount = 0;
-            $lineLength = 0;
+$words = explode(' ', $row->artikel);
+$short_description = '';
+$lineCount = 0;
+$lineLength = 0;
 
-            foreach ($words as $word) {
-              $short_description .= $word . ' ';
-              $lineLength += strlen($word) + 1; // +1 for the space after the word
+foreach ($words as $word) {
+  $short_description .= $word . ' ';
+  $lineLength += strlen($word) + 1; // +1 for the space after the word
 
-              if ($lineLength > 50) { // Adjust the line length limit as per your requirements
-                $short_description .= '...';
-                break;
-              }
+  if ($lineLength > 50) { // Adjust the line length limit as per your requirements
+    $short_description .= '...';
+    break;
+  }
 
-              if (substr_count($short_description, "\n") >= 2) {
-                $short_description .= '...';
-                break;
-              }
+  if (substr_count($short_description, "\n") >= 2) {
+    $short_description .= '...';
+    break;
+  }
 
-              if (substr_count($short_description, "\n") > $lineCount) {
-                $lineCount++;
-                $lineLength = 0;
-              }
-            }
-
-
-
+  if (substr_count($short_description, "\n") > $lineCount) {
+    $lineCount++;
+    $lineLength = 0;
+  }
+}
           ?>
-            <div class="<?php echo $post_entry_class ?>">
-              <div class="post-entry-1">
-                <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
-                <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
-                <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
-                <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
-                <!-- <button href="<?php echo anchor('guest/single_post/'.$row->id_artikel)?>" class="btn btn-primary">Read More</button> -->
-                <p><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>" class="footer-link-more">Read More</a></p>
-              </div>
+          <div class="<?php echo $post_entry_class ?>">
+            <div class="post-entry-1">
+              <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
+              <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
+              <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
+              <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
+              <!-- <button href="<?php echo anchor('guest/single_post/'.$row->id_artikel)?>" class="btn btn-primary">Read More</button> -->
+              <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
             </div>
-        <?php } ?>
+          </div>
+          <?php
+        }
+      ?>
     </div>
   </div>
 </section>
@@ -242,23 +208,15 @@
 </html>
 
 <style type="text/css">
-
 .post-entry-1 {
   background-color: #fff;
-  box-shadow:  0 0 10px rgba(0,0,0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin-bottom: 20px;
 }
 .post-entry-1 .post-thumbnail {
   width: 100%;
   height: 500px;
-}
-
-.post-entry-1 {
-  background-color: #fff;
-  box-shadow:  0 0 10px rgba(0,0,0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
 }
 
   #trending {
@@ -306,15 +264,11 @@
   border-radius: 50%;
   margin-right: 10px;
 }
-
-.section-title{
-  margin-bottom: 30px;
-
-}
 .post-entry-highlight a{
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
+  margin-bottom: 1rem;
 }
 .btn {
     display: inline-block;
@@ -330,41 +284,4 @@
   .btn:hover {
     background-color: #D3D3D3;
   }
-
-/* SideBar */
-
-.post-entry-3 {
-  margin-bottom: 35px;
-}
-
-.post-entry-3 img {
-  margin-bottom: 30px;
-}
-
-.post-entry-3 h2 {
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.2;
-  font-weight: 500;
-}
-
-.post-entry-3 h2 a {
-  color: var(--color-black);
-}
-
-.post-entry-3.lg h2 {
-  font-size: 40px;
-  line-height: 1;
-}
-
-.post-meta-3 {
-  font-size: 11px;
-  letter-spacing: 0.07rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-family: var(--font-secondary);
-  color: rgba(var(--color-black-rgb), 0.4);
-  margin-bottom: 10px;
-}
 </style>
