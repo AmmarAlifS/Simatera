@@ -18,7 +18,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['google']['client_id']        = '331527896168-9p9h74lbckj0m91haj0d3cqibauj2ojt.apps.googleusercontent.com';
 $config['google']['client_secret']    = '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';
-$config['google']['redirect_uri']     = 'http://localhost/Simatera/google_login.php';
+$config['google']['redirect_uri']     = 'http://localhost/Simatera/google_login/callback';
 $config['google']['application_name'] = 'Login to SIMATERA';
 $config['google']['api_key']          = '';
-$config['google']['scopes']           = array();
+$config['google']['scopes']           = 'email';
+$config['google']['scopes']           = 'profile';

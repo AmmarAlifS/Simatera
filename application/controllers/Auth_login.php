@@ -67,6 +67,7 @@ class Auth_login extends CI_Controller
               </div>');
                 redirect('Auth_login');
             }
+            
         }
 
     }
