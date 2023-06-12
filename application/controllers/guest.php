@@ -84,30 +84,35 @@ class guest extends CI_Controller {
 
 	}
 
-	public function search()
-	{
-		$config['base_url'] = base_url('guest/search'); // URL for the pagination links
-		$config['total_rows'] = $this->m_search->count_data($this->input->post('keyword')); // Total number of records to paginate
-		$config['per_page'] = 10; // Number of records to display per page
+public function search()
+{
+    $keyword = $this->input->post('keyword'); // Get the keyword from the input
+
+    $config['base_url'] = base_url('guest/search'); // URL for the pagination links
+    $config['total_rows'] = $this->m_search->count_data($keyword); // Total number of records to paginate
+    $config['per_page'] = 12	; // Number of records to display per page
+
+    $this->pagination->initialize($config);
+
+    $content['page'] = $this->uri->segment(3);
 	
-		$this->pagination->initialize($config);
-	
-		$content['page'] = $this->uri->segment(3);
-		$keyword = $this->input->post('keyword'); // Get the keyword from the input
-		if ($keyword) {
-			$content['artikel'] = $this->m_search->get_keyword($config['per_page'], $content['page'], $keyword);
-			$this->session->set_userdata('keyword', $keyword); // Store the keyword in session
-		} else {
-			// If no keyword is present, retrieve it from the session
-			$keyword = $this->session->userdata('keyword');
-			$content['artikel'] = $this->m_search->get_keyword($config['per_page'], $content['page'], $keyword);
-		}
-	
-		$data['setting'] = $this->m_setting->tampil_data();
-	
-		$this->load->view('guest/v_header');
-		$this->load->view('guest/searchResult', $content);
-		$this->load->view('guest/v_footer', $data);
+    if ($keyword) {
+        $content['artikel'] = $this->m_search->get_keyword($config['per_page'], $content['page'], $keyword);
+        $this->session->set_userdata('keyword', $keyword); // Store the keyword in session
+    } else {
+        // If no keyword is present, retrieve it from the session
+        $keyword = $this->session->userdata('keyword');
+        $content['artikel'] = $this->m_search->get_keyword($config['per_page'], $content['page'], $keyword);
+    }
+
+    $data['setting'] = $this->m_setting->tampil_data();
+
+     // Pass the keyword to the view
+
+    $this->load->view('guest/v_header');
+    $this->load->view('guest/searchResult', $content);
+    $this->load->view('guest/v_footer', $data);
+
 
 		// $config['base_url'] = base_url('guest/search'); // URL for the pagination links
 		// $config['total_rows'] = $this->m_search->count_data(); // Total number of records to paginate		
@@ -131,11 +136,7 @@ class guest extends CI_Controller {
 		// $this->load->view('guest/v_footer', $data);
 
 	}
-	public function test(){
-		$data['art'] = $this->MArtikel->tampil()->result();
-		$data['setting'] = $this->m_setting->tampil_data();
-		$this->load->view('guest/test', $data);
-	}
+
 
 }
 ?>

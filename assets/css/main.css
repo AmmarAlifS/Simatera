@@ -801,43 +801,48 @@ section {
   border-bottom: none;
 }
 
-.custom-pagination a {
-  display: inline-block;
+.custom-pagination .page-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
-  line-height: 40px;
+  line-height: 1;
   text-align: center;
   border-radius: 50%;
   font-family: var(--font-secondary);
   margin: 5px;
   transition: 0.3s all ease;
+  color: black !important; /* Adjust the color of the pagination text */
 }
 
-.custom-pagination a.active {
-  background: var(--color-black);
-  color: var(--color-white);
+.custom-pagination .page-link.active {
+  background: var(--color-black) !important;
+  color: var(--color-white) !important;
+  outline: none !important; /* Remove the blue outline around the active page */
 }
 
-.custom-pagination a.active:hover {
-  background: rgba(var(--color-black-rgb), 0.9);
+.custom-pagination .page-link.active:hover {
+  background: rgba(var(--color-black-rgb), 0.9) !important;
 }
 
-.custom-pagination a:hover {
+.custom-pagination .page-link:hover {
   background: rgba(var(--color-black-rgb), 0.1);
 }
 
-.custom-pagination a.prev,
-.custom-pagination a.next {
+.custom-pagination .page-link.prev,
+.custom-pagination .page-link.next {
   width: auto !important;
   border-radius: 4px;
   padding-left: 10px;
   padding-right: 10px;
 }
 
-.custom-pagination a.prev:hover,
-.custom-pagination a.next:hover {
+.custom-pagination .page-link.prev:hover,
+.custom-pagination .page-link.next:hover {
   background: rgba(var(--color-black-rgb), 0.1);
 }
+
 
 /* custom tab nav on sidebar */
 .aside-block {
