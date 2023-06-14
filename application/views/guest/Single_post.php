@@ -161,20 +161,61 @@ $currentURL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" 
                 </center>
 
                 <!-- Share buttons -->
-                <div class="share-buttons">
-                    <!-- Facebook -->
-                    <div class="fb-share-button" data-href="<?php echo current_url(); ?>" data-layout="button_count" data-image="<?php echo base_url() . 'assets/img/' . $xdetail->Foto ?>"></div>
+<div class="share-buttons">
+  <div class="caption">Bagikan ke:</div>
 
-                    <!-- Twitter -->
-                    <a href="https://twitter.com/share?url=<?php echo current_url(); ?>&text=Check%20out%20this%20article" class="twitter-share-button" data-show-count="false" data-image="<?php echo base_url() . 'assets/img/' . $xdetail->Foto ?>">Tweet</a>
+  <div class="share-button-row">
+    <div class="share-button">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(current_url()); ?>" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook" />
+      </a>
+    </div>
 
-                    <!-- Pinterest -->
-                    <a href="https://pinterest.com/pin/create/button/?url=<?php echo current_url(); ?>&media=<?php echo base_url() . 'assets/img/' . $xdetail->Foto ?>&description=Check%20out%20this%20article" data-pin-do="buttonPin" data-pin-custom="true">
-                        <img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" alt="Pin It" />
-                    </a>
+    <div class="share-button">
+      <!-- Twitter -->
+      <a href="https://twitter.com/share?url=<?php echo urlencode(current_url()); ?>&text=<?php echo urlencode($xdetail->judul); ?>" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="Twitter" />
+      </a>
+    </div>
 
+    <div class="share-button">
+      <!-- Pinterest -->
+      <a href="https://pinterest.com/pin/create/button/?url=<?php echo urlencode(current_url()); ?>&media=<?php echo urlencode(base_url() . 'assets/img/' . $xdetail->Foto); ?>&description=<?php echo urlencode($xdetail->judul); ?>" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/pinterest--v1.png" alt="Pinterest" />
+      </a>
+    </div>
 
-                </div>
+    <div class="share-button">
+      <!-- Telegram -->
+      <a href="https://t.me/share/url?url=<?php echo urlencode(current_url()); ?>&text=<?php echo urlencode($xdetail->judul); ?>" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/telegram-app--v1.png" alt="Telegram" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .share-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .share-button-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .share-button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .caption {
+    font-weight: bold;
+  }
+</style>
 
 <!-- End Hero Slider Section -->
               <!-- <p>Sehubung dengan hal tersebut, J. Reijsenbach Presiden ke-10 De Javasche Bank mengirim surat No. 165 pada tanggal 7 Mei 1902 kepada Dewan Militer Hindia Belanda dan surat No. 420 tanggal 16 Juni 1902  kepada pemerintah Hindia-Belanda yang isinya meminta izin untuk membuka Kantor Cabang De Javasche Bank di Bandung. Tanggal 29 Oktober 1906 Direksi De Javasche Bank menerima surat dari Gubernur Jenderal Hindia-Belanda No. 52 tertanggal 24 Oktober 1906 tentang penyerahan sebidang tanah seluas 10.40 m2 di District Oedjoengbroengkoelon, desa Kejaksangirang kepada De Javasche Bank dengan Sertifikat Hak Milik No.103 tanggal 8 Maret 1907 berikut Surat Ukur N0. 153 tanggal 13 Februari 1907 dan No.Kadester 1022.</p>
