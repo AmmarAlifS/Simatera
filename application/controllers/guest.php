@@ -23,6 +23,14 @@ class guest extends CI_Controller {
 		$this->load->view('guest/Home', $data);
 		$this->load->view('guest/v_footer', $data);
 	}
+	public function test()
+	{	
+		$data['art'] = $this->MArtikel->tampil()->result();
+		$data['setting'] = $this->m_setting->tampil_data();
+		// $this->load->view('guest/v_header');
+		$this->load->view('guest/test', $data);
+		$this->load->view('guest/v_footer', $data);
+	}
 
 	public function tentangkami()
 	{

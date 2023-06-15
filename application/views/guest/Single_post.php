@@ -63,7 +63,7 @@ $currentURL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" 
                     <span class="mx-1">&bullet;</span>
                     <span><?php echo $xdetail->tanggal ?></span>
                 </div>
-                <h1 class="mb-5"><?php echo $xdetail->judul;?></h1>
+                <h1 class="mb-5">13 Amazing Poems from Shel Silverstein with Valueble Life Lessons</h1>
               
                 <?php
                 $artikel = $xdetail->artikel;
