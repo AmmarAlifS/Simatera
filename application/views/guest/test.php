@@ -158,7 +158,7 @@
     <div class="row g-5">
       <div class="col-lg-4">
         <div class="post-entry-1 lg">
-          <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $art[0]->Foto ?>" alt="" class="img-fluid" width="280" height="177.64"></a>
+          <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $art[0]->Foto ?>" alt="" class="img-fluid" style="width: 100%; height: auto;"></a>
           <div class="post-meta">
             <span class="date">Culture</span>
             <span class="mx-1">&bullet;</span>
@@ -185,26 +185,26 @@
         </div>
       </div>
 
-      <div class="col-lg-8">
+      <div class="col-lg-5">
         <div class="row g-5">
-            <?php foreach ($art as $index => $article): ?>
-              <?php if ($index < 6): ?> <!-- Limit to 6 articles -->
-                <div class="col-lg-4 border-start custom-border">
-                  <div class="post-entry-1">
-                    <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid"></a>
-                    <div class="post-meta">
-                      <span class="date">Culture</span>
-                      <span class="mx-1">&bullet;</span>
-                      <span><?php echo date('M jS \'y'); ?></span> <!-- Replace with the appropriate date -->
-                    </div>
-                    <h2><a href="single-post.html"><?php echo $article->judul; ?></a></h2>
-                  </div>
+          <?php $remainingPosts = array_slice($art, 1, 6); ?>
+          <?php foreach ($remainingPosts as $index => $article): ?>
+            <div class="col-lg-6 border-start custom-border">
+              <div class="post-entry-1" >
+                <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid" style="width: 100%; height: 150px;"></a>
+                <div class="post-meta">
+                  <span class="date">Culture</span>
+                  <span class="mx-1">&bullet;</span>
+                  <span><?php echo date('M jS \'y'); ?></span> <!-- Replace with the appropriate date -->
                 </div>
-              <?php endif; ?>
-            <?php endforeach; ?>  
+                <h2><a href="single-post.html"><?php echo $article->judul; ?></a></h2>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
 
-          <!-- Trending Section -->
-            <div class="col-lg-4">
+      <div class="col-lg-3">
               <h2 class="section-title">New post</h2>
               <?php 
                 $reverse_art = array_reverse($art); // Reverse the order of the array
@@ -217,12 +217,8 @@
               </div>
               <?php endforeach; ?>
             </div> 
-              <!-- End Trending Section -->
 
-        </div>
-      </div>
-
-      </div> <!-- End .row -->
+    </div> <!-- End .row -->
       </div>
     </section> <!-- End Post Grid Section -->
 
