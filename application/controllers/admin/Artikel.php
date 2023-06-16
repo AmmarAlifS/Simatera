@@ -21,6 +21,7 @@ class Artikel extends CI_Controller {
 		$this->load->view('admin/themes/footer.php');
 	}
 
+
 	public function post()
 	{
 		$data['dd'] = $this->MArtikel->get_one('kategori');
@@ -38,7 +39,7 @@ class Artikel extends CI_Controller {
 
 		$id_artikel = strip_tags($this->input->post('id_artikel'));
 		$judul = strip_tags($this->input->post('judul'));
-		$artikel = strip_tags($this->input->post('artikel'));
+		$artikel=$this->input->post('artikel');
 		$video = strip_tags($this->input->post('video'));
 		$kategori=strip_tags($this->input->post('kategori'));
 
@@ -131,7 +132,7 @@ class Artikel extends CI_Controller {
 		
 		$id_artikel = strip_tags($this->input->post('id_artikel'));
 		$judul = strip_tags($this->input->post('judul'));
-		$artikel = strip_tags($this->input->post('artikel'));
+		$artikel=$this->input->post('artikel');
 		$kategori = strip_tags($this->input->post('kategori'));
 		$video = strip_tags($this->input->post('video'));
 	

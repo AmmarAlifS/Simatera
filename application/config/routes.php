@@ -53,6 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['admin'] = 'Auth_login';
 $route['default_controller'] = 'guest';
 $route['user'] = 'user/index';
+$route['post'] = 'admin/Artikel/post';
 $route['admin'] = 'CLogin';
 $route['google-login'] = 'google_login';
 // $route['user'] = 'User';
