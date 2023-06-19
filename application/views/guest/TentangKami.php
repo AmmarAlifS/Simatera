@@ -66,32 +66,37 @@
     </section>
 
     <section class="bg-light">
-      <div class="container" data-aos="fade-up">
-        <div class="row justify-content-between align-items-lg-center">
-          <div class="col-lg-5 mb-4 mb-lg-0">
-            <h2 class="display-4 mb-4">Latest News</h2>
-            <p>
-              Kawasan Taman Hutan Raya yaitu Taman Hutan Ir. H Djuanda di utara Bandung Dago Pakar, memang menjanjikan keindahan alamnya yang luar biasa. Selain udaranya yang sudah pasti sangat sejuk, bebas polusi, sajian hijaunya pohon-pohon disana menyejukkan pandangan mata kita. 
-              Tak salah, kalau destinasi wisata disini masih termasuk yang favorit, dikunjungi banyak para wisatawan. Bukan hanya panorama alam yang bisa dinikmati, ada beberapa situs wisata menarik lainnya di dalam kawasan ini. Salah satunya Goa Jepang. 
-              Tepatnya, Goa Jepang berada 500 meter dari gerbang utama Taman Hutan Ir. H Djuanda ini.
-            </p>
-            <p>Goa Jepang ini didirikan oleh militer Jepang tahun 1942. Awalnya tempat ini dijadikan barak militer dan perlindungan para tentara Jepang. Goa Jepang memiliki empat pintu masuk dan dua lubang penjagaan, yang semuanya menyambung. Juga ada empat kamar yang digunakan oleh para panglima perang Jepang untuk beristirahat dan mengatur strategi.
-              Terdapat 18 bunker yang masih dalam keadaan sama seperti aslinya.</p>
-            <p><a href="#" class="more">Lihat Semua Posting Lainnya</a></p>
-          </div>
-          <div class="col-lg-6">
-            <div class="row">
-              <div href="#" class="me-4 thumbnail">
-                <img src="<?php echo base_url()?>assets/img/goa.jpeg" alt="" class="img-fluid" style="box-shadow: 5px 5px;">
-              </div>
-              <!-- <div class="col-6 mt-4">
-                <img src="assets/img/goa.png" alt="" class="img-fluid mb-2">
-              </div> -->
-            </div>
+  <div class="container" data-aos="fade-up">
+    <div class="row justify-content-between align-items-lg-center">
+      <div class="col-lg-5 mb-4 mb-lg-0">
+        <h2 class="display-4 mb-4">Latest News</h2>
+        <?php
+        // Assuming you have a database connection configured in CI3
+        $latestNewsQuery = $this->db->query("SELECT * FROM artikel_simatera ORDER BY id_artikel DESC LIMIT 1");
+        if ($latestNewsQuery->num_rows() > 0) {
+          $latestNews = $latestNewsQuery->row();
+          $content = $latestNews->artikel;
+          $words = explode(' ', $content);
+          $limitedContent = implode(' ', array_slice($words, 0, 70));
+          ?>
+          <p><?php echo $limitedContent; ?></p>
+          <?php
+        }
+        ?>
+        <p><a href="#" class="more">Lihat Semua Posting Lainnya</a></p>
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <div href="#" class="me-4 thumbnail">
+            <img src="<?php echo $latestNews->Foto1; ?>" alt="" class="img-fluid" style="box-shadow: 5px 5px;">
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+
 
 <!--     <section>
       <div class="container" data-aos="fade-up">
