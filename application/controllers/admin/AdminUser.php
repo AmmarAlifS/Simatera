@@ -12,6 +12,8 @@ class AdminUser extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('MLogin');
 		$this->load->library('session');
+		$this->load->model('MRegister');
+		is_logged_in();
 	}
 
 	public function index($role_id = 'admin')

@@ -3,7 +3,6 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -11,6 +10,8 @@ class Dashboard extends CI_Controller
         if (!$this->session->userdata('email')) {
             redirect('Auth_login'); // Redirect to login page if not logged in
         }
+        $this->load->helper('url');
+		is_logged_in();
         $this->load->helper('url');
         // Load session library
         $this->load->library('session');
