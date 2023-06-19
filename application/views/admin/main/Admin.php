@@ -66,7 +66,7 @@
                   ?>
                   <tr>
                     <td><?php echo $u->id ?></td>
-                    <td><?php echo $u->username ?></td>
+                    <td><?php echo $u->name ?></td>
                     <td><?php echo $u->email  ?></td>
                     <td><?php echo $u->password ?></td>
                   </tr>

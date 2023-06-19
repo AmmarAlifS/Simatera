@@ -56,8 +56,8 @@ class guest extends CI_Controller {
 	{
 		$data['setting'] = $this->m_setting->tampil_data(); //Data
 		$xdetail = $this->MArtikel->detail_data($id_artikel); //Detail
-		$detail['xdetail'] = $xdetail;
-		$img = $this->MArtikel->getImageById($id_artikel);
+		$detail['art'] = $this->MArtikel->tampil()->result();
+		$detail['xdetail'] = $xdetail;;
 		$this->load->view('guest/v_header');
 		$this->load->view('guest/Single_post', $detail);
 		$this->load->view('guest/v_footer', $data);
