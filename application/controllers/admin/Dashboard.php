@@ -1,16 +1,6 @@
 <?php
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-<<<<<<< HEAD
-class Dashboard extends CI_Controller {
-
-	public function __construct()
-	{	
-		parent::__construct();
-		$this->load->helper('url');
-		// is_logged_in();
-	}
-=======
 class Dashboard extends CI_Controller
 {
     public function __construct()
@@ -22,11 +12,10 @@ class Dashboard extends CI_Controller
         }
         $this->load->helper('url');
 		is_logged_in();
-        $this->load->helper('url');
         // Load session library
         $this->load->library('session');
     }
->>>>>>> da87d5ddcc0184b63a06d5e4ef021862b2a64e9c
+
 
     public function index()
     {

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2023 at 09:33 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Jun 19, 2023 at 08:18 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,7 @@ CREATE TABLE `artikel_simatera` (
   `Foto3` varchar(255) NOT NULL,
   `Video` varchar(255) NOT NULL,
   `tanggal` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `artikel_simatera`
@@ -60,7 +60,7 @@ INSERT INTO `artikel_simatera` (`id_artikel`, `judul`, `artikel`, `kategori`, `F
 CREATE TABLE `kategori` (
   `kategoricode` int(16) NOT NULL,
   `nama_kategori` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `kategori`
@@ -82,7 +82,7 @@ CREATE TABLE `login_admin` (
   `username` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `login_admin`
@@ -102,25 +102,29 @@ INSERT INTO `login_admin` (`id`, `username`, `email`, `password`) VALUES
 
 CREATE TABLE `login_simatera` (
   `id` int(11) NOT NULL,
-  `name` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `email` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `image` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `password` varchar(256) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `role_id` enum('admin','member','','') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `is_active` enum('yes','no') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `login_oauth_uid` varchar(100) NOT NULL,
+  `name` varchar(128) CHARACTER SET latin1 NOT NULL,
+  `email` varchar(128) CHARACTER SET latin1 NOT NULL,
+  `image` varchar(128) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(256) CHARACTER SET latin1 NOT NULL,
+  `role_id` int(11) NOT NULL,
+  `is_active` enum('yes','no','','') NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `login_simatera`
 --
 
-INSERT INTO `login_simatera` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(11, 'Rihma', 'rihma@gmail.com', 'default.jpg', '$2y$10$lpZYtHT9/iK8LbnFVQdNnO3yk7kJOu91brUthuymH76D.kU44LUiO', 'member', 'yes', '2023-05-15 05:14:04'),
-(24, 'Rijal Fauzi Iskandar', 'rijalfauziiskandar93.rfi@gmail.com', 'default.jpg', '$2y$10$EDBocT0zrDPSO3D7cI.BpOw1QXu4hOSAItw4jlAOfFOKaW7YbQ3ZW', 'admin', 'yes', '2023-05-17 14:03:22'),
-(25, 'Veronz', 'veronztv@gmail.com', 'default.jpg', '$2y$10$jzClWBxcY.hFITG18bfB/urGrN4ib1h0XT3gQtakUjWhfKOKJm/5i', 'member', 'yes', '2023-05-17 14:16:44'),
-(27, 'Rijal Fauzi', 'rijalfauziiskandar4@gmail.com', 'default.jpg', '$2y$10$ETsBARiOY5.zteyilHiaZeh.RbN6RkjLJ5ifHoml5GZDmuVsqNT5e', 'member', 'yes', '2023-05-22 07:52:46'),
-(29, 'Ammar Alif', 'ammaralifs@gmail.com', 'default.jpg', '$2y$10$81fjSwJVTa13u93u5pd2Nex9i6Jrb.LMoVUU3cH1TS6EHUz0ZICl6', 'member', 'yes', '2023-05-23 04:58:21');
+INSERT INTO `login_simatera` (`id`, `login_oauth_uid`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
+(11, '', 'Rihma', 'rihma@gmail.com', 'default.jpg', '$2y$10$lpZYtHT9/iK8LbnFVQdNnO3yk7kJOu91brUthuymH76D.kU44LUiO', 2, 'yes', '2023-06-15 03:09:23'),
+(24, '', 'Rijal Fauzi Iskandar', 'rijalfauziiskandar93.rfi@gmail.com', 'default.jpg', '$2y$10$EDBocT0zrDPSO3D7cI.BpOw1QXu4hOSAItw4jlAOfFOKaW7YbQ3ZW', 1, 'yes', '2023-06-14 07:45:05'),
+(29, '', 'Ammar Alif', 'ammaralifs@gmail.com', 'default.jpg', '$2y$10$81fjSwJVTa13u93u5pd2Nex9i6Jrb.LMoVUU3cH1TS6EHUz0ZICl6', 2, 'yes', '2023-06-15 03:09:29'),
+(30, '', 'fauzi iskandar', 'rijal.fauzi@widyatama.ac.id', 'default.jpg', '$2y$10$vb1P.rxaq/1iaomiyLI0G.sUUvxPpylhkMYN1ErcmEOBwYLWswN6e', 2, 'yes', '2023-06-15 03:09:33'),
+(73, '111338418244761899298', 'Rijal Fauzi Iskandar', 'rijalfauziiskandar93.rfi@gmail.com', '', '', 2, 'yes', '2023-06-16 06:23:08'),
+(75, '111197384953197867127', 'REG.A/0620101061/RIJAL FAUZI', 'rijal.fauzi@widyatama.ac.id', '', '', 2, 'yes', '2023-06-16 07:44:31'),
+(77, '100632164184714595705', 'Veronz TV', 'veronztv@gmail.com', '', '', 2, 'yes', '2023-06-19 04:25:32'),
+(79, '', 'Rijal Fauzi', 'rijalfauziiskandar4@gmail.com', 'default.png', '$2y$10$jUWe/T4lPklIrHmNn9xf1O01YAUsGHjo6MmtysQeRzaXeke/hCHNq', 2, 'yes', '2023-06-19 03:52:00');
 
 -- --------------------------------------------------------
 
@@ -133,7 +137,7 @@ CREATE TABLE `login_simatera_token` (
   `email` varchar(128) NOT NULL,
   `token` varchar(128) NOT NULL,
   `date_created` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `login_simatera_token`
@@ -141,16 +145,8 @@ CREATE TABLE `login_simatera_token` (
 
 INSERT INTO `login_simatera_token` (`id`, `email`, `token`, `date_created`) VALUES
 (16, 'rijalfauziiskandar93.rfi@gmail.com', 'P7iX5ud6LQ8T6bJa8q16fco86tcpM6n1v6cQ0ugsX1E=', 1684330648),
-(42, 'rijalfauziiskandar4@gmail.com', 'XIRsa+WQWkuxnZbVTfzglB1OJj/OVY4j59h89aAssXc=', 1684738428),
-(43, 'rijalfauziiskandar4@gmail.com', 'Bi0iiK/rFU6hSBdFpXUYDCY6joiT4gix/qwK+zLVDU8=', 1684740021),
-(44, 'rijalfauziiskandar4@gmail.com', '8gQijZ31qOhcLkuZ9ZFkUBua1ViKMEFQzg8NSM9aZQw=', 1684740832),
-(45, 'rijalfauziiskandar4@gmail.com', 'JMTvI5K8LITItosV+AkIbjcC3e1TH6T9Z2li0+iK/QQ=', 1684742354),
-(46, 'rijalfauziiskandar4@gmail.com', 'FlKo0rc7h8igWk1bcFOv252FyRm+E/KCwDDqp7WoFVQ=', 1684763076),
-(47, 'rijalfauziiskandar4@gmail.com', 'O4XzySLxDvstyFQ1A2VbF/xnr+U5ymWOzE1TINK+UfI=', 1684811076),
-(48, 'rijalfauziiskandar4@gmail.com', 'XlqLLPpP2VIPu2Z2ruzHBWJw3shtWMfAfPSIM5lHQIg=', 1684811102),
-(49, 'rijalfauziiskandar4@gmail.com', '6POd1H0OrtcED00N7KgvnVKHUpO8EL+kRCGKw1jiHAU=', 1684811186),
-(50, 'rijalfauziiskandar4@gmail.com', 'vRnP8+Niry8lkfENbgGgxqhhyWrCyHnOcppBov2P58U=', 1684815489),
-(53, 'ammaralifs@gmail.com', 'xMZhZKccDHQh3R1sVzqcw/owhfL5EuzETLHgI9/zVzE=', 1684817308);
+(53, 'ammaralifs@gmail.com', 'xMZhZKccDHQh3R1sVzqcw/owhfL5EuzETLHgI9/zVzE=', 1684817308),
+(63, 'rijalfauziiskandar4@gmail.com', 'k4/+8aPaIMV/x2cq5b/OVrV56n5pavdqxc0b9zFzJiU=', 1687146693);
 
 -- --------------------------------------------------------
 
@@ -167,7 +163,7 @@ CREATE TABLE `setting` (
   `twitter` varchar(55) NOT NULL,
   `instagram` varchar(55) NOT NULL,
   `tentang_kami` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `setting`
@@ -175,6 +171,27 @@ CREATE TABLE `setting` (
 
 INSERT INTO `setting` (`id_setting`, `alamat`, `no_telp`, `email`, `facebook`, `twitter`, `instagram`, `tentang_kami`) VALUES
 (1, 'Jl. Wastukencana No.2, Babakan Ciamis, Kec. Sumur ', 224234793, 'diskominfo@bandung.go.id', 'https://www.facebook.com/DiskominfoBandung', 'https://twitter.com/DiskominfoBdg', 'https://www.instagram.com/diskominfobdg', 'Selamat datang di website kami! Kami adalah platform yang didedikasikan untuk menyediakan informasi dan layanan yang bermanfaat bagi pengunjung kami. Website kami menyajikan berbagai informasi terkini dan terpercaya tentang tempat bersejarah di kota Bandung.\r\n\r\nKami selalu berusaha untuk memberikan pengalaman terbaik bagi pengunjung kami dengan menyediakan tampilan yang mudah digunakan dan responsif di berbagai perangkat. Website kami juga dilengkapi dengan fitur pencarian dan navigasi yang mudah untuk membantu pengunjung menemukan informasi yang mereka cari dengan cepat.\r\n\r\nKami berharap website kami dapat membantu meningkatkan pengetahuan dan kehidupan sehari-hari pengunjung kami dan menjadi sumber informasi yang terpercaya dan berguna. Terima kasih telah mengunjungi website kami!');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_access_menu`
+--
+
+CREATE TABLE `user_access_menu` (
+  `id` int(11) NOT NULL,
+  `role_id` int(128) NOT NULL,
+  `menu_id` int(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_access_menu`
+--
+
+INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -189,7 +206,7 @@ CREATE TABLE `user_masukan` (
   `subjek` varchar(50) NOT NULL,
   `pesan` varchar(200) NOT NULL,
   `timestamp` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_masukan`
@@ -214,6 +231,44 @@ INSERT INTO `user_masukan` (`id_pesan`, `nama`, `email`, `subjek`, `pesan`, `tim
 (16, 'cxz', 'cxz2s@dsa', 'das', 'dsa', '2023-03-27 13:55:05'),
 (17, 'sda', 'dsadsas@dsad', 'saddsa', 'dsadas', '2023-03-27 13:55:05'),
 (18, 'dsa', 'das@dsa', 'dsa', 'das', '2023-03-27 13:55:05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_menu`
+--
+
+CREATE TABLE `user_menu` (
+  `id` int(11) NOT NULL,
+  `menu` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_menu`
+--
+
+INSERT INTO `user_menu` (`id`, `menu`) VALUES
+(1, 'Admin'),
+(2, 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_role`
+--
+
+CREATE TABLE `user_role` (
+  `id` int(11) NOT NULL,
+  `role` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_role`
+--
+
+INSERT INTO `user_role` (`id`, `role`) VALUES
+(1, 'Admin'),
+(2, 'Member');
 
 --
 -- Indexes for dumped tables
@@ -256,10 +311,28 @@ ALTER TABLE `setting`
   ADD PRIMARY KEY (`id_setting`);
 
 --
+-- Indexes for table `user_access_menu`
+--
+ALTER TABLE `user_access_menu`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user_masukan`
 --
 ALTER TABLE `user_masukan`
   ADD PRIMARY KEY (`id_pesan`);
+
+--
+-- Indexes for table `user_menu`
+--
+ALTER TABLE `user_menu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_role`
+--
+ALTER TABLE `user_role`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -287,13 +360,13 @@ ALTER TABLE `login_admin`
 -- AUTO_INCREMENT for table `login_simatera`
 --
 ALTER TABLE `login_simatera`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `login_simatera_token`
 --
 ALTER TABLE `login_simatera_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `setting`
@@ -302,10 +375,28 @@ ALTER TABLE `setting`
   MODIFY `id_setting` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `user_access_menu`
+--
+ALTER TABLE `user_access_menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `user_masukan`
 --
 ALTER TABLE `user_masukan`
   MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `user_menu`
+--
+ALTER TABLE `user_menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `user_role`
+--
+ALTER TABLE `user_role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
