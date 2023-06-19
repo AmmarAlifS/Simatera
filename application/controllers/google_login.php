@@ -12,6 +12,7 @@ class google_login extends CI_Controller {
         $this->load->model('User_model');
         $this->load->helper('url');
         $this->load->library('session');
+        
     }
 
     public function index()
@@ -52,6 +53,9 @@ class google_login extends CI_Controller {
             // getting user profile
             $oauth = new Oauth2($client);
             $data = $oauth->userinfo->get();
+            
+            // Mengatur zona waktu ke GMT+7 (Waktu Indonesia Barat)
+            date_default_timezone_set('Asia/Jakarta');
             $current_datetime = date('Y-m-d H:i:s');
 
             if($this->User_model->Is_already_register($data['id']))
@@ -60,20 +64,18 @@ class google_login extends CI_Controller {
             $user_data = array(
                 'name' => $data['name'],
                 'email' => $data['email'],
-                // 'role_id' => $data[2],
-                // 'is_active' => $data[0],
+                'role_id' => isset($data[2]) ? intval($data[2]) : 2,
                 'date_created' => $current_datetime
             );
 
-            $this->User_model->Update_user_data($user_data, $data['id']);
+            $this->User_model->Update_user_data($user_data, $data['id']);        
             }else{
             //insert data
             $user_data = array(
                 'login_oauth_uid' => $data['id'],
                 'name' => $data['name'],
                 'email' => $data['email'],
-                // 'role_id' => $data[2],
-                // 'is_active' => $data[0],
+                'role_id' => isset($data[2]) ? intval($data[2]) : 2,
                 'date_created' => $current_datetime
                 );
                 $this->User_model->Insert_user_data($user_data);

@@ -31,9 +31,9 @@ class Auth_registration extends CI_Controller
                 $data = [
                     'name' => htmlspecialchars($this->input->post('name', true)),
                     'email' => htmlspecialchars($email),
-                    'image' => 'default.jpg',
+                    'image' => 'default.png',
                     'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                    'role_id' => 1,
+                    'role_id' => 2,
                     'is_active' => 0,
                     'date_created' => time()
                 ];

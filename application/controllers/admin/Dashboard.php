@@ -7,6 +7,7 @@ class Dashboard extends CI_Controller {
 	{	
 		parent::__construct();
 		$this->load->helper('url');
+		is_logged_in();
 	}
 
 	public function index()
