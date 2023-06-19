@@ -6,13 +6,18 @@ class Setting extends CI_Controller {
 	public function __construct()
 	{	
 		parent::__construct();
+		if (!$this->session->userdata('email')) {
+            redirect('Auth_login'); // Redirect to login page if not logged in
+        }
 		$this->load->helper('url');
 		$this->load->model('m_setting');
 		$this->load->library('upload');
+		$this->load->library('session');
 	}
 
 	function index()
 	{
+
 		$data['setting'] = $this->m_setting->tampil_data();
 		$this->load->view('admin/themes/header.php');
 		$this->load->view('admin/themes/side_nav.php');

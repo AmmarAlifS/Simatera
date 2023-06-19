@@ -6,10 +6,14 @@ class Artikel extends CI_Controller {
 	public function __construct()
 	{	
 		parent::__construct();
+		if (!$this->session->userdata('email')) {
+            redirect('Auth_login'); // Redirect to login page if not logged in
+        }
 		$this->load->library('upload');
 		$this->load->helper('url');
 		$this->load->helper('text');
 		$this->load->model('MArtikel');
+		$this->load->library('session');
 	}
 
 	public function index()

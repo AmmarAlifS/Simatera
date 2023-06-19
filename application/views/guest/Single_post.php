@@ -195,28 +195,6 @@ $currentURL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" 
   </div>
 </div>
 
-<style>
-  .share-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .share-button-row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .share-button {
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-
-  .caption {
-    font-weight: bold;
-  }
-</style>
-
 <!-- End Hero Slider Section -->
               <!-- <p>Sehubung dengan hal tersebut, J. Reijsenbach Presiden ke-10 De Javasche Bank mengirim surat No. 165 pada tanggal 7 Mei 1902 kepada Dewan Militer Hindia Belanda dan surat No. 420 tanggal 16 Juni 1902  kepada pemerintah Hindia-Belanda yang isinya meminta izin untuk membuka Kantor Cabang De Javasche Bank di Bandung. Tanggal 29 Oktober 1906 Direksi De Javasche Bank menerima surat dari Gubernur Jenderal Hindia-Belanda No. 52 tertanggal 24 Oktober 1906 tentang penyerahan sebidang tanah seluas 10.40 m2 di District Oedjoengbroengkoelon, desa Kejaksangirang kepada De Javasche Bank dengan Sertifikat Hak Milik No.103 tanggal 8 Maret 1907 berikut Surat Ukur N0. 153 tanggal 13 Februari 1907 dan No.Kadester 1022.</p>
               <p>Lahan Gedung De Javasche Bank adalah bekas Gudang tempat penyimpanan garam yang terbakar pada tahun 1901 dan kemudian menjadi sebuah lahan terbuka (plein) tempat pertunjukan sirku, sandiwara, dan pertunjukan seni lainnya. Pada malam minggu, para preanger planters saling jual tampang, bersantai, makan minum dan pamer mobil keluaran anyar milik mereka. Lahan ini terletak di seberang rumah kediaman keluarga belanda kaya soesman, pemilik kuda pacu dan lapangan pacuan kuda Tegallega. Rumah keluarga Siesnab sejarang menjadi Gedung Kerta Mukti.</p>
@@ -254,9 +232,6 @@ $currentURL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" 
 
         <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Popular</button>
-          </li>
-          <li class="nav-item" role="presentation">
             <button class="nav-link" id="pills-latest-tab" data-bs-toggle="pill" data-bs-target="#pills-latest" type="button" role="tab" aria-controls="pills-latest" aria-selected="false">Latest</button>
           </li>
         </ul>
@@ -265,58 +240,17 @@ $currentURL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" 
 
           <!-- Popular -->
           <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Sejarah</span> <span class="mx-1">&bullet;</span> <span>March 20th '23</span></div>
-              <h2 class="mb-2"><a href="#">Tempat Bersejarah di Kota Bandung, Seperti Gedung Konferensi Asia Afrika</a></h2>
-              <span class="author mb-3 d-block">Rendy Riansyah</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Pariwisata</span> <span class="mx-1">&bullet;</span> <span>March 20th '23</span></div>
-              <h2 class="mb-2"><a href="#">Gua Jepang Bisa Dijadikan Tempat Pariwisata dan Juga Tempat Bersejarah</a></h2>
-              <span class="author mb-3 d-block">Rendy Riansyah</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Budaya</span> <span class="mx-1">&bullet;</span> <span>March 20th '23</span></div>
-              <h2 class="mb-2"><a href="#">Budaya-Budaya Yang ada Di Kota Bandung</a></h2>
-              <span class="author mb-3 d-block">Rendy Riansyah</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Museum</span> <span class="mx-1">&bullet;</span> <span>March 20th '23</span></div>
-              <h2 class="mb-2"><a href="#">Museum Yang Sering Ramai Dikunjungi Oleh Anak-Anak SMP Yaitu Museum Geologi</a></h2>
-              <span class="author mb-3 d-block">Rendy Riansyah</span>
-            </div>
+              <?php 
+                $reverse_art = array_reverse($art); // Reverse the order of the array
+              ?>
+              <?php foreach($reverse_art as $row): ?>
+              <div class="post-entry-1 border-bottom">
+                <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                <h2 class="mb-2"><a href="single-post.html"><?php echo $row->judul ?></a></h2>
+                <span class="author mb-3 d-block">Jenny Wilson</span>
+              </div>
+              <?php endforeach; ?>
           </div> <!-- End Popular -->
-
-         <!-- Latest -->
-         <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
-          <div class="post-entry-1 border-bottom">
-            <div class="post-meta"><span class="date">Museum</span> <span class="mx-1">&bullet;</span> <span>March 20th '23</span></div>
-            <h2 class="mb-2"><a href="#">Museum Yang Sering Ramai Dikunjungi Oleh Anak-Anak SMP Yaitu Museum Geologi</a></h2>
-            <span class="author mb-3 d-block">Rendy Riansyah</span>
-          </div>
-
-          <div class="post-entry-1 border-bottom">
-            <div class="post-meta"><span class="date">Sejarah</span> <span class="mx-1">&bullet;</span> <span>March 20th '23</span></div>
-            <h2 class="mb-2"><a href="#"></a>Tempat Bersejarah di Kota Bandung, Seperti Gedung Konferensi Asia Afrika</h2>
-            <span class="author mb-3 d-block">Rendy Riansyah</span>
-          </div>
-
-          <div class="post-entry-1 border-bottom">
-            <div class="post-meta"><span class="date">Pariwisata</span> <span class="mx-1">&bullet;</span> <span>March 20th '23</span></div>
-            <h2 class="mb-2"><a href="#">Gua Jepang Bisa Dijadikan Tempat Pariwisata dan Juga Tempat Bersejarah</a></h2>
-            <span class="author mb-3 d-block">Rendy Riansyah</span>
-          </div>
-
-          <div class="post-entry-1 border-bottom">
-            <div class="post-meta"><span class="date">Budaya</span> <span class="mx-1">&bullet;</span> <span>March 20th '23</span></div>
-            <h2 class="mb-2"><a href="#">Budaya-Budaya Yang ada Di Kota Bandung</a></h2>
-            <span class="author mb-3 d-block">Rendy Riansyah</span>
-          </div>
-        
-        </div> <!-- End Latest --> 
        
         <!-- <div class="aside-block">
           <h3 class="aside-title">Video</h3>
@@ -363,6 +297,29 @@ $currentURL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" 
         duration: 3000,
       });
     </script>
+
+<style>
+  .share-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .share-button-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .share-button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .caption {
+    font-weight: bold;
+  }
+</style>
+
 </body>
 
 </html>

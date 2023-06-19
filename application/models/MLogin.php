@@ -1,7 +1,4 @@
 <?php 
-/**
-* 
-*/
 class MLogin extends CI_Model
 {
 	
@@ -14,5 +11,10 @@ class MLogin extends CI_Model
         } else {
             return false;
         }
+    }
+
+    function tampil($role_id){
+        $this->db->where('role_id', $role_id);
+        return $this->db->get('login_simatera');
     }
 }
