@@ -116,76 +116,72 @@
                 </div>
             </div>
    
-          <div class="col-lg-3 col-md-4">
-              <!-- ======= Sidebar ======= -->
-              <div class="aside-block">
-                <ul
-                  class="nav nav-pills custom-tab-nav mb-4"
-                  id="pills-tab"
-                  role="tablist"
-                >
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link active"
-                      id="pills-popular-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-popular"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-popular"
-                      aria-selected="true"
-                    >
-                      New Post 
-                      <!-- Populer -->
-                    </button>
-                  </li>
-                </ul>
+            <div class="col-lg-3 col-md-4">
+                <!-- ======= Sidebar ======= -->
+                <div class="aside-block">
+                  <ul
+                    class="nav nav-pills custom-tab-nav mb-4"
+                    id="pills-tab"
+                    role="tablist"
+                  >
+                    <li class="nav-item" role="presentation">
+                      <button
+                        class="nav-link active"
+                        id="pills-popular-tab"
+                        data-bs-toggle="pill"
+                        data-bs-target="#pills-popular"
+                        type="button"
+                        role="tab"
+                        aria-controls="pills-popular"
+                        aria-selected="true"
+                      >
+                        New Post 
+                        <!-- Populer -->
+                      </button>
+                    </li>
+                  </ul>
 
-                <?php 
-                    $count = 1;
-                    $reverse_art = array_reverse($art); // Reverse the order of the array
-                  ?>
-                  <?php foreach($reverse_art as $row): ?>
+                  <?php 
+                      $count = 1;
+                      $reverse_art = array_reverse($art); // Reverse the order of the array
+                    ?>
+                    <?php foreach($reverse_art as $row): ?>
 
 
-                    <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
-                      <div class="post-entry-3 border-bottom">
-                        <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                        <h2 class="mb-2"><a href="#"> </span> <?php echo $row->judul ?></a></h2>
-                        <span class="author d-block"></span>
+                      <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                        <div class="post-entry-3 border-bottom">
+                          <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                          <h2 class="mb-2"><a href="#"> </span> <?php echo $row->judul ?></a></h2>
+                          <span class="author d-block"></span>
+                        </div>
                       </div>
-                    </div>
-                  <!-- <div class="card mb-3">
-                    <div class="card-body">
-                      <h5 class="card-title mb-0">
-                        <span class="trending-number"><?php echo $count ?>.</span> <?php echo $row->judul ?>
-                      </h5>
-                      <p class="card-text"><small class="text-muted"><?php echo date('F j, Y', strtotime($row->tanggal)); ?></small></p>
-                    </div>
-                  </div> -->
-                  <?php $count++; ?>
-                  <?php endforeach; ?>
-              </div>
-
-              <!-- End Categories -->
-
-              <!-- End Tags -->
-            </div>
-
-            <?php echo $this->pagination->create_links(); ?>
-            
-              <!-- Paging -->
-              <div class="text-start py-4">
-                <div class="custom-pagination">
-                  <a href="#" class="prev">Previous</a>
-                  <a href="#" class="active">1</a>
-                  <a href="#">2</a>
-                  <a href="#">3</a>
-                  <a href="#">4</a>
-                  <a href="#">5</a>
-                  <a href="#" class="next">Next</a>
+                    <!-- <div class="card mb-3">
+                      <div class="card-body">
+                        <h5 class="card-title mb-0">
+                          <span class="trending-number"><?php echo $count ?>.</span> <?php echo $row->judul ?>
+                        </h5>
+                        <p class="card-text"><small class="text-muted"><?php echo date('F j, Y', strtotime($row->tanggal)); ?></small></p>
+                      </div>
+                    </div> -->
+                    <?php $count++; ?>
+                    <?php endforeach; ?>
                 </div>
+
+                <!-- End Categories -->
+
+                <!-- End Tags -->
               </div>
+                <!-- Paging -->
+                  <div class="text-start py-4">
+                    <div class="custom-pagination">
+                        <?php
+                        $pagination_links = $this->pagination->create_links();
+                        $pagination_links = str_replace('<a href', '<a class="page-link" href', $pagination_links);
+                        $pagination_links = str_replace('<a class="page-link" href="#"', '<a class="page-link active"', $pagination_links);
+                        echo $pagination_links;
+                        ?>
+                    </div>
+                 </div>
               <!-- End Paging -->
             </div>
 

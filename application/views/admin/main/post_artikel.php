@@ -81,7 +81,8 @@
             </div>
             <div class="box-body">
 
-              <textarea id="content" name="artikel" required></textarea>
+              <textarea id="post" name="artikel"  required></textarea>
+              <!-- optional cols="25" rows="3" -->
 
             </div>
             <!-- /.box-body -->
@@ -159,8 +160,13 @@
 
 	<script src="<?= base_url('assets/admin/plugins/ckeditor/ckeditor.js') ?>"></script>
 
-	<script>
-		CKEDITOR.replace('content');
+	<script type="text/javascript">
+
+  CKEDITOR.replace('post', {
+      filebrowserImageBrowseUrl : "<?php echo base_url('assets/admin/plugins/kcfinder/browse.php'); ?>",
+      height: '250px'
+  });
+
     </script>
 </html>
 

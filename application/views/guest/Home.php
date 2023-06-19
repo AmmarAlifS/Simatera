@@ -28,48 +28,115 @@
   <!-- Template Main CSS Files -->
   <link href="<?php echo base_url()?>assets/css/variables.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/css/main.css" rel="stylesheet">
-  
-
 </head>
 
 <body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>ZenBlog</h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Blog</a></li>
+          <li><a href="single-post.html">Single Post</a></li>
+          <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="search-result.html">Search Result</a></li>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      <div class="position-relative">
+        <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
+        <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
+        <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
+
+        <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+        <!-- ======= Search Form ======= -->
+        <div class="search-form-wrap js-search-form-wrap">
+          <form action="search-result.html" class="search-form">
+            <span class="icon bi-search"></span>
+            <input type="text" placeholder="Search" class="form-control">
+            <button class="btn js-search-close"><span class="bi-x"></span></button>
+          </form>
+        </div><!-- End Search Form -->
+
+      </div>
+
+    </div>
+
+  </header><!-- End Header -->
+
   <main id="main">
 
     <!-- ======= Hero Slider Section ======= -->
-    
     <section id="hero-slider" class="hero-slider">
       <div class="container-md" data-aos="fade-in">
         <div class="row">
           <div class="col-12">
             <div class="swiper sliderFeaturedPosts">
               <div class="swiper-wrapper">
-                <?php 
-        $counter = 0;
-        shuffle($art); // shuffle the array randomly
-        foreach($art as $row):
-        if ($counter >= 3) break;
-    ?>
-<div class="swiper-slide">
-  <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
-    <div class="img-bg-inner">
-      <h2><?php echo $row->judul ?></h2>
-      <p style="text-align: justify;">
-        <?php
-          $content = $row->artikel;
-          $words = explode(' ', $content);
-          $truncatedContent = implode(' ', array_slice($words, 0, 25));
-          echo $truncatedContent . (count($words) > 25 ? '...' : '');
-        ?>
-      </p>
-    </div>
-  </a>
-</div>
+                <div class="swiper-slide">
+                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-1.jpg');">
+                    <div class="img-bg-inner">
+                      <h2>The Best Homemade Masks for Face (keep the Pimples Away)</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
+                    </div>
+                  </a>
+                </div>
 
+                <div class="swiper-slide">
+                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-2.jpg');">
+                    <div class="img-bg-inner">
+                      <h2>17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
+                    </div>
+                  </a>
+                </div>
 
-                <?php 
-        $counter++;
-        endforeach; 
-    ?>              
+                <div class="swiper-slide">
+                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-3.jpg');">
+                    <div class="img-bg-inner">
+                      <h2>13 Amazing Poems from Shel Silverstein with Valuable Life Lessons</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="swiper-slide">
+                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-4.jpg');">
+                    <div class="img-bg-inner">
+                      <h2>9 Half-up/half-down Hairstyles for Long and Medium Hair</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
+                    </div>
+                  </a>
+                </div>
               </div>
               <div class="custom-swiper-button-next">
                 <span class="bi-chevron-right"></span>
@@ -85,274 +152,390 @@
       </div>
     </section><!-- End Hero Slider Section -->
 
-<section id="trending" clas s="mb-5">
-  <h2 class="section-title">New post</h2>
-  <?php 
-    $count = 1;
-    $reverse_art = array_reverse($art); // Reverse the order of the array
-  ?>
-  <?php foreach($reverse_art as $row): ?>
-  <div class="card mb-3">
-    <div class="card-body">
-      <h5 class="card-title mb-0">
-        <span class="trending-number"><?php echo $count ?>.</span> <?php echo $row->judul ?>
-      </h5>
-      <p class="card-text"><small class="text-muted"><?php echo date('F j, Y', strtotime($row->tanggal)); ?></small></p>
-    </div>
-  </div>
-  <?php $count++; ?>
-  <?php endforeach; ?>
-</section>
-
     <!-- ======= Post Grid Section ======= -->
-<!-- <section id="posts" class="posts">
-  <div class="container">
-    <div class="row">
-      <?php 
-        // Randomly select one article for the highlight section
-        $highlight_article = $art[array_rand($art)];
-        // Remove the highlight article from the list of articles to display in the regular section
-        $regular_articles = array_filter($art, function($article) use ($highlight_article) {
-          return $article->id_artikel != $highlight_article->id_artikel;
-        });
-        
-        // Display the highlight article
-      ?>
-        <div class="col-lg-12 post-entry-highlight">
-          <?php
-          $short_description = implode(' ', array_slice(explode(' ', $row->artikel), 0, 25));
-          if (str_word_count($row->artikel) > 25) {
-            $short_description .= '...';
-          }
-          ?>
-          <div class="post-entry-1">
-            <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $highlight_article->Foto ?>" alt="" class="img-fluid post-thumbnail"></a>
-            <div class="post-meta"> <span><?php echo $highlight_article->tanggal ?></span></div>
-            <h2 class="post-highlight-title"><a href="single-post.html"><?php echo $highlight_article->judul ?></a></h2>
-            <p style="text-align: justify;"><?php echo $short_description ?></p>
-            <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
+<section id="posts" class="posts">
+  <div class="container" data-aos="fade-up">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="post-entry-1 lg">
+          <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $art[0]->Foto ?>" alt="" class="img-fluid" style="width: 100%; height: auto;"></a>
+          <div class="post-meta">
+            <span class="date">Culture</span>
+            <span class="mx-1">&bullet;</span>
+            <span><?php echo $art[0]->tanggal; ?></span>
+          </div>
+          <h2><a href="single-post.html"><?php echo $art[0]->judul; ?></a></h2>
+          <p class="mb-4 d-block">
+            <?php
+            $words = explode(' ', $art[0]->artikel);
+            $limitedWords = array_slice($words, 0, 15);
+            echo implode(' ', $limitedWords);
+            if (count($words) > 15) {
+              echo '...';
+            }
+            ?>
+          </p>
+
+          <div class="d-flex align-items-center author">
+            <div class="photo"><img src="assets/img/person-1.jpg" alt="" class="img-fluid"></div>
+            <div class="name">
+              <h3 class="m-0 p-0">Cameron Williamson</h3>
+            </div>
           </div>
         </div>
-        
-        <?php
-        // Display the regular articles
-        foreach($regular_articles as $row) {
-          $post_entry_class = "col-lg-4";
-          
-          // Create shortened description with "read more" button
-$words = explode(' ', $row->artikel);
-$short_description = '';
-$lineCount = 0;
-$lineLength = 0;
-
-foreach ($words as $word) {
-  $short_description .= $word . ' ';
-  $lineLength += strlen($word) + 1; // +1 for the space after the word
-
-  if ($lineLength > 50) { // Adjust the line length limit as per your requirements
-    $short_description .= '...';
-    break;
-  }
-
-  if (substr_count($short_description, "\n") >= 2) {
-    $short_description .= '...';
-    break;
-  }
-
-  if (substr_count($short_description, "\n") > $lineCount) {
-    $lineCount++;
-    $lineLength = 0;
-  }
-}
-          ?>
-          <div class="<?php echo $post_entry_class ?>">
-            <div class="post-entry-1">
-              <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
-              <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
-              <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
-              <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
-              <button href="<?php echo anchor('guest/single_post/'.$row->id_artikel)?>" class="btn btn-primary">Read More</button> -->
-              <!-- <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a> -->
-            <!-- </div> -->
-          <!-- </div> -->
-          <!-- <?php 
-        }
-      ?>
-    </div>
-  </div>
-</section> -->
-<section id="posts" class="posts" style="margin-left: 100px;">
-  <div class="container">
-    <div class="row">
-      <?php
-      $counter = 0; // Initialize counter
-
-      foreach($art as $row) {
-        // Create shortened description with "read more" button
-        $words = explode(' ', $row->artikel);
-        $short_description = '';
-        $lineCount = 0;
-        $lineLength = 0;
-
-        foreach ($words as $word) {
-          $short_description .= $word . ' ';
-          $lineLength += strlen($word) + 1; // +1 for the space after the word
-
-          if ($lineLength > 50) { // Adjust the line length limit as per your requirements
-            $short_description .= '...';
-            break;
-          }
-
-          if (substr_count($short_description, "\n") >= 2) {
-            $short_description .= '...';
-            break;
-          }
-
-          if (substr_count($short_description, "\n") > $lineCount) {
-            $lineCount++;
-            $lineLength = 0;
-          }
-        }
-      ?>
-
-      <div class="thumb-box">
-        <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>">
-          <div class="image-container">
-            <img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="">
-          </div>
-          <span class="overlay-box">
-            <span class="meta"><?php echo $row->tanggal ?></span>
-            <span class="main-titlee"><?php echo $row->judul ?></span>
-            <span class="description"><?php echo $short_description ?></span>
-          </span>
-        </a>
       </div>
 
-      <?php
-        $counter++;
-        if ($counter % 3 == 0) {
-          echo '</div><div class="row">'; // Start a new row after every 3 posts
-        }
-      } ?>
-    </div>
-  </div>
-</section>
+      <div class="col-lg-5">
+        <div class="row g-5">
+          <?php $remainingPosts = array_slice($art, 1, 6); ?>
+          <?php foreach ($remainingPosts as $index => $article): ?>
+            <div class="col-lg-6 border-start custom-border">
+              <div class="post-entry-1" >
+                <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid" style="width: 100%; height: 150px;"></a>
+                <div class="post-meta">
+                  <span class="date">Culture</span>
+                  <span class="mx-1">&bullet;</span>
+                  <span><?php echo date('M jS \'y'); ?></span> <!-- Replace with the appropriate date -->
+                </div>
+                <h2><a href="single-post.html"><?php echo $article->judul; ?></a></h2>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
 
-<style type="text/css">
+      <div class="col-lg-3">
+              <h2 class="section-title">New post</h2>
+              <?php 
+                $reverse_art = array_reverse($art); // Reverse the order of the array
+              ?>
+              <?php foreach($reverse_art as $row): ?>
+              <div class="post-entry-1 border-bottom">
+                <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                <h2 class="mb-2"><a href="single-post.html"><?php echo $row->judul ?></a></h2>
+                <span class="author mb-3 d-block">Jenny Wilson</span>
+              </div>
+              <?php endforeach; ?>
+            </div> 
 
-  #posts.posts a {
-    color: #fff;
-    text-decoration: none;
-  }
+    </div> <!-- End .row -->
+      </div>
+    </section> <!-- End Post Grid Section -->
 
-  #posts.posts * {
-    outline: 0;
-  }
+    <!-- ======= Culture Category Section ======= -->
+    <section class="category-section">
+      <div class="container" data-aos="fade-up">
 
-  #posts.posts body {
-    margin-top: 100px;
-    font-size: 11px;
-    color: #aaa;
-    font-family: "Poppins", sans-serif;
-  }
+        <div class="section-header d-flex justify-content-between align-items-center mb-5">
+          <h2>Culture</h2>
+          <div><a href="category.html" class="more">See All Culture</a></div>
+        </div>
 
-  #posts.posts .container {
-    max-width: 1140px;
-    margin: 0 auto;
-    display: block;
-  }
+        <div class="row">
+          <div class="col-md-9">
 
-  #posts.posts .row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 20px;
-  }
+            <div class="d-lg-flex post-entry-2">
+              <a href="single-post.html" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
+                <img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid">
+              </a>
+              <div>
+                <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                <h3><a href="single-post.html">What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</a></h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas, nobis error deserunt aliquam temporibus sapiente, laudantium dolorum itaque libero eos deleniti?</p>
+                <div class="d-flex align-items-center author">
+                  <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div>
+                  <div class="name">
+                    <h3 class="m-0 p-0">Wade Warren</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-  #posts.posts .thumb-box {
-    display: flex;
-    width: calc(33.3333% - 20px);
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-  }
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="post-entry-1 border-bottom">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                </div>
 
-  #posts.posts .thumb-box a {
-    padding: 0;
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
+                <div class="post-entry-1">
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-/*  #posts.posts .image-container {
-    position: relative;
-    width: 100%;
-    padding-top: 100%;
-    overflow: hidden;
-  }*/
+          <div class="col-md-3">
 
-  #posts.posts .thumb-box img {
-/*    position: absolute;*/
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-  }
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
 
-  #posts.posts .overlay-box {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    z-index: 3;
-    left: 0;
-    padding: 5%;
-    background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.75));
-  }
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="single-post.html">9 Half-up/half-down Hairstyles for Long and Medium Hair</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
 
-  #posts.posts .meta {
-    font-size: 14px;
-    display: block;
-  }
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy: A Working Mom’s Guide</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
 
-  #posts.posts .main-titlee {
-    font-size: 16px;
-    display: block;
-    font-weight: 700;
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
-  }
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
 
-  #posts.posts .description {
-    color: #ccc;
-    font-size: 13px;
-    margin-top: 5px;
-    display: block;
-    color: #ccc;
-    max-height: 0;
-    line-height: 18px;
-    overflow: hidden;
-    opacity: 0;
-    transition: opacity 0.4s ease-out, max-height 0.4s ease-out, margin 0.4s;
-  }
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Culture Category Section -->
 
-  #posts.posts .thumb-box a:hover .description {
-    opacity: 1;
-    max-height: 100px;
-    margin-top: 5px;
-    transition: opacity 0.4s ease-out, max-height 0.9s ease-out;
-  }
+    <!-- ======= Business Category Section ======= -->
+    <section class="category-section">
+      <div class="container" data-aos="fade-up">
 
-  #posts.posts .thumb-box a:hover .overlay-box {
-    background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1));
-  }
-</style>
+        <div class="section-header d-flex justify-content-between align-items-center mb-5">
+          <h2>Business</h2>
+          <div><a href="category.html" class="more">See All Business</a></div>
+        </div>
 
+        <div class="row">
+          <div class="col-md-9 order-md-2">
 
+            <div class="d-lg-flex post-entry-2">
+              <a href="single-post.html" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
+                <img src="assets/img/post-landscape-3.jpg" alt="" class="img-fluid">
+              </a>
+              <div>
+                <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                <h3><a href="single-post.html">What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</a></h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas, nobis error deserunt aliquam temporibus sapiente, laudantium dolorum itaque libero eos deleniti?</p>
+                <div class="d-flex align-items-center author">
+                  <div class="photo"><img src="assets/img/person-4.jpg" alt="" class="img-fluid"></div>
+                  <div class="name">
+                    <h3 class="m-0 p-0">Wade Warren</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
 
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="post-entry-1 border-bottom">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                </div>
 
-<!-- End #main -->
+                <div class="post-entry-1">
+                  <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-7.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
 
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="single-post.html">9 Half-up/half-down Hairstyles for Long and Medium Hair</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy: A Working Mom’s Guide</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Business Category Section -->
+
+    <!-- ======= Lifestyle Category Section ======= -->
+    <section class="category-section">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header d-flex justify-content-between align-items-center mb-5">
+          <h2>Lifestyle</h2>
+          <div><a href="category.html" class="more">See All Lifestyle</a></div>
+        </div>
+
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <div class="post-entry-1 lg">
+              <a href="<?php echo base_url().'guest/single_post/'.$art->id_artikel;?>"><img src="<?php echo base_url()?>assets/img/<?php echo $art->Foto ?>" alt="" class="img-fluid"></a>
+              <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
+              <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus exercitationem? Nihil tempore odit ab minus eveniet praesentium, similique blanditiis molestiae ut saepe perspiciatis officia nemo, eos quae cumque. Accusamus fugiat architecto rerum animi atque eveniet, quo, praesentium dignissimos</p>
+
+              <div class="d-flex align-items-center author">
+                <div class="photo"><img src="assets/img/person-7.jpg" alt="" class="img-fluid"></div>
+                <div class="name">
+                  <h3 class="m-0 p-0">Esther Howard</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+
+            <div class="post-entry-1">
+              <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+
+          </div>
+
+          <div class="col-lg-8">
+            <div class="row g-5">
+              <div class="col-lg-4 border-start custom-border">
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2><a href="single-post.html">Let’s Get Back to Work, New York</a></h2>
+                </div>
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 17th '22</span></div>
+                  <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                </div>
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-4.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Mar 15th '22</span></div>
+                  <h2><a href="single-post.html">Why Craigslist Tampa Is One of The Most Interesting Places On the Web?</a></h2>
+                </div>
+              </div>
+              <div class="col-lg-4 border-start custom-border">
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-3.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2><a href="single-post.html">6 Easy Steps To Create Your Own Cute Merch For Instagram</a></h2>
+                </div>
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Mar 1st '22</span></div>
+                  <h2><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+                </div>
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
+                </div>
+              </div>
+              <div class="col-lg-4">
+
+                <div class="post-entry-1 border-bottom">
+                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+
+                <div class="post-entry-1 border-bottom">
+                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+
+                <div class="post-entry-1 border-bottom">
+                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">9 Half-up/half-down Hairstyles for Long and Medium Hair</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+
+                <div class="post-entry-1 border-bottom">
+                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy: A Working Mom’s Guide</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+
+                <div class="post-entry-1 border-bottom">
+                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+
+                <div class="post-entry-1 border-bottom">
+                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- End .row -->
+      </div>
+    </section><!-- End Lifestyle Category Section -->
+
+  </main><!-- End #main -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="<?php echo base_url()?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -364,91 +547,13 @@ foreach ($words as $word) {
   <!-- Template Main JS File -->
   <script src="<?php echo base_url()?>assets/js/main.js"></script>
   <script src="<?php echo base_url()?>assets/js/main.js"></script>
-    <script>
+  <script>
       AOS.init({
         offset: 120,
         duration: 3000,
       });
     </script>
+
 </body>
 
 </html>
-
-<style type="text/css">
-.post-entry-1 {
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
-}
-.post-entry-1 .post-thumbnail {
-  width: 100%;
-  height: 500px;
-}
-
-  #trending {
-  float: right;
-  width: 25%;
-  padding: 0 20px;
-}
-
-#trending h2.section-title {
-  font-size: 24px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-#trending .card {
-  margin-bottom: 20px;
-}
-
-#trending .card-title {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-#trending .card-text {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 0;
-}
-
-#trending img {
-  width: 100%;
-  height: auto;
-}
-.trending-number {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  background-color: #f2f2f2;
-  color: #333;
-  font-weight: bold;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-.post-entry-highlight a{
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  .btn:hover {
-    background-color: #D3D3D3;
-  }
-</style>

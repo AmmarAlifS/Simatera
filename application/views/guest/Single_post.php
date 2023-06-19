@@ -34,113 +34,188 @@
 
   <main id="main">
     <section class="Artikel">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9 Artikel" data-aos="fade-up">
+
+  <!-- Add the Facebook SDK -->
+ <!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="bAgBic2R"></script>
+
+<!-- Twitter SDK -->
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<!-- AddThis SDK -->
+<script async src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=YOUR_ADDTHIS_PROFILE_ID"></script>
+
+<!-- HTML code -->
+<?php
+// Get the current page URL
+$currentURL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 Artikel" data-aos="fade-up">
 
             <!-- ======= Halaman Artikel ======= -->
             <div class="Artikel">
-  <div class="post-meta"><span class="date">Sejarah</span> <span class="mx-1">&bullet;</span> <span><?php echo $xdetail->tanggal ?></span></div>
-  <h1 class="mb-5"><?php echo $xdetail->judul;?></h1>
+                <div class="post-meta">
+                    <span class="date">Sejarah</span>
+                    <span class="mx-1">&bullet;</span>
+                    <span><?php echo $xdetail->tanggal ?></span>
+                </div>
+                <h1 class="mb-5">13 Amazing Poems from Shel Silverstein with Valueble Life Lessons</h1>
               
-  <?php
-$artikel = $xdetail->artikel;
+                <?php
+                $artikel = $xdetail->artikel;
 
-// Split the article into an array of words
-$words = str_word_count($artikel, 1);
+                // Split the article into an array of words
+                $words = str_word_count($artikel, 1);
 
-// Calculate the total number of words
-$total_words = count($words);
+                // Calculate the total number of words
+                $total_words = count($words);
 
-// Find the midpoint index
-$midpoint = intval($total_words / 2);
+                // Find the midpoint index
+                $midpoint = intval($total_words / 2);
 
-// Extract the first half of the article
-$first_half = implode(' ', array_slice($words, 0, $midpoint));
+                // Extract the first half of the article
+                $first_half = implode(' ', array_slice($words, 0, $midpoint));
 
-// Extract the second half of the article
-$second_half = implode(' ', array_slice($words, $midpoint));
+                // Extract the second half of the article
+                $second_half = implode(' ', array_slice($words, $midpoint));
 
-// HTML snippet to insert in the middle
-$html_snippet = '<div class="image-slider">
-    <!-- ======= Hero Slider Section ======= -->
-    <section id="hero-slider" class="hero-slider">
-      <div class="container-md" data-aos="fade-in">
-        <div class="row">
-          <div class="col-12">
-            <div class="swiper sliderFeaturedPosts">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url(\'' . base_url() . 'assets/img/De-Javasche-Bank1.jpg\');">
-                    <div class="img-bg-inner">
-                      <h2>Gedung De Javasche Bank 1909.</h2>
-                      <p>Gedung De Javasche Bank dibangun pada tahun 1909 dan menghadap ke Landraadweg (Jl. Perintis Kemerdekaan).</p>
+                // HTML snippet to insert in the middle
+                $html_snippet = '<div class="image-slider">
+                    <!-- ======= Hero Slider Section ======= -->
+                    <section id="hero-slider" class="hero-slider">
+                        <div class="container-md" data-aos="fade-in">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="swiper sliderFeaturedPosts">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <a href="#" class="img-bg d-flex align-items-end" style="background-image: url(\'' . base_url() . 'assets/img/De-Javasche-Bank1.jpg\');">
+                                                    <div class="img-bg-inner">
+                                                        <h2>Gedung De Javasche Bank 1909.</h2>
+                                                        <p>Gedung De Javasche Bank dibangun pada tahun 1909 dan menghadap ke Landraadweg (Jl. Perintis Kemerdekaan).</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                            <div class="swiper-slide">
+                                                <a href="#" class="img-bg d-flex align-items-end" style="background-image: url(\'' . base_url() . 'assets/img/De-Javasche-Bank2.jpg\');">
+                                                    <div class="img-bg-inner">
+                                                        <h2>Gedung De Javasche Bank Tahun 1930.</h2>
+                                                        <p>Gedung De Javasche Bank Bandung yang baru menghadap ke Logeweg (Jl. Braga) pada awal tahun 1930-an.</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                            <div class="swiper-slide">
+                                                <a href="#" class="img-bg d-flex align-items-end" style="background-image: url(\'' . base_url() . 'assets/img/De-Javasche-Bank3.jpg\');">
+                                                    <div class="img-bg-inner">
+                                                        <h2>Gedung De Javasche Bank Tahun </h2>
+                                                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="custom-swiper-button-next">
+                                            <span class="bi-chevron-right"></span>
+                                        </div>
+                                        <div class="custom-swiper-button-prev">
+                                            <span class="bi-chevron-left"></span>
+                                        </div>
+
+                                        <div class="swiper-pagination"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>';
+
+                // Combine the first half, HTML snippet, and second half
+                $combined = '<div class="text-justify" style="text-align: justify">' . $first_half . ' ' . $html_snippet . ' ' . $second_half . '</div>';
+
+                // Output the combined result
+                echo $combined;
+                ?>
+
+                <?php
+                $video = $xdetail->Video;
+
+                // Extract the video ID from the YouTube URL
+                $video_id = '';
+                $matches = [];
+                $pattern = '/(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/|y2u\.be\/)([a-zA-Z0-9_-]{11})/';
+                preg_match($pattern, $video, $matches);
+                if (isset($matches[1])) {
+                    $video_id = $matches[1];
+                }
+                ?>
+
+                <center>
+                    <div class="video-container" style="margin-top: 20px;">
+                        <iframe width="503" height=300" src="https://www.youtube.com/embed/<?= $video_id; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                  </a>
-                </div>
+                </center>
 
-                <div class="swiper-slide">
-                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url(\'' . base_url() . 'assets/img/De-Javasche-Bank2.jpg\');">
-                    <div class="img-bg-inner">
-                      <h2>Gedung De Javasche Bank Tahun 1930.</h2>
-                      <p>Gedung De Javasche Bank Bandung yang baru menghadap ke Logeweg (Jl. Braga) pada awal tahun 1930-an.</p>
-                    </div>
-                  </a>
-                </div>
+                <!-- Share buttons -->
+<div class="share-buttons">
+  <div class="caption">Bagikan ke:</div>
 
-                <div class="swiper-slide">
-                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url(\'' . base_url() . 'assets/img/De-Javasche-Bank3.jpg\');">
-                    <div class="img-bg-inner">
-                      <h2>Gedung De Javasche Bank Tahun </h2>
-                      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="custom-swiper-button-next">
-                <span class="bi-chevron-right"></span>
-              </div>
-              <div class="custom-swiper-button-prev">
-                <span class="bi-chevron-left"></span>
-              </div>
-
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>';
-
-
-    // Combine the first half, HTML snippet, and second half
-    $combined = '<div class="text-justify" style="text-align: justify">' . $first_half . ' ' . $html_snippet . ' ' . $second_half . '</div>';
-
-    // Output the combined result
-    echo $combined;
-    ?>
-
-    <?php
-    $video = $xdetail->Video;
-
-    // Extract the video ID from the YouTube URL
-    $video_id = '';
-    $matches = [];
-    $pattern = '/(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/|y2u\.be\/)([a-zA-Z0-9_-]{11})/';
-    preg_match($pattern, $video, $matches);
-    if (isset($matches[1])) {
-        $video_id = $matches[1];
-    }
-    ?>
-
-    <center>
-    <div class="video-container" style="margin-top: 20px;">
-        <iframe width="503" height="250" src="https://www.youtube.com/embed/<?= $video_id; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="share-button-row">
+    <div class="share-button">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(current_url()); ?>" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook" />
+      </a>
     </div>
-    </center>
 
+    <div class="share-button">
+      <!-- Twitter -->
+      <a href="https://twitter.com/share?url=<?php echo urlencode(current_url()); ?>&text=<?php echo urlencode($xdetail->judul); ?>" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="Twitter" />
+      </a>
+    </div>
 
+    <div class="share-button">
+      <!-- Pinterest -->
+      <a href="https://pinterest.com/pin/create/button/?url=<?php echo urlencode(current_url()); ?>&media=<?php echo urlencode(base_url() . 'assets/img/' . $xdetail->Foto); ?>&description=<?php echo urlencode($xdetail->judul); ?>" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/pinterest--v1.png" alt="Pinterest" />
+      </a>
+    </div>
 
+    <div class="share-button">
+      <!-- Telegram -->
+      <a href="https://t.me/share/url?url=<?php echo urlencode(current_url()); ?>&text=<?php echo urlencode($xdetail->judul); ?>" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/telegram-app--v1.png" alt="Telegram" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .share-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .share-button-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .share-button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .caption {
+    font-weight: bold;
+  }
+</style>
 
 <!-- End Hero Slider Section -->
               <!-- <p>Sehubung dengan hal tersebut, J. Reijsenbach Presiden ke-10 De Javasche Bank mengirim surat No. 165 pada tanggal 7 Mei 1902 kepada Dewan Militer Hindia Belanda dan surat No. 420 tanggal 16 Juni 1902  kepada pemerintah Hindia-Belanda yang isinya meminta izin untuk membuka Kantor Cabang De Javasche Bank di Bandung. Tanggal 29 Oktober 1906 Direksi De Javasche Bank menerima surat dari Gubernur Jenderal Hindia-Belanda No. 52 tertanggal 24 Oktober 1906 tentang penyerahan sebidang tanah seluas 10.40 m2 di District Oedjoengbroengkoelon, desa Kejaksangirang kepada De Javasche Bank dengan Sertifikat Hak Milik No.103 tanggal 8 Maret 1907 berikut Surat Ukur N0. 153 tanggal 13 Februari 1907 dan No.Kadester 1022.</p>
