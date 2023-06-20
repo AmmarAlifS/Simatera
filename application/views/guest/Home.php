@@ -103,7 +103,7 @@
             <span class="mx-1">&bullet;</span>
             <span><?php echo $art[0]->tanggal; ?></span>
           </div>
-          <h2><a href="<?php echo base_url().'guest/single_post/'.$art[0]->id_artikel;?>"><?php echo $art[0]->judul; ?></a></h2>
+          <h2 style="text-align: justify;"><a href="<?php echo base_url().'guest/single_post/'.$art[0]->id_artikel;?>"><?php echo $art[0]->judul; ?></a></h2>
           <p class="mb-4 d-block">
             <?php
             $words = explode(' ', $art[0]->artikel);
@@ -136,7 +136,7 @@
                   <span class="mx-1">&bullet;</span>
                   <span><?php echo date('M jS \'y'); ?></span> <!-- Replace with the appropriate date -->
                 </div>
-                <h2><a href="<?php echo base_url().'guest/single_post/'.$article->id_artikel;?>"><?php echo $article->judul; ?></a></h2>
+                <h2 style="text-align: justify;"><a href="<?php echo base_url().'guest/single_post/'.$article->id_artikel;?>"><?php echo $article->judul; ?></a></h2>
               </div>
             </div>
           <?php endforeach; ?>
@@ -162,9 +162,8 @@
     </section> <!-- End Post Grid Section -->
 
     <!-- ======= Culture Category Section ======= -->
-    <section class="category-section">
+  <section class="category-section">
   <div class="container" data-aos="fade-up">
-
     <div class="section-header d-flex justify-content-between align-items-center mb-5">
       <h2>Museum</h2>
       <div><a href="category.html" class="more">See All Museum</a></div>
@@ -175,7 +174,7 @@
         <?php foreach ($art as $index => $article): ?>
           <?php if ($index === 1 && $article->kategori === 'Museum'): ?> <!-- Main Post -->
             <div class="d-lg-flex post-entry-2">
-              <a href="single-post.html" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
+              <a href="<?php echo base_url().'guest/single_post/'.$article->id_artikel;?>" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
                 <img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid" style="width: 100%; height: 330px;">
               </a>
               <div>
@@ -184,8 +183,8 @@
                   <span class="mx-1">&bullet;</span>
                   <span><?php echo date('M jS \'y', strtotime($article->tanggal)); ?></span>
                 </div>
-                <h3><a href="single-post.html"><?php echo $article->judul ?></a></h3>
-                <p style="text-align: justify;"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 15)); ?>...</p>
+                <h3><a href="<?php echo base_url().'guest/single_post/'.$article->id_artikel;?>"><?php echo $article->judul ?></a></h3>
+                <p style="text-align: justify;"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 50)); ?>...</p>
               </div>
             </div>
           <?php endif; ?>
@@ -196,14 +195,14 @@
             <?php foreach ($art as $index => $article): ?>
               <?php if ($index > 1 && $index < 4 && $article->kategori === 'Museum'): ?> <!-- Additional Posts -->
                 <div class="post-entry-1 border-bottom">
-                  <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid"></a>
+                  <a href="<?php echo base_url().'guest/single_post/'.$article->id_artikel;?>"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid"></a>
                   <div class="post-meta">
                     <span class="date"><?php echo $article->kategori ?></span>
                     <span class="mx-1">&bullet;</span>
                     <span><?php echo date('M jS \'y', strtotime($article->tanggal)); ?></span>
                   </div>
-                  <h2 class="mb-2"><a href="single-post.html"><?php echo $article->judul ?></a></h2>
-                  <p class="mb-4 d-block" style="text-align: justify;"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 15)); ?>...</p>
+                  <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$article->id_artikel;?>"><?php echo $article->judul ?></a></h2>
+                  <p class="mb-4 d-block" style="text-align: justify;"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 40)); ?>...</p>
                 </div>
               <?php endif; ?>
             <?php endforeach; ?>
@@ -213,13 +212,13 @@
             <?php foreach ($art as $index => $article): ?>
               <?php if ($index === 4 && $article->kategori === 'Museum'): ?> <!-- Third Post -->
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid"></a>
+                  <a href="<?php echo base_url().'guest/single_post/'.$article->id_artikel;?>"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid"></a>
                   <div class="post-meta">
                     <span class="date"><?php echo $article->kategori ?></span>
                     <span class="mx-1">&bullet;</span>
                     <span><?php echo date('M jS \'y', strtotime($article->tanggal)); ?></span>
                   </div>
-                  <h2 class="mb-2"><a href="single-post.html"><?php echo $article->judul ?></a></h2>
+                  <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$article->id_artikel;?>"><?php echo $article->judul ?></a></h2>
                   <p class="mb-4 d-block"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 15)); ?>...</p>
                 </div>
               <?php endif; ?>
@@ -228,7 +227,6 @@
         </div>
       </div>
       <div class="col-md-3">
-        <h2 class="section-title">New post</h2>
         <?php 
           $museum_posts = array_filter($reverse_art, function($post) {
             return $post->kategori === 'Museum';
