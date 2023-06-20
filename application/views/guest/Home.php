@@ -163,96 +163,97 @@
 
     <!-- ======= Culture Category Section ======= -->
     <section class="category-section">
-      <div class="container" data-aos="fade-up">
+  <div class="container" data-aos="fade-up">
 
-        <div class="section-header d-flex justify-content-between align-items-center mb-5">
-          <h2>Culture</h2>
-          <div><a href="category.html" class="more">See All Culture</a></div>
-        </div>
+    <div class="section-header d-flex justify-content-between align-items-center mb-5">
+      <h2>Museum</h2>
+      <div><a href="category.html" class="more">See All Museum</a></div>
+    </div>
 
-        <div class="row">
-          <div class="col-md-9">
-
+    <div class="row">
+      <div class="col-md-9">
+        <?php foreach ($art as $index => $article): ?>
+          <?php if ($index === 1 && $article->kategori === 'Museum'): ?> <!-- Main Post -->
             <div class="d-lg-flex post-entry-2">
               <a href="single-post.html" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
-                <img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid">
+                <img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid" style="width: 100%; height: 330px;">
               </a>
               <div>
-                <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <h3><a href="single-post.html">What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas, nobis error deserunt aliquam temporibus sapiente, laudantium dolorum itaque libero eos deleniti?</p>
-                <div class="d-flex align-items-center author">
-                  <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div>
-                  <div class="name">
-                    <h3 class="m-0 p-0">Wade Warren</h3>
-                  </div>
+                <div class="post-meta">
+                  <span class="date"><?php echo $article->kategori ?></span>
+                  <span class="mx-1">&bullet;</span>
+                  <span><?php echo date('M jS \'y', strtotime($article->tanggal)); ?></span>
                 </div>
+                <h3><a href="single-post.html"><?php echo $article->judul ?></a></h3>
+                <p style="text-align: justify;"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 15)); ?>...</p>
               </div>
             </div>
+          <?php endif; ?>
+        <?php endforeach; ?>
 
-            <div class="row">
-              <div class="col-lg-4">
+        <div class="row">
+          <div class="col-lg-4">
+            <?php foreach ($art as $index => $article): ?>
+              <?php if ($index > 1 && $index < 4 && $article->kategori === 'Museum'): ?> <!-- Additional Posts -->
                 <div class="post-entry-1 border-bottom">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                  <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                  <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid"></a>
+                  <div class="post-meta">
+                    <span class="date"><?php echo $article->kategori ?></span>
+                    <span class="mx-1">&bullet;</span>
+                    <span><?php echo date('M jS \'y', strtotime($article->tanggal)); ?></span>
+                  </div>
+                  <h2 class="mb-2"><a href="single-post.html"><?php echo $article->judul ?></a></h2>
+                  <p class="mb-4 d-block" style="text-align: justify;"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 15)); ?>...</p>
                 </div>
-
-                <div class="post-entry-1">
-                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
-              </div>
-              <div class="col-lg-8">
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                  <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
-                </div>
-              </div>
-            </div>
+              <?php endif; ?>
+            <?php endforeach; ?>
           </div>
 
-          <div class="col-md-3">
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">9 Half-up/half-down Hairstyles for Long and Medium Hair</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy: A Working Mom’s Guide</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
+          <div class="col-lg-8">
+            <?php foreach ($art as $index => $article): ?>
+              <?php if ($index === 4 && $article->kategori === 'Museum'): ?> <!-- Third Post -->
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid"></a>
+                  <div class="post-meta">
+                    <span class="date"><?php echo $article->kategori ?></span>
+                    <span class="mx-1">&bullet;</span>
+                    <span><?php echo date('M jS \'y', strtotime($article->tanggal)); ?></span>
+                  </div>
+                  <h2 class="mb-2"><a href="single-post.html"><?php echo $article->judul ?></a></h2>
+                  <p class="mb-4 d-block"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 15)); ?>...</p>
+                </div>
+              <?php endif; ?>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
-    </section><!-- End Culture Category Section -->
+      <div class="col-md-3">
+        <h2 class="section-title">New post</h2>
+        <?php 
+          $museum_posts = array_filter($reverse_art, function($post) {
+            return $post->kategori === 'Museum';
+          }); // Filter posts with "Museum" category
+          $limited_posts = array_slice($museum_posts, 0, 6); // Limit the posts to 6
+        ?>
+        <?php foreach($limited_posts as $row): ?>
+          <div class="post-entry-1 border-bottom">
+            <div class="post-meta">
+              <span class="date"><?php echo $row->kategori ?></span>
+              <span class="mx-1">&bullet;</span>
+              <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span>
+            </div>
+            <h2 class="mb-2">
+              <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a>
+            </h2>
+            <span class="author mb-3 d-block">Jenny</span>
+          </div>
+        <?php endforeach; ?>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End Culture Category Section -->
 
     <!-- ======= Business Category Section ======= -->
     <section class="category-section">
