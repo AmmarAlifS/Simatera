@@ -138,7 +138,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     );
-
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      const keywordInput = document.querySelector('input[name="keyword"]');
+      const keywordValue = "<?php echo $keyword; ?>";
+      keywordInput.value = keywordValue;
+    });
     
   /**
    * Initiate glightbox
