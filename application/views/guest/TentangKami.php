@@ -88,7 +88,7 @@
       <div class="col-lg-6">
         <div class="row">
           <div href="#" class="me-4 thumbnail">
-            <img src="<?php echo $latestNews->Foto1; ?>" alt="" class="img-fluid" style="box-shadow: 5px 5px;">
+            <img src="<?php echo base_url()?>assets/img/<?php echo $latestNews->Foto ?>" alt="" class="img-fluid" style="box-shadow: 5px 5px;">
           </div>
         </div>
       </div>

@@ -135,18 +135,31 @@
       </div>
 
       <div class="col-lg-3">
-              <h2 class="section-title">New post</h2>
-              <?php 
+        <div class="aside-block">
+
+          <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="pills-tabContent">
+            <!-- Latest -->
+            <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                <?php 
                 $reverse_art = array_reverse($art); // Reverse the order of the array
-              ?>
-              <?php foreach($reverse_art as $row): ?>
-              <div class="post-entry-1 border-bottom">
-                <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                <h2 class="mb-2"><a href="single-post.html"><?php echo $row->judul ?></a></h2>
-                <span class="author mb-3 d-block">Jenny Wilson</span>
-              </div>
-              <?php endforeach; ?>
-            </div> 
+                ?>
+                <?php foreach($reverse_art as $row): ?>
+                  <div class="post-entry-1 border-bottom">
+                    <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                    <h2 class="mb-2"><a href="single-post.html"><?php echo $row->judul ?></a></h2>
+                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                  </div>
+                <?php endforeach; ?>
+            </div> <!-- End Latest -->
+          </div>
+        </div>
+      </div> 
 
     </div> <!-- End .row -->
       </div>
