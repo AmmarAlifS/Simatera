@@ -50,406 +50,433 @@
 
   <body>
 
-    <main id="main">
+  <main id="main">
 
-    <?php if ($artikel) : ?>
+  <?php if ($artikel) : ?>
+    <section id="search-result" class="search-result">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 col-md-8">
+            <!-- Main content -->
+              <!-- Filter Form -->
+              <form action="<?php echo site_url('guest/search'); ?>" method="get" class="search-form">
+                  <div class="form-group">
+                    <select name="kategori" class="form-control">
+                        <option value="">All Categories</option>
+                        <?php foreach ($kategori as $category) : ?>
+                            <option value="<?php echo $category['nama_kategori']; ?>" <?php echo ($category['nama_kategori'] == $selected_category) ? 'selected' : ''; ?>>
+                                <?php echo $category['nama_kategori']; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                      <select name="sort" class="form-control">
+                          <option value="">Sort By</option>
+                          <option value="latest" <?php if ($sort === 'latest') echo 'selected'; ?>>Latest</option>
+                          <option value="oldest" <?php if ($sort === 'oldest') echo 'selected'; ?>>Oldest</option>
+                      </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Filter</button>
+              </form>
+              
+              <h5 class="category-title mt-3">Menampilkan <?php echo $resulttotal; ?> hasil untuk pencarian '<?php echo $keyword; ?>'</h5>
 
-<section id="search-result" class="search-result">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-9 col-md-8">
+              <!-- Post Result 1 -->
+              <div class="d-md-flex-column post-entry-2 small-img">
+                <div class="row">
+                  <?php $count = 0; ?>
+                  <?php foreach ($artikel as $row) :
+                    $post_entry_class = "col-lg-4 col-md-6";
+                    // Create shortened description with "read more" button
+                    $words = explode(' ', $row->artikel);
+                    $short_description = '';
+                    $lineCount = 0;
+                    $lineLength = 0;
+                    
+                    foreach ($words as $word) {
+                      $short_description .= $word . ' ';
+                      $lineLength += strlen($word) + 1; // +1 for the space after the word
+                      
+                      if ($lineLength > 50) { // Adjust the line length limit as per your requirements
+                        $short_description .= '...';
+                        break;
+                      }
+                      
+                      if (substr_count($short_description, "\n") >= 2) {
+                        $short_description .= '...';
+                        break;
+                      }
 
-        <!-- Main content -->
-        <form action="<?php echo base_url();?>guest/search" method="post" class="search-form">
-          <input type="text" placeholder="Cari artikel..." class="form-control" name="keyword" />
-          <button id="submit" onclick="Alert()"></button>
-        </form>
+                      if (substr_count($short_description, "\n") > $lineCount) {
+                        $lineCount++;
+                        $lineLength = 0;
+                      }
+                    } ?>
 
-        <?php $resulttotal = 0;foreach ($artikel as $art) : $resulttotal++;endforeach; ?>
-          
-        <h5 class="category-title">Menampilkan <?php echo $resulttotal ?> hasil untuk pencarian '<?php echo $_POST['keyword']; ?>'</h5>
+                    <div class="<?php echo $post_entry_class ?>">
+                      <div class="post-entry-1">
+                        <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
+                        <div class="post-meta"> <span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                        <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
+                        <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
+                        <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
+                      </div>
+                    </div>
 
-        <!-- Post Result 1 -->
-        <div class="d-md-flex-column post-entry-2 small-img">
-          <div class="row">
-            <?php $count = 0; ?>
-            <?php foreach ($artikel as $row) :
-              $post_entry_class = "col-lg-4 col-md-6";
-              // Create shortened description with "read more" button
-              $words = explode(' ', $row->artikel);
-              $short_description = '';
-              $lineCount = 0;
-              $lineLength = 0;
+                    <?php
+                    $count++;
+                    if ($count % 3 === 0) {
+                      echo '</div><div class="row">';
+                    } 
+                    ?>
 
-              foreach ($words as $word) {
-                $short_description .= $word . ' ';
-                $lineLength += strlen($word) + 1; // +1 for the space after the word
-
-                if ($lineLength > 50) { // Adjust the line length limit as per your requirements
-                  $short_description .= '...';
-                  break;
-                }
-
-                if (substr_count($short_description, "\n") >= 2) {
-                  $short_description .= '...';
-                  break;
-                }
-
-                if (substr_count($short_description, "\n") > $lineCount) {
-                  $lineCount++;
-                  $lineLength = 0;
-                }
-              } ?>
-
-              <div class="<?php echo $post_entry_class ?>">
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
-                  <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
-                  <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
-                  <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
-                  <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
+                    <?php endforeach; ?>
+                  </div>
                 </div>
+             <!-- End Post Result 1 -->
+
+            <!-- Paging -->
+            <div class="text-start py-4">
+              <div class="custom-pagination">
+                  <?php
+                  $pagination_links = $this->pagination->create_links();
+                  $pagination_links = str_replace('<a href', '<a class="page-link" href', $pagination_links);
+                  $pagination_links = str_replace('<a class="page-link" href="#"', '<a class="page-link active"', $pagination_links);
+                  echo $pagination_links;
+                  ?>
               </div>
-
-              <?php
-              $count++;
-              if ($count % 3 === 0) {
-                echo '</div><div class="row">';
-              }
-              ?>
-
-            <?php endforeach; ?>
+            </div>
+            <!-- End Paging -->
+                  
           </div>
+      
+          <!-- Sidebar -->
+          <div class="col-lg-3 col-md-4">
+            <div class="aside-block">
+              <ul
+              class="nav nav-pills custom-tab-nav mb-4"
+                      id="pills-tab"
+                      role="tablist"
+                    >
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link active"
+                          id="pills-popular-tab"
+                          data-bs-toggle="pill"
+                          data-bs-target="#pills-popular"
+                          type="button"
+                          role="tab"
+                          aria-controls="pills-popular"
+                          aria-selected="true"
+                        >
+                          Popular
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link"
+                          id="pills-trending-tab"
+                          data-bs-toggle="pill"
+                          data-bs-target="#pills-trending"
+                          type="button"
+                          role="tab"
+                          aria-controls="pills-trending"
+                          aria-selected="false"
+                        >
+                          Latest
+                        </button>
+                      </li>
+                    </ul>
+
+                    <div class="tab-content" id="pills-tabContent">
+                      <!-- Populer -->
+                      <div
+                        class="tab-pane fade show active"
+                        id="pills-popular"
+                        role="tabpanel"
+                        aria-labelledby="pills-popular-tab"
+                      >
+                        <div class="post-entry-1 border-bottom">
+                          <div class="post-meta">
+                            <span class="date">Sejarah</span>
+                            <span class="mx-1">&bullet;</span>
+                            <span>Mar 13rd '23</span>
+                          </div>
+                          <h2 class="mb-2">
+                            <a href="#"
+                              >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
+                              Dunia</a
+                            >
+                          </h2>
+                        </div>
+                      </div>
+                      <!-- End Populer -->
+
+                      <!-- Trending -->
+                      <div
+                        class="tab-pane fade"
+                        id="pills-trending"
+                        role="tabpanel"
+                        aria-labelledby="pills-trending-tab"
+                      >
+                        <div class="post-entry-1 border-bottom">
+                          <div class="post-meta">
+                            <span class="date">Sejarah</span>
+                            <span class="mx-1">&bullet;</span>
+                            <span>Mar 17th '23</span>
+                          </div>
+                          <h2 class="mb-2">
+                            <a href="#"
+                              >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
+                              Dunia</a
+                            >
+                          </h2>
+                          <span class="author mb-3 d-block">Rifki Aufa</span>
+                        </div>
+                      </div>
+                      <!-- End Trending -->
+
+                      <!-- Latest -->
+                      <div
+                        class="tab-pane fade"
+                        id="pills-latest"
+                        role="tabpanel"
+                        aria-labelledby="pills-latest-tab"
+                      >
+                        <div class="post-entry-1 border-bottom">
+                          <div class="post-meta">
+                            <span class="date">Sejarah</span>
+                            <span class="mx-1">&bullet;</span>
+                            <span>Mar 17th '23</span>
+                          </div>
+                          <h2 class="mb-2">
+                            <a href="#"
+                              >Sejarah Lengkap Gedung Lanraad (Gedung Indonesia
+                              Menggugat)</a
+                            >
+                          </h2>
+                          <span class="author mb-3 d-block">Rifki Aufa</span>
+                        </div>
+                      </div>
+                      <!-- End Latest -->
+                    </div>
+                  </div>
+
+                  <div class="aside-block">
+                    <h3 class="aside-title">Video</h3>
+                    <div class="video-post">
+                      <a
+                        href="https://www.youtube.com/watch?v=dQw4w9WfgXcQ"
+                        class="glightbox link-video"
+                      >
+                        <span class="bi-play-fill"></span>
+                        <img
+                          src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
+                          alt=""
+                          class="img-fluid"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <!-- End Video -->
+
+                  <!-- End Categories -->
+
+                  <!-- End Tags -->
+          </div>  
         </div>
-        <!-- End Post Result 1 -->
-
-                <!-- Paging -->
-                <div class="text-start py-4">
-                    <div class="custom-pagination">
-                        <?php
-                        $pagination_links = $this->pagination->create_links();
-                        $pagination_links = str_replace('<a href', '<a class="page-link" href', $pagination_links);
-                        $pagination_links = str_replace('<a class="page-link" href="#"', '<a class="page-link active"', $pagination_links);
-                        echo $pagination_links;
-                        ?>
-                    </div>
-                 </div>
-              <!-- End Paging -->
-
       </div>
+    </section>
 
-      <!-- Sidebar -->
-      <div class="col-lg-3 col-md-4">
-      <div class="aside-block">
-                <ul
-                  class="nav nav-pills custom-tab-nav mb-4"
-                  id="pills-tab"
-                  role="tablist"
+  <?php else : ?>
+
+  <section id="search-result" class="search-result">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 col-md-8">
+
+          <!-- Main content -->
+          <form action="<?php echo site_url('guest/search'); ?>" method="get" class="search-form">
+              <div class="form-group">
+                <select name="kategori" class="form-control">
+                    <option value="">All Categories</option>
+                    <?php foreach ($kategori as $category) : ?>
+                        <option value="<?php echo $category['nama_kategori']; ?>" <?php echo ($category['nama_kategori'] == $selected_category) ? 'selected' : ''; ?>>
+                            <?php echo $category['nama_kategori']; ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+              </div>
+              <div class="form-group">
+                  <select name="sort" class="form-control">
+                      <option value="">Sort By</option>
+                      <option value="latest" <?php if ($sort === 'latest') echo 'selected'; ?>>Latest</option>
+                      <option value="oldest" <?php if ($sort === 'oldest') echo 'selected'; ?>>Oldest</option>
+                  </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Filter</button>
+          </form>
+          
+          <?php if ($selected_category) : ?>
+            <h5 class="category-title mt-3">Tidak ada hasil untuk pencarian '<?php echo $keyword; ?>' Dalam kategori <?php echo $selected_category; ?></h5>
+          <?php else : ?>
+            <h5 class="category-title mt-3">Tidak ada hasil untuk pencarian '<?php echo $keyword; ?>'</h5>
+          <?php endif; ?>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-3 col-md-4">
+          <div class="aside-block">
+              <ul
+                class="nav nav-pills custom-tab-nav mb-4"
+                id="pills-tab"
+                role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="pills-popular-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#pills-popular"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-popular"
+                    aria-selected="true"
+                  >
+                    Popular
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="pills-trending-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#pills-trending"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-trending"
+                    aria-selected="false"
+                  >
+                    Latest
+                  </button>
+                </li>
+              </ul>
+
+              <div class="tab-content" id="pills-tabContent">
+                <!-- Populer -->
+                <div
+                  class="tab-pane fade show active"
+                  id="pills-popular"
+                  role="tabpanel"
+                  aria-labelledby="pills-popular-tab"
                 >
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link active"
-                      id="pills-popular-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-popular"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-popular"
-                      aria-selected="true"
-                    >
-                      Popular
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link"
-                      id="pills-trending-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-trending"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-trending"
-                      aria-selected="false"
-                    >
-                      Latest
-                    </button>
-                  </li>
-                </ul>
-
-                <div class="tab-content" id="pills-tabContent">
-                  <!-- Populer -->
-                  <div
-                    class="tab-pane fade show active"
-                    id="pills-popular"
-                    role="tabpanel"
-                    aria-labelledby="pills-popular-tab"
-                  >
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 13rd '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
-                          Dunia</a
-                        >
-                      </h2>
+                  <div class="post-entry-1 border-bottom">
+                    <div class="post-meta">
+                      <span class="date">Sejarah</span>
+                      <span class="mx-1">&bullet;</span>
+                      <span>Mar 13rd '23</span>
                     </div>
+                    <h2 class="mb-2">
+                      <a href="#"
+                        >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
+                        Dunia</a
+                      >
+                    </h2>
                   </div>
-                  <!-- End Populer -->
-
-                  <!-- Trending -->
-                  <div
-                    class="tab-pane fade"
-                    id="pills-trending"
-                    role="tabpanel"
-                    aria-labelledby="pills-trending-tab"
-                  >
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
-                          Dunia</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-                  </div>
-                  <!-- End Trending -->
-
-                  <!-- Latest -->
-                  <div
-                    class="tab-pane fade"
-                    id="pills-latest"
-                    role="tabpanel"
-                    aria-labelledby="pills-latest-tab"
-                  >
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Sejarah Lengkap Gedung Lanraad (Gedung Indonesia
-                          Menggugat)</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-                  </div>
-                  <!-- End Latest -->
                 </div>
-              </div>
+                <!-- End Populer -->
 
-              <div class="aside-block">
-                <h3 class="aside-title">Video</h3>
-                <div class="video-post">
-                  <a
-                    href="https://www.youtube.com/watch?v=dQw4w9WfgXcQ"
-                    class="glightbox link-video"
-                  >
-                    <span class="bi-play-fill"></span>
-                    <img
-                      src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </a>
-                </div>
-              </div>
-              <!-- End Video -->
-
-              <!-- End Categories -->
-
-              <!-- End Tags -->
-            </div>  
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<?php else : ?>
-
-<section id="search-result" class="search-result">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-9 col-md-8">
-
-        <!-- Main content -->
-        <form action="<?php echo base_url();?>guest/search" method="post" class="search-form">
-          <input type="text" placeholder="Cari artikel..." class="form-control" name="keyword" />
-          <button id="submit" onclick="Alert()"></button>
-        </form>
-
-        <h5 class="category-title">Tidak ada hasil untuk pencarian '<?php echo $_POST['keyword']; ?>'</h5>
-
-      </div>
-
-      <!-- Sidebar -->
-      <div class="col-lg-3 col-md-4">
-      <div class="aside-block">
-                <ul
-                  class="nav nav-pills custom-tab-nav mb-4"
-                  id="pills-tab"
-                  role="tablist"
+                <!-- Trending -->
+                <div
+                  class="tab-pane fade"
+                  id="pills-trending"
+                  role="tabpanel"
+                  aria-labelledby="pills-trending-tab"
                 >
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link active"
-                      id="pills-popular-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-popular"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-popular"
-                      aria-selected="true"
-                    >
-                      Popular
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link"
-                      id="pills-trending-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-trending"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-trending"
-                      aria-selected="false"
-                    >
-                      Latest
-                    </button>
-                  </li>
-                </ul>
-
-                <div class="tab-content" id="pills-tabContent">
-                  <!-- Populer -->
-                  <div
-                    class="tab-pane fade show active"
-                    id="pills-popular"
-                    role="tabpanel"
-                    aria-labelledby="pills-popular-tab"
-                  >
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 13rd '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
-                          Dunia</a
-                        >
-                      </h2>
+                  <div class="post-entry-1 border-bottom">
+                    <div class="post-meta">
+                      <span class="date">Sejarah</span>
+                      <span class="mx-1">&bullet;</span>
+                      <span>Mar 17th '23</span>
                     </div>
+                    <h2 class="mb-2">
+                      <a href="#"
+                        >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
+                        Dunia</a
+                      >
+                    </h2>
+                    <span class="author mb-3 d-block">Rifki Aufa</span>
                   </div>
-                  <!-- End Populer -->
-
-                  <!-- Trending -->
-                  <div
-                    class="tab-pane fade"
-                    id="pills-trending"
-                    role="tabpanel"
-                    aria-labelledby="pills-trending-tab"
-                  >
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
-                          Dunia</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-                  </div>
-                  <!-- End Trending -->
-
-                  <!-- Latest -->
-                  <div
-                    class="tab-pane fade"
-                    id="pills-latest"
-                    role="tabpanel"
-                    aria-labelledby="pills-latest-tab"
-                  >
-                    <div class="post-entry-1 border-bottom">
-                      <div class="post-meta">
-                        <span class="date">Sejarah</span>
-                        <span class="mx-1">&bullet;</span>
-                        <span>Mar 17th '23</span>
-                      </div>
-                      <h2 class="mb-2">
-                        <a href="#"
-                          >Sejarah Lengkap Gedung Lanraad (Gedung Indonesia
-                          Menggugat)</a
-                        >
-                      </h2>
-                      <span class="author mb-3 d-block">Rifki Aufa</span>
-                    </div>
-                  </div>
-                  <!-- End Latest -->
                 </div>
-              </div>
+                <!-- End Trending -->
 
-              <div class="aside-block">
-                <h3 class="aside-title">Video</h3>
-                <div class="video-post">
-                  <a
-                    href="https://www.youtube.com/watch?v=dQw4w9WfgXcQ"
-                    class="glightbox link-video"
-                  >
-                    <span class="bi-play-fill"></span>
-                    <img
-                      src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </a>
+                <!-- Latest -->
+                <div
+                  class="tab-pane fade"
+                  id="pills-latest"
+                  role="tabpanel"
+                  aria-labelledby="pills-latest-tab"
+                >
+                  <div class="post-entry-1 border-bottom">
+                    <div class="post-meta">
+                      <span class="date">Sejarah</span>
+                      <span class="mx-1">&bullet;</span>
+                      <span>Mar 17th '23</span>
+                    </div>
+                    <h2 class="mb-2">
+                      <a href="#"
+                        >Sejarah Lengkap Gedung Lanraad (Gedung Indonesia
+                        Menggugat)</a
+                      >
+                    </h2>
+                    <span class="author mb-3 d-block">Rifki Aufa</span>
+                  </div>
                 </div>
+                <!-- End Latest -->
               </div>
-              <!-- End Video -->
+            </div>
 
-              <!-- End Categories -->
+            <div class="aside-block">
+              <h3 class="aside-title">Video</h3>
+              <div class="video-post">
+                <a
+                  href="https://www.youtube.com/watch?v=dQw4w9WfgXcQ"
+                  class="glightbox link-video"
+                >
+                  <span class="bi-play-fill"></span>
+                  <img
+                    src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </a>
+              </div>
+            </div>
+        <!-- End Video -->
 
-              <!-- End Tags -->
-            </div>  
+        <!-- End Categories -->
+
+        <!-- End Tags -->
+        </div>  
       </div>
-
     </div>
-  </div>
-                <!-- Paging -->
-                <div class="text-start py-4">
-                    <div class="custom-pagination">
-                        <?php
-                        $pagination_links = $this->pagination->create_links();
-                        $pagination_links = str_replace('<a href', '<a class="page-link" href', $pagination_links);
-                        $pagination_links = str_replace('<a class="page-link" href="#"', '<a class="page-link active"', $pagination_links);
-                        echo $pagination_links;
-                        ?>
-                    </div>
-                 </div>
-              <!-- End Paging -->
-</section>
+    <!-- Paging -->
+    <div class="text-start py-4">
+      <div class="custom-pagination">
+          <?php
+          $pagination_links = $this->pagination->create_links();
+          $pagination_links = str_replace('<a href', '<a class="page-link" href', $pagination_links);
+          $pagination_links = str_replace('<a class="page-link" href="#"', '<a class="page-link active"', $pagination_links);
+          echo $pagination_links;
+          ?>
+      </div>
+    </div>
+  <!-- End Paging -->
+  </section>
 
-<?php endif; ?>
-    </main>
-    <!-- End #main -->
+  <?php endif; ?>
+  </main>
+      <!-- End #main -->
 
     <a
       href="#"
@@ -470,6 +497,19 @@
 </html>
 
 <style type="text/css">
+.search-form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search-form .form-group {
+    margin-left: 10px;
+}
+
+.search-form .btn-primary {
+    margin-left: 10px;
+}
 .post-entry-1 {
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

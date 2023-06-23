@@ -1,49 +1,83 @@
 <?php
 
+
 class M_search extends CI_Model {
-
-	// public function count_search($keyword) {
-	// 	$this->db->like('judul', $keyword);
-	// 	$this->db->from('artikel_simatera');
-	// 	return $this->db->count_all_result();
-	// }
-
-	// public function get_search($keyword, $limit, $offset) {
-	// 	$this->db->like('judul', $keyword);
-	// 	$this->db->limit($limit, $offset);
-	// 	$query = $this->db->get('artikel_simatera');
-	// 	return $query->result_array();
-	// }
-
-	public function get_data($limit, $start)
-	{
+	public function get_data($limit, $start) {
 		return $this->db->get('artikel_simatera', $limit, $start)->result();
 	}
-	
 
-	public function count_data($keyword)
-	{
+	public function count_data($keyword, $kategori = null) {
 		if ($keyword) {
 			$this->db->like('judul', $keyword);
 		}
+        if ($kategori) {
+            $this->db->where('kategori', $kategori);
+        }
 		return $this->db->get('artikel_simatera')->num_rows();
 	}
 
-	public function get_keyword($limit, $start, $keyword = null)
-	{
-		if ($keyword) {
-			$words = explode(' ', $keyword);
-			foreach ($words as $word) {
-				$this->db->or_like('judul', $word);
-			}
-		} else {
-			$keyword = $this->session->userdata('keyword');
-			if (!$keyword) {
-				return $this->db->where('1', 0)->get('artikel_simatera', $limit, $start)->result();
-			}
-			$this->db->like('judul', $keyword);
-		}
+	public function getTotalResults($keyword) {
+		$this->db->like('judul', $keyword);
+		$this->db->from('artikel_simatera');
+		return $this->db->count_all_results();
+	}
+
+	public function get_keyword($limit, $start, $keyword = null, $kategori = null, $sort = null)
+    {
+        $this->db->select('*');
+        $this->db->from('artikel_simatera');
+
+        if ($keyword) {
+            $words = explode(' ', $keyword);
+            foreach ($words as $word) {
+                $this->db->or_like('judul', $word);
+            }
+        }
+
+        if ($kategori) {
+            $this->db->where('kategori', $kategori);
+        }
+
+        if ($sort) {
+            if ($sort === 'latest') {
+                $this->db->order_by('tanggal', 'desc');
+            } elseif ($sort === 'oldest') {
+                $this->db->order_by('tanggal', 'asc');
+            }
+        }
+
+        $this->db->limit($limit, $start);
+        return $this->db->get()->result();
+    }
 	
-		return $this->db->get('artikel_simatera', $limit, $start)->result();
-	}	
+	public function get_categories() {
+        return $this->db->select('nama_kategori')->get('kategori')->result_array();
+    }
+    
+    public function getFilteredData($keyword, $kategori, $sort)
+    {
+    // Perform filtering based on the keyword, category, and sorting option
+    // Modify this query according to your database structure and filtering criteria
+    $this->db->select('*');
+    $this->db->from('artikel_simatera');
+
+    if (!empty($keyword)) {
+        $this->db->like('judul', $keyword);
+    }
+
+    if (!empty($kategori)) {
+        $this->db->where('kategori', $kategori);
+    }
+
+    if (!empty($sort)) {
+        if ($sort === 'latest') {
+            $this->db->order_by('tanggal', 'desc');
+        } elseif ($sort === 'oldest') {
+            $this->db->order_by('tanggal', 'asc');
+        }
+    }
+
+    $query = $this->db->get();
+    return $query->result_array();
+    }
 }

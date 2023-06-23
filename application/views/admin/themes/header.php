@@ -19,20 +19,19 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="<?php echo base_url()?>assets/img/default.png" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Simatera</span>
+                        <span class="hidden-xs"></span>
                         </a>
                         <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
                             <img src="<?php echo base_url()?>assets/img/default.png" class="img-circle" alt="User Image">
                             <p>
-                            Welcome, <?= $this->session->userdata('name'); ?>
+                            <?= $login_simatera['name']; ?>
                             </p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                            <a href="#" class="btn btn-default btn-flat">My Profile</a>
                             </div>
                             <div class="pull-right">
                             <a href="<?= base_url('Auth_logout'); ?>" class="btn btn-default btn-flat">Sign out</a>

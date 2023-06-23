@@ -19,8 +19,9 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
+        $data['login_simatera'] = $this->db->get_where('login_simatera', ['email' => $this->session->userdata('email')])->row_array();
         // Get the total number of users
-        $total_users = $this->db->count_all_results('login_admin');
+        $total_users = $this->db->count_all_results('login_simatera');
         $total_posts = $this->db->count_all_results('artikel_simatera');
         $total_masukan = $this->db->count_all_results('user_masukan');
         $total_kategori = $this->db->count_all_results('kategori');
@@ -32,9 +33,9 @@ class Dashboard extends CI_Controller
         $data['total_kategori'] = $total_kategori;
 
         // Load the view with the data
-        $this->load->view('admin/themes/header.php');
+        $this->load->view('admin/themes/header.php', $data);
         $this->load->view('admin/themes/side_nav.php');
-        $this->load->view('admin/main/dashboard.php', $data);
+        $this->load->view('admin/main/dashboard.php');
         $this->load->view('admin/themes/footer.php');
     }
 }

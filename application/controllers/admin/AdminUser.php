@@ -16,7 +16,7 @@ class AdminUser extends CI_Controller {
 		is_logged_in();
 	}
 
-	public function index($role_id = '1')
+	public function index($role_id = '2')
 	{
 		$data['form'] = $this->MLogin->tampil($role_id)->result();
 		$this->load->view('admin/themes/header.php');

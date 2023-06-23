@@ -11,9 +11,9 @@ class FormControl extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('guest/v_header');
-        $this->load->view('guest/kontak');
-        $this->load->view('guest/v_footer');
+        $this->load->view('user/v_header');
+        $this->load->view('user/kontak');
+        $this->load->view('user/v_footer');
     }
 
     public function create()
@@ -32,6 +32,6 @@ class FormControl extends CI_Controller {
 
         $this->Form_model->form_user($data);
 
-        redirect('FormControl');
+        redirect('user/kontak');
     }
 }
