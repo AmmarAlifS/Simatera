@@ -98,8 +98,7 @@
 									<div class="form-group">
 										<label for="inputPassword3" class="col-sm-2 control-label">Tentang Kami</label>
 										<div class="col-sm-10">
-											<textarea style="width:750px; height:250px" id="tentang_kami" name="tentang_kami"><?php echo $row->tentang_kami; ?></textarea>
-											
+											<textarea id="post" name="tentang_kami"><?php echo $row->tentang_kami; ?></textarea>
 										</div>
 									</div>
 								</div>
@@ -138,4 +137,14 @@
 	<script src="<?= base_url('assets/admin/bower_components/fastclick/lib/fastclick.js') ?>"></script>
 
 	<script src="<?= base_url('assets/admin/dist/js/adminlte.min.js') ?>"></script>
+
+	<script src="<?= base_url('assets/admin/plugins/ckeditor/ckeditor.js') ?>"></script>
+
+	<script type="text/javascript">
+		CKEDITOR.replace('post', {
+		filebrowserImageBrowseUrl : "<?php echo base_url('assets/admin/plugins/kcfinder/browse.php'); ?>",
+		height: '250px'
+		});
+
+	</script>
 </html>

@@ -43,7 +43,7 @@ class Setting extends CI_Controller {
 			'instagram' => $instagram,
 			'tentang_kami' => $tentang_kami
 			);
-		$this->m_setting->simpan_data($alamat,$no_telp,$email,$facebook,$twitter,$instagram);
+		$this->m_setting->simpan_data($alamat,$no_telp,$email,$facebook,$twitter,$instagram,$tentang_kami);
 		redirect('admin/setting/index');
 	}
 

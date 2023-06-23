@@ -50,13 +50,13 @@
               <img src="<?php echo base_url()?>assets/img/Web.jpg" alt="" class="img-fluid">
             </div>
             <div class="ps-md-5 mt-4 mt-md-0">
+            <?php foreach ($setting->result() as $x): ?>	
               <div class="post-meta mt-4">About us</div>
               <!-- <h2 class="mb-4 display-4">Company History</h2> -->
               <br>
 
-              <p>Selamat datang di website kami! Kami adalah platform yang didedikasikan untuk menyediakan informasi dan layanan yang bermanfaat bagi pengunjung kami. Website kami menyajikan berbagai informasi terkini dan terpercaya tentang tempat bersejarah di kota Bandung.</p>
-              <p>Kami selalu berusaha untuk memberikan pengalaman terbaik bagi pengunjung kami dengan menyediakan tampilan yang mudah digunakan dan responsif di berbagai perangkat. Website kami juga dilengkapi dengan fitur pencarian dan navigasi yang mudah untuk membantu pengunjung menemukan informasi yang mereka cari dengan cepat.</p>
-              <p>Kami berharap website kami dapat membantu meningkatkan pengetahuan dan kehidupan sehari-hari pengunjung kami dan menjadi sumber informasi yang terpercaya dan berguna. Terima kasih telah mengunjungi website kami!</p>
+              <p><?= $x->tentang_kami;?></p>
+              <?php endforeach; ?>
             </div>
           </div>
 

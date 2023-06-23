@@ -36,7 +36,7 @@ class guest extends CI_Controller {
 	{
 		$data['setting'] = $this->m_setting->tampil_data();
 		$this->load->view('guest/v_header');
-		$this->load->view('guest/TentangKami');
+		$this->load->view('guest/TentangKami', $data);
 		$this->load->view('guest/v_footer', $data);
 
 	}
