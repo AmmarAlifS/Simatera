@@ -24,6 +24,13 @@ class Kontak extends CI_Controller {
 		$this->load->view('admin/themes/footer.php');
 	}
 
+	function hapus($id_pesan){
+		$where = array('id_pesan' => $id_pesan);
+		$this->m_kontak->hapus($where,'user_masukan');
+		echo $this->session->set_flashdata('msg','success-hapus');
+		redirect('admin/Kontak/index');
+	}
+
 		// if(count($data['hsl']) <= 0){
 		// 	$this->load->view('admin/main/feedback_empty');
 		// } else {

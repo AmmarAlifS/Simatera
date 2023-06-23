@@ -57,11 +57,12 @@
                     <th>Username</th>
                     <th>Email</th>
                     <th>Password</th>
+                    <th>Role</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                    $id_pesan = 1;
+                    $id = 1;
                     foreach($form as $u) {
                   ?>
                   <tr>
@@ -69,6 +70,7 @@
                     <td><?php echo $u->name ?></td>
                     <td><?php echo $u->email  ?></td>
                     <td><?php echo $u->password ?></td>
+                    <td><?php echo $u->role_id ?></td>
                   </tr>
                   <?php } ?>
           

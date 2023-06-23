@@ -60,7 +60,7 @@
 				<div class="small-box bg-yellow">
 				    <div class="inner">
 				      <h3><?php echo $total_users; ?></h3>
-				      <p>Admin User</p>
+				      <p>Admin & User</p>
 				    </div>
 				    <div class="icon">
 				      <i class="ion ion-person"></i>

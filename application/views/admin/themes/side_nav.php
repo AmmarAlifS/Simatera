@@ -39,7 +39,7 @@
         </li>
         <li>
           <a href="<?php echo base_url();?>admin/adminUser">
-            <i class="fa fa-user"></i> <span>Admin</span>
+            <i class="fa fa-user"></i> <span>Admin & User</span>
           </a>
         </li>
         <li>

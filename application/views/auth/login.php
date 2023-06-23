@@ -1,5 +1,12 @@
 <div class="container">
-
+<style>
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 10vh;
+    }
+  </style>
 <!-- Outer Row -->
 <div class="row justify-content-center">
 
@@ -29,25 +36,17 @@
                                         id="password" name="password" placeholder="Password">
                                         <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
-                                <div class="form-group">
-                                    <div class="custom-control custom-checkbox small">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                                        <label class="custom-control-label" for="customCheck">Remember
-                                            Me</label>
-                                    </div>
-                                </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Login
                                 </button>
-                                <hr>
-                                        <a href="<?= base_url('google_login/index'); ?>" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <!-- <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a> -->
                             </form>
                             <hr>
+                            <div class="login-container">
+                                <a href="<?= base_url('google_login/index'); ?>">
+                                        <img width="260" height="60" src="<?=base_url('assets\img\sign-with-google.png')?>">
+                                        </a>
+                                </div>
+                            </hr>
                             <div class="text-center">
                                 <a class="small" href="<?= base_url('Auth_forgot') ?>">Forgot Password?</a>
                             </div>

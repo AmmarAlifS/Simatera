@@ -53,11 +53,13 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
+                      <th>ID</th>
                       <th>Nama</th>
                       <th>Email</th>
                       <th>Subjek</th>
                       <th>Pesan</th>
                       <th>Waktu Mengisi Form</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -66,11 +68,16 @@
                       foreach($form as $u) {
                     ?>
                     <tr>
+                      <td><?php echo $id_pesan++ ?></td>
                       <td><?php echo $u->nama ?></td>
                       <td><?php echo $u->email ?></td>
                       <td><?php echo $u->subjek  ?></td>
                       <td><?php echo $u->pesan ?></td>
                       <td><?php echo $u->timestamp ?></td>
+                      <td>
+                        <a class="btn btn-danger btn-sm glyphicon glyphicon-trash" href='<?php echo site_url('admin/Kontak/hapus/'.$u->id_pesan,''); ?>' onClick='return confirm("Anda yakin ingin menghapus data ini?")' title='Hapus'>
+                        </a>
+                      </td>
                     </tr>
                     <?php } ?>
             

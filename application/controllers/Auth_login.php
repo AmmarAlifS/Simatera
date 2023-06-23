@@ -43,8 +43,9 @@ class Auth_login extends CI_Controller
                             'date_created' => $login_simatera['date_created']
                         );
                         $this->session->set_userdata($data);
+                        $email = $this->session->userdata('username');
                         if($login_simatera['role_id'] == 1){
-                            redirect('admin/dashboard'); //Tampilan Admin
+                            redirect('admin/dashboard', $data); //Tampilan Admin
                         }else{
                             redirect('user/index'); //Tampilan user
                         }

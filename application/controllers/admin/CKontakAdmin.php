@@ -27,11 +27,12 @@ class CKontakAdmin extends CI_Controller {
 	}
 
 	function simpan_data(){
+		$id_pesan = $this->input->post('id_pesan');
 	    $nama = $this->input->post('nama');
 	    $email = $this->input->post('email');
 	    $subjek = $this->input->post('subjek');
 	    $pesan = $this->input->post('pesan');
-	    $this->m_kontak->input_data($nama,$email,$subjek,$pesan);
+	    $this->m_kontak->input_data($id_pesan,$nama,$email,$subjek,$pesan);
 	    redirect('admin/CKontakAdmin');
   	}
 
