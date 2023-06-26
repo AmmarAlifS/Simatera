@@ -17,8 +17,9 @@ class Kategori extends CI_Controller {
 
 	function index()
 	{
+		$data['login_simatera'] = $this->db->get_where('login_simatera', ['email' => $this->session->userdata('email')])->row_array();
 		$data['kategori'] = $this->m_kategori->tampil_data()->result();
-		$this->load->view('admin/themes/header.php');
+		$this->load->view('admin/themes/header.php', $data);
 		$this->load->view('admin/themes/side_nav.php');
 		$this->load->view('admin/main/kategori.php', $data);
 		$this->load->view('admin/themes/footer.php');	

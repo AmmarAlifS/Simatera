@@ -25,6 +25,7 @@
 </head>
 
 <body>
+  
 	<!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -70,7 +71,11 @@
                     <td><?php echo $u->name ?></td>
                     <td><?php echo $u->email  ?></td>
                     <td><?php echo $u->password ?></td>
-                    <td><?php echo $u->role_id ?></td>
+                    <?php if($u->role_id=='1') {?>
+                      <td>Admin</td>
+                    <?php }else{ ?>
+                      <td>Member</td>
+                    <?php } ?>
                   </tr>
                   <?php } ?>
           

@@ -18,8 +18,9 @@ class Artikel extends CI_Controller {
 
 	public function index()
 	{
+		$data['login_simatera'] = $this->db->get_where('login_simatera', ['email' => $this->session->userdata('email')])->row_array();
 		$data['art'] = $this->MArtikel->tampil()->result();
-		$this->load->view('admin/themes/header.php');
+		$this->load->view('admin/themes/header.php', $data);
 		$this->load->view('admin/themes/side_nav.php');
 		$this->load->view('admin/main/list_artikel.php', $data);
 		$this->load->view('admin/themes/footer.php');

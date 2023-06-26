@@ -16,10 +16,11 @@ class AdminUser extends CI_Controller {
 		is_logged_in();
 	}
 
-	public function index($role_id = '2')
+	public function index()
 	{
-		$data['form'] = $this->MLogin->tampil($role_id)->result();
-		$this->load->view('admin/themes/header.php');
+		$data['login_simatera'] = $this->db->get_where('login_simatera', ['email' => $this->session->userdata('email')])->row_array();
+		$data['form'] = $this->MLogin->tampil()->result();
+		$this->load->view('admin/themes/header.php', $data);
 		$this->load->view('admin/themes/side_nav.php');
 		$this->load->view('admin/main/Admin.php', $data);
 		$this->load->view('admin/themes/footer.php');

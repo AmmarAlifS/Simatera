@@ -65,7 +65,7 @@ class Auth_registration extends CI_Controller
                 'protocol' => 'smtp',
                 'smtp_host' => 'ssl://smtp.googlemail.com',
                 'smtp_user' => 'knightphantom637@gmail.com',
-                'smtp_pass' => 'wxbufikmqhhiossf',
+                'smtp_pass' => 'sfnlrstsgbmivwhp',
                 'smtp_port' => '465',
                 'mailtype' => 'html',
                 'charset' => 'utf-8',

@@ -17,9 +17,9 @@ class Setting extends CI_Controller {
 
 	function index()
 	{
-
+		$data['login_simatera'] = $this->db->get_where('login_simatera', ['email' => $this->session->userdata('email')])->row_array();
 		$data['setting'] = $this->m_setting->tampil_data();
-		$this->load->view('admin/themes/header.php');
+		$this->load->view('admin/themes/header.php', $data);
 		$this->load->view('admin/themes/side_nav.php');
 		$this->load->view('admin/main/setting.php', $data);
 		$this->load->view('admin/themes/footer.php');

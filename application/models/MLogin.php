@@ -5,7 +5,7 @@ class MLogin extends CI_Model
 	public function loginn($email, $password) {
         $this->db->where('email', $email);
         $this->db->where('password', $password);
-        $query = $this->db->get('login_admin');
+        $query = $this->db->get('login_simatera');
         if ($query->num_rows() == 1) {
             return $query->row();
         } else {
@@ -13,8 +13,7 @@ class MLogin extends CI_Model
         }
     }
 
-    function tampil($role_id){
-        $this->db->where('role_id', $role_id);
+    function tampil(){
         return $this->db->get('login_simatera');
     }
 }
