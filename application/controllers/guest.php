@@ -23,14 +23,6 @@ class guest extends CI_Controller {
 		$this->load->view('guest/Home', $data);
 		$this->load->view('guest/v_footer', $data);
 	}
-	public function test()
-	{	
-		$data['art'] = $this->MArtikel->tampil()->result();
-		$data['setting'] = $this->m_setting->tampil_data();
-		// $this->load->view('guest/v_header');
-		$this->load->view('guest/test', $data);
-		$this->load->view('guest/v_footer', $data);
-	}
 
 	public function tentangkami()
 	{
@@ -62,16 +54,7 @@ class guest extends CI_Controller {
 		$this->load->view('guest/Single_post', $detail);
 		$this->load->view('guest/v_footer', $data);
 	}
-	public function artikel($id_artikel)
-	{
-		$data['setting'] = $this->m_setting->tampil_data();
-		$xdetail = $this->MArtikel->detail_data($id_artikel);
-		$detail['xdetail'] = $xdetail;
-		$this->load->view('guest/v_header');
-		$this->load->view('guest/Artikel', $detail);
-		$this->load->view('guest/v_footer', $data);
-	}
-
+	
 	public function list()
 	{
 		$content['art'] = $this->MArtikel->tampil()->result();
@@ -129,6 +112,7 @@ class guest extends CI_Controller {
     $content['results'] = $this->m_search->getFilteredData($keyword, $kategori, $sort);
     $content['resulttotal'] = count($content['results']);
 
+	$content['art'] = $this->MArtikel->tampil()->result();
     $this->load->view('guest/v_header');
     $this->load->view('guest/searchResult', $content);
     $this->load->view('guest/v_footer', $data);

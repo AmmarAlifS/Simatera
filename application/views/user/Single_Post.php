@@ -65,8 +65,8 @@
                           <div class="swiper-slide">
                             <a href="#" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $xdetail->Foto ?>);">
                               <div class="img-bg-inner">
-                                <h2></h2>
-                                <p></p>
+                                <h2>Gedung De Javasche Bank 1909.</h2>
+                                <p>Gedung De Javasche Bank dibangun pada tahun 1909 dan menghadap ke Landraadweg (Jl. Perintis Kemerdekaan).</p>
                               </div>
                             </a>
                           </div>
@@ -194,14 +194,14 @@
                       <div class="post-entry-1 border-bottom">
                         <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
                         <h2 class="mb-2"><a href="single-post.html"><?php echo $row->judul ?></a></h2>
-                        <span class="author mb-3 d-block"></span>
+                        <span class="author mb-3 d-block">Jenny Wilson</span>
                       </div>
                     <?php endforeach; ?>
                 </div> <!-- End Latest -->
               </div>
             </div>
+
           </div>
-          
         </div>
       </div>
     </section>

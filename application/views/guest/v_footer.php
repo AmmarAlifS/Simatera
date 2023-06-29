@@ -11,9 +11,20 @@
 
         <div class="row g-5">
           <div class="col-lg-4">
-            <h3 class="footer-heading">Tentang Simatera</h3>
-              <p>Selamat datang di website kami! Kami adalah platform yang didedikasikan untuk menyediakan informasi dan layanan yang bermanfaat bagi pengunjung kami. Website kami menyajikan berbagai informasi terkini dan terpercaya tentang tempat bersejarah di kota Bandung.</p>
-          </div>
+          <h3 class="footer-heading">Tentang Simatera</h3>
+          <?php foreach ($setting->result() as $x): ?>
+            <?php
+            $content = $x->tentang_kami;
+            $limit = 35; // Set the desired word limit
+
+            $words = explode(" ", $content);
+            $shortened = implode(" ", array_splice($words, 0, $limit));
+
+            echo "<p>$shortened</p>";
+            ?>
+          <?php endforeach; ?>
+        </div>
+
           <div class="col-6 col-lg-2">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
@@ -39,7 +50,7 @@
               foreach ($recentPosts as $post) {
                 ?>
                 <li>
-                  <a href="<?php echo site_url('post/'.$post->id_artikel); ?>" class="d-flex align-items-center">
+                  <a href="<?php echo base_url().'guest/single_post/'.$post->id_artikel;?>" class="d-flex align-items-center">
                     <img src="<?php echo base_url('assets/img/'.$post->Foto); ?>" alt="" class="img-fluid me-3">
                     <div>
                       <div class="post-meta d-block">
