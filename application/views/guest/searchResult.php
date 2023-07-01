@@ -15,32 +15,17 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
 
     <!-- Vendor CSS -->
-    <link
-      href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="<?php echo base_url(); ?>assets/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+    <link href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="<?php echo base_url(); ?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
     <link href="<?php echo base_url(); ?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <link
-      href="<?php echo base_url(); ?>assets/vendor/glightbox/css/glightbox.min.css"
-      rel="stylesheet"
-    />
+    <link href="<?php echo base_url(); ?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
     <link href="<?php echo base_url(); ?>assets/vendor/aos/aos.css" rel="stylesheet" />
 
     <!-- CSS Link -->
@@ -153,138 +138,41 @@
       
           <!-- Sidebar -->
           <div class="col-lg-3 col-md-4">
-            <div class="aside-block">
-              <ul
-              class="nav nav-pills custom-tab-nav mb-4"
-                      id="pills-tab"
-                      role="tablist"
-                    >
-                      <li class="nav-item" role="presentation">
-                        <button
-                          class="nav-link active"
-                          id="pills-popular-tab"
-                          data-bs-toggle="pill"
-                          data-bs-target="#pills-popular"
-                          type="button"
-                          role="tab"
-                          aria-controls="pills-popular"
-                          aria-selected="true"
-                        >
-                          Popular
-                        </button>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <button
-                          class="nav-link"
-                          id="pills-trending-tab"
-                          data-bs-toggle="pill"
-                          data-bs-target="#pills-trending"
-                          type="button"
-                          role="tab"
-                          aria-controls="pills-trending"
-                          aria-selected="false"
-                        >
-                          Latest
-                        </button>
-                      </li>
-                    </ul>
+                <!-- ======= Sidebar ======= -->
+                <div class="aside-block">
+                  <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
+                    </li>
+                  </ul>
 
-                    <div class="tab-content" id="pills-tabContent">
-                      <!-- Populer -->
-                      <div
-                        class="tab-pane fade show active"
-                        id="pills-popular"
-                        role="tabpanel"
-                        aria-labelledby="pills-popular-tab"
-                      >
-                        <div class="post-entry-1 border-bottom">
-                          <div class="post-meta">
-                            <span class="date">Sejarah</span>
-                            <span class="mx-1">&bullet;</span>
-                            <span>Mar 13rd '23</span>
-                          </div>
-                          <h2 class="mb-2">
-                            <a href="#"
-                              >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
-                              Dunia</a
-                            >
-                          </h2>
+                  <?php 
+                      $count = 1;
+                      $reverse_art = array_reverse($art); // Reverse the order of the array
+                    ?>
+                    <?php foreach($reverse_art as $row): ?>
+
+
+                      <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                        <div class="post-entry-3 border-bottom">
+                          <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                          <h2 class="mb-2"><a href="#"> </span> <?php echo $row->judul ?></a></h2>
+                          <span class="author d-block"></span>
                         </div>
                       </div>
-                      <!-- End Populer -->
-
-                      <!-- Trending -->
-                      <div
-                        class="tab-pane fade"
-                        id="pills-trending"
-                        role="tabpanel"
-                        aria-labelledby="pills-trending-tab"
-                      >
-                        <div class="post-entry-1 border-bottom">
-                          <div class="post-meta">
-                            <span class="date">Sejarah</span>
-                            <span class="mx-1">&bullet;</span>
-                            <span>Mar 17th '23</span>
-                          </div>
-                          <h2 class="mb-2">
-                            <a href="#"
-                              >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
-                              Dunia</a
-                            >
-                          </h2>
-                          <span class="author mb-3 d-block">Rifki Aufa</span>
-                        </div>
+                    <!-- <div class="card mb-3">
+                      <div class="card-body">
+                        <h5 class="card-title mb-0">
+                          <span class="trending-number"><?php echo $count ?>.</span> <?php echo $row->judul ?>
+                        </h5>
+                        <p class="card-text"><small class="text-muted"><?php echo date('F j, Y', strtotime($row->tanggal)); ?></small></p>
                       </div>
-                      <!-- End Trending -->
-
-                      <!-- Latest -->
-                      <div
-                        class="tab-pane fade"
-                        id="pills-latest"
-                        role="tabpanel"
-                        aria-labelledby="pills-latest-tab"
-                      >
-                        <div class="post-entry-1 border-bottom">
-                          <div class="post-meta">
-                            <span class="date">Sejarah</span>
-                            <span class="mx-1">&bullet;</span>
-                            <span>Mar 17th '23</span>
-                          </div>
-                          <h2 class="mb-2">
-                            <a href="#"
-                              >Sejarah Lengkap Gedung Lanraad (Gedung Indonesia
-                              Menggugat)</a
-                            >
-                          </h2>
-                          <span class="author mb-3 d-block">Rifki Aufa</span>
-                        </div>
-                      </div>
-                      <!-- End Latest -->
-                    </div>
-                  </div>
-
-                  <div class="aside-block">
-                    <h3 class="aside-title">Video</h3>
-                    <div class="video-post">
-                      <a
-                        href="https://www.youtube.com/watch?v=dQw4w9WfgXcQ"
-                        class="glightbox link-video"
-                      >
-                        <span class="bi-play-fill"></span>
-                        <img
-                          src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
-                          alt=""
-                          class="img-fluid"
-                        />
-                      </a>
-                    </div>
-                  </div>
-                  <!-- End Video -->
-
-                  <!-- End Categories -->
-
-                  <!-- End Tags -->
-          </div>  
+                    </div> -->
+                    <?php $count++; ?>
+                    <?php endforeach; ?>
+                </div>
+              </div>
+          
         </div>
       </div>
     </section>
@@ -327,136 +215,32 @@
 
         <!-- Sidebar -->
         <div class="col-lg-3 col-md-4">
+          <!-- ======= Sidebar ======= -->
           <div class="aside-block">
-              <ul
-                class="nav nav-pills custom-tab-nav mb-4"
-                id="pills-tab"
-                role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link active"
-                    id="pills-popular-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#pills-popular"
-                    type="button"
-                    role="tab"
-                    aria-controls="pills-popular"
-                    aria-selected="true"
-                  >
-                    Popular
-                  </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link"
-                    id="pills-trending-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#pills-trending"
-                    type="button"
-                    role="tab"
-                    aria-controls="pills-trending"
-                    aria-selected="false"
-                  >
-                    Latest
-                  </button>
-                </li>
-              </ul>
+            <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
+              </li>
+            </ul>
 
-              <div class="tab-content" id="pills-tabContent">
-                <!-- Populer -->
-                <div
-                  class="tab-pane fade show active"
-                  id="pills-popular"
-                  role="tabpanel"
-                  aria-labelledby="pills-popular-tab"
-                >
-                  <div class="post-entry-1 border-bottom">
-                    <div class="post-meta">
-                      <span class="date">Sejarah</span>
-                      <span class="mx-1">&bullet;</span>
-                      <span>Mar 13rd '23</span>
-                    </div>
-                    <h2 class="mb-2">
-                      <a href="#"
-                        >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
-                        Dunia</a
-                      >
-                    </h2>
+            <?php 
+                $count = 1;
+                $reverse_art = array_reverse($art); // Reverse the order of the array
+              ?>
+              <?php foreach($reverse_art as $row): ?>
+
+
+                <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                  <div class="post-entry-3 border-bottom">
+                    <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                    <h2 class="mb-2"><a href="#"> </span> <?php echo $row->judul ?></a></h2>
+                    <span class="author d-block"></span>
                   </div>
                 </div>
-                <!-- End Populer -->
+              <?php endforeach; ?>
+          </div>
+        </div>
 
-                <!-- Trending -->
-                <div
-                  class="tab-pane fade"
-                  id="pills-trending"
-                  role="tabpanel"
-                  aria-labelledby="pills-trending-tab"
-                >
-                  <div class="post-entry-1 border-bottom">
-                    <div class="post-meta">
-                      <span class="date">Sejarah</span>
-                      <span class="mx-1">&bullet;</span>
-                      <span>Mar 17th '23</span>
-                    </div>
-                    <h2 class="mb-2">
-                      <a href="#"
-                        >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
-                        Dunia</a
-                      >
-                    </h2>
-                    <span class="author mb-3 d-block">Rifki Aufa</span>
-                  </div>
-                </div>
-                <!-- End Trending -->
-
-                <!-- Latest -->
-                <div
-                  class="tab-pane fade"
-                  id="pills-latest"
-                  role="tabpanel"
-                  aria-labelledby="pills-latest-tab"
-                >
-                  <div class="post-entry-1 border-bottom">
-                    <div class="post-meta">
-                      <span class="date">Sejarah</span>
-                      <span class="mx-1">&bullet;</span>
-                      <span>Mar 17th '23</span>
-                    </div>
-                    <h2 class="mb-2">
-                      <a href="#"
-                        >Sejarah Lengkap Gedung Lanraad (Gedung Indonesia
-                        Menggugat)</a
-                      >
-                    </h2>
-                    <span class="author mb-3 d-block">Rifki Aufa</span>
-                  </div>
-                </div>
-                <!-- End Latest -->
-              </div>
-            </div>
-
-            <div class="aside-block">
-              <h3 class="aside-title">Video</h3>
-              <div class="video-post">
-                <a
-                  href="https://www.youtube.com/watch?v=dQw4w9WfgXcQ"
-                  class="glightbox link-video"
-                >
-                  <span class="bi-play-fill"></span>
-                  <img
-                    src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
-                    alt=""
-                    class="img-fluid"
-                  />
-                </a>
-              </div>
-            </div>
-        <!-- End Video -->
-
-        <!-- End Categories -->
-
-        <!-- End Tags -->
         </div>  
       </div>
     </div>
@@ -478,11 +262,9 @@
   </main>
       <!-- End #main -->
 
-    <a
-      href="#"
-      class="scroll-top d-flex align-items-center justify-content-center"
-      ><i class="bi bi-arrow-up-short"></i
-    ></a>
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center">
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
 
     <!-- Vendor JS Files -->
     <script src="<?php echo base_url(); ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -586,7 +368,7 @@
   .btn:hover {
     background-color: #D3D3D3;
   }
-        
+
   /* SideBar */
   .post-entry-3 {
     margin-bottom: 35px;
@@ -622,4 +404,6 @@
     color: rgba(var(--color-black-rgb), 0.4);
     margin-bottom: 10px;
 }
+        
+  
 </style>

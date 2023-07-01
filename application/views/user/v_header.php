@@ -46,7 +46,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="<?php echo base_url().'user/index';?>">Home</a></li>
-          <li><a href="<?php echo base_url();?>user/artikel">Artikel</a></li>
+          <li><a href="<?php echo base_url();?>user/list">Artikel</a></li>
           <li><a href="<?php echo base_url();?>user/tentangkami">Tentang Kami</a></li>
           <li><a href="<?php echo base_url();?>user/kontak">Kontak</a></li>
         </ul>
@@ -57,18 +57,10 @@
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
         <a href="#" class="mx-2"><span class="bi-instagram"></span></a> -->
 
-        <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-
-        <!-- ======= Search Form ======= -->
-        <div class="search-form-wrap js-search-form-wrap">
-          <form action="<?php echo base_url();?>user/search" method="post" class="search-form">
-            <span class="icon bi-search"></span>
-            <input type="text" placeholder="Search" class="form-control" name="keyword" />
-            <button id="submit" onclick="Alert()"></button>
-            <button class="btn js-search-close"><span class="bi-x"></span></button>
-          </form>
-        </div><!-- End Search Form -->
+        <form action="<?php echo base_url();?>user/search" method="post" class="search-form">
+          <input type="text" placeholder="Cari artikel..." class="form-control" name="keyword" />
+        </form>
+        <!-- End Search Form -->
       </div>
       
     </div>

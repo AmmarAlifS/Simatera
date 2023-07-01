@@ -15,17 +15,32 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Vendor CSS -->
-    <link href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="<?php echo base_url(); ?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+    <link
+      href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="<?php echo base_url(); ?>assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <link href="<?php echo base_url(); ?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <link href="<?php echo base_url(); ?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+    <link
+      href="<?php echo base_url(); ?>assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
     <link href="<?php echo base_url(); ?>assets/vendor/aos/aos.css" rel="stylesheet" />
 
     <!-- CSS Link -->
@@ -104,9 +119,25 @@
             <div class="col-lg-3 col-md-4">
                 <!-- ======= Sidebar ======= -->
                 <div class="aside-block">
-                  <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                  <ul
+                    class="nav nav-pills custom-tab-nav mb-4"
+                    id="pills-tab"
+                    role="tablist"
+                  >
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
+                      <button
+                        class="nav-link active"
+                        id="pills-popular-tab"
+                        data-bs-toggle="pill"
+                        data-bs-target="#pills-popular"
+                        type="button"
+                        role="tab"
+                        aria-controls="pills-popular"
+                        aria-selected="true"
+                      >
+                        New Post 
+                        <!-- Populer -->
+                      </button>
                     </li>
                   </ul>
 
@@ -135,6 +166,10 @@
                     <?php $count++; ?>
                     <?php endforeach; ?>
                 </div>
+
+                <!-- End Categories -->
+
+                <!-- End Tags -->
               </div>
                 <!-- Paging -->
                   <div class="text-start py-4">
@@ -175,20 +210,6 @@
 </html>
 
 <style type="text/css">
-.search-form {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.search-form .form-group {
-  margin-left: 10px;
-}
-
-.search-form .btn-primary {
-  margin-left: 10px;
-}
-
 .post-entry-1 {
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

@@ -65,36 +65,36 @@
       </div>
     </section>
 
-    <section class="bg-light">
-  <div class="container" data-aos="fade-up">
-    <div class="row justify-content-between align-items-lg-center">
-      <div class="col-lg-5 mb-4 mb-lg-0">
-        <h2 class="display-4 mb-4">Latest News</h2>
-        <?php
-        // Assuming you have a database connection configured in CI3
-        $latestNewsQuery = $this->db->query("SELECT * FROM artikel_simatera ORDER BY id_artikel DESC LIMIT 1");
-        if ($latestNewsQuery->num_rows() > 0) {
-          $latestNews = $latestNewsQuery->row();
-          $content = $latestNews->artikel;
-          $words = explode(' ', $content);
-          $limitedContent = implode(' ', array_slice($words, 0, 70));
-          ?>
-          <p><?php echo $limitedContent; ?></p>
+  <section class="bg-light">
+    <div class="container" data-aos="fade-up">
+      <div class="row justify-content-between align-items-lg-center">
+        <div class="col-lg-5 mb-4 mb-lg-0">
+          <h2 class="display-4 mb-4">Latest News</h2>
           <?php
-        }
-        ?>
-        <p><a href="#" class="more">Lihat Semua Posting Lainnya</a></p>
-      </div>
-      <div class="col-lg-6">
-        <div class="row">
-          <div href="#" class="me-4 thumbnail">
-            <img src="<?php echo base_url()?>assets/img/<?php echo $latestNews->Foto ?>" alt="" class="img-fluid" style="box-shadow: 5px 5px;">
+          // Assuming you have a database connection configured in CI3
+          $latestNewsQuery = $this->db->query("SELECT * FROM artikel_simatera ORDER BY id_artikel DESC LIMIT 1");
+          if ($latestNewsQuery->num_rows() > 0) {
+            $latestNews = $latestNewsQuery->row();
+            $content = $latestNews->artikel;
+            $words = explode(' ', $content);
+            $limitedContent = implode(' ', array_slice($words, 0, 70));
+            ?>
+            <p><?php echo $limitedContent; ?></p>
+            <?php
+          }
+          ?>
+          <p><a href="#" class="more">Lihat Semua Posting Lainnya</a></p>
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            <div href="#" class="me-4 thumbnail">
+              <img src="<?php echo base_url()?>assets/img/<?php echo $latestNews->Foto ?>" alt="" class="img-fluid" style="box-shadow: 5px 5px;">
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
 

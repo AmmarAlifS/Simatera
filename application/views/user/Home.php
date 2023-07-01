@@ -28,167 +28,273 @@
   <!-- Template Main CSS Files -->
   <link href="<?php echo base_url()?>assets/css/variables.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/css/main.css" rel="stylesheet">
-  
-
 </head>
 
 <body>
+
   <main id="main">
 
-    <!-- ======= Hero Slider Section ======= -->
-    
-    <section id="hero-slider" class="hero-slider">
-      <div class="container-md" data-aos="fade-in">
-        <div class="row">
-          <div class="col-12">
-            <div class="swiper sliderFeaturedPosts">
-              <div class="swiper-wrapper">
-                <?php 
-        $counter = 0;
-        shuffle($art); // shuffle the array randomly
-        foreach($art as $row):
-        if ($counter >= 3) break;
-    ?>
-<div class="swiper-slide">
-  <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
-    <div class="img-bg-inner">
-      <h2><?php echo $row->judul ?></h2>
-      <p style="text-align: justify;">
-        <?php
-          $content = $row->artikel;
-          $words = explode(' ', $content);
-          $truncatedContent = implode(' ', array_slice($words, 0, 25));
-          echo $truncatedContent . (count($words) > 25 ? '...' : '');
-        ?>
-      </p>
+<section id="hero-slider" class="hero-slider">
+  <div class="container-md" data-aos="fade-in">
+    <div class="row">
+      <div class="col-12">
+        <div class="swiper sliderFeaturedPosts my-custom-section"> <!-- Add a unique class name -->
+          <div class="swiper-wrapper">
+            <?php
+            $counter = 0;
+            $shuffledArt = $art; // Create a copy of the array
+            shuffle($shuffledArt); // Shuffle the copied array randomly
+            foreach ($shuffledArt as $row):
+              if ($counter >= 3) break;
+              ?>
+              <div class="swiper-slide">
+                <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
+                  <div class="img-bg-inner">
+                    <h2><?php echo $row->judul ?></h2>
+                    <p style="text-align: justify;">
+                      <?php
+                      $content = $row->artikel;
+                      $words = explode(' ', $content);
+                      $truncatedContent = implode(' ', array_slice($words, 0, 25));
+                      echo $truncatedContent . (count($words) > 25 ? '...' : '');
+                      ?>
+                    </p>
+                  </div>
+                </a>
+              </div>
+            <?php
+              $counter++;
+            endforeach;
+            ?>
+          </div>
+          <div class="custom-swiper-button-next">
+            <span class="bi-chevron-right"></span>
+          </div>
+          <div class="custom-swiper-button-prev">
+            <span class="bi-chevron-left"></span>
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
     </div>
-  </a>
-</div>
+  </div>
+</section>
+<!-- End Hero Slider Section -->
 
+    <!-- ======= Post Grid Section ======= -->
+<section id="posts" class="posts">
+  <div class="container" data-aos="fade-up">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="post-entry-1 lg">
+          <a href="<?php echo base_url().'user/single_post/'.$art[0]->id_artikel;?>"><img src="<?php echo base_url()?>assets/img/<?php echo $art[0]->Foto ?>" alt="" class="img-fluid" style="width: 100%; height: auto;"></a>
+          <div class="post-meta">
+            <span class="date"><?php echo $art[0]->kategori; ?></span>
+            <span class="mx-1">&bullet;</span>
+            <span><?php echo $art[0]->tanggal; ?></span>
+          </div>
+          <h2 style="text-align: justify;"><a href="<?php echo base_url().'user/single_post/'.$art[0]->id_artikel;?>"><?php echo $art[0]->judul; ?></a></h2>
+          <p class="mb-4 d-block">
+            <?php
+            $words = explode(' ', $art[0]->artikel);
+            $limitedWords = array_slice($words, 0, 15);
+            echo implode(' ', $limitedWords);
+            if (count($words) > 15) {
+              echo '...';
+            }
+            ?>
+          </p>
 
-                <?php 
-        $counter++;
-        endforeach; 
-    ?>              
-              </div>
-              <div class="custom-swiper-button-next">
-                <span class="bi-chevron-right"></span>
-              </div>
-              <div class="custom-swiper-button-prev">
-                <span class="bi-chevron-left"></span>
-              </div>
-
-              <div class="swiper-pagination"></div>
+          <div class="d-flex align-items-center author">
+            <div class="photo"><img src="assets/img/person-1.jpg" alt="" class="img-fluid"></div>
+            <div class="name">
+              <h3 class="m-0 p-0">Cameron Williamson</h3>
             </div>
           </div>
         </div>
       </div>
-    </section><!-- End Hero Slider Section -->
 
-<section id="trending" class="mb-5">
-  <h2 class="section-title">New post</h2>
-  <?php 
-    $count = 1;
-    $reverse_art = array_reverse($art); // Reverse the order of the array
-  ?>
-  <?php foreach($reverse_art as $row): ?>
-  <div class="card mb-3">
-    <div class="card-body">
-      <h5 class="card-title mb-0">
-        <span class="trending-number"><?php echo $count ?>.</span> <?php echo $row->judul ?>
-      </h5>
-      <p class="card-text"><small class="text-muted"><?php echo date('F j, Y', strtotime($row->tanggal)); ?></small></p>
-    </div>
-  </div>
-  <?php $count++; ?>
-  <?php endforeach; ?>
-</section>
+      <div class="col-lg-5">
+        <div class="row g-5">
+          <?php $remainingPosts = array_slice($art, 1, 6); ?>
+          <?php foreach ($remainingPosts as $index => $article): ?>
+            <div class="col-lg-6 border-start custom-border">
+              <div class="post-entry-1" >
+                <a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid" style="width: 100%; height: 150px;"></a>
+                <div class="post-meta">
+                  <span class="date"><?php echo $article->kategori; ?></span>
+                  <span class="mx-1">&bullet;</span>
+                  <span><?php echo date('M jS \'y'); ?></span> <!-- Replace with the appropriate date -->
+                </div>
+                <h2 style="text-align: justify;"><a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>"><?php echo $article->judul; ?></a></h2>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
 
-    <!-- ======= Post Grid Section ======= -->
-<section id="posts" class="posts">
-  <div class="container">
-    <div class="row">
-      <?php 
-        // Randomly select one article for the highlight section
-        $highlight_article = $art[array_rand($art)];
-        // Remove the highlight article from the list of articles to display in the regular section
-        $regular_articles = array_filter($art, function($article) use ($highlight_article) {
-          return $article->id_artikel != $highlight_article->id_artikel;
-        });
-        
-        // Display the highlight article
-      ?>
-        <div class="col-lg-12 post-entry-highlight">
-          <?php
-          $short_description = implode(' ', array_slice(explode(' ', $row->artikel), 0, 20));
-          if (str_word_count($row->artikel) > 20) {
-            $short_description .= '...';
-          }
-          ?>
-          <div class="post-entry-1">
-            <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $highlight_article->Foto ?>" alt="" class="img-fluid post-thumbnail"></a>
-            <div class="post-meta"> <span><?php echo $highlight_article->tanggal ?></span></div>
-            <h2 class="post-highlight-title"><a href="single-post.html"><?php echo $highlight_article->judul ?></a></h2>
-            <p style="text-align: justify;"><?php echo $short_description ?></p>
-            <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
+      <div class="col-lg-3">
+        <div class="aside-block">
+
+          <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="pills-tabContent">
+            <!-- Latest -->
+            <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                <?php 
+                $reverse_art = array_reverse($art); // Reverse the order of the array
+                ?>
+                <?php foreach($reverse_art as $row): ?>
+                  <div class="post-entry-1 border-bottom">
+                    <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                    <h2 class="mb-2"><a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>"><?php echo $row->judul ?></a></h2>
+                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                  </div>
+                <?php endforeach; ?>
+            </div> <!-- End Latest -->
           </div>
         </div>
-        
-        <?php
-        // Display the regular articles
-        foreach($regular_articles as $row) {
-          $post_entry_class = "col-lg-4";
-          
-          // Create shortened description with "read more" button
-$words = explode(' ', $row->artikel);
-$short_description = '';
-$lineCount = 0;
-$lineLength = 0;
+      </div> 
 
-foreach ($words as $word) {
-  $short_description .= $word . ' ';
-  $lineLength += strlen($word) + 1; // +1 for the space after the word
+    </div> <!-- End .row -->
+      </div>
+    </section> <!-- End Post Grid Section -->
 
-  if ($lineLength > 50) { // Adjust the line length limit as per your requirements
-    $short_description .= '...';
-    break;
-  }
+    <!-- ======= Culture Category Section ======= -->
+  <section class="category-section">
+  <div class="container" data-aos="fade-up">
+    <div class="section-header d-flex justify-content-between align-items-center mb-5">
+      <h2>Museum</h2>
+      <div><a href="category.html" class="more">See All Museum</a></div>
+    </div>
 
-  if (substr_count($short_description, "\n") >= 2) {
-    $short_description .= '...';
-    break;
-  }
-
-  if (substr_count($short_description, "\n") > $lineCount) {
-    $lineCount++;
-    $lineLength = 0;
-  }
-}
-
-
-
-          ?>
-          <div class="<?php echo $post_entry_class ?>">
-            <div class="post-entry-1">
-              <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
-              <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
-              <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
-              <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
-              <!-- <button href="<?php echo anchor('guest/artikel/'.$row->id_artikel)?>" class="btn btn-primary">Read More</button> -->
-              <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
+    <div class="row">
+      <div class="col-md-9">
+        <?php foreach ($art as $index => $article): ?>
+          <?php if ($index === 1 && $article->kategori === 'Museum'): ?> <!-- Main Post -->
+            <div class="d-lg-flex post-entry-2">
+              <a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
+                <img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid" style="width: 100%; height: 330px;">
+              </a>
+              <div>
+                <div class="post-meta">
+                  <span class="date"><?php echo $article->kategori ?></span>
+                  <span class="mx-1">&bullet;</span>
+                  <span><?php echo date('M jS \'y', strtotime($article->tanggal)); ?></span>
+                </div>
+                <h3><a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>"><?php echo $article->judul ?></a></h3>
+                <p style="text-align: justify;"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 50)); ?>...</p>
+              </div>
             </div>
+          <?php endif; ?>
+        <?php endforeach; ?>
+
+        <div class="row">
+          <div class="col-lg-4">
+            <?php foreach ($art as $index => $article): ?>
+              <?php if ($index > 1 && $index < 4 && $article->kategori === 'Museum'): ?> <!-- Additional Posts -->
+                <div class="post-entry-1 border-bottom">
+                  <a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid"></a>
+                  <div class="post-meta">
+                    <span class="date"><?php echo $article->kategori ?></span>
+                    <span class="mx-1">&bullet;</span>
+                    <span><?php echo date('M jS \'y', strtotime($article->tanggal)); ?></span>
+                  </div>
+                  <h2 class="mb-2"><a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>"><?php echo $article->judul ?></a></h2>
+                  <p class="mb-4 d-block" style="text-align: justify;"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 40)); ?>...</p>
+                </div>
+              <?php endif; ?>
+            <?php endforeach; ?>
           </div>
-          <?php
-        }
-      ?>
+
+          <div class="col-lg-8">
+            <?php foreach ($art as $index => $article): ?>
+              <?php if ($index === 4 && $article->kategori === 'Museum'): ?> <!-- Third Post -->
+                <div class="post-entry-1">
+                  <a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid"></a>
+                  <div class="post-meta">
+                    <span class="date"><?php echo $article->kategori ?></span>
+                    <span class="mx-1">&bullet;</span>
+                    <span><?php echo date('M jS \'y', strtotime($article->tanggal)); ?></span>
+                  </div>
+                  <h2 class="mb-2"><a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>"><?php echo $article->judul ?></a></h2>
+                  <p class="mb-4 d-block"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 15)); ?>...</p>
+                </div>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <?php 
+          $museum_posts = array_filter($reverse_art, function($post) {
+            return $post->kategori === 'Museum';
+          }); // Filter posts with "Museum" category
+          $limited_posts = array_slice($museum_posts, 0, 6); // Limit the posts to 6
+        ?>
+        <?php foreach($limited_posts as $row): ?>
+          <div class="post-entry-1 border-bottom">
+            <div class="post-meta">
+              <span class="date"><?php echo $row->kategori ?></span>
+              <span class="mx-1">&bullet;</span>
+              <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span>
+            </div>
+            <h2 class="mb-2">
+              <a href="<?php echo base_url().'user/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a>
+            </h2>
+            <span class="author mb-3 d-block">Jenny</span>
+          </div>
+        <?php endforeach; ?>
+      </div>
+
     </div>
   </div>
 </section>
+<!-- End Culture Category Section -->
 
+    <!-- ======= Business Category Section ======= -->
+    <section>
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-12 text-center mb-5">
+            <!-- <img src="assets/img/Simatera C.Png" alt="" class="img-fluid"> -->
+            <div class="justify-content-between align-items-center mb-5">
+              <h1>Tentang Kami</h1>
+            </div>
+            
+          </div>
+        </div>
 
+        <div class="row mb-5">
 
-<!-- End #main -->
+          <div class="d-md-flex post-entry-2 half">
+            <div href="#" class="me-4 thumbnail">
+              <br>
+              <img src="<?php echo base_url()?>assets/img/Home_TentangKami.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="ps-md-5 mt-4 mt-md-0">
+              <?php foreach ($setting->result() as $x): ?>	
+                <p><?= $x->tentang_kami;?></p>
+                <?php endforeach; ?>
+              <!-- <h2 class="mb-4 display-4">Company History</h2> -->
+              
+            </div>
+          </div>
 
+        </div>
+
+      </div>
+    </section>
+    <!-- End Business Category Section -->
+
+  </main><!-- End #main -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="<?php echo base_url()?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -200,91 +306,13 @@ foreach ($words as $word) {
   <!-- Template Main JS File -->
   <script src="<?php echo base_url()?>assets/js/main.js"></script>
   <script src="<?php echo base_url()?>assets/js/main.js"></script>
-    <script>
+  <script>
       AOS.init({
         offset: 120,
         duration: 3000,
       });
     </script>
+
 </body>
 
 </html>
-
-<style type="text/css">
-.post-entry-1 {
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
-}
-.post-entry-1 .post-thumbnail {
-  width: 100%;
-  height: 500px;
-}
-
-  #trending {
-  float: right;
-  width: 25%;
-  padding: 0 20px;
-}
-
-#trending h2.section-title {
-  font-size: 24px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-#trending .card {
-  margin-bottom: 20px;
-}
-
-#trending .card-title {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-#trending .card-text {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 0;
-}
-
-#trending img {
-  width: 100%;
-  height: auto;
-}
-.trending-number {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  background-color: #f2f2f2;
-  color: #333;
-  font-weight: bold;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-.post-entry-highlight a{
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  .btn:hover {
-    background-color: #D3D3D3;
-  }
-</style>

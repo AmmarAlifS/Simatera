@@ -28,48 +28,31 @@
             <h3 class="footer-heading">Recent Posts</h3>
 
             <ul class="footer-links footer-blog-entry list-unstyled">
-              <li>
-                <a href="single-post.html" class="d-flex align-items-center">
-                  <img src="<?php echo base_url()?>assets/img/Gua.jpg" alt="" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                    <span>Goa Jepang</span>
-                  </div>
-                </a>
-              </li>
+              <?php
+              // Retrieve recent posts from the database
+              $this->db->order_by('id_artikel', 'desc');
+              $this->db->limit(4);
+              $query = $this->db->get('artikel_simatera');
+              $recentPosts = $query->result();
 
-              <li>
-                <a href="single-post.html" class="d-flex align-items-center">
-                  <img src="<?php echo base_url()?>assets/img/braga.jpg" alt="" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                    <span>Jalan Braga</span>
-                  </div>
-                </a>
-              </li>
-
-              <li>
-                <a href="single-post.html" class="d-flex align-items-center">
-                  <img src="<?php echo base_url()?>assets/img/aksan.jpg" alt="" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                    <span>Situ Aksan</span>
-                  </div>
-                </a>
-              </li>
-
-              <li>
-                <a href="single-post.html" class="d-flex align-items-center">
-                  <img src="<?php echo base_url()?>assets/img/sate.jpg" alt="" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                    <span>Gedung Sate</span>
-                  </div>
-                </a>
-              </li>
-
+              // Loop through the recent posts and display them
+              foreach ($recentPosts as $post) {
+                ?>
+                <li>
+                  <a href="<?php echo base_url().'user/single_post/'.$post->id_artikel;?>" class="d-flex align-items-center">
+                    <img src="<?php echo base_url('assets/img/'.$post->Foto); ?>" alt="" class="img-fluid me-3">
+                    <div>
+                      <div class="post-meta d-block">
+                        <span class="date"><?php echo $post->kategori; ?></span>
+                        <span class="mx-1">&bullet;</span>
+                        <span><?php echo $post->tanggal;; ?></span>
+                      </div>
+                      <span><?php echo $post->judul; ?></span>
+                    </div>
+                  </a>
+                </li>
+              <?php } ?>
             </ul>
-
           </div>
         </div>
       </div>
