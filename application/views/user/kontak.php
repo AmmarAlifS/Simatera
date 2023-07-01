@@ -79,16 +79,16 @@
         <div>
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1924.034366424438!2d107.60960651600695!3d-6.911440306544655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e63a04b86947%3A0x588f28f53e8076c0!2sDiskominfo%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1678076426081!5m2!1sid!2sid" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-
+    
         <div class="row">
+        
           <div class="col-lg-12 text-center mt-5 mb-1">
             <h1 class="form-title">Untuk Kritik & Saran Gunakan Form Di Bawah</h1>
           </div>
         </div>
-
-      
           <div class="form mt-2">
-              <form class="kin" method="post" action="<?php echo site_url('formcontrol/create'); ?>" >
+          
+              <form class="kin" method="post" action="<?php echo site_url('formcontrol/submit'); ?>" >
                 <div class="row">
                     <div class="form-group col-md-6">
                         <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama" required>
