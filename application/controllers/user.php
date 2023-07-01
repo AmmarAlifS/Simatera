@@ -9,6 +9,12 @@ class user extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('MArtikel');
 		$this->load->model('m_setting');
+		$this->load->model('m_kontak');
+		// if (!$this->session->userdata('email')) {
+        //     redirect('Auth_login'); // Redirect to login page if not logged in
+        // }
+		// is_logged_in();
+		$this->load->library('session');
 	}
 
 	public function index()
