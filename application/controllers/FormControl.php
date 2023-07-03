@@ -11,7 +11,7 @@ class FormControl extends CI_Controller {
         if (!$this->session->userdata('email')) {
             redirect('Auth_login'); 
         }
-        is_logged_in();
+        // logged_in();
         $this->load->library('session');
         $this->load->helper('url');
     }
@@ -76,4 +76,9 @@ class FormControl extends CI_Controller {
             redirect('user/index'); 
 		}
 	}
+
+    public function alert(){
+       
+        redirect('Auth_loginSaranMasukan');
+    }
 }

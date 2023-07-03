@@ -11,17 +11,17 @@ class user extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('MArtikel');
 		$this->load->model('m_setting');
-<<<<<<< HEAD
+
 		$this->load->model('m_kontak');
 		// if (!$this->session->userdata('email')) {
         //     redirect('Auth_login'); // Redirect to login page if not logged in
         // }
 		// is_logged_in();
 		$this->load->library('session');
-=======
+
 		$this->load->model('m_search');	
 		$this->load->model('m_list');	
->>>>>>> ef89fa7324835df230eabb9ef4d26e8ce4426715
+
 	}
 
 	public function index()
