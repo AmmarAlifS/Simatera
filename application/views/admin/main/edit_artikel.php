@@ -118,10 +118,10 @@
               </div>
 
               <div class="form-group">
-                <select  class="form-control" name="kategori">
-                    <option selected="selected">Pilih Kategori</option>
+                <select  class="form-control" name="kategori" required>
+                    <option><?php echo $x['kategori'];?></option>
                     <?php foreach($dd as $u) { ?>
-                    <option value="<?= $u->nama_kategori ?>"><?= $u->nama_kategori ?></option>
+                    <option><?= $u->nama_kategori ?></option>
                     <?php } ?>
                   </select>
               </div>

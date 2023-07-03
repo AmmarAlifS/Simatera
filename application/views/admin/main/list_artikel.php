@@ -58,7 +58,7 @@
                     <th>Artikel</th>
                     <th>Kategori</th>
                     <th>Tanggal</th>
-					          <!-- <th>Vidio</th> -->
+					          <th>Vidio</th>
 					          <th>Foto 1</th>
                     <th>Foto 2</th>
                     <th>Foto 3</th>
@@ -72,11 +72,11 @@
                   ?>
                   <tr>
 				            <td><?php echo $u->id_artikel ?></td>
-                    <td><?php echo $u->judul ?></td>
-                    <td style="text-align: justify;"><?php echo character_limiter($u->artikel, 75); ?></td>
+                    <td><?php echo word_limiter($u->judul, 3); ?></td>
+                    <td style="text-align: justify;"><?php echo word_limiter($u->artikel, 15); ?></td>
                     <td><?php echo $u->kategori ?></td>
                     <td><?php echo $u->tanggal ?></td>
-                    <!-- <td><?php echo $u->Video ?></td> -->
+                    <td><?php echo str_replace('https://', '', $u->Video);?></td>
                     <td>
                       <img width="100" height="100" src="<?= base_url('assets/img/')?><?php echo $u->Foto ?>">
                     </td>

@@ -73,16 +73,16 @@
                           <div class="swiper-slide">
                             <a href="#" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $xdetail->Foto2 ?>);">
                               <div class="img-bg-inner">
-                                <h2>Gedung De Javasche Bank Tahun 1930.</h2>
-                                <p>Gedung De Javasche Bank Bandung yang baru menghadap ke Logeweg (Jl. Braga) pada awal tahun 1930-an.</p>
+                                <h2></h2>
+                                <p></p>
                               </div>
                             </a>
                           </div>
                           <div class="swiper-slide">
                             <a href="#" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $xdetail->Foto3 ?>);">
                               <div class="img-bg-inner">
-                                <h2>Gedung De Javasche Bank Tahun </h2>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                <h2></h2>
+                                <p></p>
                               </div>
                             </a>
                            </div>
@@ -187,15 +187,24 @@
               <div class="tab-content" id="pills-tabContent">
                 <!-- Latest -->
                 <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
-                    <?php 
+                  <?php 
                     $reverse_art = array_reverse($art); // Reverse the order of the array
+                    $limited_art = array_slice($reverse_art, 0, 6); // Limit the array to maximum 6 elements
                     ?>
-                    <?php foreach($reverse_art as $row): ?>
-                      <div class="post-entry-1 border-bottom">
-                        <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                        <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a></h2>
-                        <span class="author mb-3 d-block"></span>
-                      </div>
+                    <?php foreach($limited_art as $row): ?>
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta">
+                                <span class="date"><?php echo $row->kategori ?></span>
+                                <span class="mx-1">&bullet;</span>
+                                <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span>
+                            </div>
+                            <h2 class="mb-2">
+                                <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>">
+                                    <?php echo $row->judul ?>
+                                </a>
+                            </h2>
+                            <span class="author mb-3 d-block"></span>
+                        </div>
                     <?php endforeach; ?>
                 </div> <!-- End Latest -->
               </div>

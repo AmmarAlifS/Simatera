@@ -142,28 +142,17 @@
                   </ul>
 
                   <?php 
-                      $count = 1;
                       $reverse_art = array_reverse($art); // Reverse the order of the array
+                      $limited_art = array_slice($reverse_art, 0, 6); // Limit the array to maximum 6 elements
                     ?>
-                    <?php foreach($reverse_art as $row): ?>
-
-
+                    <?php foreach($limited_art as $row): ?>
                       <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
                         <div class="post-entry-3 border-bottom">
                           <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                          <h2 class="mb-2"><a href="<?php echo base_url().'user/single_post/'.$row->id_artikel;?>"> </span> <?php echo $row->judul ?></a></h2>
+                          <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"> </span> <?php echo $row->judul ?></a></h2>
                           <span class="author d-block"></span>
                         </div>
                       </div>
-                    <!-- <div class="card mb-3">
-                      <div class="card-body">
-                        <h5 class="card-title mb-0">
-                          <span class="trending-number"><?php echo $count ?>.</span> <?php echo $row->judul ?>
-                        </h5>
-                        <p class="card-text"><small class="text-muted"><?php echo date('F j, Y', strtotime($row->tanggal)); ?></small></p>
-                      </div>
-                    </div> -->
-                    <?php $count++; ?>
                     <?php endforeach; ?>
                 </div>
 
