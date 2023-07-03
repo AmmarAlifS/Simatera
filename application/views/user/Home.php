@@ -48,7 +48,7 @@
               if ($counter >= 3) break;
               ?>
               <div class="swiper-slide">
-                <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
+                <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>" class="img-bg d-flex align-items-end" style="background-image: url(<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>);">
                   <div class="img-bg-inner">
                     <h2><?php echo $row->judul ?></h2>
                     <p style="text-align: justify;">
