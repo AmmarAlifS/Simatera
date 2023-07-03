@@ -109,7 +109,7 @@
           <div class="d-flex align-items-center author">
             <div class="photo"><img src="assets/img/person-1.jpg" alt="" class="img-fluid"></div>
             <div class="name">
-              <h3 class="m-0 p-0">Cameron Williamson</h3>
+              <h3 class="m-0 p-0"></h3>
             </div>
           </div>
         </div>
@@ -153,7 +153,7 @@
                   <div class="post-entry-1 border-bottom">
                     <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
                     <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a></h2>
-                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                    <span class="author mb-3 d-block"></span>
                   </div>
                 <?php endforeach; ?>
             </div> <!-- End Latest -->

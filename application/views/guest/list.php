@@ -81,11 +81,11 @@
 
                     <div class="<?php echo $post_entry_class ?>">
                       <div class="post-entry-1">
-                        <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
+                        <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
                         <div class="post-meta"> <span><?php echo $row->tanggal ?></span></div>
-                        <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
+                        <h2><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
                         <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
-                        <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
+                        <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
                       </div>
                     </div>
 
@@ -120,7 +120,7 @@
                       <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
                         <div class="post-entry-3 border-bottom">
                           <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                          <h2 class="mb-2"><a href="#"> </span> <?php echo $row->judul ?></a></h2>
+                          <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"> </span> <?php echo $row->judul ?></a></h2>
                           <span class="author d-block"></span>
                         </div>
                       </div>

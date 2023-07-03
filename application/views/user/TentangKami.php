@@ -86,7 +86,7 @@
               <?php
             }
             ?>
-            <p><a href="#" class="more">Lihat Semua Posting Lainnya</a></p>
+            <p><a href="<?php echo base_url();?>user/list" class="more">Lihat Semua Posting Lainnya</a></p>
           </div>
           <div class="col-lg-6">
             <div class="row">

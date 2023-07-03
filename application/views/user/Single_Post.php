@@ -193,8 +193,8 @@
                     <?php foreach($reverse_art as $row): ?>
                       <div class="post-entry-1 border-bottom">
                         <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                        <h2 class="mb-2"><a href="single-post.html"><?php echo $row->judul ?></a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
+                        <h2 class="mb-2"><a href="<?php echo base_url().'user/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a></h2>
+                        <span class="author mb-3 d-block"></span>
                       </div>
                     <?php endforeach; ?>
                 </div> <!-- End Latest -->
