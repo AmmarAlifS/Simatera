@@ -43,6 +43,10 @@ class M_search extends CI_Model {
                 $this->db->order_by('tanggal', 'desc');
             } elseif ($sort === 'oldest') {
                 $this->db->order_by('tanggal', 'asc');
+            } elseif ($sort === 'alphabetical') {
+                $this->db->order_by('judul', 'asc');
+            } elseif ($sort === 'reverse_alphabetical') {
+                $this->db->order_by('judul', 'desc'); // New order condition
             }
         }
 
@@ -74,10 +78,25 @@ class M_search extends CI_Model {
             $this->db->order_by('tanggal', 'desc');
         } elseif ($sort === 'oldest') {
             $this->db->order_by('tanggal', 'asc');
+        } elseif ($sort === 'alphabetical') {
+            $this->db->order_by('judul', 'asc');
+        } elseif ($sort === 'reverse_alphabetical') {
+            $this->db->order_by('judul', 'desc'); // New order condition
         }
     }
 
     $query = $this->db->get();
     return $query->result_array();
     }
+
+    public function getClosestMatches($keyword)
+  {
+    $this->db->select('judul'); // Modify this based on your table structure
+    $this->db->from('artikel_simatera');
+    $this->db->like('judul', $keyword);
+    $this->db->order_by('judul', 'ASC'); // Modify this based on your sorting criteria
+    $this->db->limit(5); // Limit the number of autocomplete results to display
+    return $this->db->get()->result();
+  }
+
 }

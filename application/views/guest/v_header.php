@@ -59,7 +59,8 @@
 
         <!-- ======= Search Form ======= -->
         <form action="<?php echo base_url();?>guest/search" method="post" class="search-form">
-          <input type="text" placeholder="Cari artikel..." class="form-control" name="keyword" />
+          <input type="text" placeholder="Cari artikel..." class="form-control" name="keyword" id="keyword" autocomplete="off">
+          <ul id="suggestion-list"></ul>
         </form>
         <!-- End Search Form -->
       </div>
@@ -77,6 +78,32 @@
 
   <!-- Template Main JS File -->
   <script src="<?php echo base_url()?>assets/js/main.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#keyword').on('input', function() {
+      var keyword = $(this).val();
+      if (keyword.length >= 2) { // Minimum 2 characters for autocomplete
+        $.ajax({
+          url: '<?php echo base_url(); ?>guest/searchAutocomplete',
+          type: 'POST',
+          dataType: 'json',
+          data: {keyword: keyword},
+          success: function(data) {
+            var autocompleteResults = '';
+            data.forEach(function(result) {
+              autocompleteResults += '<li>' + result.judul + '</li>'; // Modify this based on your table structure
+            });
+            $('#autocomplete-results').html(autocompleteResults);
+          }
+        });
+      } else {
+        $('#autocomplete-results').empty();
+      }
+    });
+  });
+</script>
 
 </body>
 

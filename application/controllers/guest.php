@@ -43,7 +43,6 @@ class guest extends CI_Controller {
 	}
 
 	// Detail Artikel
-
 	public function single_post($id_artikel)
 	{
 		$data['setting'] = $this->m_setting->tampil_data(); //Data
@@ -54,19 +53,48 @@ class guest extends CI_Controller {
 		$this->load->view('guest/Single_post', $detail);
 		$this->load->view('guest/v_footer', $data);
 	}
+
+	public function searchAutocomplete()
+	{
+	  $keyword = $this->input->post('keyword');
+	
+	  // Perform the query to fetch closest matching results from the article table
+	  $results = $this->m_search->getClosestMatches($keyword);
+	
+	  // Prepare the results as JSON and send the response
+	  $data = array();
+	  foreach ($results as $result) {
+		$data[] = array('judul' => $result->judul); // Modify this based on your table structure
+	  }
+	
+	  header('Content-Type: application/json');
+	  echo json_encode($data);
+	}
 	
 	public function list()
 	{
+		$kategori = $this->input->get('kategori');
+		$sort = $this->input->get('sort');
+
 		$content['art'] = $this->MArtikel->tampil()->result();
 		$config['base_url'] = 'http://localhost/Simatera/guest/list'; // URL for the pagination links
-		$config['total_rows'] = $this->m_list->count_list(); // Total number of records to paginate		
-		$config['per_page'] = 9; // Number of records to display per page
+		$config['total_rows'] = $this->m_list->count_list($kategori); // Total number of records to paginate		
+		$config['per_page'] = 12; // Number of records to display per page
+		$config['reuse_query_string'] = true; // Retain the query string parameters in pagination links
 		
 		$this->pagination->initialize($config);
 		
 		$content['page'] = $this->uri->segment(3);
-		$content['artikel']=$this->m_list->get_data($config['per_page'], $content['page'])->result();
+		$content['artikel']=$this->m_list->get_data($config['per_page'], $content['page'], $kategori, $sort);
 		
+		$content['kategori'] = $this->m_search->get_categories();
+		$content['sort'] = $sort;
+		$content['selected_category'] = $kategori;
+
+		// Update the filtered data and total results
+		$content['results'] = $this->m_list->getFilteredData($kategori, $sort);
+		$content['resulttotal'] = count($content['results']);
+
 		$data['setting'] = $this->m_setting->tampil_data();
 		
 		$this->load->view('guest/v_header');
@@ -93,6 +121,7 @@ class guest extends CI_Controller {
     $config['base_url'] = base_url('guest/search');
     $config['total_rows'] = $this->m_search->count_data($keyword, $kategori);
     $config['per_page'] = 12;
+	$config['reuse_query_string'] = true; // Retain the query string parameters in pagination links
 
     $this->pagination->initialize($config);
 

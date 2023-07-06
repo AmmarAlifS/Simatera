@@ -108,19 +108,19 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Open and close the search form.
    */
-  const searchOpen = document.querySelector('.js-search-open');
-  const searchClose = document.querySelector('.js-search-close');
-  const searchWrap = document.querySelector(".js-search-form-wrap");
+  // const searchOpen = document.querySelector('.js-search-open');
+  // const searchClose = document.querySelector('.js-search-close');
+  // const searchWrap = document.querySelector(".js-search-form-wrap");
 
-  searchOpen.addEventListener("click", (e) => {
-    e.preventDefault();
-    searchWrap.classList.add("active");
-  });
+  // searchOpen.addEventListener("click", (e) => {
+  //   e.preventDefault();
+  //   searchWrap.classList.add("active");
+  // });
 
-  searchClose.addEventListener("click", (e) => {
-    e.preventDefault();
-    searchWrap.classList.remove("active");
-  });
+  // searchClose.addEventListener("click", (e) => {
+  //   e.preventDefault();
+  //   searchWrap.classList.remove("active");
+  // });
 
     /**
      * Search
@@ -139,12 +139,63 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     );
     
+    /**
+     * Keyword
+     */
     document.addEventListener("DOMContentLoaded", function() {
       const keywordInput = document.querySelector('input[name="keyword"]');
       const keywordValue = "<?php echo $keyword; ?>";
       keywordInput.value = keywordValue;
     });
     
+    /**
+     * Autocomplete
+     */
+    // const keywordInput = document.getElementById('keyword');
+
+    // keywordInput.addEventListener('input', () => {
+    //   const keyword = keywordInput.value.trim();
+    //   if (keyword !== '') {
+    //     fetchSuggestions(keyword);
+    //   } else {
+    //     clearSuggestions();
+    //   }
+    // });
+    
+    // function fetchSuggestions(keyword) {
+    //   const url = '<?php echo base_url();?>guest/getSuggestions';
+    //   const data = new FormData();
+    //   data.append('keyword', keyword);
+    
+    //   fetch(url, {
+    //     method: 'POST',
+    //     body: data
+    //   })
+    //     .then(response => response.json())
+    //     .then(suggestions => {
+    //       clearSuggestions();
+    //       displaySuggestions(suggestions);
+    //     })
+    //     .catch(error => {
+    //       console.error('Error:', error);
+    //     });
+    // }
+    
+    // function displaySuggestions(suggestions) {
+    //   const suggestionList = document.getElementById('suggestion-list');
+    
+    //   suggestions.forEach(suggestion => {
+    //     const listItem = document.createElement('li');
+    //     listItem.textContent = suggestion;
+    //     suggestionList.appendChild(listItem);
+    //   });
+    // }
+    
+    // function clearSuggestions() {
+    //   const suggestionList = document.getElementById('suggestion-list');
+    //   suggestionList.innerHTML = '';
+    // }      
+
   /**
    * Initiate glightbox
    */

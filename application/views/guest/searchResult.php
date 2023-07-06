@@ -15,22 +15,38 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Vendor CSS -->
-    <link href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="<?php echo base_url(); ?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+    <link
+      href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="<?php echo base_url(); ?>assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <link href="<?php echo base_url(); ?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <link href="<?php echo base_url(); ?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+    <link
+      href="<?php echo base_url(); ?>assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
     <link href="<?php echo base_url(); ?>assets/vendor/aos/aos.css" rel="stylesheet" />
 
     <!-- CSS Link -->
     <link href="<?php echo base_url(); ?>assets/css/variables.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>assets/css/main.css" rel="stylesheet" />
+
   </head>
 
   <body>
@@ -60,34 +76,47 @@
                           <option value="">Sort By</option>
                           <option value="latest" <?php if ($sort === 'latest') echo 'selected'; ?>>Latest</option>
                           <option value="oldest" <?php if ($sort === 'oldest') echo 'selected'; ?>>Oldest</option>
+                          <option value="alphabetical" <?php if ($sort === 'alphabetical') echo 'selected'; ?>>A-Z</option>
+                          <option value="reverse_alphabetical" <?php if ($sort === 'reverse_alphabetical') echo 'selected'; ?>>Z-A</option> <!-- New option -->
                       </select>
                   </div>
                   <button type="submit" class="btn btn-primary">Filter</button>
               </form>
               
-              <h5 class="category-title mt-3">Menampilkan <?php echo $resulttotal; ?> hasil untuk pencarian '<?php echo $keyword; ?>'</h5>
+                <h5 class="category-title mt-3">Menampilkan <?php echo $resulttotal; ?> hasil untuk pencarian '<?php echo $keyword; ?>'</h5>
 
               <!-- Post Result 1 -->
               <div class="d-md-flex-column post-entry-2 small-img">
                 <div class="row">
-                  <?php $count = 0; ?>
-                  <?php foreach ($artikel as $row) :
+                  <?php
+                  $count = 0;
+                  $column = ''; // Define the $column variable
+                  $postsPerRow = 3; // Default number of posts per row
+
+                  // Determine the column size based on the screen size
+                  if ($column === "large") {
+                    $postsPerRow = 3;
+                  } elseif ($column === "middle") {
+                    $postsPerRow = 2;
+                  }
+
+                  foreach ($artikel as $row) :
                     $post_entry_class = "col-lg-4 col-md-6";
                     // Create shortened description with "read more" button
                     $words = explode(' ', $row->artikel);
                     $short_description = '';
                     $lineCount = 0;
                     $lineLength = 0;
-                    
+
                     foreach ($words as $word) {
                       $short_description .= $word . ' ';
                       $lineLength += strlen($word) + 1; // +1 for the space after the word
-                      
+
                       if ($lineLength > 50) { // Adjust the line length limit as per your requirements
                         $short_description .= '...';
                         break;
                       }
-                      
+
                       if (substr_count($short_description, "\n") >= 2) {
                         $short_description .= '...';
                         break;
@@ -97,7 +126,8 @@
                         $lineCount++;
                         $lineLength = 0;
                       }
-                    } ?>
+                    }
+                    ?>
 
                     <div class="<?php echo $post_entry_class ?>">
                       <div class="post-entry-1">
@@ -105,20 +135,20 @@
                         <div class="post-meta"> <span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
                         <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
                         <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
-                        <a href="<?php echo base_url().'guest/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
+                        <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
                       </div>
                     </div>
 
                     <?php
                     $count++;
-                    if ($count % 3 === 0) {
+                    if ($count % $postsPerRow === 0) {
                       echo '</div><div class="row">';
-                    } 
+                    }
                     ?>
 
-                    <?php endforeach; ?>
-                  </div>
+                  <?php endforeach; ?>
                 </div>
+              </div>
              <!-- End Post Result 1 -->
 
             <!-- Paging -->
@@ -138,41 +168,50 @@
       
           <!-- Sidebar -->
           <div class="col-lg-3 col-md-4">
-                <!-- ======= Sidebar ======= -->
-                <div class="aside-block">
-                  <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
-                    </li>
-                  </ul>
+            <div class="aside-block">
+              <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
+                </li>
+              </ul>
 
-                  <?php 
-                      $count = 1;
-                      $reverse_art = array_reverse($art); // Reverse the order of the array
+              <div class="tab-content" id="pills-tabContent">
+                <!-- Latest -->
+                <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                    <?php 
+                    $reverse_art = array_reverse($art); // Reverse the order of the array
                     ?>
                     <?php foreach($reverse_art as $row): ?>
-
-
-                      <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
-                        <div class="post-entry-3 border-bottom">
-                          <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                          <h2 class="mb-2"><a href="#"> </span> <?php echo $row->judul ?></a></h2>
-                          <span class="author d-block"></span>
-                        </div>
+                      <div class="post-entry-1 border-bottom">
+                        <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                        <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a></h2>
+                        <span class="author mb-3 d-block">Jenny Wilson</span>
                       </div>
-                    <!-- <div class="card mb-3">
-                      <div class="card-body">
-                        <h5 class="card-title mb-0">
-                          <span class="trending-number"><?php echo $count ?>.</span> <?php echo $row->judul ?>
-                        </h5>
-                        <p class="card-text"><small class="text-muted"><?php echo date('F j, Y', strtotime($row->tanggal)); ?></small></p>
-                      </div>
-                    </div> -->
-                    <?php $count++; ?>
                     <?php endforeach; ?>
-                </div>
+                  </div>
               </div>
-          
+              <!-- End Latest -->
+            </div>
+          </div>
+
+          <div class="aside-block">
+            <h3 class="aside-title">Video</h3>
+            <div class="video-post">
+              <a
+                href="https://www.youtube.com/watch?v=dQw4w9WfgXcQ"
+                class="glightbox link-video"
+              >
+                <span class="bi-play-fill"></span>
+                <img
+                  src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </a>
+            </div>
+          </div>
+          <!-- End Video -->
+          </div>  
         </div>
       </div>
     </section>
@@ -201,6 +240,8 @@
                       <option value="">Sort By</option>
                       <option value="latest" <?php if ($sort === 'latest') echo 'selected'; ?>>Latest</option>
                       <option value="oldest" <?php if ($sort === 'oldest') echo 'selected'; ?>>Oldest</option>
+                      <option value="alphabetical" <?php if ($sort === 'alphabetical') echo 'selected'; ?>>A-Z</option>
+                      <option value="reverse_alphabetical" <?php if ($sort === 'reverse_alphabetical') echo 'selected'; ?>>Z-A</option> <!-- New option -->
                   </select>
               </div>
               <button type="submit" class="btn btn-primary">Filter</button>
@@ -215,32 +256,49 @@
 
         <!-- Sidebar -->
         <div class="col-lg-3 col-md-4">
-          <!-- ======= Sidebar ======= -->
-          <div class="aside-block">
-            <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
-              </li>
-            </ul>
+            <div class="aside-block">
+              <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
+                </li>
+              </ul>
 
-            <?php 
-                $count = 1;
-                $reverse_art = array_reverse($art); // Reverse the order of the array
-              ?>
-              <?php foreach($reverse_art as $row): ?>
-
-
+              <div class="tab-content" id="pills-tabContent">
+                <!-- Latest -->
                 <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
-                  <div class="post-entry-3 border-bottom">
-                    <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                    <h2 class="mb-2"><a href="#"> </span> <?php echo $row->judul ?></a></h2>
-                    <span class="author d-block"></span>
+                    <?php 
+                    $reverse_art = array_reverse($art); // Reverse the order of the array
+                    ?>
+                    <?php foreach($reverse_art as $row): ?>
+                      <div class="post-entry-1 border-bottom">
+                        <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                        <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a></h2>
+                        <span class="author mb-3 d-block">Jenny Wilson</span>
+                      </div>
+                    <?php endforeach; ?>
                   </div>
-                </div>
-              <?php endforeach; ?>
+              </div>
+              <!-- End Latest -->
+            </div>
           </div>
-        </div>
 
+          <div class="aside-block">
+            <h3 class="aside-title">Video</h3>
+            <div class="video-post">
+              <a
+                href="https://www.youtube.com/watch?v=dQw4w9WfgXcQ"
+                class="glightbox link-video"
+              >
+                <span class="bi-play-fill"></span>
+                <img
+                  src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </a>
+            </div>
+          </div>
+        <!-- End Video -->
         </div>  
       </div>
     </div>
@@ -262,9 +320,11 @@
   </main>
       <!-- End #main -->
 
-    <a href="#" class="scroll-top d-flex align-items-center justify-content-center">
-      <i class="bi bi-arrow-up-short"></i>
-    </a>
+    <a
+      href="#"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
 
     <!-- Vendor JS Files -->
     <script src="<?php echo base_url(); ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -275,6 +335,7 @@
 
     <!-- JS Link -->
     <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
+
   </body>
 </html>
 
@@ -297,10 +358,12 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin-bottom: 20px;
+  border-radius: 5px;
 }
 .post-entry-1 .post-thumbnail {
   width: 100%;
   height: 500px;
+  border-radius: 10px;
 }
 
   #trending {
@@ -368,7 +431,7 @@
   .btn:hover {
     background-color: #D3D3D3;
   }
-
+        
   /* SideBar */
   .post-entry-3 {
     margin-bottom: 35px;
@@ -404,6 +467,31 @@
     color: rgba(var(--color-black-rgb), 0.4);
     margin-bottom: 10px;
 }
-        
-  
+
+.custom-pagination {
+  display: flex;
+  justify-content: center; /* Center the pagination links */
+  align-items: center;
+  margin-top: 20px;
+  padding: 5px 10px; /* Add padding around the link */
+  margin: 0 5px; /* Add space between the page links */
+}
+
+.custom-pagination .page-link {
+  outline: none !important;
+  padding: 15px 8px; /* Add padding around the link */
+  margin: 0 10px; /* Add space between the page links */
+  font-size: 16px; /* Increase the font size */
+}
+
+.custom-pagination .page-link.active {
+  background: var(--color-black) !important; /* Remove the background color */
+  color: var(--color-white) !important; /* Set the text color to black */
+  outline: none !important;
+  border: 2px solid var(--color-black); /* Increase the border width to 4px */
+  padding: 5px 10px; /* Add padding around the link */
+  text-align: center; /* Center the text */
+  font-size: 18px; /* Increase the font size */
+}
+
 </style>
