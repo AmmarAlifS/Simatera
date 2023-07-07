@@ -36,6 +36,8 @@
   <body>
 
     <main id="main">
+      
+      <?php if ($artikel) : ?>  
       <!-- Search Results -->
       <section id="search-result" class="search-result">
         <div class="container">
@@ -191,6 +193,90 @@
           </div>
         </div>
       </section>
+      <?php else : ?>
+          <!-- Search Results -->
+          <section id="search-result" class="search-result">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-9 col-md-8">
+                  
+                  <!-- Filter Form -->
+                  <form action="<?php echo site_url('guest/list'); ?>" method="get" class="search-form">
+                      <div class="form-group">
+                          <select name="kategori" class="form-control">
+                              <option value="">All Categories</option>
+                              <?php foreach ($kategori as $category) : ?>
+                                  <option value="<?php echo $category['nama_kategori']; ?>" <?php echo ($category['nama_kategori'] == $selected_category) ? 'selected' : ''; ?>>
+                                      <?php echo $category['nama_kategori']; ?>
+                                  </option>
+                              <?php endforeach; ?>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <select name="sort" class="form-control">
+                              <option value="">Sort By</option>
+                              <option value="latest" <?php if ($sort === 'latest') echo 'selected'; ?>>Latest</option>
+                              <option value="oldest" <?php if ($sort === 'oldest') echo 'selected'; ?>>Oldest</option>
+                              <option value="alphabetical" <?php if ($sort === 'alphabetical') echo 'selected'; ?>>A-Z</option>
+                              <option value="reverse_alphabetical" <?php if ($sort === 'reverse_alphabetical') echo 'selected'; ?>>Z-A</option> <!-- New option -->
+                          </select>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Filter</button>
+                  </form>
+    
+                  <!-- List -->
+                  <?php if ($selected_category) : ?>
+                    <h5 class="category-title mt-4">Tidak ada artikel Dalam kategori '<?php echo $selected_category; ?>' untuk sekarang.</h5>
+                    <h5 class="category-title">Mohon tunggu update selanjutnya!!</h5>
+                  <?php endif; ?>
+                </div>
+       
+                <div class="col-lg-3 col-md-4">
+                    <!-- ======= Sidebar ======= -->
+                    <div class="aside-block">
+                      <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
+                        </li>
+                      </ul>
+    
+                      <?php 
+                          $reverse_art = array_reverse($art); // Reverse the order of the array
+                          $limited_art = array_slice($reverse_art, 0, 6); // Limit the array to maximum 6 elements
+                        ?>
+                        <?php foreach($limited_art as $row): ?>
+                          <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                            <div class="post-entry-3 border-bottom">
+                              <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                              <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"> </span> <?php echo $row->judul ?></a></h2>
+                              <span class="author d-block"></span>
+                            </div>
+                          </div>
+                        <?php endforeach; ?>
+    
+                    </div>
+    
+                    <div class="aside-block">
+                      <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Kategori</button>
+                        </li>
+                      </ul>
+    
+                        <?php foreach($kategori as $category): ?>
+                          <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                            <div class="post-entry-3 border-bottom">
+                              <h2 class="mb-2"><a href="<?php echo base_url().'guest/list?kategori='.$category['nama_kategori'].'&sort=';?>"> </span> <?php echo $category['nama_kategori'] ?></a></h2>
+                            </div>
+                          </div>
+                        <?php endforeach; ?>
+    
+                    </div>
+                </div>
+                </div>
+              </div>
+          </section>
+      <?php endif ; ?>   
     </main>
     <!-- End #main -->
 

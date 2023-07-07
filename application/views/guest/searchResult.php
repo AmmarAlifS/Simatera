@@ -232,7 +232,7 @@
     
   <?php else : ?>
     
-    <section id="search-result" class="search-result">
+  <section id="search-result" class="search-result">
     <div class="container">
       <div class="row">
         <div class="col-lg-9 col-md-8">
@@ -330,18 +330,6 @@
         </div>  
       </div>
     </div>
-    <!-- Paging -->
-    <div class="text-start py-4">
-      <div class="custom-pagination">
-          <?php
-          $pagination_links = $this->pagination->create_links();
-          $pagination_links = str_replace('<a href', '<a class="page-link" href', $pagination_links);
-          $pagination_links = str_replace('<a class="page-link" href="#"', '<a class="page-link active"', $pagination_links);
-          echo $pagination_links;
-          ?>
-      </div>
-    </div>
-  <!-- End Paging -->
   </section>
 
   <?php endif; ?>
