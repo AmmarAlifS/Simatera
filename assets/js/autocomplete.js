@@ -1,22 +1,29 @@
 $(document).ready(function() {
-    $('#keyword').on('input', function() {
+  // Autocomplete functionality
+  $('#keyword').keyup(function() {
       var keyword = $(this).val();
-      if (keyword.length >= 2) { // Minimum 2 characters for autocomplete
-        $.ajax({
-          url: '<?php echo base_url(); ?>guest/searchAutocomplete',
-          type: 'POST',
-          dataType: 'json',
-          data: {keyword: keyword},
-          success: function(data) {
-            var autocompleteResults = '';
-            data.forEach(function(result) {
-              autocompleteResults += '<li>' + result.judul + '</li>'; // Modify this based on your table structure
-            });
-            $('#autocomplete-results').html(autocompleteResults);
-          }
-        });
+      if (keyword !== '') {
+          $.ajax({
+              url: "<?php echo base_url();?>guest/search_autocomplete",
+              method: "POST",
+              data: {keyword: keyword},
+              success: function(data) {
+                  $('#autocomplete-results').fadeIn();
+                  $('#autocomplete-results').html(data);
+              }
+          });
       } else {
-        $('#autocomplete-results').empty();
+          $('#autocomplete-results').fadeOut();
       }
-    });
   });
+
+  // Update the search form action on autocomplete selection
+  $(document).on('click', '.autocomplete-item', function() {
+      var closestKeyword = $(this).text(); // Use the closest keyword instead of the entered keyword
+      $('#keyword').val(closestKeyword);
+      $('#autocomplete-results').fadeOut();
+
+      // Update the search form action
+      $('.search-form').attr('action', "<?php echo base_url();?>guest/search?keyword=" + closestKeyword);
+  });
+});

@@ -64,16 +64,28 @@ class user extends CI_Controller {
 
 	public function list()
 	{
+		$kategori = $this->input->get('kategori');
+		$sort = $this->input->get('sort');
+
 		$content['art'] = $this->MArtikel->tampil()->result();
 		$config['base_url'] = 'http://localhost/Simatera/user/list'; // URL for the pagination links
-		$config['total_rows'] = $this->m_list->count_list(); // Total number of records to paginate		
-		$config['per_page'] = 9; // Number of records to display per page
+		$config['total_rows'] = $this->m_list->count_list($kategori); // Total number of records to paginate		
+		$config['per_page'] = 12; // Number of records to display per page
+		$config['reuse_query_string'] = true; // Retain the query string parameters in pagination links
 		
 		$this->pagination->initialize($config);
 		
 		$content['page'] = $this->uri->segment(3);
-		$content['artikel']=$this->m_list->get_data($config['per_page'], $content['page'])->result();
+		$content['artikel']=$this->m_list->get_data($config['per_page'], $content['page'], $kategori, $sort);
 		
+		$content['kategori'] = $this->m_search->get_categories();
+		$content['sort'] = $sort;
+		$content['selected_category'] = $kategori;
+
+		// Update the filtered data and total results
+		$content['results'] = $this->m_list->getFilteredData($kategori, $sort);
+		$content['resulttotal'] = count($content['results']);
+
 		$data['setting'] = $this->m_setting->tampil_data();
 		
 		$this->load->view('user/v_header');
@@ -100,6 +112,7 @@ class user extends CI_Controller {
     $config['base_url'] = base_url('user/search');
     $config['total_rows'] = $this->m_search->count_data($keyword, $kategori);
     $config['per_page'] = 12;
+	$config['reuse_query_string'] = true; // Retain the query string parameters in pagination links
 
     $this->pagination->initialize($config);
 

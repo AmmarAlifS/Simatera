@@ -60,7 +60,7 @@
         <!-- ======= Search Form ======= -->
         <form action="<?php echo base_url();?>guest/search" method="post" class="search-form">
           <input type="text" placeholder="Cari artikel..." class="form-control" name="keyword" id="keyword" autocomplete="off">
-          <ul id="suggestion-list"></ul>
+          <div id="autocomplete-results"></div> <!-- Container for displaying autocomplete results -->
         </form>
         <!-- End Search Form -->
       </div>

@@ -67,7 +67,7 @@
               </form>
 
               <!-- List -->
-              <div class="d-md-flex-column post-entry-2 small-img">
+              <div class="d-md-flex-column post-entry-2 small-img mt-3">
                 <div class="row">
                   <?php
                   $count = 0;

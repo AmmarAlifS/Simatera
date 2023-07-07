@@ -54,22 +54,13 @@ class guest extends CI_Controller {
 		$this->load->view('guest/v_footer', $data);
 	}
 
-	public function searchAutocomplete()
-	{
-	  $keyword = $this->input->post('keyword');
-	
-	  // Perform the query to fetch closest matching results from the article table
-	  $results = $this->m_search->getClosestMatches($keyword);
-	
-	  // Prepare the results as JSON and send the response
-	  $data = array();
-	  foreach ($results as $result) {
-		$data[] = array('judul' => $result->judul); // Modify this based on your table structure
-	  }
-	
-	  header('Content-Type: application/json');
-	  echo json_encode($data);
-	}
+	// public function search_autocomplete()
+	// {
+	// 	$keyword = $this->input->post('keyword');
+	// 	$matches = $this->m_search->getClosestMatches($keyword);
+	// 	$data['matches'] = $matches;
+	// 	$this->load->view('guest/autocomplete', $data);
+	// }	
 	
 	public function list()
 	{

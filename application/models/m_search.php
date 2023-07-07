@@ -88,15 +88,18 @@ class M_search extends CI_Model {
     $query = $this->db->get();
     return $query->result_array();
     }
+    
+    // public function getClosestMatches($keyword)
+    // {
+    // $this->db->select('judul');
+    // $this->db->from('artikel_simatera');
+    // $this->db->like('judul', $keyword . ' ', 'after'); // Add a space after the keyword
+    // $this->db->or_like('judul', ' ' . $keyword . ' ', 'both'); // Match the keyword surrounded by spaces
+    // $this->db->or_like('judul', ' ' . $keyword, 'before'); // Add a space before the keyword
+    // $this->db->order_by('judul', 'ASC');
+    // $this->db->limit(5);
+    // return $this->db->get()->result();
+    // }
 
-    public function getClosestMatches($keyword)
-  {
-    $this->db->select('judul'); // Modify this based on your table structure
-    $this->db->from('artikel_simatera');
-    $this->db->like('judul', $keyword);
-    $this->db->order_by('judul', 'ASC'); // Modify this based on your sorting criteria
-    $this->db->limit(5); // Limit the number of autocomplete results to display
-    return $this->db->get()->result();
-  }
 
 }

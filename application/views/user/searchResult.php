@@ -46,6 +46,7 @@
     <!-- CSS Link -->
     <link href="<?php echo base_url(); ?>assets/css/variables.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>assets/css/main.css" rel="stylesheet" />
+
   </head>
 
   <body>
@@ -75,34 +76,47 @@
                           <option value="">Sort By</option>
                           <option value="latest" <?php if ($sort === 'latest') echo 'selected'; ?>>Latest</option>
                           <option value="oldest" <?php if ($sort === 'oldest') echo 'selected'; ?>>Oldest</option>
+                          <option value="alphabetical" <?php if ($sort === 'alphabetical') echo 'selected'; ?>>A-Z</option>
+                          <option value="reverse_alphabetical" <?php if ($sort === 'reverse_alphabetical') echo 'selected'; ?>>Z-A</option> <!-- New option -->
                       </select>
                   </div>
                   <button type="submit" class="btn btn-primary">Filter</button>
               </form>
               
-              <h5 class="category-title mt-3">Menampilkan <?php echo $resulttotal; ?> hasil untuk pencarian '<?php echo $keyword; ?>'</h5>
+                <h5 class="category-title mt-3">Menampilkan <?php echo $resulttotal; ?> hasil untuk pencarian '<?php echo $keyword; ?>'</h5>
 
               <!-- Post Result 1 -->
               <div class="d-md-flex-column post-entry-2 small-img">
                 <div class="row">
-                  <?php $count = 0; ?>
-                  <?php foreach ($artikel as $row) :
+                  <?php
+                  $count = 0;
+                  $column = ''; // Define the $column variable
+                  $postsPerRow = 3; // Default number of posts per row
+
+                  // Determine the column size based on the screen size
+                  if ($column === "large") {
+                    $postsPerRow = 3;
+                  } elseif ($column === "middle") {
+                    $postsPerRow = 2;
+                  }
+
+                  foreach ($artikel as $row) :
                     $post_entry_class = "col-lg-4 col-md-6";
                     // Create shortened description with "read more" button
                     $words = explode(' ', $row->artikel);
                     $short_description = '';
                     $lineCount = 0;
                     $lineLength = 0;
-                    
+
                     foreach ($words as $word) {
                       $short_description .= $word . ' ';
                       $lineLength += strlen($word) + 1; // +1 for the space after the word
-                      
+
                       if ($lineLength > 50) { // Adjust the line length limit as per your requirements
                         $short_description .= '...';
                         break;
                       }
-                      
+
                       if (substr_count($short_description, "\n") >= 2) {
                         $short_description .= '...';
                         break;
@@ -112,7 +126,8 @@
                         $lineCount++;
                         $lineLength = 0;
                       }
-                    } ?>
+                    }
+                    ?>
 
                     <div class="<?php echo $post_entry_class ?>">
                       <div class="post-entry-1">
@@ -120,20 +135,20 @@
                         <div class="post-meta"> <span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
                         <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
                         <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
-                        <a href="<?php echo base_url().'user/artikel/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
+                        <a href="<?php echo base_url().'user/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
                       </div>
                     </div>
 
                     <?php
                     $count++;
-                    if ($count % 3 === 0) {
+                    if ($count % $postsPerRow === 0) {
                       echo '</div><div class="row">';
-                    } 
+                    }
                     ?>
 
-                    <?php endforeach; ?>
-                  </div>
+                  <?php endforeach; ?>
                 </div>
+              </div>
              <!-- End Post Result 1 -->
 
             <!-- Paging -->
@@ -153,38 +168,71 @@
       
           <!-- Sidebar -->
           <div class="col-lg-3 col-md-4">
-          <!-- ======= Sidebar ======= -->
-          <div class="aside-block">
-            <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
-              </li>
-            </ul>
+            <div class="aside-block">
+              <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
+                </li>
+              </ul>
 
-            <?php 
-                $count = 1;
-                $reverse_art = array_reverse($art); // Reverse the order of the array
-              ?>
-              <?php foreach($reverse_art as $row): ?>
-
-
-                <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
-                  <div class="post-entry-3 border-bottom">
-                    <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                    <h2 class="mb-2"><a href="#"> </span> <?php echo $row->judul ?></a></h2>
-                    <span class="author d-block"></span>
+              <?php 
+                  $reverse_art = array_reverse($art); // Reverse the order of the array
+                  $limited_art = array_slice($reverse_art, 0, 6); // Limit the array to maximum 6 elements
+                ?>
+                <?php foreach($limited_art as $row): ?>
+                  <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                    <div class="post-entry-3 border-bottom">
+                      <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                      <h2 class="mb-2"><a href="<?php echo base_url().'user/single_post/'.$row->id_artikel;?>"> </span> <?php echo $row->judul ?></a></h2>
+                      <span class="author d-block"></span>
+                    </div>
                   </div>
-                </div>
-              <?php endforeach; ?>
-          </div>
-        </div>
+                <?php endforeach; ?>
+
+            </div>
+
+            <div class="aside-block">
+              <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Kategori</button>
+                </li>
+              </ul>
+
+                <?php foreach($kategori as $category): ?>
+                  <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                    <div class="post-entry-3 border-bottom">
+                      <h2 class="mb-2"><a href="<?php echo base_url().'user/list?kategori='.$category['nama_kategori'].'&sort=';?>"> </span> <?php echo $category['nama_kategori'] ?></a></h2>
+                    </div>
+                  </div>
+                <?php endforeach; ?>
+
+            </div>
+          
+            <div class="aside-block">
+              <h3 class="aside-title">Video</h3>
+              <div class="video-post">
+                <a
+                href="https://www.youtube.com/watch?v=dQw4w9WfgXcQ"
+                  class="glightbox link-video"
+                >
+                <span class="bi-play-fill"></span>
+                <img
+                    src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </a>
+              </div>
+            </div>
+          <!-- End Video -->
+          </div>  
         </div>
       </div>
     </section>
-
+    
   <?php else : ?>
-
-  <section id="search-result" class="search-result">
+    
+    <section id="search-result" class="search-result">
     <div class="container">
       <div class="row">
         <div class="col-lg-9 col-md-8">
@@ -193,7 +241,7 @@
           <form action="<?php echo site_url('user/search'); ?>" method="get" class="search-form">
               <div class="form-group">
                 <select name="kategori" class="form-control">
-                    <option value="">All Categories</option>
+                  <option value="">All Categories</option>
                     <?php foreach ($kategori as $category) : ?>
                         <option value="<?php echo $category['nama_kategori']; ?>" <?php echo ($category['nama_kategori'] == $selected_category) ? 'selected' : ''; ?>>
                             <?php echo $category['nama_kategori']; ?>
@@ -206,127 +254,60 @@
                       <option value="">Sort By</option>
                       <option value="latest" <?php if ($sort === 'latest') echo 'selected'; ?>>Latest</option>
                       <option value="oldest" <?php if ($sort === 'oldest') echo 'selected'; ?>>Oldest</option>
+                      <option value="alphabetical" <?php if ($sort === 'alphabetical') echo 'selected'; ?>>A-Z</option>
+                      <option value="reverse_alphabetical" <?php if ($sort === 'reverse_alphabetical') echo 'selected'; ?>>Z-A</option> <!-- New option -->
                   </select>
               </div>
               <button type="submit" class="btn btn-primary">Filter</button>
-          </form>
-          
+            </form>
+            
           <?php if ($selected_category) : ?>
             <h5 class="category-title mt-3">Tidak ada hasil untuk pencarian '<?php echo $keyword; ?>' Dalam kategori <?php echo $selected_category; ?></h5>
-          <?php else : ?>
+            <?php else : ?>
             <h5 class="category-title mt-3">Tidak ada hasil untuk pencarian '<?php echo $keyword; ?>'</h5>
           <?php endif; ?>
         </div>
-
+        
         <!-- Sidebar -->
-        <div class="col-lg-3 col-md-4">
-          <div class="aside-block">
-              <ul
-                class="nav nav-pills custom-tab-nav mb-4"
-                id="pills-tab"
-                role="tablist">
+          <div class="col-lg-3 col-md-4">
+            <div class="aside-block">
+              <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link active"
-                    id="pills-popular-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#pills-popular"
-                    type="button"
-                    role="tab"
-                    aria-controls="pills-popular"
-                    aria-selected="true"
-                  >
-                    Popular
-                  </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link"
-                    id="pills-trending-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#pills-trending"
-                    type="button"
-                    role="tab"
-                    aria-controls="pills-trending"
-                    aria-selected="false"
-                  >
-                    Latest
-                  </button>
+                  <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
                 </li>
               </ul>
-
-              <div class="tab-content" id="pills-tabContent">
-                <!-- Populer -->
-                <div
-                  class="tab-pane fade show active"
-                  id="pills-popular"
-                  role="tabpanel"
-                  aria-labelledby="pills-popular-tab"
-                >
-                  <div class="post-entry-1 border-bottom">
-                    <div class="post-meta">
-                      <span class="date">Sejarah</span>
-                      <span class="mx-1">&bullet;</span>
-                      <span>Mar 13rd '23</span>
+      
+              <?php 
+                  $reverse_art = array_reverse($art); // Reverse the order of the array
+                  $limited_art = array_slice($reverse_art, 0, 6); // Limit the array to maximum 6 elements
+                ?>
+                <?php foreach($limited_art as $row): ?>
+                  <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                    <div class="post-entry-3 border-bottom">
+                      <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                      <h2 class="mb-2"><a href="<?php echo base_url().'user/single_post/'.$row->id_artikel;?>"> </span> <?php echo $row->judul ?></a></h2>
+                      <span class="author d-block"></span>
                     </div>
-                    <h2 class="mb-2">
-                      <a href="#"
-                        >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
-                        Dunia</a
-                      >
-                    </h2>
                   </div>
-                </div>
-                <!-- End Populer -->
-
-                <!-- Trending -->
-                <div
-                  class="tab-pane fade"
-                  id="pills-trending"
-                  role="tabpanel"
-                  aria-labelledby="pills-trending-tab"
-                >
-                  <div class="post-entry-1 border-bottom">
-                    <div class="post-meta">
-                      <span class="date">Sejarah</span>
-                      <span class="mx-1">&bullet;</span>
-                      <span>Mar 17th '23</span>
+                <?php endforeach; ?>
+      
+            </div>
+      
+            <div class="aside-block">
+              <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Kategori</button>
+                </li>
+              </ul>
+      
+                <?php foreach($kategori as $category): ?>
+                  <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                    <div class="post-entry-3 border-bottom">
+                      <h2 class="mb-2"><a href="<?php echo base_url().'user/list?kategori='.$category['nama_kategori'].'&sort=';?>"> </span> <?php echo $category['nama_kategori'] ?></a></h2>
                     </div>
-                    <h2 class="mb-2">
-                      <a href="#"
-                        >Saung Angklung Udjo : Dari Sejarah Hingga Prestasi Di
-                        Dunia</a
-                      >
-                    </h2>
-                    <span class="author mb-3 d-block">Rifki Aufa</span>
                   </div>
-                </div>
-                <!-- End Trending -->
-
-                <!-- Latest -->
-                <div
-                  class="tab-pane fade"
-                  id="pills-latest"
-                  role="tabpanel"
-                  aria-labelledby="pills-latest-tab"
-                >
-                  <div class="post-entry-1 border-bottom">
-                    <div class="post-meta">
-                      <span class="date">Sejarah</span>
-                      <span class="mx-1">&bullet;</span>
-                      <span>Mar 17th '23</span>
-                    </div>
-                    <h2 class="mb-2">
-                      <a href="#"
-                        >Sejarah Lengkap Gedung Lanraad (Gedung Indonesia
-                        Menggugat)</a
-                      >
-                    </h2>
-                    <span class="author mb-3 d-block">Rifki Aufa</span>
-                  </div>
-                </div>
-                <!-- End Latest -->
-              </div>
+                <?php endforeach; ?>
+      
             </div>
 
             <div class="aside-block">
@@ -346,10 +327,6 @@
               </div>
             </div>
         <!-- End Video -->
-
-        <!-- End Categories -->
-
-        <!-- End Tags -->
         </div>  
       </div>
     </div>
@@ -386,6 +363,7 @@
 
     <!-- JS Link -->
     <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
+
   </body>
 </html>
 
@@ -408,10 +386,12 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin-bottom: 20px;
+  border-radius: 5px;
 }
 .post-entry-1 .post-thumbnail {
   width: 100%;
   height: 500px;
+  border-radius: 10px;
 }
 
   #trending {
@@ -515,4 +495,31 @@
     color: rgba(var(--color-black-rgb), 0.4);
     margin-bottom: 10px;
 }
+
+.custom-pagination {
+  display: flex;
+  justify-content: center; /* Center the pagination links */
+  align-items: center;
+  margin-top: 20px;
+  padding: 5px 10px; /* Add padding around the link */
+  margin: 0 5px; /* Add space between the page links */
+}
+
+.custom-pagination .page-link {
+  outline: none !important;
+  padding: 15px 8px; /* Add padding around the link */
+  margin: 0 10px; /* Add space between the page links */
+  font-size: 16px; /* Increase the font size */
+}
+
+.custom-pagination .page-link.active {
+  background: var(--color-black) !important; /* Remove the background color */
+  color: var(--color-white) !important; /* Set the text color to black */
+  outline: none !important;
+  border: 2px solid var(--color-black); /* Increase the border width to 4px */
+  padding: 5px 10px; /* Add padding around the link */
+  text-align: center; /* Center the text */
+  font-size: 18px; /* Increase the font size */
+}
+
 </style>

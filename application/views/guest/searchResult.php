@@ -175,50 +175,64 @@
                 </li>
               </ul>
 
-              <div class="tab-content" id="pills-tabContent">
-                <!-- Latest -->
-                <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
-                    <?php 
-                    $reverse_art = array_reverse($art); // Reverse the order of the array
-                    ?>
-                    <?php foreach($reverse_art as $row): ?>
-                      <div class="post-entry-1 border-bottom">
-                        <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                        <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                      </div>
-                    <?php endforeach; ?>
+              <?php 
+                  $reverse_art = array_reverse($art); // Reverse the order of the array
+                  $limited_art = array_slice($reverse_art, 0, 6); // Limit the array to maximum 6 elements
+                ?>
+                <?php foreach($limited_art as $row): ?>
+                  <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                    <div class="post-entry-3 border-bottom">
+                      <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                      <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"> </span> <?php echo $row->judul ?></a></h2>
+                      <span class="author d-block"></span>
+                    </div>
                   </div>
-              </div>
-              <!-- End Latest -->
-            </div>
-          </div>
+                <?php endforeach; ?>
 
-          <div class="aside-block">
-            <h3 class="aside-title">Video</h3>
-            <div class="video-post">
-              <a
+            </div>
+
+            <div class="aside-block">
+              <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Kategori</button>
+                </li>
+              </ul>
+
+                <?php foreach($kategori as $category): ?>
+                  <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                    <div class="post-entry-3 border-bottom">
+                      <h2 class="mb-2"><a href="<?php echo base_url().'guest/list?kategori='.$category['nama_kategori'].'&sort=';?>"> </span> <?php echo $category['nama_kategori'] ?></a></h2>
+                    </div>
+                  </div>
+                <?php endforeach; ?>
+
+            </div>
+          
+            <div class="aside-block">
+              <h3 class="aside-title">Video</h3>
+              <div class="video-post">
+                <a
                 href="https://www.youtube.com/watch?v=dQw4w9WfgXcQ"
-                class="glightbox link-video"
-              >
+                  class="glightbox link-video"
+                >
                 <span class="bi-play-fill"></span>
                 <img
-                  src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
-                  alt=""
-                  class="img-fluid"
-                />
-              </a>
+                    src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </a>
+              </div>
             </div>
-          </div>
           <!-- End Video -->
           </div>  
         </div>
       </div>
     </section>
-
+    
   <?php else : ?>
-
-  <section id="search-result" class="search-result">
+    
+    <section id="search-result" class="search-result">
     <div class="container">
       <div class="row">
         <div class="col-lg-9 col-md-8">
@@ -227,7 +241,7 @@
           <form action="<?php echo site_url('guest/search'); ?>" method="get" class="search-form">
               <div class="form-group">
                 <select name="kategori" class="form-control">
-                    <option value="">All Categories</option>
+                  <option value="">All Categories</option>
                     <?php foreach ($kategori as $category) : ?>
                         <option value="<?php echo $category['nama_kategori']; ?>" <?php echo ($category['nama_kategori'] == $selected_category) ? 'selected' : ''; ?>>
                             <?php echo $category['nama_kategori']; ?>
@@ -245,59 +259,73 @@
                   </select>
               </div>
               <button type="submit" class="btn btn-primary">Filter</button>
-          </form>
-          
+            </form>
+            
           <?php if ($selected_category) : ?>
             <h5 class="category-title mt-3">Tidak ada hasil untuk pencarian '<?php echo $keyword; ?>' Dalam kategori <?php echo $selected_category; ?></h5>
-          <?php else : ?>
+            <?php else : ?>
             <h5 class="category-title mt-3">Tidak ada hasil untuk pencarian '<?php echo $keyword; ?>'</h5>
           <?php endif; ?>
         </div>
-
+        
         <!-- Sidebar -->
-        <div class="col-lg-3 col-md-4">
+          <div class="col-lg-3 col-md-4">
             <div class="aside-block">
               <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                   <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
                 </li>
               </ul>
-
-              <div class="tab-content" id="pills-tabContent">
-                <!-- Latest -->
-                <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
-                    <?php 
-                    $reverse_art = array_reverse($art); // Reverse the order of the array
-                    ?>
-                    <?php foreach($reverse_art as $row): ?>
-                      <div class="post-entry-1 border-bottom">
-                        <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                        <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                      </div>
-                    <?php endforeach; ?>
+      
+              <?php 
+                  $reverse_art = array_reverse($art); // Reverse the order of the array
+                  $limited_art = array_slice($reverse_art, 0, 6); // Limit the array to maximum 6 elements
+                ?>
+                <?php foreach($limited_art as $row): ?>
+                  <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                    <div class="post-entry-3 border-bottom">
+                      <div class="post-meta-3"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
+                      <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"> </span> <?php echo $row->judul ?></a></h2>
+                      <span class="author d-block"></span>
+                    </div>
                   </div>
-              </div>
-              <!-- End Latest -->
+                <?php endforeach; ?>
+      
             </div>
-          </div>
+      
+            <div class="aside-block">
+              <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Kategori</button>
+                </li>
+              </ul>
+      
+                <?php foreach($kategori as $category): ?>
+                  <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                    <div class="post-entry-3 border-bottom">
+                      <h2 class="mb-2"><a href="<?php echo base_url().'guest/list?kategori='.$category['nama_kategori'].'&sort=';?>"> </span> <?php echo $category['nama_kategori'] ?></a></h2>
+                    </div>
+                  </div>
+                <?php endforeach; ?>
+      
+            </div>
 
-          <div class="aside-block">
-            <h3 class="aside-title">Video</h3>
-            <div class="video-post">
-              <a
-                href="https://www.youtube.com/watch?v=dQw4w9WfgXcQ"
-                class="glightbox link-video"
-              >
-                <span class="bi-play-fill"></span>
-                <img
-                  src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
-                  alt=""
-                  class="img-fluid"
-                />
-              </a>
+            <div class="aside-block">
+              <h3 class="aside-title">Video</h3>
+              <div class="video-post">
+                <a
+                  href="https://www.youtube.com/watch?v=dQw4w9WfgXcQ"
+                  class="glightbox link-video"
+                >
+                  <span class="bi-play-fill"></span>
+                  <img
+                    src="<?php echo base_url(); ?>assets/img/pemandian-cihampelas.jpg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </a>
+              </div>
             </div>
-          </div>
         <!-- End Video -->
         </div>  
       </div>
