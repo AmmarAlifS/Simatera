@@ -8,8 +8,11 @@ class M_search extends CI_Model {
 
 	public function count_data($keyword, $kategori = null) {
 		if ($keyword) {
-			$this->db->like('judul', $keyword);
-		}
+            $words = explode(' ', $keyword);
+            foreach ($words as $word) {
+                $this->db->or_like('judul', $word);
+            }
+        }
         if ($kategori) {
             $this->db->where('kategori', $kategori);
         }
@@ -65,8 +68,11 @@ class M_search extends CI_Model {
     $this->db->select('*');
     $this->db->from('artikel_simatera');
 
-    if (!empty($keyword)) {
-        $this->db->like('judul', $keyword);
+    if ($keyword) {
+        $words = explode(' ', $keyword);
+        foreach ($words as $word) {
+            $this->db->or_like('judul', $word);
+        }
     }
 
     if (!empty($kategori)) {
