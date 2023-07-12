@@ -78,7 +78,6 @@ class FormControl extends CI_Controller {
 	}
 
     public function alert(){
-       
         redirect('Auth_loginSaranMasukan');
     }
 }
