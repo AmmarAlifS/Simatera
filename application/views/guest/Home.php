@@ -146,17 +146,31 @@
           <div class="tab-content" id="pills-tabContent">
             <!-- Latest -->
             <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
-                <?php 
-                $reverse_art = array_reverse($art); // Reverse the order of the array
-                ?>
-                <?php foreach($reverse_art as $row): ?>
+              <?php 
+              $reverse_art = array_reverse($art); // Reverse the order of the array
+              $counter = 0; // Initialize counter
+              foreach($reverse_art as $row):
+                  if ($counter >= 6) {
+                      break; // Exit the loop if the counter exceeds 6
+                  }
+                  ?>
                   <div class="post-entry-1 border-bottom">
-                    <div class="post-meta"><span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                    <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a></h2>
-                    <span class="author mb-3 d-block"></span>
+                      <div class="post-meta">
+                          <span class="date"><?php echo $row->kategori ?></span>
+                          <span class="mx-1">&bullet;</span>
+                          <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span>
+                      </div>
+                      <h2 class="mb-2">
+                          <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a>
+                      </h2>
+                      <span class="author mb-3 d-block"></span>
                   </div>
-                <?php endforeach; ?>
-            </div> <!-- End Latest -->
+                  <?php
+                  $counter++; // Increment the counter
+              endforeach;
+              ?>
+            </div>
+            <!-- End Latest -->
           </div>
         </div>
       </div> 
@@ -197,7 +211,7 @@
         <div class="row">
           <div class="col-lg-4">
             <?php foreach ($art as $index => $article): ?>
-              <?php if ($index > 1 && $index < 4 && $article->kategori === 'Museum'): ?> <!-- Additional Posts -->
+              <?php if ($index > 1 && $index < 3 && $article->kategori === 'Museum'): ?> <!-- Additional Posts -->
                 <div class="post-entry-1 border-bottom">
                   <a href="<?php echo base_url().'guest/single_post/'.$article->id_artikel;?>"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid"></a>
                   <div class="post-meta">
@@ -214,7 +228,7 @@
 
           <div class="col-lg-8">
             <?php foreach ($art as $index => $article): ?>
-              <?php if ($index === 4 && $article->kategori === 'Museum'): ?> <!-- Third Post -->
+              <?php if ($index > 3 && $article->kategori === 'Museum'): ?> <!-- Third Post -->
                 <div class="post-entry-1">
                   <a href="<?php echo base_url().'guest/single_post/'.$article->id_artikel;?>"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid"></a>
                   <div class="post-meta">
@@ -223,7 +237,7 @@
                     <span><?php echo date('M jS \'y', strtotime($article->tanggal)); ?></span>
                   </div>
                   <h2 class="mb-2"><a href="<?php echo base_url().'guest/single_post/'.$article->id_artikel;?>"><?php echo $article->judul ?></a></h2>
-                  <p class="mb-4 d-block"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 15)); ?>...</p>
+                  <p class="mb-4 d-block"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 25)); ?>...</p>
                 </div>
               <?php endif; ?>
             <?php endforeach; ?>
@@ -232,26 +246,24 @@
       </div>
       <div class="col-md-3">
         <?php 
-          $museum_posts = array_filter($reverse_art, function($post) {
+        $museum_posts = array_filter($reverse_art, function($post) {
             return $post->kategori === 'Museum';
-          }); // Filter posts with "Museum" category
-          $limited_posts = array_slice($museum_posts, 0, 6); // Limit the posts to 6
+        }); // Filter posts with "Museum" category
+        $limited_posts = array_slice($museum_posts, 0, 6); // Limit the posts to 6
         ?>
         <?php foreach($limited_posts as $row): ?>
-          <div class="post-entry-1 border-bottom">
-            <div class="post-meta">
-              <span class="date"><?php echo $row->kategori ?></span>
-              <span class="mx-1">&bullet;</span>
-              <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span>
+            <div class="post-entry-1 border-bottom">
+                <div class="post-meta">
+                    <span class="date"><?php echo $row->kategori ?></span>
+                    <span class="mx-1">&bullet;</span>
+                    <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span>
+                </div>
+                <h2 class="mb-2">
+                    <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a>
+                </h2>
             </div>
-            <h2 class="mb-2">
-              <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a>
-            </h2>
-            <span class="author mb-3 d-block">Jenny</span>
-          </div>
         <?php endforeach; ?>
       </div>
-
     </div>
   </div>
 </section>
