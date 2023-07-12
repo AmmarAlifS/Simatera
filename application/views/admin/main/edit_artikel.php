@@ -83,7 +83,7 @@
             </div>
             <div class="box-body">
 
-              <textarea id="content" name="artikel" required><?php echo $x['artikel'];?></textarea>
+              <textarea id="post" name="artikel" required><?php echo $x['artikel'];?></textarea>
 
             </div>
             <!-- /.box-body -->
@@ -161,9 +161,14 @@
 
 <script src="<?= base_url('assets/admin/plugins/ckeditor/ckeditor.js') ?>"></script>
 
-<script>
-    CKEDITOR.replace('content');
-</script>
+<script type="text/javascript">
+
+CKEDITOR.replace('post', {
+    filebrowserImageBrowseUrl : "<?php echo base_url('assets/admin/plugins/kcfinder/browse.php'); ?>",
+    height: '250px'
+});
+
+  </script>
 <script type='text/javascript'>
     //<![CDATA[
     var Nanobar=function(){var c,d,e,f,g,h,k={width:"100%",height:"4px",zIndex:9999,top:"0"},l={width:0,height:"100%",clear:"both",transition:"height .3s"};c=function(a,b){for(var c in b)a.style[c]=b[c];a.style["float"]="left"};f=function(){var a=this,b=this.width-this.here;0.1>b&&-0.1<b?(g.call(this,this.here),this.moving=!1,100==this.width&&(this.el.style.height=0,setTimeout(function(){a.cont.el.removeChild(a.el)},100))):(g.call(this,this.width-b/4),setTimeout(function(){a.go()},16))};g=function(a){this.width=
