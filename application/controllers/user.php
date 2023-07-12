@@ -105,6 +105,9 @@ class user extends CI_Controller {
         $this->session->set_userdata('keyword', $keyword);
         $kategori = null; // Reset the category filter when a new keyword is inputted
         $sort = null; // Reset the sorting option when a new keyword is inputted
+		$redirectURL = site_url('guest/search'); // Redirect the user to another URL after form submission
+        header("Location: $redirectURL");
+        exit;
     } else {
         $keyword = $this->session->userdata('keyword');
     }

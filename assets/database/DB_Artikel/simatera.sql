@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jul 2023 pada 14.53
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Generation Time: Jul 12, 2023 at 05:17 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -21,10 +21,32 @@ SET time_zone = "+00:00";
 -- Database: `simatera`
 --
 
+DELIMITER $$
+--
+-- Functions
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `LEVENSHTEIN_RATIO` (`s1` VARCHAR(255), `s2` VARCHAR(255)) RETURNS FLOAT  BEGIN
+    DECLARE len1, len2, maxlen INT;
+    DECLARE distance INT;
+
+    SET len1 = CHAR_LENGTH(s1),
+        len2 = CHAR_LENGTH(s2),
+        maxlen = GREATEST(len1, len2),
+        distance = LEVENSHTEIN(s1, s2);
+
+    IF maxlen = 0 THEN
+        RETURN 1.0;
+    ELSE
+        RETURN (1 - distance / maxlen);
+    END IF;
+END$$
+
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `artikel_simatera`
+-- Table structure for table `artikel_simatera`
 --
 
 CREATE TABLE `artikel_simatera` (
@@ -40,7 +62,7 @@ CREATE TABLE `artikel_simatera` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `artikel_simatera`
+-- Dumping data for table `artikel_simatera`
 --
 
 INSERT INTO `artikel_simatera` (`id_artikel`, `judul`, `artikel`, `kategori`, `Foto`, `Foto2`, `Foto3`, `Video`, `tanggal`) VALUES
@@ -62,12 +84,20 @@ INSERT INTO `artikel_simatera` (`id_artikel`, `judul`, `artikel`, `kategori`, `F
 (18, 'Tugu Kilometer 0 Bandung: Simbol Sejarah dan Keindahan Kota', '<p style=\"text-align:justify\"><span style=\"font-size:12pt\">Tugu Kilometer 0 Bandung adalah sebuah monumen yang berada di pusat kota Bandung, Indonesia. Monumen ini menandakan titik awal jalan yang menghubungkan kota-kota besar di Indonesia, sehingga disebut sebagai &quot;kilometer nol&quot;. Tugu Kilometer 0 Bandung menjadi landmark penting Kota Bandung dan menjadi tujuan wisata yang populer di sana.</span><img alt=\"Nol Kilometer Bandung — Arif Setiawan\" src=\"https://arifsetiawan.com/wp-content/uploads/2015/07/Bandung-Nol-Kilometer.jpg\" style=\"height:469px; width:625px\" /></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\">Sejarah Tugu Kilometer 0 Bandung berawal dari zaman penjajahan Belanda di Indonesia pada awal abad ke-20. Pada saat itu, kota Bandung sedang berkembang menjadi pusat perdagangan dan pemerintahan di Jawa Barat. Oleh karena itu, dibutuhkan sebuah monumen yang menandakan titik awal jalan raya yang menghubungkan kota-kota besar di Indonesia.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\">Pada tahun 1918, pemerintah kolonial Belanda memutuskan untuk membangun Tugu Kilometer 0 Bandung di pusat kota. Desain monumen ini dibuat oleh arsitek Hindia Belanda bernama J.J. van Braam Houckgeest, yang juga mendesain gedung Merdeka di Bandung.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\">Tugu Kilometer 0 Bandung memiliki bentuk segi lima dengan tinggi sekitar 10 meter. Di bagian puncak tugu terdapat sebuah patung perunggu yang menunjukkan seorang pria dengan tongkat di tangan dan memegang globe di tangan lainnya, yang melambangkan perdagangan dan hubungan antarbangsa. Di sekeliling tugu terdapat beberapa patung perunggu lainnya yang melambangkan industri, pertanian, perdagangan, perikanan, dan kerajinan.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\">Pada masa kemerdekaan Indonesia, Tugu Kilometer 0 Bandung masih tetap berdiri dan menjadi simbol penting bagi Kota Bandung. Pada tahun 2010, tugu ini direnovasi dan diberi pencahayaan baru sehingga terlihat lebih indah di malam hari.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\">Kini, Tugu Kilometer 0 Bandung menjadi salah satu tempat wisata yang populer di Kota Bandung. Banyak wisatawan datang untuk berfoto di depan monumen ini dan menikmati keindahan kota Bandung dari sana. Tugu Kilometer 0 Bandung juga sering dijadikan tempat berkumpul dan mengadakan acara seperti perayaan kemerdekaan Indonesia dan event lainnya.</span></p>\r\n', 'Sejarah', 'be253b90d56570b0b1439c1667d2038f.jpeg', '4d93752eea1cb726b8519eb6e31b3bc2.jpeg', '351803900baad2bfafd6dfdbfd1f7c84.jpg', 'https://youtu.be/L6QfvjBh4dk', '2023-07-12'),
 (19, 'Museum Wangsit Mandala Siliwangi: Amanat Pejuang dan Jejak Sejarah', '<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Museum Wangsit Mandala Siliwangi adalah museum militer yang berada di Kota Bandung, Jawa Barat. Siliwangi merupakan nama komando darah militer TNI-AD di Jawa Barat dan Banten yang namanya diambil dari raja dari Kerajaan Sunda yang beribu kota di Pakuan Pajajaran yang kekuasaannya konon tak terbatas, juga arif dan bijaksana serta wibawa dalam menjalankan kota pemerintahan.</span></span><img alt=\"Informasi Wisata dan Budaya: Museum Mandala Wangsit Siliwangi - Bandung\" src=\"https://4.bp.blogspot.com/_D7gbHOzZjzM/St67EJnDTwI/AAAAAAAABeU/UORMUbccVQk/s400/wangsit.jpg\" style=\"height:467px; width:625px\" /></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Sedangkan arti Mandala Wangsit merupakan sebuah tempat untuk menyimpan amanat, petuah atau nasihat dari pejuang masa lalu kepada generasi penerus melalu benda-benda yang ditinggalkannya. Museum ini diresmikan oleh panglima divisi Siliwangi Kolonel Ibrahim Adjie pada tanggal 23 Mei 1966.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Museum yang berlokasi di Jalan Lembong, kecamatan Sumur, Bandung dibangun sejak masa penjajahan Belanda. Jalan diambil dari nama Letkol Lembong, salah satu prajurit Siliwangi yang menjadi korban dalam Peristiwa Kudeta Angkatan Perang Ratu Adil(APRA). Sebelumnya jalan itu bernama Oude Hospitaalweg yang artinya rumah sakit tua.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Bangunan museum yang memiliki gaya arsitektur romantisisme akhir ini dibangun pada era kolonial Belanda antara tahun 1910-1915 sebagai tempat tinggal para perwira Belanda. Setelah Jepang menduduki Indonesia pada tahun 1942, bangunan ini dijadikan markas untuk sembunyi dari pihak Jepang. Setelah kemerdekaan, bangunan ini diambil alih oleh pasukan Siliwangi dan digunakan sebagai markas Divisi Siliwangi (Akademi Militer Bandung) pada tahun 1949-1950. Bangunan ini berdiri di atas tanah seluas 4.176 m2 dengan luas bangunan 1.674 m2. Pada tanggal 23 Mei 1966 bangunan ini beralih fungsi menjadi Museum yang diresmikan oleh panglima divisi Siliwangi ke-8 yaitu Kolonel Ibrahim Adjie. Lalu tahun 1979 gedung ini direhabilitasi kembali menjadi gedung bertingkat dua, kemudian diresmikan penggunaannya pada tanggal 10 November 1980 oleh Pangdam Siliwangi ke-15, Mayjen Yoga Sugama dan dengan penandatangannan prasasti oleh Presiden Soeharto.</span></span></p>\r\n', 'Sejarah', '0e3e06b91b34b680758a544b31b47db0.jpg', 'b5af65ed6205083edb7468a26260fe85.jpg', '04516b387f19d74c9885094cde05d414.jpg', 'https://youtu.be/X6FZFPrBMcE', '2023-07-12'),
 (20, 'Gedung Dwi Warna: Jejak Sejarah dan Keindahan Arsitektur Kolonial', '<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Bangunan kantoor van de indische pensioen-fondsen (sekarang bernama Gedung Dwi Warna) yang terletak di Wilhemina Boulevard<em> </em>(Jl Diponegoro) dibangun pada tahun 1940 berdasarkan rancangan arsitek G. Hendriks dan Ir. E. H. de Roo yang merupakan arsitek pemerintah kota (Gemeente).</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Gedung Dwi Warna merupakan salah satu dari bangunan yang terakhir dibangun oleh pemerintah kolonial menjelang pecah Perang Dunia II. Pada bangunan ini, gaya arsitektur bangunan tropis sangat kuat terlihat yang dicirikan dengan penyelesaian rincian arsitekturnya, teritis yang lebar, banyaknya jendela yang bisa dibuka, atap berbentuk limas dan adanya <em>lantern</em> di atas atap utama. Gaya arsitektur ini cukup mutakhir pada zamannya, dan bertahan hingga awal tahun 1960-an.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Seiring dengan perkembangan zaman, Gedung Dwi Warna telah mengalami beberapa perubahan. Bangunan yang dulunya berfungsi sebagai kantor pensiun Belanda kini telah berubah fungsi menjadi gedung perkantoran. Namun, bangunan ini masih mempertahankan arsitektur dan keindahan aslinya yang memukau.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Gedung Dwi Warna menjadi salah satu saksi sejarah bagi Kota Bandung dan Indonesia secara keseluruhan. Kehadirannya menjadi bukti nyata dari jejak sejarah kolonial Belanda di Indonesia. Gedung ini juga menjadi bukti perkembangan arsitektur tropis yang dihasilkan pada masa itu.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Dalam rangka melestarikan bangunan bersejarah ini, pemerintah setempat melakukan perawatan secara rutin dan memperhatikan setiap detail bangunan. Gedung Dwi Warna juga menjadi salah satu destinasi wisata bagi pengunjung yang tertarik dengan sejarah dan keindahan arsitektur bangunan bersejarah.</span></span></p>\r\n', 'Sejarah', '75c0299c8253803c11341c90cbb20242.jpg', '5ace5179d2fd67507351a6f219d49d3d.png', '22a1c696f179451133940adbead140b1.jpg', 'https://youtu.be/ZMI7a3AhczM', '2023-07-12'),
-(21, 'Gedung Pakuan: Jejak Sejarah dan Keindahan Arsitektur Indische Empire Stijl', '<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Gedung Pakuan dibangun pada masa Gubernur Jenderal Ch. F. Pahud pada tahun 1867 sebagai akibat dari kebijakan pemindahan Ibukota Karesidenan Priangan dari Cianjur ke Bandung. Namun, rencana pembangunan Gedung tersebut baru terlaksana pada masa Residen Van der Moore tahun 1984. Percepatan pemindahan ibu kota dan pembangunan gedung baru Residen Priangan tak lepas dari bencana alam meletusnya Gunung Gede yang menghancurkan Cianjur. Bupati Bandung R. Wiranatakusumah IV (1846 &ndash; 1874) membantu pembangunan gedung tersebut dengan mengerahkan penduduk Balubur Hilir dan Kebon Kawung (Babakan Bogor).&nbsp; Mereka membantu personel militer Belanda yang juga dikerahkan untuk membangun gedung Pakuan. Atas jasa tersebut, pemerintah waktu itu membebaskan pajak bagi penduduk pribumi yang turut dalam pembangunan.</span></span><img alt=\"Mengenal Sejarah Gedung Pakuan Di Bandung, Tempat Jenazah Eril Disemayamkan\" src=\"https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2022/06/13/2023690961.jpg\" style=\"height:325px; width:625px\" /></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Menurut catatan sejarah, bangunan bergaya arsitektur Indische Empire Stijl ini dibangun pada 1864 dan selesai 1867. Konon, gaya arsitektur tersebut sangat dikagumi pada zaman Vereenigde Oost Indische Compagnie (VOC). Mengutip dari Album Bandoeng Tempo Doeloe, fokus utama bangunan memanjang ini adalah kolom Yunani bergaya Greek Revival di muka bangunan.</span></span></p>\r\n', 'Sejarah', 'c4c39a7f3057cc381cc33ee9bb970161.jpg', '4976bb54329f36db8bdcaeb1b789b908.jpg', 'a7a4a608fa0d6220f56bba26e701399e.png', 'https://youtu.be/wolz18kRu-s', '2023-07-12');
+(21, 'Gedung Pakuan: Jejak Sejarah dan Keindahan Arsitektur Indische Empire Stijl', '<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Gedung Pakuan dibangun pada masa Gubernur Jenderal Ch. F. Pahud pada tahun 1867 sebagai akibat dari kebijakan pemindahan Ibukota Karesidenan Priangan dari Cianjur ke Bandung. Namun, rencana pembangunan Gedung tersebut baru terlaksana pada masa Residen Van der Moore tahun 1984. Percepatan pemindahan ibu kota dan pembangunan gedung baru Residen Priangan tak lepas dari bencana alam meletusnya Gunung Gede yang menghancurkan Cianjur. Bupati Bandung R. Wiranatakusumah IV (1846 &ndash; 1874) membantu pembangunan gedung tersebut dengan mengerahkan penduduk Balubur Hilir dan Kebon Kawung (Babakan Bogor).&nbsp; Mereka membantu personel militer Belanda yang juga dikerahkan untuk membangun gedung Pakuan. Atas jasa tersebut, pemerintah waktu itu membebaskan pajak bagi penduduk pribumi yang turut dalam pembangunan.</span></span><img alt=\"Mengenal Sejarah Gedung Pakuan Di Bandung, Tempat Jenazah Eril Disemayamkan\" src=\"https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2022/06/13/2023690961.jpg\" style=\"height:325px; width:625px\" /></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Menurut catatan sejarah, bangunan bergaya arsitektur Indische Empire Stijl ini dibangun pada 1864 dan selesai 1867. Konon, gaya arsitektur tersebut sangat dikagumi pada zaman Vereenigde Oost Indische Compagnie (VOC). Mengutip dari Album Bandoeng Tempo Doeloe, fokus utama bangunan memanjang ini adalah kolom Yunani bergaya Greek Revival di muka bangunan.</span></span></p>\r\n', 'Sejarah', 'c4c39a7f3057cc381cc33ee9bb970161.jpg', '4976bb54329f36db8bdcaeb1b789b908.jpg', 'a7a4a608fa0d6220f56bba26e701399e.png', 'https://youtu.be/wolz18kRu-s', '2023-07-12'),
+(22, 'Gedung Sate', '<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Gedung sate merupakan salah satu icon kota Bandung yang terkenal</span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Gedung Sate Bandung adalah salah satu gedung bersejarah yang terletak di pusat Kota Bandung, Jawa Barat, Indonesia. Gedung Sate ini merupakan ikon Kota Bandung dan menjadi salah satu destinasi wisata yang populer di kota ini. Gedung ini memiliki sejarah yang panjang dan memegang peranan penting dalam sejarah Indonesia.</span></span></p>\r\n\r\n<p style=\"text-align:center\"><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\"><img alt=\"Sejarah Gedung Sate Bandung, Bangunan Bersejarah yang Jadi Primadona  Wisatawan\" src=\"https://assets.pikiran-rakyat.com/crop/0x0:0x0/750x500/photo/2022/09/24/2415758318.jpg\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Gedung Sate dibangun pada tahun 1920 oleh arsitek Belanda, J. Gerber, sebagai kediaman resmi Gubernur Jenderal Hindia Belanda di Jawa Barat. Gedung ini awalnya digunakan sebagai tempat tinggal resmi dan markas militer oleh pemerintah kolonial Belanda.</span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Namun, pada masa pendudukan Jepang, Gedung Sate digunakan sebagai kantor administrasi dan pusat pendidikan oleh pemerintahan Jepang. Setelah Indonesia merdeka pada tahun 1945, Gedung Sate digunakan sebagai markas Tentara Nasional Indonesia (TNI) dan sebagai pusat administrasi pemerintahan provinsi Jawa Barat.</span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Pada tahun 1952, Gedung Sate direnovasi dan diubah menjadi gedung pemerintahan provinsi Jawa Barat. Saat itu, gubernur Jawa Barat, Ahmad Husein, merancang ulang tampilan luar gedung dengan menambahkan ribuan tusuk sate pada atap gedung. Tujuan dari penambahan tusuk sate ini adalah untuk menunjukkan bahwa Indonesia adalah negara yang kaya akan budaya dan kekayaan alam.</span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Selain itu, tusuk sate juga memiliki makna filosofis dalam budaya Sunda, yaitu menunjukkan keberagaman dan persatuan. Setiap tusuk sate yang menonjol pada atap Gedung Sate melambangkan keberagaman suku bangsa yang ada di Jawa Barat, sedangkan tali yang menyatukan tusuk sate tersebut melambangkan persatuan.</span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Gedung Sate memiliki bentuk arsitektur yang klasik dengan gaya Art Deco. Gedung ini memiliki tiga lantai dan menempati lahan seluas 27.750 meter persegi. Selain tusuk sate yang menonjol pada atap gedung, Gedung Sate juga memiliki keindahan arsitektur yang lain, seperti pintu masuk dengan ukiran kayu, tangga marmer, dan taman yang indah di sekitar gedung.</span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Kini, Gedung Sate menjadi pusat administrasi pemerintahan provinsi Jawa Barat dan menjadi salah satu destinasi wisata yang populer di kota Bandung. Gedung ini juga sering digunakan sebagai lokasi berbagai acara resmi, seperti upacara kenegaraan dan acara konferensi internasional.</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Dengan sejarah yang panjang dan keindahan arsitektur yang tak terlupakan, Gedung Sate tetap menjadi simbol penting dalam sejarah Kota Bandung dan Indonesia. Gedung ini menjadi bukti bahwa Indonesia memiliki kekayaan budaya yang luar biasa dan patut dijaga dan diapresiasi oleh semua warga negara.</span></span></p>\r\n\r\n<ul>\r\n	<li><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Dibangun thn 1920 &ndash; 1924 di Wilhelmina Boulevard (Jln Dipenogoro)</span></span></li>\r\n	<li><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Peletakan batu pertama oleh Nona Johana Catherine Coops Putri Sulung Walkot Bandung B. Coops dan Nona Petronella Roelofsen yang mewakili Gub Jendral Hindia Belanda di Batavi</span></span></li>\r\n	<li><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Merupakan karya monumental arsitek Ir. Gerber, perpaduan langgam arsitektur tradisional Indonesia dengan teknik konstruksi Barat sehingga disebut Indo-Eropeesche Architectuur Stijl</span></span></li>\r\n	<li><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Tempo doeloe gedung ini disebut gedung Gouvernements Bedrijven (GB)</span></span></li>\r\n	<li><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Gedung ini mendapatkan nama Gedung Sate dari bentuk ornamen di puncak atap tumpak tersebut</span></span></li>\r\n	<li><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Sebagai peringatan terhadap tujuh pemuda pejuang yang gugur ketika mempertahankan gedung sate dari serbuan tentara ghurka pada tanggal 3 Desember 1945, di halaman depan gedung sate terdapat monumen berbentuk batu alam besar bertuliskan nama para pemuda dengan cara dipahat. Batu monumen ini tergeletak begitu saja sejak 31 Agustus 1952 di pinggir timur lapangan di belakang gedung sate di bawah pohon karet (Ficus elastica) yang besar berumur puluhan tahun.</span></span></li>\r\n</ul>\r\n', 'Sejarah', '414b2ef1149d2bcae9ef75a21309c007.jpg', '8d521ac1276a32e87a480393ff7d3666.jpg', '902865d6198c3ce018e3a4bb15689553.jpg', 'https://youtu.be/6-Tys70UYeo', '2023-07-12'),
+(23, 'Hotel Savoy Homann', '<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Hotel Savoy Hooman merupakan salah satu hotel terbaik, tertua, dan bersejarah di kota Bandung, Hotel mewah ini dibangun berdasarkan rancangan arsitek A.F. Aalbes dan juru gambar R.A de Waal dengan gaya <em><em>Modern Architecture</em></em>, yaitu <em><em>Art Moderne Style</em></em>.&nbsp;Hotel ini terletak di <em><em>Groote Postweg </em></em>(Jl. Asia Afrika) tetapi pintu masuk utama hotel terletak di sebelah barat Hotel (Jl Homan). Sebelum menjadi hotel, bangunan mewah ini awalnya merupakan sebuah penginapan milik keluaraga A. Homann seorang warga negara Jerman yang memulai bisnis penginapannya pada tahun 1871. Bangunan yang berbentuk rumah panggung tersebut berubah menjadi bangunan papan kayu pada tahun 1876.</span></span></p>\r\n\r\n<p style=\"text-align:center\"><img alt=\"Hotel Savoy Homann, Tempat Menginap Delegasi KAA - Bandung Klik\" src=\"https://bandungklik.com/wp-content/uploads/2021/04/savoy_homann_bandung_klik.jpg\" /></p>\r\n\r\n<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Renovasi besar-besaran pada tahun 1880, mengubah penginapan tersebut menjadi <em><em>Hotel Post Road</em></em>&nbsp;yang dibangun dengan gaya arsitektur <em><em>Romantic</em></em>&nbsp;dan <em><em>Baroq</em></em>. Bersamaan dengan berdirinya <em><em>Staat Spoor</em></em>--SS (PT Kereta Api Indonesia--KAI) gaya bangunan hotel diubah menjadi <em><em>Gothic Revival.</em></em></span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Pada tahun 1910 diadakan penambahan gedung baru dan nama hotel diganti menjadi <em><em>Grand Hotel Homann</em></em>.</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Pada tahun 1929 seluruh bagian Hotel<em>&nbsp;</em>mulai direnovasi, mulai dari bagunan fisiknya, <em><em>interior</em></em>, jendela kaca patri, ornamen dinding, kap lampu, dan model perkakas rumah tangga dengan warna gaya seni <em><em>Art Deco. </em></em>Perkakas rumah tangga tersebut dibuat oleh <em><em>Firma Roth &amp; Son, Meubelfabriek Frisia </em></em>dan<em><em>&nbsp;Kero</em></em>. Nama hotel diubah menjadi <em><em>Hotel Savoy</em></em>&nbsp;dan dikelola oleh Fr. J.A. van Es.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Pada tahun 1937-1939, Tuan Homann dan Fr. J.A. van Es merombak hotelnya dengan menambah bangunan baru di halaman utara hotel lama yang langsung menghadap ke <em><em>Groote Postweg </em></em>(Jl. Asia Afrika) dan nama hotel diganti menjadi Hotel <em><em>Savoy Homann</em></em>.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Selain sebagai tempat meninap orang-orang penting, serta tempat penyelenggaraan konferensi, seminar atau kegiatan lain yang bersifat internasional, dan penyelenggaraan acara kesenian atau pameran, hotel ini juga sempat dijadikan markas tentara Jepang pada masa penjajahan.</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Orang-orang penting yang pernah menginap di hotel ini antara lain, Charlie Chaplin dan Mary Pickford pada tahun 1927, serta sebgaian Kepala Negara atau Kepala Pemerintahan peserta Konferensi Asia Afrika pada tahun 1955.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Nama hotel berkali-kali berganti sejak bernama Hotel <em><em>Post Road</em></em><strong><em>&nbsp;</em></strong>(1880) kemudian <em><em>Grand Hotel Homann </em></em>(1910) lalu Hotel <em><em>Savoy </em></em>(1929) yang kemudian bernama Hotel <em><em>Savoy Homann </em></em>(1939). Adanya perubahan kepemilikan menjadikan pula adanya perubahan nama menjadi <em><em>Savoy Homann Panghegar Heritage Hotel </em></em>(1987) dan terkahir menjadi <em><em>Savoy Homann Bidakara Hotel</em></em>&nbsp;(2000).</span></span></p>\r\n', 'Sejarah', '8e1362a8e75073a9aa5f7a126134a1c0.jpg', '2fe02f3d86081261b2887647b6f37d47.jpg', 'fa5e8716f684084a94113e3838c8576e.jpg', 'https://youtu.be/zOcKqUdprNQ', '2023-07-12'),
+(24, 'Situ Aksan', '<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Seperti yang ditulis oleh T. Bachtiar dalam harian Pikiran Rakyat edisi 5 Juli 2010. Pada tulisan yang tertera, Situ Aksan merupakan bekas galian lio batu bata, &nbsp;yang berarti secara tidak langsung danau ini merupakan danau buatan.</span></span></p>\r\n\r\n<p style=\"text-align:center\"><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\"><img alt=\"Situ Aksan, Objek Wisata Favorit Era 60-an yang Hilang | infobdg.com\" src=\"https://www.infobdg.com/v2/wp-content/uploads/2016/11/situaksan.jpg\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Peninggalan Danau Purba Bandung yang dulunya disebut <em><em>Situ Hyang, </em></em>sekarang <em><em>Situ Hyang </em></em>lenyap ditelan pembangunan dan perluasan wilayah Kota Bandung. Salah satu sisa dan bukti sejarah keberadaan <em><em>Situ Hyang</em></em>&nbsp;yang paling monumental di Kota Bandung adalah <em><em>Situ Aksan </em></em>(lahan milik Haji Aksan)&nbsp;yang dijadikan kawasan konservasi pada masa pemerintah Hindia Belanda yang sampai awal 1970-an masih berfungsi sebagaia salah satu lokasi rekreasi masyarakat Bandung. Situ aksan memilii pulau-pulau kecil di tengah hamparan airnya, untuk sampai ke daratan tersebut &nbsp;bisa dijangkau dengan cara peperahuan &nbsp;menggunakan perahu dayung yang cukupu terkenal pada tahun 1950-1960 sebagai tempat rekreasi. Tahun 1970-an luas <em><em>Situ Aksan</em></em>&nbsp;semakin mengecil akibat ditimbun untuk pembangunan hunian. Pada tahun 1980-an <em><em>Situ Aksan</em></em>&nbsp;sudah merupakan kolam pemancingan dan kolam tempat itik dan angsa berenang, dan pada tahun 1990-an sudah tidak tersisa lagi, yang tersisa hanya kubangan kecil saluran pembuangan air saja. Pemerintah Hindia Belanda menyebut Situ Aksan dengan nama <em><em>Wasterpark </em></em>dan nama jalan ke Situ Aksan diberi nama <em><em>Westerparkweg</em></em><strong><em>&nbsp;</em></strong>(sekarang Jl. Suryani).</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n', 'Sejarah', '335008a7a6fc28a0d05a0984fe4218fa.jpg', '2ad7f59750fca4b4b567bf3589590f35.jpg', 'c0067c484c24d466247a58133705c02c.jpg', 'https://youtu.be/Puj0QFPgiP0', '2023-07-12'),
+(25, 'Gedung Mosvia', '<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">MOSVIA (Middlebare Opleidingschool voor Inlandsche Ambternaren) didirikan tahun 1927, merupakan sekolah pendidikan menengah untuk pns pribumi yang dibentuk &nbsp;untuk mangakomodasi lulusan OSVIA (Opleiding School Voor Inlandsche Ambtenaren).</span></span></p>\r\n\r\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\"><img alt=\"Gedung MOSVIA di Bandung 1929 | Gedung, Foto zaman dulu, Indonesia\" src=\"https://i.pinimg.com/736x/26/50/b4/2650b4974b489e15bc2169d676b5cf36.jpg\" /></span></span></p>\r\n\r\n<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">tahun 1865 di Bandung didirikanlah sekolah untuk anak-anak kepala daerah Bumiputra, dikenal sebagai Sekolah Raja (Hoofdenschool) sekolah inilah yang pada tahun 1900 menjadi OSVIA (Opleiding voor Indlandsche Ambtenaren) atau sekolah untuk pendidikan pegawai bumiputera. Sekolah ini kemudian ditingkatkan menjadi sekolah menengah pertama atau MOSVIA. Sekolah ini terletak di daerah Tegalega sekarang.</span></span></p>\r\n', 'Pendidikan', 'bc2985268944ff3e76cd90a901cc5f14.jpg', '621f7a902a29353ff18c1a22a4180ca3.jpg', '768ca54300f4939631099e758de68ae2.jpg', 'https://youtu.be/JrXwkMZs89U?list=PLG1R-FzVw_Wm5IeIM4ehX0Er5FKBojUaJ', '2023-07-12');
+INSERT INTO `artikel_simatera` (`id_artikel`, `judul`, `artikel`, `kategori`, `Foto`, `Foto2`, `Foto3`, `Video`, `tanggal`) VALUES
+(26, 'Technische Hoogeschool (Institut Teknologi Bandung', '<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Technische Hoogeschool yang merupakan cikal bakal Institut Teknologi Bandung (ITB) mulai dibangun secara bertahap pada tahun 1918-1935. Bangunan pertama yang dibangun adalah gedung Aula Barat (1920) karya arsitek Henri Maclaine Pont bergaya arsitektur Eropa yang mengacu kepada gaya arsitektur Vernakualr Jawa (perpaduan gaya arsitektur tradisional Nusantara dan keterampilan teknik konstruksi Barat) dengan gaya arsitektur atap rumah Batak dan sentuhan haya arsitektur atap rumah Minagkabau. Berturut-turut kemudian dibangun antara lain gedung Departemen Teknik Sipil (1920), gedung Fisika dan Fisika Teknik (1922), gedung Aula Timur (1924), gedung tTeknik Lingkungan (1935) yang juga merupakan karya arsitek H. Maclaine Pont dengan gaya arsitektur yang sama.</span></span></p>\r\n\r\n<p style=\"text-align:center\"><img alt=\"Usia ITB Genap 100 Tahun, Begini Sejarah Singkatnya -\" src=\"https://i0.wp.com/bandungkita.id/storage/2020/07/slide0008_image014-e1593742156419.jpg?fit=383%2C227&amp;ssl=1\" /></p>\r\n\r\n<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Arsitektur bangunan in merupakan contoh yang sangat baik dalam penerapaan unsur lokal, baik gaya arsitekture maupun bahan material lokal yang dipadukan dengan gaya arsitektur maupun bahan material lokal yang dipadukan dengan gaya arsitektur dan konstruksi &nbsp;dari Barat (Eropa). Paduan itu menghasilkan satu bentuk gaya arsitektur vernakular.</span></span></p>\r\n\r\n<ol start=\"8\" style=\"list-style-type:upper-alpha\">\r\n	<li><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">P Berlage (arsitek terkenal Belanda) memuji rancangan bangunan THS. Di tengah ragan bentuk bangunan gaya arsitektur koionial yang menjiplak bentuk arsitektur di Bleanda yang sebenarnya kurang tepat jika diterapkan di alam tropis, kehadiran gedung THS diharapkan menjadi inspirasi bagi arsitek lain untuk lebih memperhatikan unsur lokal.</span></span></li>\r\n</ol>\r\n\r\n<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Gagasan untuk mendirikan Perguruan Tinggi Teknik muncul pada awal tahun 1917 dari sebuah yayasan swasta yang bernama Koninklijk Institusi viir Hoger Tecgbuscg Inderwijs In Ned. Indie yang diketuai C.J.K. van Aakst yang kemudian diganti oleh J.W. Ijzerman, pegawai Staats Soiirwegen--SS (Jawatan Kereta Api). Pada tahun 1919 ditetapkan bahwa Perguruan Tinggi Teknik akan didirikan di Bandung dengan nama Tecnische Hoogeschool (THS). K.A.R. Bosscha sang Raja The Malabar adalah salah satu tokoh pendiri THS.</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Pada tanggal 3 Juli 1920 Technische Hoogeschool (THS) yang merupakan perguruan tinggi teknik pertama tidak saja di Bandung tetapi juga di Hindia Belanda, resmi dibuka. </span></span></p>\r\n\r\n<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Pada tanggal 18 Oktober 1924, Koninklijk Instuut voor Hoger Techinsh Onderwijs In Ned. Indie menyerahkan THS kepada pemerintahan Hindia Belanda. Pertengahan tahun 1942 sebagian fungsi akademik THS dibuka kembali setelah beberapa bulan ditutup oleh pemerintahan Jepang dengan nama Institute of Tropical Sciences, dan pada 1 April 1944 THS kembali dibuka seperti semual dengan nama Bandung Kogyo-Daigaku.</span></span></p>\r\n\r\n<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Setelah proklamasi kemerdekaan Republik Indonesia, THS dibuka kembali dan dipindahkan ke Yogyakarta dengan nama Sekolah Tinggi Teknik (STT), tetapi kemudian ditutup pada bulan Desember 1938 akibat Aksi Militer II Belanda. Pada tanggal 21 Januari 1946 perguruan tinggi teknik didirikan kembali di Bandung yang merupakan fakultas teknik dalam Nood Universiteit di Jakarta yang kemudian berganto nama menjadi Universiteit van Indonesia (Universitas Indonesia sekarang).</span></span></p>\r\n\r\n<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Pada tanggal 2 Maret 1959 secara resmi didirikan Institut Teknologi Bandung (ITB) yang merupakan penggabungan Fakultas Teknik dan Fakultas Ilmu Pasti dan ilmu Alam Universitas Indonesia dengan tempat di Kompleks THS Bandung.</span></span></p>\r\n\r\n<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Perkembangan logo sejak Technische Hoogeschool (THS) sampai Institut Teknologi Bandung (ITB) :</span></span></p>\r\n\r\n<ol>\r\n	<li><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Logo Techinsche Hoogeschool (1920-1942).</span></span></li>\r\n	<li><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Logo Faculteit van Techische Wetenschap (1946-1952), sebagai sebuah fakultas dari Universiteit van Indonesie (Unviersitas Indonesia).</span></span></li>\r\n	<li><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Logo yang digunakan Fakultas Teknik Bandung sebagai salah satu fakultas di lingkunagn Universitas Indonesia (1952-1959).</span></span></li>\r\n	<li><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Logo Institut Teknologi Bandung (ITB) (1959-sekarang).</span></span></li>\r\n</ol>\r\n\r\n<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Tanggal 2 Maret 1959 Institut Teknologi Bandung diresmikan oleh Presiden Soekarno yang merupakan alumnus Technische Hoogeschool (THS). Peresmian ditandai dengan sebuah tugu prasasti yang terletak di selatan lapangan sepak bola. Pada tugu prasasti terukir piagam peresmian dan dilengkapi dengan patung dada Ir. Soekarno di puncaknya. Sekarang, patung dada Ir. Soekarno tersimpan di Gedung Rektorat ITB Jl. Sulanjana. Lapangan bola ITB sekarang ini telah menjadi bangunan perkuliahan, laboratorium dan perkantoran</span></span></p>\r\n\r\n<p><span style=\"font-size:16px\"><span style=\"font-family:Times New Roman,Times,serif\">Dr. Ir. Ijzerman berjasa besar dalam pendidikan THS, sehingga sebuah taman artistik tertata rapih yang dibangun (1919) di Hooge Schoolweg (sekarang Jl. Ganesha) di depan komplek THS diberi nama Ijzermanpark (sekarang Taman Ganesha). Di pintu masuk utara taman didirikan patung dada Dr. Ir. Ijzerman di atas tiang beton. Tahun 1950-an patung dada Dr. Ir. J. W. Ijzerman sudah diganti oleh patung Ganesha, dan sekarang yang terletak di sana adalah patung kontemporer dari baja tahan karat berbentuk rangka kubus. Sekarang patung dada Ijzerman disimpan di Gedung Rektorat ITB yang lama di Jl. Sulanjana bersama patung dada Ir. Soekarno (Presiden Pertama Indonesia) yang dipindahkan dari tiang beton prasasti peresmian ITB.</span></span></p>\r\n', 'Pendidikan', '1b4d144b172bc9761a873d9b6280ea63.jpg', '9097de62cc0453d25f12a957932206f4.png', 'afb7cb0725b287f8265e0861f03191eb.jpg', 'https://youtu.be/iiJnFrC4fu0', '2023-07-12'),
+(27, 'Municipical Hospital', '<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Municipical Hospital merupakan rumah sakit di Bandung yang pertama kali dibangun di Grote Postweg (Jl. Asia Afrika) di sebagian laha Kantor Pos Besar Bandung (bagian barat) sekarang sekitar medio tahun 1800-an. Awal tahun 1900-an, rumah sakit dipindahkan ke jalan yang kemudian diberi nama Oude Hospitalweg (Jl. Lembong) dan kemudian dipindahkan lagi ke Pasteruweg (Jl. Pasterur), yaitu ke bangunan rumah sakit yang baru.</span></span></p>\r\n\r\n<p style=\"text-align:center\"><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\"><img alt=\"Lowongan Kerja RSUP Dr. Hasan Sadikin Bandung\" src=\"https://www.akbidgrahacirebon.ac.id/wp-content/uploads/2017/10/rshs.jpg\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Bangunan rumah sakit yang terletak di Pasteruweg (Jl. Pasteur) dibangun tahun 1917-1919 berdasarkan rancangan arsitek F.J.L. Ghijsels. Pembangunan rumah sakit diprakarsai oleh Vereeniging Bandoesngsche Ziekenhuis yang terbentuk tahun 1914. Nama awal rumah sakit ini adalah Algemeene Bandoengsche Ziekenhuis (Rumah Sakit Umum Bandoeng). tahun 1927 menjadi Gemeentelijk Juliana Ziekenhuis, tetapi masyarakat lebih suka menyebutnya Rumah Sakit Rantjabadak. Sekarang bernama Rumah Sakit Umum Pusat Dr. Hasan Sadikis (RSHS).</span></span></p>\r\n', 'Sejarah', '30488be531eec8c454f871be8669611a.jpg', 'dc45751fa2c7ca2611b9e02dc3f13d41.jpg', 'f229d03f44b23e55074abb774f58905f.jpg', 'https://youtu.be/gw3s7HvMpUQ', '2023-07-12'),
+(28, 'Bragaweg (Jalan Braga)', '<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Jalan Braga adalah salah satu jalan bersejarah yang terletak di pusat Kota Bandung, Jawa Barat, Indonesia. Jalan ini memiliki sejarah yang panjang, dimulai pada masa kolonial Belanda hingga kini menjadi salah satu destinasi wisata terkenal di Bandung.</span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Pada awalnya, Jalan Braga dikenal sebagai Bragaweg yang berarti jalan Braga dalam bahasa Belanda. Jalan ini dibangun pada tahun 1800-an sebagai bagian dari proyek perluasan kota oleh pemerintah kolonial Belanda. Jalan Braga diberi nama Bragaweg oleh Gubernur Jenderal Herman Willem Daendels yang ingin mengabadikan nama seorang perwira Belanda yang gugur dalam Perang Napoleon.</span></span></p>\r\n\r\n<p style=\"text-align:center\"><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\"><img alt=\"√Ada Apa di Jalan Braga Bandung - Ruang Bercerita dan Berbagi\" src=\"https://1.bp.blogspot.com/-DEu0poyeQUo/YVOm2w1__uI/AAAAAAAAJ2E/yqKy4Gjic6crWU6kn9415wZv7jRKe21OACNcBGAsYHQ/w640-h479/ada-apa-di-jalan-braga.jpg\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Di masa kolonial, Jalan Braga menjadi pusat kegiatan sosial dan hiburan bagi orang-orang Belanda dan bangsawan pribumi. Banyak gedung-gedung mewah dibangun di sepanjang jalan ini, seperti hotel, bioskop, dan klub malam. Jalan Braga juga menjadi pusat perdagangan bagi pedagang-pedagang dari berbagai negara.</span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Pada masa kemerdekaan Indonesia, Jalan Braga tetap menjadi pusat kegiatan sosial dan hiburan. Banyak toko-toko dan restoran dibuka di sepanjang jalan ini. Selain itu, pada tahun 1950-an, Jalan Braga menjadi pusat perkembangan seni dan budaya di Bandung. Banyak seniman dan budayawan berkumpul di sekitar jalan ini dan membentuk komunitas seni yang terkenal dengan sebutan &quot;Braga City Walkers&quot;.</span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Sayangnya, pada tahun 1980-an, Jalan Braga mengalami kemunduran akibat berkembangnya pusat-pusat perbelanjaan modern di Bandung. Banyak gedung-gedung tua di sepanjang jalan ini terbengkalai dan terabaikan. Namun, pada tahun 2000-an, pemerintah Kota Bandung memulai proyek revitalisasi Jalan Braga dengan tujuan mengembalikan kejayaan jalan ini sebagai pusat kegiatan sosial dan budaya.</span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Proyek revitalisasi Jalan Braga berhasil menghidupkan kembali sejarah dan keindahan jalan ini. Banyak gedung-gedung tua yang direnovasi dan diubah menjadi hotel, restoran, dan toko-toko yang unik. Selain itu, Jalan Braga juga dijadikan sebagai jalan pejalan kaki yang memudahkan wisatawan untuk menikmati keindahan arsitektur dan sejarah jalan ini.</span></span></p>\r\n\r\n<p><span style=\"font-family:Times New Roman,Times,serif\"><span style=\"font-size:16px\">Kini, Jalan Braga menjadi salah satu destinasi wisata terkenal di Bandung. Wisatawan dapat menikmati berbagai macam kuliner dan kopi khas Bandung, berbelanja di toko-toko unik, dan menikmati keindahan arsitektur gedung-gedung tua di sepanjang jalan ini. Selain itu, Jalan Braga juga menjadi tempat yang cocok untuk mengambil foto-foto dengan latar belakang gedung-gedung tua yang indah.</span></span></p>\r\n', 'Sejarah', '9df77c4f4c5154b887b24f5c5dd927be.jpg', '880c1d17e1e116f0fbc9067b884d8335.jpg', '6eeaa14a16d10d74dd1238f97723e2e5.jpg', 'https://youtu.be/2PoQeiOvkQg', '2023-07-12');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -76,7 +106,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`kategoricode`, `nama_kategori`) VALUES
@@ -88,7 +118,7 @@ INSERT INTO `kategori` (`kategoricode`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `login_admin`
+-- Table structure for table `login_admin`
 --
 
 CREATE TABLE `login_admin` (
@@ -99,7 +129,7 @@ CREATE TABLE `login_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `login_admin`
+-- Dumping data for table `login_admin`
 --
 
 INSERT INTO `login_admin` (`id`, `username`, `email`, `password`) VALUES
@@ -111,7 +141,7 @@ INSERT INTO `login_admin` (`id`, `username`, `email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `login_simatera`
+-- Table structure for table `login_simatera`
 --
 
 CREATE TABLE `login_simatera` (
@@ -127,13 +157,13 @@ CREATE TABLE `login_simatera` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `login_simatera`
+-- Dumping data for table `login_simatera`
 --
 
 INSERT INTO `login_simatera` (`id`, `login_oauth_uid`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (11, '', 'Rihma', 'rihma@gmail.com', 'default.jpg', '$2y$10$lpZYtHT9/iK8LbnFVQdNnO3yk7kJOu91brUthuymH76D.kU44LUiO', 2, 'yes', '2023-06-15 03:09:23'),
 (24, '', 'Rijal Fauzi Iskandar', 'rijalfauziiskandar93.rfi@gmail.com', 'default.jpg', '$2y$10$EDBocT0zrDPSO3D7cI.BpOw1QXu4hOSAItw4jlAOfFOKaW7YbQ3ZW', 1, 'yes', '2023-06-14 07:45:05'),
-(29, '', 'Ammar Alif', 'ammaralifs@gmail.com', 'default.jpg', '$2y$10$81fjSwJVTa13u93u5pd2Nex9i6Jrb.LMoVUU3cH1TS6EHUz0ZICl6', 1, 'yes', '2023-06-23 07:10:37'),
+(29, '', 'Ammar Alif', 'ammaralifs@gmail.com', 'default.jpg', '$2y$10$81fjSwJVTa13u93u5pd2Nex9i6Jrb.LMoVUU3cH1TS6EHUz0ZICl6', 2, 'yes', '2023-06-15 03:09:29'),
 (30, '', 'fauzi iskandar', 'rijal.fauzi@widyatama.ac.id', 'default.jpg', '$2y$10$vb1P.rxaq/1iaomiyLI0G.sUUvxPpylhkMYN1ErcmEOBwYLWswN6e', 2, 'yes', '2023-06-15 03:09:33'),
 (73, '111338418244761899298', 'Rijal Fauzi Iskandar', 'rijalfauziiskandar93.rfi@gmail.com', '', '', 2, 'yes', '2023-06-16 06:23:08'),
 (75, '111197384953197867127', 'REG.A/0620101061/RIJAL FAUZI', 'rijal.fauzi@widyatama.ac.id', '', '', 2, 'yes', '2023-06-16 07:44:31'),
@@ -143,7 +173,7 @@ INSERT INTO `login_simatera` (`id`, `login_oauth_uid`, `name`, `email`, `image`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `login_simatera_token`
+-- Table structure for table `login_simatera_token`
 --
 
 CREATE TABLE `login_simatera_token` (
@@ -154,7 +184,7 @@ CREATE TABLE `login_simatera_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `login_simatera_token`
+-- Dumping data for table `login_simatera_token`
 --
 
 INSERT INTO `login_simatera_token` (`id`, `email`, `token`, `date_created`) VALUES
@@ -165,7 +195,7 @@ INSERT INTO `login_simatera_token` (`id`, `email`, `token`, `date_created`) VALU
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `setting`
+-- Table structure for table `setting`
 --
 
 CREATE TABLE `setting` (
@@ -180,16 +210,16 @@ CREATE TABLE `setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `setting`
+-- Dumping data for table `setting`
 --
 
 INSERT INTO `setting` (`id_setting`, `alamat`, `no_telp`, `email`, `facebook`, `twitter`, `instagram`, `tentang_kami`) VALUES
-(1, 'Jl. Wastukencana No.2, Babakan Ciamis, Kec. Sumur ', 224234793, 'diskominfo@bandung.go.id', 'https://www.facebook.com/DiskominfoBandung', 'https://twitter.com/DiskominfoBdg', 'https://www.instagram.com/diskominfobdg', '<p style=\"text-align:justify\">Selamat datang di website kami! Kami adalah platform yang didedikasikan untuk menyediakan informasi dan layanan yang bermanfaat bagi pengunjung kami. Website kami menyajikan berbagai informasi terkini dan terpercaya tentang tempat bersejarah di kota Bandung.</p>\r\n\r\n<p style=\"text-align:justify\">Kami selalu berusaha untuk memberikan pengalaman terbaik bagi pengunjung kami dengan menyediakan tampilan yang mudah digunakan dan responsif di berbagai perangkat. Website kami juga dilengkapi dengan fitur pencarian dan navigasi yang mudah untuk membantu pengunjung menemukan informasi yang mereka cari dengan cepat.</p>\r\n\r\n<p style=\"text-align:justify\">Kami berharap website kami dapat membantu meningkatkan pengetahuan dan kehidupan sehari-hari pengunjung kami dan menjadi sumber informasi yang terpercaya dan berguna. Terima kasih telah mengunjungi website kami!</p>\r\n');
+(1, 'Jl. Wastukencana No.2, Babakan Ciamis, Kec. Sumur ', 224234793, 'diskominfo@bandung.go.id', 'https://www.facebook.com/DiskominfoBandung', 'https://twitter.com/DiskominfoBdg', 'https://www.instagram.com/diskominfobdg', 'Selamat datang di website kami! Kami adalah platform yang didedikasikan untuk menyediakan informasi dan layanan yang bermanfaat bagi pengunjung kami. Website kami menyajikan berbagai informasi terkini dan terpercaya tentang tempat bersejarah di kota Bandung.\r\n\r\nKami selalu berusaha untuk memberikan pengalaman terbaik bagi pengunjung kami dengan menyediakan tampilan yang mudah digunakan dan responsif di berbagai perangkat. Website kami juga dilengkapi dengan fitur pencarian dan navigasi yang mudah untuk membantu pengunjung menemukan informasi yang mereka cari dengan cepat.\r\n\r\nKami berharap website kami dapat membantu meningkatkan pengetahuan dan kehidupan sehari-hari pengunjung kami dan menjadi sumber informasi yang terpercaya dan berguna. Terima kasih telah mengunjungi website kami!');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_access_menu`
+-- Table structure for table `user_access_menu`
 --
 
 CREATE TABLE `user_access_menu` (
@@ -199,7 +229,7 @@ CREATE TABLE `user_access_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `user_access_menu`
+-- Dumping data for table `user_access_menu`
 --
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
@@ -210,7 +240,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_masukan`
+-- Table structure for table `user_masukan`
 --
 
 CREATE TABLE `user_masukan` (
@@ -223,7 +253,7 @@ CREATE TABLE `user_masukan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `user_masukan`
+-- Dumping data for table `user_masukan`
 --
 
 INSERT INTO `user_masukan` (`id_pesan`, `nama`, `email`, `subjek`, `pesan`, `timestamp`) VALUES
@@ -249,7 +279,7 @@ INSERT INTO `user_masukan` (`id_pesan`, `nama`, `email`, `subjek`, `pesan`, `tim
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_menu`
+-- Table structure for table `user_menu`
 --
 
 CREATE TABLE `user_menu` (
@@ -258,7 +288,7 @@ CREATE TABLE `user_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `user_menu`
+-- Dumping data for table `user_menu`
 --
 
 INSERT INTO `user_menu` (`id`, `menu`) VALUES
@@ -268,7 +298,7 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_role`
+-- Table structure for table `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -277,7 +307,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `user_role`
+-- Dumping data for table `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
@@ -289,125 +319,125 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 --
 
 --
--- Indeks untuk tabel `artikel_simatera`
+-- Indexes for table `artikel_simatera`
 --
 ALTER TABLE `artikel_simatera`
   ADD PRIMARY KEY (`id_artikel`);
 
 --
--- Indeks untuk tabel `kategori`
+-- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`kategoricode`);
 
 --
--- Indeks untuk tabel `login_admin`
+-- Indexes for table `login_admin`
 --
 ALTER TABLE `login_admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `login_simatera`
+-- Indexes for table `login_simatera`
 --
 ALTER TABLE `login_simatera`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `login_simatera_token`
+-- Indexes for table `login_simatera_token`
 --
 ALTER TABLE `login_simatera_token`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `setting`
+-- Indexes for table `setting`
 --
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`id_setting`);
 
 --
--- Indeks untuk tabel `user_access_menu`
+-- Indexes for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_masukan`
+-- Indexes for table `user_masukan`
 --
 ALTER TABLE `user_masukan`
   ADD PRIMARY KEY (`id_pesan`);
 
 --
--- Indeks untuk tabel `user_menu`
+-- Indexes for table `user_menu`
 --
 ALTER TABLE `user_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_role`
+-- Indexes for table `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `artikel_simatera`
+-- AUTO_INCREMENT for table `artikel_simatera`
 --
 ALTER TABLE `artikel_simatera`
-  MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori`
+-- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `kategoricode` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `login_admin`
+-- AUTO_INCREMENT for table `login_admin`
 --
 ALTER TABLE `login_admin`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `login_simatera`
+-- AUTO_INCREMENT for table `login_simatera`
 --
 ALTER TABLE `login_simatera`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
--- AUTO_INCREMENT untuk tabel `login_simatera_token`
+-- AUTO_INCREMENT for table `login_simatera_token`
 --
 ALTER TABLE `login_simatera_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
--- AUTO_INCREMENT untuk tabel `setting`
+-- AUTO_INCREMENT for table `setting`
 --
 ALTER TABLE `setting`
   MODIFY `id_setting` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `user_access_menu`
+-- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `user_masukan`
+-- AUTO_INCREMENT for table `user_masukan`
 --
 ALTER TABLE `user_masukan`
   MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT untuk tabel `user_menu`
+-- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `user_role`
+-- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

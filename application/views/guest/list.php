@@ -113,9 +113,9 @@
 
                     <div class="<?php echo $post_entry_class ?>">
                       <div class="post-entry-1">
-                        <a href="single-post.html"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
+                        <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
                         <div class="post-meta"> <span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                        <h2><a href="single-post.html" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
+                        <h2><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
                         <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
                         <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
                       </div>
