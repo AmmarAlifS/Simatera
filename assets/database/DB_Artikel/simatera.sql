@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2023 at 12:46 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Waktu pembuatan: 12 Jul 2023 pada 14.53
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `artikel_simatera`
+-- Struktur dari tabel `artikel_simatera`
 --
 
 CREATE TABLE `artikel_simatera` (
@@ -40,7 +40,7 @@ CREATE TABLE `artikel_simatera` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `artikel_simatera`
+-- Dumping data untuk tabel `artikel_simatera`
 --
 
 INSERT INTO `artikel_simatera` (`id_artikel`, `judul`, `artikel`, `kategori`, `Foto`, `Foto2`, `Foto3`, `Video`, `tanggal`) VALUES
@@ -55,12 +55,19 @@ INSERT INTO `artikel_simatera` (`id_artikel`, `judul`, `artikel`, `kategori`, `F
 (12, 'Sejarah Museum Pos Indonesia di Bandung', '<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Jawatan POS di masa Hindia Belanda yang berpusat di Weltevreden pada tahun 1922-1923 secara bertahap dipindahkan ke Bandung. Gedung Kantor Jawatan POS mulai dibangun pada tanggal 27 Juli 1920 berdasarkan rancangan arsitektur Italia masa Renaisans.</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Museum POS dibuka tahun 1931 dibagian sayap kanan bawah Gedung Jawatan Pos, karena Jawatan Pos dijadikan perusahaan negara dengan nama Post Telegraaf en Telefoon-diens (PTT) pada tanggal 1 Januari 1932, maka nama museum menjadi Museum PTT. Museum PTT sempat terlantar dan hampir terlupakan sejak Gedung PTT dambil alih dari tantara Jepang.</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Para Pegawai PTT juga ikut berjuang merebut dan mempertahankan kemerdekaan Indonesia. Bulan Agustus1945 Kantor Pusat Pos Telegraf dan Telepon di Bandung masih dikuasai oleh Jepang. Proklamasi kemerdekaan Indonesiadi Jakarta telah membakar semangat&nbsp; Angkatan Muda Pos Telegraf dan Telepon (AMPTT) yang dipimpin oleh Soetoko untuk mereut Kantor Pusat PTT dari tangan Jepang pada tanggal 27 September 1945. Tanggal ini yang kini dijadikan sebagai Hari Bakti Pos Dan Telekomunikasi.</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Situs Jawatan PTT diubah menjadi Perusahaan Negara (PN) Pos dan Telekomunikasi (PN Postel) pada tahun 1961. Tahun 1965 PN Postel dipecah menjadi PN Pos dan Giro dan PN Telekomunikasi. Tahun 1978 PN Pos dan Giro dengan status Badan Usaha Milik Negara (BUMN). Tanggal 19 Juni 1995 Perum Pos dan Giro berubah menjadi PT Pos Indonesia (Persero).</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Peristiwa perebutan Kantor Pusat PTT dan perjuangan para pegawai pos diabadikan dalam bentk Tugu Peringatan Pahlawan PTT yang mencantumkan nama para pegawai pejuang yang gugur selama perang mempertahankan kemerdekaan. Prasasti peringatan diletakan dalam taman didepan Gedung Kantor Pusat Perum Pos dan Giro Jl. Cilaki. Pada tugu juga dituliskan sebuah sajak Chairil Anwar. </span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Gagasan pengaktifan kembali Meseum Pos dimulai pada tanggal 18 Desember 1980 dengan dibentuknya Penitia Persiapan Pendirian Museum Pos dan Giro. Tanggal 27 September 1983 bertepatan dengan peringatan Hari Bakti Pos dan Telekomunikasi yang ke-38, Menteri Pariwisata Pos dan Telekomukasi, Achmad Tahir membuka secara resmi Museum Pos dan Giro. Sekarnag Museum Pos dan Giro dinamakan Museum Pos Indonesia.</span></span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Tahun 1996 Kantor Pusat PT Pos Indonesia dipindahkan kegedung baru yang terletak di Jl. Banda, sehingga nama Gedung bekas Kantor PT Pos Indonesia yang lama di Jl, Cilaki dinamai Gedung Museum Pos Indonesia walauun nyatanya Museum Pos Indonesia hanya menempati Sebagian ruangan disayap kanan bawah Gedung saja.</span></span></span></span></p>\r\n\r\n<p><span style=\"font-size:12.0pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Lokasi Gedung Kantor Pusat PT Pos Indonesia semula merupakan Kantor Pos Bandoeng Riouwstraat dan Akademi PTT yang kemudian menjadi Kantor Pos Bandung Cihapit. Sekarang Kantor Pos Bandung Cihapit berada dalam Gedung Kantor Pusat PT Pos Indonesia Jl. Banda.</span></span></p>\r\n', 'Museum', '13aae913082db502e26f5f1b661aa53c.jpeg', '1d55e39b1040468368a312918921ad8a.jpg', '7aaa66b7fedab2f34ff60ed797766675.jpg', 'https://youtu.be/c8xSEktMhos', '2023-07-12'),
 (13, 'Sejarah Rumah Sakit Umum Pusat Dr. Hasan Sadikin Bandung', '<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\">Rumah sakit di bandung pertama kali dibangun di <em>Grote Postweg </em>(Jl. Asia Afrika) disebagian lahan kantor Pos Besar Bandung (Bagian Barat) sekarang sekitar medio tahun 1800-an. Awal tahun 1900-an, Rumah Sakit tersebut di pindahkan ke jalan yang kemudian diberi nama Oude Hospitahoeg atau jalan Lembong, dan kemudian dipindahkan kembali ke bangunan baru yang berada di Pasteurweg atau jalan Pasteur.</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\">Bangunan Rumah Sakit baru yang berada di Jalan Pasteur dibangun pada tahun 1917-1919, berdasarkan rancangan arsitek F.J.I. Ghijsels. Pembangunan Rumah Sakit tersebut diprakarsai oleh Vereeniging Bandoengsche Ziekenhuis yang terbentuk pada tahun 1914. Rumah Sakit pertama di Bandung tersebut merupakan Rumah Sakit rujukan di Jawa Barat selain itu juga merupakan rumah sakit pendidikan dan pada tahun 1923 Rumah Sakit tersebut diresmikan.</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\">Awalnya Rumah Sakit pertama di Bandung tersebut bernama Algemeene Bandoengsche Ziekenhuis (Rumah Sakit Umum Bandoeng). Tahun 1927 namanya dirubah menjadi Gemeentelijk Juliana Zikenhuis, tetapi masyarakat lebih mengenalnya dengan nama Rumah Sakit Rantjabadak pada tahun 1948. Setelah penjajahan Jepang Rumah Sakit Rancabadak tersebut diambil alih oleh pemerintah Indonesia. Sekarang Rumah Sakit tersebut bernama Rumah Sakit Umum Pusat dr. Hasan Sadikin.</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\">Nama dr. Hasan Sadikin sendiri resmi digunakan sejak tanggal 8 Oktober 1967. Pemberian nama tersebut dimakasudkan untuk mengenang jasa mantan Direktur Rumah Sakit Hasan Sadikin yang pertama, yang juga pada waktu itu menjabat sebagai Dekan Fakultas Kedokteran Universitas Padjadjaran.</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\">Perkembangan dapat dibagi menjadi dua bagian besar, yang pertama perkembangan pada masa pemerintahan Hindia Belanda dan juga pada masa kependudukan Jepang. Ketika Rumah Sakit masih dikuasai oleh pihak Hindia Belanda, sistem organisasi yang dijalankan rumah sakit adalah sistem Desentralisasi, yaitu sebuah sistem yang menerapkan pengelolaan yang tidak terpusat pada satu bagian, melainkan menyebar.</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\">Pada masa menghadapi perang Pasifik di akhir tahun 1941, Het Gemeente Ziekenhuis Juliana dijadikan sebagai rumah sakit militer, sehingga pelayanan untuk rumah sakit umum di pindahkan ke Rumah Sakit Cicendo, sedangkan untuk administrasi dipindahkan ke Rumah Sakit St. Boromeus. Kegiatan dirumah sakit tersebut terus berlangsung hingga Belanda mengalami kekalahan dan menyerah tanpa syarat pada tahun 1942.</span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\">Pada saat Jepang menduduki pulau Jawa pada 1942-1945, Pemerintah Militer Jepang tidak melakukan perubahan sistem dan struktur yang sudah ada, akan tetapi hanya meneruskan pelayanan kesehatan yang sebelumnya sudah dijalankan oleh pihak Belanda, seperti sarana dan prasarana yang digunakan rumah sakit pada masa Hindia Belanda masih digunakan pada masa pendudukan Jepang, begitupun dengan tenaga medik masih memanfaatkan tenaga asing maupun pribumi. </span></span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\">Selama melakukan pengelolaan rumah sakit, pemerintah Jepang tidak mengeluarkan kebijakan apapun untuk memperbaiki fasilitas sarana dan prasarana rumah sakit. Setelah Jepang mengalami kekalahan dan menyerah kepada pihak sekutu, rumah sakit kembali dikuasai oleh Pemerintah Hindia Belanda dan kemudian diubah kembali namanya menjadi Het Gemeene Ziekenhuis Juliana, akan tetapi fungsi nya tetap menjadi Rumah Sakit Militer untuk pihak Hindia Belanda dalam mempersiapkan Perang Kemerdekaan yang sedang berlangsung setelah rakyat Indonesia menuntut kemerdekaan atas negaranya.</span></span></span></p>\r\n', 'Sejarah', '28f645178cd314ed8af3957245236277.jpg', '7103b15896b039d397119571f9955a3e.jpg', 'd0eb0332a4090753bd42c442280ab129.jpg', 'https://youtu.be/_F0FTzjcnzE', '2023-07-12');
 INSERT INTO `artikel_simatera` (`id_artikel`, `judul`, `artikel`, `kategori`, `Foto`, `Foto2`, `Foto3`, `Video`, `tanggal`) VALUES
-(14, 'Mengenal Sejarah kelenteng tertua di Bandung, Vihara Satya Budhi', '<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\">Cikal bakal Viraha Satya Budhi dibangun pada tahun 1865 di <em>Chinesen Kerkweg</em> (Jl. Kelenteng). Tanggal 15 Juni 1885 bangunan tersebut diresmikan sebagai tempat peribadatan. Vihara dibangunatas sumbangan para simpatisan orang-orang Cina pendatang dari daerah Cina Selatan yang diprakarsai oleh Kapitan Cina Tan Yun Liong. Vihara sempat dipugar tahun 1958 dan 1985.</span></span></span></p>\r\n\r\n<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\">Awalnya Vihara ini Bernama Kuil <em>Hiap Thian Kiong</em> yang berarti Istana Para Dewa. Bangunan Vihara pada umumnya merupakan rumahtinggal Kapiten Cina Tan Yun Lionng yang menjabat sebagai ketua Pengurus Masyarakat Cina (Wijkmeester Der Chinesen). Kuil dirancang oleh arsitek Chui Tzu Tse dan dikerjakanoleh Kung Chen Tse, keduanya didatangkan dari Cina Selatan semasa Dinasti Chi&rsquo;ing Kuil yang kental dengan arsitekturChi&rsquo;ing seperti terlihat pada ukiran harimaudan kolom berupa ukiran naga berkaki ini diutamakan untuk memuja Koan Kong, Panglima Militer dimasa Dinasti Han (206-25 SM) yang bergelar Dewa Perang (Koan Te Kun). </span></span></span></p>\r\n', 'Sejarah', '62ef7bdaa61406fcd5a7aa8dc7013301.jpeg', '6490e05fd532e2d48a234f39522ca059.jpg', '264e67e8f99bd7aea44e7bdc3e22c67a.jpg', 'https://youtu.be/SyjbC9JXAPM', '2023-07-12');
+(14, 'Mengenal Sejarah kelenteng tertua di Bandung, Vihara Satya Budhi', '<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\">Cikal bakal Viraha Satya Budhi dibangun pada tahun 1865 di <em>Chinesen Kerkweg</em> (Jl. Kelenteng). Tanggal 15 Juni 1885 bangunan tersebut diresmikan sebagai tempat peribadatan. Vihara dibangunatas sumbangan para simpatisan orang-orang Cina pendatang dari daerah Cina Selatan yang diprakarsai oleh Kapitan Cina Tan Yun Liong. Vihara sempat dipugar tahun 1958 dan 1985.</span></span></span></p>\r\n\r\n<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:12.0pt\">Awalnya Vihara ini Bernama Kuil <em>Hiap Thian Kiong</em> yang berarti Istana Para Dewa. Bangunan Vihara pada umumnya merupakan rumahtinggal Kapiten Cina Tan Yun Lionng yang menjabat sebagai ketua Pengurus Masyarakat Cina (Wijkmeester Der Chinesen). Kuil dirancang oleh arsitek Chui Tzu Tse dan dikerjakanoleh Kung Chen Tse, keduanya didatangkan dari Cina Selatan semasa Dinasti Chi&rsquo;ing Kuil yang kental dengan arsitekturChi&rsquo;ing seperti terlihat pada ukiran harimaudan kolom berupa ukiran naga berkaki ini diutamakan untuk memuja Koan Kong, Panglima Militer dimasa Dinasti Han (206-25 SM) yang bergelar Dewa Perang (Koan Te Kun). </span></span></span></p>\r\n', 'Sejarah', '62ef7bdaa61406fcd5a7aa8dc7013301.jpeg', '6490e05fd532e2d48a234f39522ca059.jpg', '264e67e8f99bd7aea44e7bdc3e22c67a.jpg', 'https://youtu.be/SyjbC9JXAPM', '2023-07-12'),
+(15, 'Balai Kota Bandung: Sejarah & Modernitas Terhubung', '<p style=\"text-align:justify\"><span style=\"font-size:16px\">Balai Kota Bandung, juga dikenal sebagai &quot;gemeente huis,&quot; adalah salah satu bangunan tertua di Bandung. Sebelum dibangun, lokasi tersebut ditempati oleh gudang kopi, atau &quot;koffie pakhuis&quot;, milik Adries de Wilde, seorang tuan tanah dan Asisten Residen Priangan pada tahun 1812. Gudang kopi tersebut didirikan pada tahun 1819, pada masa perkebunan kopi di Priangan berkembang pesat pada abad ke-18. Itu adalah salah satu dari delapan bangunan tembok baru yang dibangun di Bandung. Pada tahun 1923, pemerintah kolonial Belanda mengambil alih gudang kopi tersebut (Khattam, 2014: 26).<img alt=\"Sejarah Balai Kota Bandung, dari Gudang Kopi Tuan Tanah Priangan jadi  Gementee Huis - Harian Haluan\" src=\"https://assets.ayobandung.com/crop/0x0:0x0/750x500/webp/photo/2022/11/07/529770397.jpg\" style=\"height:417px; width:625px\" /></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">Pada tahun 1927, gudang kopi dibongkar dan didirikan Balai Kota Bandung sebagai gantinya. Pembangunan gedung ini dikaitkan dengan status Bandung sebagai kotamadya sejak tahun 1906. Bangunannya berbentuk persegi panjang dan terletak tidak jauh dari Jalan Braga, antara Jalan Merdeka dan Wastukencana, menghadap ke utara, dan dibatasi oleh jalan Aceh. Pada saat pembangunannya, gedung Balaikota juga menjadi pusat kegiatan ekonomi masyarakat Bandung. Sejumlah bangunan pendukung publik juga dibangun di sekitarnya, termasuk Javasche Bank (1909), Katedral (1921), dan Gereja Bethel (1925) (Khattam, 2014: 28).</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">Balai Kota Bandung adalah sebuah bangunan megah yang berfungsi sebagai pusat administrasi pemerintahan kota. Gedung ini terletak di Jalan Wastukencana No. 2, Kecamatan Sumur Bandung, Kota Bandung, Jawa Barat. Sejarah Balai Kota Bandung yang panjang dan menarik menjadi saksi bisu perkembangan kota Bandung sebagai kota metropolitan modern.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">Sejarah Balai Kota Bandung dapat ditelusuri kembali ke tahun 1913 ketika pemerintah kolonial Belanda berencana membangun Balai Kota sebagai pusat fungsi administrasinya. Konstruksi dimulai pada tahun 1920 oleh arsitek terkenal saat itu, Charles Prosper Wolff Schoemaker. Bangunan Balai Kota yang megah dan megah selesai dibangun pada tahun 1926, dengan gaya arsitektur kolonial Belanda yang khas.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">Gedung Balai Kota memiliki banyak ruangan yang digunakan untuk berbagai keperluan pemerintahan, seperti ruang pertemuan, ruang tamu, ruang kerja, kantor, dan lainnya. Selain itu, Balai Kota dilengkapi dengan fasilitas modern seperti lift, tempat parkir, dan sistem pendingin udara. Bangunan ini juga memiliki taman dan taman yang indah yang berfungsi sebagai tempat rekreasi warga Bandung.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">Pada masa pendudukan Jepang, Balai Kota Bandung digunakan sebagai pusat pemerintahan Jepang di Bandung. Setelah Indonesia merdeka, Balai Kota Bandung tetap berfungsi sebagai pusat pemerintahan kota. Namun pada tahun 1980-an, kondisi bangunan tersebut semakin memburuk dan tidak terpelihara dengan baik.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">Pada tahun 2005, pemerintah kota Bandung memulai renovasi besar-besaran gedung Balai Kota. Renovasi dilakukan untuk memperbaiki kondisi bangunan yang sudah tua dan lapuk, serta untuk memperbaharui fasilitas dan desain interiornya. Renovasi juga bertujuan untuk menambah fasilitas modern seperti lift dan aksesibilitas yang lebih baik bagi penyandang disabilitas.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">Setelah melalui masa renovasi yang panjang, Balai Kota Bandung dibuka kembali pada tahun 2011 dengan kondisi yang lebih baik. Bangunan ini menjadi landmark ikonik kota Bandung dan berfungsi sebagai pusat kegiatan pemerintahan seperti pertemuan dan upacara resmi. Selain itu, gedung ini juga digunakan untuk acara resmi seperti upacara bendera dan acara keprotokolan lainnya.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">Balai Kota Bandung juga menyimpan nilai sejarah yang tinggi. Bangunan ini menjadi saksi sejarah Indonesia pada masa penjajahan Belanda dan perjuangan kemerdekaan. Apalagi gedung tersebut telah menyaksikan perkembangan kota Bandung dari kota era kolonial menjadi kota metropolitan modern.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">Dalam sejarahnya, Balai Kota Bandung pernah mengalami peristiwa dramatis. Pada tanggal 27 Oktober 2010, gedung tersebut terbakar, menyebabkan kerusakan signifikan pada interior dan eksteriornya. Namun, bangunan itu dikembalikan ke kejayaannya, dan hari ini berdiri sebagai salah satu landmark paling penting di kota.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:16px\">Kesimpulannya, Balai Kota Bandung adalah bagian penting dari sejarah dan identitas kota. Kemegahan dan keindahan bangunan ini merupakan bukti kehebatan arsitektur dan teknik pembangunnya, serta sejarahnya yang panjang menjadikannya bagian tak terpisahkan dari warisan budaya Bandung. Upaya pemerintah kota untuk merestorasi dan memelihara bangunan tersebut memastikannya akan tetap menjadi landmark kota Bandung untuk generasi mendatang.</span></p>\r\n', 'Sejarah', 'faff0b9e67f3c5378c9b301fd1166a44.jpg', '4973f9ddd8584cabfe6ccff2b6080159.jpg', '5ccb3aed0435ef37231752cbea5ada99.png', 'https://youtu.be/8tCF-qO35ro', '2023-07-12'),
+(16, 'Gereja Katolik St. Petrus Bandung: Perjalanan dari St. Franciscus Regis ke Megahnya Gereja Baru', '<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Cerita ini dimulai sekitar tahun 1878, di mana saat itu Bandung sebagai ibukota karesidenan Priangan sudah cukup ramai, namun belum memiliki pelayanan umat Katolik sendiri. Untuk melayani umat, pastor didatangkan dari stasi terdekat, yaitu Cirebon yang berada di bawah Vikariat Apostolik Batavia.</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"Gereja Katedral Santo Petrus, Dibangun 1921 Saksi Perjalanan Keuskupan di  Bandung\" src=\"https://pict.sindonews.net/dyn/620/pena/news/2020/12/26/29/280696/gereja-katedral-santo-petrus-dibangun-1921-saksi-perjalanan-keuskupan-di-bandung-pte.jpg\" style=\"height:416px; width:625px\" /></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Ketika jalur kereta api Batavia &ndash; Bandung dibuka pada tahun 1884 dan transportasi menjadi lebih mudah, pelayanan umat secara tetap di Bandung segera dipersiapkan. Maka, dibangunlah gereja pertama yang berukuran hanya 8 x 21 meter persegi dilengkapi sebuah pastoran di Schoolweg (kini Jalan Merdeka), berdekatan dengan gudang kopi milik Pemerintah Kolonial Belanda. Gereja ini diberi nama St. Franciscus Regis dan diberkati oleh Mgr. W. Staal pada tanggal 16 Juni 1895.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Pada tanggal 1 April 1906, Bandung memperoleh status Gemeente (setingkat kotamadya), sehingga berhak menyelenggarakan pengelolaan kota sendiri. Sejak saat itu, Kota Bandung mulai berbenah, antara lain dengan melaksanakan pengembangan permukiman kota untuk warga Belanda dan pembangunan kawasan pusat pemerintahan kotamadya (civic centre) berupa Gedung Balaikota berikut sebuah taman (kemudian disebut Pieterspark) tepat di lokasi bekas gudang kopi. Kemudian melengkapi civic centre ini, kelak dibangun berbagai bangunan publik di sekitar balaikota seperti sekolah, bank, kantor polisi, dan gereja, baik untuk umat Katolik maupun Protestan.</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"Gereja Katedral Bandung Dulu dan Kini – HIDUPKATOLIK.com\" src=\"https://www.hidupkatolik.com/wp-content/uploads/2022/03/Head-Upacara-pemberkatan-Gereja-St.-Petrus-Bandung.jpg\" style=\"height:479px; width:625px\" /></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Pada tanggal 13 Februari 1907, pemerintah mengeluarkan keputusan untuk memisahkan Priangan, termasuk Kota Bandung, secara administratif dari Distrik Cirebon. Kota Bandung ditentukan sebagai sebuah stasi baru di Jawa Barat yang dipimpin Pastor J. Timmers dari Cirebon yang sudah 4 tahun menetap di Bandung.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Dalam penyelenggaraan gereja selama 4 tahun berikutnya ternyata jumlah jemaat semakin bertambah hingga mencapai 280 orang pada Perayaan Ekaristi. Saat itu, jumlah umat Katolik di Bandung sendiri telah mencapai 1800 orang. Maka Gereja St. Franciscus Regis</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">pun diperluas karena tidak cukup lagi menampung jemaat yang semakin banyak. Setelah melalui beberapa alternatif dipilihlah sebuah lahan bekas peternakan di sebelah Timur Gereja St. Franciscus Regis, di Merpikaweg (kini jalan Merdeka), sebagai lokasi gereja baru. Perancangnya pun telah terpilih, yaitu Ir. C.P. Wolff Schoemaker, seorang arsitek berkebangsaan Belanda.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Pembangunan gedung gereja yang baru dilaksanakan sepanjang tahun 1921. Setelah selesai, gereja yang baru itu diberkati oleh Mgr. Luypen pada tanggal 19 Februari 1922, dan dipersembahkan kepada Santo Petrus, yang merupakan nama permandian dari Pastor P.J.W.</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Muller, SJ. Pada hari itu juga, Mgr. Luypen meresmikan &amp; memberkati Pastoran Santo Petrus, yang saat itu termasuk Vikariat Batavia.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Gereja dan pastoran yang lama, Gereja St. Franciscus Regis, dijadikan gedung Perkumpulan Sosial Katolik. Dua tahun kemudian, diresmikan pendirian sebuah gedung sekolah Katolik untuk putra dengan nama St. Berchmans di Javastraat (sekarang Jalan Jawa), tepat di sebelah Timur Gereja St. Petrus. Sekarang bangunan sekolah itu digunakan oleh SD St. Yusup II.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Beberapa tahun kemudian rel kereta api dibangun tepat di sebelah Selatan kompleks gereja ini. Misa seringkali terganggu oleh deru kereta api, walaupun demikian, Gereja St. Petrus tetap dalam semangatnya melantunkan pujian Ilahi.</span></span></p>\r\n', 'Sejarah', 'af8b91dd4883383e543b3c9c20158405.jpg', 'b5721312c91a5badd45a4d39d65eefca.jpg', '968816a3972b6b072c62654bbf0c69ea.jpg', 'https://youtu.be/VqFPEk9Y-Ig', '2023-07-12'),
+(17, ' Museum Sri Baduga: Warisan Budaya dan Sejarah Jawa Barat', '<p><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Museum Negeri Propinsi Jawa Barat Sri Baduga merupakan museum yang memamerkan benda-benda warisan alam dan budaya Jawa Barat. Museum ini terletak di seberang selatan Lapangan tegallega. Museum Sri Baduga merupakan museum tingkat provinsi yang semula bernaung di bawah Departemen Pendidikan dan Kebudayaan, tetapi dengan diberlakukannya Otonomi Daerah museum ini menjadi di bawah Dinas Kebudayaan dan Pariwisata Jawa Barat.</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><img alt=\"Sejarah Hari Ini (5 Juni 1980) - Peresmian Museum Sri Baduga\" src=\"https://www.goodnewsfromindonesia.id/uploads/post/large-goodnewsfromindonesia-gnfi-museum-sri-baduga-bandung-a04339badd7a5e4069b4b7d28198c1de.jpg\" style=\"height:351px; width:625px\" /></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Museum Negeri Propinsi Jawa Barat dirintis dan mulai dibangun sejak tahun 1974. Pembangunan tahap pertama selesai pada tahun 1980 dan diresmikan oleh Menteri Pendidikan dan Kebudayaan Dr. Daud Jusuf pada tanggal 5 Juni 1980. Berdasarkan Surat Keputusan Menteri Pendidikan dan Kebudayaan tanggal 1 April 1990, museum ini diberi nama Sri Baduga.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Arsitektur bangunan museum bergaya tradisional daerah Jawa Barat, yaitu mempunyai kolong dan atapnya miring. Atap yang miring merupakan salah satu ciri bangunan di daerah tropis. Gaya arsitektur gedung museum diharapkan dapat memancarkan suasana tenang dan khidmat bagi pengunjungnya.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Lahan yang digunakan untuk pembangunan museum adalah pekarangan bekas Kantor Wedana Tegallega. Kantor Wedana Tegallega dibangun pada masa pemerintahan Hindia Belanda dan merupakan bangunan tua berciri khas bangunan perkantoran pemerintahan Hindia Belanda. Gedung ini berjendela besar dan berpintu tinggi dari bahan kayu dengan jalusi untuk pertukaran udara secara alamiah, mengingat iklim tropis Indonesia yang panas, selain juga berfungsi dekoratif. Di dalam gedung terdapat pintu yang bagian atasnya melengkung dan tidak berdaun pintu, yang dibuat ketika mernovasi gedung untuk perkantoran museum, sehingga semakin menambah nuansa <em>tempo doeloe </em>pada gedung secara keseluruhan.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Sekarang ini bangunan Kantor Wedana Tegallega tersebut masih berdiri dan digunakan sebagai ruang kerja pengelola museum. Awalnya sebagian gedung tua ini tersebut masih terlihat dari depan komplek museum, tetapi setelah dilakukan pembangunan selanjutnya gedung tua ini menjadi tidak terlihat karena seluruhnya menjadi tersembunyi di belakang gedung hasil perluasan komplek museum.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Nama Sri Baduga sebagai nama museum diambil dari raja pertama Kerajaan Sunda pertama Pajajaran yang terkenal dan dicintai rakyatnya, yaitu raja Sri Baduga Maharaja (1482-1521). Raja Sri Baduga Maharaja merupakan anak dari raja Kerajaan Galuh yang berwilayah dari Sungai Citarum ke arah timur (setelah meninggalnya raja Niskala Wastu Kancana yang bertakhta di Kawali (1475-1482) dan merupakan menantu dari Susuk tunggal raja muda Kerajaan Sunda sejak 1382 dan kemudian menjadi raja kerajaan Sundayang bertakhta di Pakuan (1475-1482) yang berwilayah dari Sungai Citarum ke arah barat. Raja Sri Baduga Maharaja adalah cicit Prabu Maharaja Linggabuana yang gugur (1357) dalam Perang Bubat, yaitu perang antara Kerjaan Sunda dan Kerajaan Majapahit. Kakek Raja Sri Baduga Maharaja adalah Prabu Niskala Wastu Kancana (1371-1475), seotang raja besar Kerajaan Sunda yang merupakan anak dari Prabu Maharaja Linggabuana (1350-1357).</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Prabu Maharaja Linggabuana adalah raja Kerajaan Sunda yang sangat dicintai rakyatnya, maka setelah gugur di Perang Bubat rakyatnya memberi julukan <em>Prabu Wangi </em>untuk menghormatinya. Raja Niskala Wastu Kancana merupakan raja besar Kerajaan Sunda sehingga diberi gelar Mahaprabu Niskala Wastu Kancana dan rakyatnya menjulukinya sebagai <em>Prabu Wangisutah.</em> Raja Sri Baduga Maharaja berhasil menyatukan kembali Kerajaan Galuh dan Kerajaan Sunda menjadi Kerajaan Sunda Pajajaran, atau lebih dikenal dengan nama Kerajaan Pajajaran. Di bawah pemerintahannya Kerjaan Pajajaran mencapai puncak keemasan, sehingga rakyat Kerajaan Pajajaran sangat menghormati dan mencintai Raja Sri Baduga Maharaja dan memberinya julukan <em>Prabu Siliwangi.</em></span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Julukan tersebut menempatkan Raja Sri Baduga Maharaja pada kedudukan yang sama dengan Mahaprabu Niskala Wastu Kancana, karena keduanya merupakan <em>silih </em>(pengganti) <em>wangi&shy;-</em>nya (termahsyurnya) <em>Prabu Wangi </em>(Prabu Maharaja Linggabuana) yang gugur di Perang Bubat.</span></span></p>\r\n', 'Museum', '79ce4ce0fbba118d0e5afe12c5e53dd1.jpg', 'b254d446cd47d703290e36375a9d19b3.jpg', '1cd0105c7be27ab43c4a145e5fcde1d2.jpeg', 'https://youtu.be/VRAXz6ayIeY', '2023-07-12'),
+(18, 'Tugu Kilometer 0 Bandung: Simbol Sejarah dan Keindahan Kota', '<p style=\"text-align:justify\"><span style=\"font-size:12pt\">Tugu Kilometer 0 Bandung adalah sebuah monumen yang berada di pusat kota Bandung, Indonesia. Monumen ini menandakan titik awal jalan yang menghubungkan kota-kota besar di Indonesia, sehingga disebut sebagai &quot;kilometer nol&quot;. Tugu Kilometer 0 Bandung menjadi landmark penting Kota Bandung dan menjadi tujuan wisata yang populer di sana.</span><img alt=\"Nol Kilometer Bandung — Arif Setiawan\" src=\"https://arifsetiawan.com/wp-content/uploads/2015/07/Bandung-Nol-Kilometer.jpg\" style=\"height:469px; width:625px\" /></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\">Sejarah Tugu Kilometer 0 Bandung berawal dari zaman penjajahan Belanda di Indonesia pada awal abad ke-20. Pada saat itu, kota Bandung sedang berkembang menjadi pusat perdagangan dan pemerintahan di Jawa Barat. Oleh karena itu, dibutuhkan sebuah monumen yang menandakan titik awal jalan raya yang menghubungkan kota-kota besar di Indonesia.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\">Pada tahun 1918, pemerintah kolonial Belanda memutuskan untuk membangun Tugu Kilometer 0 Bandung di pusat kota. Desain monumen ini dibuat oleh arsitek Hindia Belanda bernama J.J. van Braam Houckgeest, yang juga mendesain gedung Merdeka di Bandung.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\">Tugu Kilometer 0 Bandung memiliki bentuk segi lima dengan tinggi sekitar 10 meter. Di bagian puncak tugu terdapat sebuah patung perunggu yang menunjukkan seorang pria dengan tongkat di tangan dan memegang globe di tangan lainnya, yang melambangkan perdagangan dan hubungan antarbangsa. Di sekeliling tugu terdapat beberapa patung perunggu lainnya yang melambangkan industri, pertanian, perdagangan, perikanan, dan kerajinan.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\">Pada masa kemerdekaan Indonesia, Tugu Kilometer 0 Bandung masih tetap berdiri dan menjadi simbol penting bagi Kota Bandung. Pada tahun 2010, tugu ini direnovasi dan diberi pencahayaan baru sehingga terlihat lebih indah di malam hari.</span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\">Kini, Tugu Kilometer 0 Bandung menjadi salah satu tempat wisata yang populer di Kota Bandung. Banyak wisatawan datang untuk berfoto di depan monumen ini dan menikmati keindahan kota Bandung dari sana. Tugu Kilometer 0 Bandung juga sering dijadikan tempat berkumpul dan mengadakan acara seperti perayaan kemerdekaan Indonesia dan event lainnya.</span></p>\r\n', 'Sejarah', 'be253b90d56570b0b1439c1667d2038f.jpeg', '4d93752eea1cb726b8519eb6e31b3bc2.jpeg', '351803900baad2bfafd6dfdbfd1f7c84.jpg', 'https://youtu.be/L6QfvjBh4dk', '2023-07-12'),
+(19, 'Museum Wangsit Mandala Siliwangi: Amanat Pejuang dan Jejak Sejarah', '<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Museum Wangsit Mandala Siliwangi adalah museum militer yang berada di Kota Bandung, Jawa Barat. Siliwangi merupakan nama komando darah militer TNI-AD di Jawa Barat dan Banten yang namanya diambil dari raja dari Kerajaan Sunda yang beribu kota di Pakuan Pajajaran yang kekuasaannya konon tak terbatas, juga arif dan bijaksana serta wibawa dalam menjalankan kota pemerintahan.</span></span><img alt=\"Informasi Wisata dan Budaya: Museum Mandala Wangsit Siliwangi - Bandung\" src=\"https://4.bp.blogspot.com/_D7gbHOzZjzM/St67EJnDTwI/AAAAAAAABeU/UORMUbccVQk/s400/wangsit.jpg\" style=\"height:467px; width:625px\" /></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Sedangkan arti Mandala Wangsit merupakan sebuah tempat untuk menyimpan amanat, petuah atau nasihat dari pejuang masa lalu kepada generasi penerus melalu benda-benda yang ditinggalkannya. Museum ini diresmikan oleh panglima divisi Siliwangi Kolonel Ibrahim Adjie pada tanggal 23 Mei 1966.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Museum yang berlokasi di Jalan Lembong, kecamatan Sumur, Bandung dibangun sejak masa penjajahan Belanda. Jalan diambil dari nama Letkol Lembong, salah satu prajurit Siliwangi yang menjadi korban dalam Peristiwa Kudeta Angkatan Perang Ratu Adil(APRA). Sebelumnya jalan itu bernama Oude Hospitaalweg yang artinya rumah sakit tua.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Bangunan museum yang memiliki gaya arsitektur romantisisme akhir ini dibangun pada era kolonial Belanda antara tahun 1910-1915 sebagai tempat tinggal para perwira Belanda. Setelah Jepang menduduki Indonesia pada tahun 1942, bangunan ini dijadikan markas untuk sembunyi dari pihak Jepang. Setelah kemerdekaan, bangunan ini diambil alih oleh pasukan Siliwangi dan digunakan sebagai markas Divisi Siliwangi (Akademi Militer Bandung) pada tahun 1949-1950. Bangunan ini berdiri di atas tanah seluas 4.176 m2 dengan luas bangunan 1.674 m2. Pada tanggal 23 Mei 1966 bangunan ini beralih fungsi menjadi Museum yang diresmikan oleh panglima divisi Siliwangi ke-8 yaitu Kolonel Ibrahim Adjie. Lalu tahun 1979 gedung ini direhabilitasi kembali menjadi gedung bertingkat dua, kemudian diresmikan penggunaannya pada tanggal 10 November 1980 oleh Pangdam Siliwangi ke-15, Mayjen Yoga Sugama dan dengan penandatangannan prasasti oleh Presiden Soeharto.</span></span></p>\r\n', 'Sejarah', '0e3e06b91b34b680758a544b31b47db0.jpg', 'b5af65ed6205083edb7468a26260fe85.jpg', '04516b387f19d74c9885094cde05d414.jpg', 'https://youtu.be/X6FZFPrBMcE', '2023-07-12'),
+(20, 'Gedung Dwi Warna: Jejak Sejarah dan Keindahan Arsitektur Kolonial', '<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Bangunan kantoor van de indische pensioen-fondsen (sekarang bernama Gedung Dwi Warna) yang terletak di Wilhemina Boulevard<em> </em>(Jl Diponegoro) dibangun pada tahun 1940 berdasarkan rancangan arsitek G. Hendriks dan Ir. E. H. de Roo yang merupakan arsitek pemerintah kota (Gemeente).</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Gedung Dwi Warna merupakan salah satu dari bangunan yang terakhir dibangun oleh pemerintah kolonial menjelang pecah Perang Dunia II. Pada bangunan ini, gaya arsitektur bangunan tropis sangat kuat terlihat yang dicirikan dengan penyelesaian rincian arsitekturnya, teritis yang lebar, banyaknya jendela yang bisa dibuka, atap berbentuk limas dan adanya <em>lantern</em> di atas atap utama. Gaya arsitektur ini cukup mutakhir pada zamannya, dan bertahan hingga awal tahun 1960-an.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Seiring dengan perkembangan zaman, Gedung Dwi Warna telah mengalami beberapa perubahan. Bangunan yang dulunya berfungsi sebagai kantor pensiun Belanda kini telah berubah fungsi menjadi gedung perkantoran. Namun, bangunan ini masih mempertahankan arsitektur dan keindahan aslinya yang memukau.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Gedung Dwi Warna menjadi salah satu saksi sejarah bagi Kota Bandung dan Indonesia secara keseluruhan. Kehadirannya menjadi bukti nyata dari jejak sejarah kolonial Belanda di Indonesia. Gedung ini juga menjadi bukti perkembangan arsitektur tropis yang dihasilkan pada masa itu.</span></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Dalam rangka melestarikan bangunan bersejarah ini, pemerintah setempat melakukan perawatan secara rutin dan memperhatikan setiap detail bangunan. Gedung Dwi Warna juga menjadi salah satu destinasi wisata bagi pengunjung yang tertarik dengan sejarah dan keindahan arsitektur bangunan bersejarah.</span></span></p>\r\n', 'Sejarah', '75c0299c8253803c11341c90cbb20242.jpg', '5ace5179d2fd67507351a6f219d49d3d.png', '22a1c696f179451133940adbead140b1.jpg', 'https://youtu.be/ZMI7a3AhczM', '2023-07-12'),
+(21, 'Gedung Pakuan: Jejak Sejarah dan Keindahan Arsitektur Indische Empire Stijl', '<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Gedung Pakuan dibangun pada masa Gubernur Jenderal Ch. F. Pahud pada tahun 1867 sebagai akibat dari kebijakan pemindahan Ibukota Karesidenan Priangan dari Cianjur ke Bandung. Namun, rencana pembangunan Gedung tersebut baru terlaksana pada masa Residen Van der Moore tahun 1984. Percepatan pemindahan ibu kota dan pembangunan gedung baru Residen Priangan tak lepas dari bencana alam meletusnya Gunung Gede yang menghancurkan Cianjur. Bupati Bandung R. Wiranatakusumah IV (1846 &ndash; 1874) membantu pembangunan gedung tersebut dengan mengerahkan penduduk Balubur Hilir dan Kebon Kawung (Babakan Bogor).&nbsp; Mereka membantu personel militer Belanda yang juga dikerahkan untuk membangun gedung Pakuan. Atas jasa tersebut, pemerintah waktu itu membebaskan pajak bagi penduduk pribumi yang turut dalam pembangunan.</span></span><img alt=\"Mengenal Sejarah Gedung Pakuan Di Bandung, Tempat Jenazah Eril Disemayamkan\" src=\"https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2022/06/13/2023690961.jpg\" style=\"height:325px; width:625px\" /></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">Menurut catatan sejarah, bangunan bergaya arsitektur Indische Empire Stijl ini dibangun pada 1864 dan selesai 1867. Konon, gaya arsitektur tersebut sangat dikagumi pada zaman Vereenigde Oost Indische Compagnie (VOC). Mengutip dari Album Bandoeng Tempo Doeloe, fokus utama bangunan memanjang ini adalah kolom Yunani bergaya Greek Revival di muka bangunan.</span></span></p>\r\n', 'Sejarah', 'c4c39a7f3057cc381cc33ee9bb970161.jpg', '4976bb54329f36db8bdcaeb1b789b908.jpg', 'a7a4a608fa0d6220f56bba26e701399e.png', 'https://youtu.be/wolz18kRu-s', '2023-07-12');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -69,7 +76,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`kategoricode`, `nama_kategori`) VALUES
@@ -81,7 +88,7 @@ INSERT INTO `kategori` (`kategoricode`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login_admin`
+-- Struktur dari tabel `login_admin`
 --
 
 CREATE TABLE `login_admin` (
@@ -92,7 +99,7 @@ CREATE TABLE `login_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `login_admin`
+-- Dumping data untuk tabel `login_admin`
 --
 
 INSERT INTO `login_admin` (`id`, `username`, `email`, `password`) VALUES
@@ -104,7 +111,7 @@ INSERT INTO `login_admin` (`id`, `username`, `email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login_simatera`
+-- Struktur dari tabel `login_simatera`
 --
 
 CREATE TABLE `login_simatera` (
@@ -120,7 +127,7 @@ CREATE TABLE `login_simatera` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `login_simatera`
+-- Dumping data untuk tabel `login_simatera`
 --
 
 INSERT INTO `login_simatera` (`id`, `login_oauth_uid`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
@@ -136,7 +143,7 @@ INSERT INTO `login_simatera` (`id`, `login_oauth_uid`, `name`, `email`, `image`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login_simatera_token`
+-- Struktur dari tabel `login_simatera_token`
 --
 
 CREATE TABLE `login_simatera_token` (
@@ -147,7 +154,7 @@ CREATE TABLE `login_simatera_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `login_simatera_token`
+-- Dumping data untuk tabel `login_simatera_token`
 --
 
 INSERT INTO `login_simatera_token` (`id`, `email`, `token`, `date_created`) VALUES
@@ -158,7 +165,7 @@ INSERT INTO `login_simatera_token` (`id`, `email`, `token`, `date_created`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `setting`
+-- Struktur dari tabel `setting`
 --
 
 CREATE TABLE `setting` (
@@ -173,7 +180,7 @@ CREATE TABLE `setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `setting`
+-- Dumping data untuk tabel `setting`
 --
 
 INSERT INTO `setting` (`id_setting`, `alamat`, `no_telp`, `email`, `facebook`, `twitter`, `instagram`, `tentang_kami`) VALUES
@@ -182,7 +189,7 @@ INSERT INTO `setting` (`id_setting`, `alamat`, `no_telp`, `email`, `facebook`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_access_menu`
+-- Struktur dari tabel `user_access_menu`
 --
 
 CREATE TABLE `user_access_menu` (
@@ -192,7 +199,7 @@ CREATE TABLE `user_access_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user_access_menu`
+-- Dumping data untuk tabel `user_access_menu`
 --
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
@@ -203,7 +210,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_masukan`
+-- Struktur dari tabel `user_masukan`
 --
 
 CREATE TABLE `user_masukan` (
@@ -216,7 +223,7 @@ CREATE TABLE `user_masukan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user_masukan`
+-- Dumping data untuk tabel `user_masukan`
 --
 
 INSERT INTO `user_masukan` (`id_pesan`, `nama`, `email`, `subjek`, `pesan`, `timestamp`) VALUES
@@ -242,7 +249,7 @@ INSERT INTO `user_masukan` (`id_pesan`, `nama`, `email`, `subjek`, `pesan`, `tim
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_menu`
+-- Struktur dari tabel `user_menu`
 --
 
 CREATE TABLE `user_menu` (
@@ -251,7 +258,7 @@ CREATE TABLE `user_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user_menu`
+-- Dumping data untuk tabel `user_menu`
 --
 
 INSERT INTO `user_menu` (`id`, `menu`) VALUES
@@ -261,7 +268,7 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_role`
+-- Struktur dari tabel `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -270,7 +277,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user_role`
+-- Dumping data untuk tabel `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
@@ -282,125 +289,125 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 --
 
 --
--- Indexes for table `artikel_simatera`
+-- Indeks untuk tabel `artikel_simatera`
 --
 ALTER TABLE `artikel_simatera`
   ADD PRIMARY KEY (`id_artikel`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`kategoricode`);
 
 --
--- Indexes for table `login_admin`
+-- Indeks untuk tabel `login_admin`
 --
 ALTER TABLE `login_admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `login_simatera`
+-- Indeks untuk tabel `login_simatera`
 --
 ALTER TABLE `login_simatera`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `login_simatera_token`
+-- Indeks untuk tabel `login_simatera_token`
 --
 ALTER TABLE `login_simatera_token`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `setting`
+-- Indeks untuk tabel `setting`
 --
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`id_setting`);
 
 --
--- Indexes for table `user_access_menu`
+-- Indeks untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_masukan`
+-- Indeks untuk tabel `user_masukan`
 --
 ALTER TABLE `user_masukan`
   ADD PRIMARY KEY (`id_pesan`);
 
 --
--- Indexes for table `user_menu`
+-- Indeks untuk tabel `user_menu`
 --
 ALTER TABLE `user_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_role`
+-- Indeks untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `artikel_simatera`
+-- AUTO_INCREMENT untuk tabel `artikel_simatera`
 --
 ALTER TABLE `artikel_simatera`
-  MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `kategoricode` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `login_admin`
+-- AUTO_INCREMENT untuk tabel `login_admin`
 --
 ALTER TABLE `login_admin`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `login_simatera`
+-- AUTO_INCREMENT untuk tabel `login_simatera`
 --
 ALTER TABLE `login_simatera`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
--- AUTO_INCREMENT for table `login_simatera_token`
+-- AUTO_INCREMENT untuk tabel `login_simatera_token`
 --
 ALTER TABLE `login_simatera_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
--- AUTO_INCREMENT for table `setting`
+-- AUTO_INCREMENT untuk tabel `setting`
 --
 ALTER TABLE `setting`
   MODIFY `id_setting` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `user_access_menu`
+-- AUTO_INCREMENT untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `user_masukan`
+-- AUTO_INCREMENT untuk tabel `user_masukan`
 --
 ALTER TABLE `user_masukan`
   MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `user_menu`
+-- AUTO_INCREMENT untuk tabel `user_menu`
 --
 ALTER TABLE `user_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `user_role`
+-- AUTO_INCREMENT untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
