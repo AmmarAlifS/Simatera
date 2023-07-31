@@ -13,16 +13,16 @@ class Auth_registration extends CI_Controller
         {
             $this->form_validation->set_rules('name', 'Name', 'required|trim');
             $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[login_simatera.email]',[
-                'is_unique' => 'This email has already registered!'
+                'is_unique' => 'Email ini telah terdaftar!'
             ]);
             $this->form_validation->set_rules('password1', 'Password', 'required|min_length[5]|matches[password2]', [
-                'matches' => 'password dont match!',
-                'min_length' => 'Password too short'
+                'matches' => 'kata sandi tidak cocok!',
+                'min_length' => 'Sandi terlalu pendek'
             ]);
             $this->form_validation->set_rules('password2', 'Password', 'required|trim|min_length[5]|matches[password1]');
             if($this->form_validation->run() == false)
             {
-            $data['title'] = 'Simatera User Registration';
+            $data['title'] = 'Simatera Pendaftaran Pengguna';
             $this->load->view('templates/auth_header.php', $data);
             $this->load->view('auth/registration.php');
             $this->load->view('templates/auth_footer.php');
@@ -52,7 +52,7 @@ class Auth_registration extends CI_Controller
                 $this->_sendMail($token, 'verify');
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                Congratulation! your account has been created. Please activate your account 
+                Selamat! Akun anda telah dibuat. Silakan aktifkan akun Anda
               </div>');
                 redirect('Auth_login');
             }
@@ -78,10 +78,10 @@ class Auth_registration extends CI_Controller
             $this->email->to($this->input->post('email')); 
 
             if ($type == 'verify'){
-                $this->email->subject('Verification Account - Simatera Kota Bandung');
-                $this->email->message('Thanks for registration
-                <br>Click the link below to verify the email address: <a
-                href="'. base_url() . 'Auth_verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Activate</a>'); 
+                $this->email->subject('Verifikasi Akun - Simatera Kota Bandung');
+                $this->email->message('Terima kasih telah mendaftar
+                <br>Klik tautan di bawah untuk memverifikasi alamat email: <a
+                href="'. base_url() . 'Auth_verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Aktifkan</a>'); 
             }
 
             if ($this->email->send()){

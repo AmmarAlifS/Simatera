@@ -13,27 +13,27 @@
                     <div class="col-lg-6">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Forgot Password</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Lupa Sandi</h1>
                             </div>
                             <?= $this->session->flashdata('message'); ?>
                             <form class="user" method="post" action="<?php base_url('Auth_forgot');?>">
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user"
                                         id="email" name="email"
-                                        placeholder="Enter Email Address..."
+                                        placeholder="Masukan Alamat Email..."
                                         value="<?= set_value('email'); ?>">
                                         <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    Reset Password
+                                Setel Ulang Kata Sandi
                                 </button>
                                 <hr>
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="Auth_login">Back to Login!</a>
+                                <a class="small" href="Auth_login">Kembali Untuk Masuk!</a>
                             </div>
                         </div>
                     </div>

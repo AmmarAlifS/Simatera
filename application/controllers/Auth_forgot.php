@@ -14,7 +14,7 @@ class Auth_forgot extends CI_Controller {
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         if($this->form_validation->run() == false)
         {
-            $data['title'] = 'Simatera Forgot Password';
+            $data['title'] = 'Simatera Lupa Kata Sandi';
             $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/forgot-password');
             $this->load->view('templates/auth_footer');
@@ -35,13 +35,13 @@ class Auth_forgot extends CI_Controller {
                 $this->_sendMail($token, 'forgot');
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                Please check your email to reset your password!
+                Silakan periksa email Anda untuk mengatur ulang kata sandi Anda!
               </div>');
                 redirect('Auth_forgot');
 
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                Email is not registered or activated!
+                Email tidak terdaftar atau diaktifkan!
               </div>');
                 redirect('Auth_forgot');
             }
@@ -71,9 +71,9 @@ class Auth_forgot extends CI_Controller {
         $this->email->to($this->input->post('email')); 
 
         if ($type == 'forgot'){
-            $this->email->subject('Reset Password - Simatera Kota Bandung');
-            $this->email->message('Click the link below to reset your password the email address: <a
-            href="'. base_url() . 'Auth_changePassword/resetpassword?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Reset Password</a>'); 
+            $this->email->subject('Atur Ulang Kata Sandi - Simatera Kota Bandung');
+            $this->email->message('Klik tautan di bawah untuk mengatur ulang kata sandi alamat email Anda: <a
+            href="'. base_url() . 'Auth_changePassword/resetpassword?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Atur Ulang Kata Sandi</a>'); 
         }
 
         if ($this->email->send()){

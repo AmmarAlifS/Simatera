@@ -16,7 +16,7 @@ class Auth_login extends CI_Controller
             $this->form_validation->set_rules('password', 'Password', 'trim|required');
             if($this->form_validation->run() == false)
             {
-                $data['title'] = 'Simatera User Login';
+                $data['title'] = 'Simatera Login Pengguna';
                 $this->load->view('templates/auth_header', $data);
                 $this->load->view('auth/login');
                 $this->load->view('templates/auth_footer');
@@ -52,19 +52,19 @@ class Auth_login extends CI_Controller
                         
                     }else{
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                        Wrong password
+                        Kata Sandi Salah
                         </div>');
                             redirect('Auth_login');
                     }
                }else{
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-            This email has not been activated
+                Email ini belum diaktifkan
               </div>');
                 redirect('Auth_login');
                }
             }else{
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                Email is not registered!
+                Email tidak terdaftar!
               </div>');
                 redirect('Auth_login');
             }
