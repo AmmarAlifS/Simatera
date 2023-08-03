@@ -139,7 +139,7 @@
 
           <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
+              <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Terbaru</button>
             </li>
           </ul>
 
@@ -184,7 +184,7 @@
   <div class="container" data-aos="fade-up">
     <div class="section-header d-flex justify-content-between align-items-center mb-5">
       <h2>Museum</h2>
-      <div><a href="category.html" class="more">See All Museum</a></div>
+      <div><a href="category.html" class="more">Lihat Selengkapnya</a></div>
     </div>
 
     <div class="row">

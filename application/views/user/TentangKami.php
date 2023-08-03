@@ -51,7 +51,7 @@
                 </div>
                 <div class="ps-md-5 mt-4 mt-md-0">
                 <?php foreach ($setting->result() as $x): ?>	
-                  <div class="post-meta mt-4">About us</div>
+                  <div class="post-meta mt-4">Tentang Kami</div>
                   <!-- <h2 class="mb-4 display-4">Company History</h2> -->
                   <br>
 
@@ -72,7 +72,7 @@
       <div class="container" data-aos="fade-up">
         <div class="row justify-content-between align-items-lg-center">
           <div class="col-lg-5 mb-4 mb-lg-0">
-            <h2 class="display-4 mb-4">Latest News</h2>
+            <h2 class="display-4 mb-4">Artikel Terbaru</h2>
             <?php
             // Assuming you have a database connection configured in CI3
             $latestNewsQuery = $this->db->query("SELECT * FROM artikel_simatera ORDER BY id_artikel DESC LIMIT 1");

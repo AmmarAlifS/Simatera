@@ -104,8 +104,7 @@
             <!-- video -->
             <?php
                 $video = $xdetail->Video;
-
-                // Extract the video ID from the YouTube URL
+                
                 $video_id = '';
                 $matches = [];
                 $pattern = '/(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/|y2u\.be\/)([a-zA-Z0-9_-]{11})/';

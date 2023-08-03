@@ -48,7 +48,7 @@
               <form action="<?php echo site_url('user/list'); ?>" method="get" class="search-form">
                   <div class="form-group">
                       <select name="kategori" class="form-control">
-                          <option value="">All Categories</option>
+                          <option value="">Semua Kategori</option>
                           <?php foreach ($kategori as $category) : ?>
                               <option value="<?php echo $category['nama_kategori']; ?>" <?php echo ($category['nama_kategori'] == $selected_category) ? 'selected' : ''; ?>>
                                   <?php echo $category['nama_kategori']; ?>
@@ -58,9 +58,9 @@
                   </div>
                   <div class="form-group">
                       <select name="sort" class="form-control">
-                          <option value="">Sort By</option>
-                          <option value="latest" <?php if ($sort === 'latest') echo 'selected'; ?>>Latest</option>
-                          <option value="oldest" <?php if ($sort === 'oldest') echo 'selected'; ?>>Oldest</option>
+                          <option value="">Filter Berdasarkan</option>
+                          <option value="latest" <?php if ($sort === 'latest') echo 'selected'; ?>>Terbaru</option>
+                          <option value="oldest" <?php if ($sort === 'oldest') echo 'selected'; ?>>Terlama</option>
                           <option value="alphabetical" <?php if ($sort === 'alphabetical') echo 'selected'; ?>>A-Z</option>
                           <option value="reverse_alphabetical" <?php if ($sort === 'reverse_alphabetical') echo 'selected'; ?>>Z-A</option> <!-- New option -->
                       </select>
@@ -139,7 +139,7 @@
                 <div class="aside-block">
                   <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
+                      <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Terbaru</button>
                     </li>
                   </ul>
 
@@ -204,7 +204,7 @@
                   <form action="<?php echo site_url('guest/list'); ?>" method="get" class="search-form">
                       <div class="form-group">
                           <select name="kategori" class="form-control">
-                              <option value="">All Categories</option>
+                              <option value="">Semua Kategori</option>
                               <?php foreach ($kategori as $category) : ?>
                                   <option value="<?php echo $category['nama_kategori']; ?>" <?php echo ($category['nama_kategori'] == $selected_category) ? 'selected' : ''; ?>>
                                       <?php echo $category['nama_kategori']; ?>
@@ -214,9 +214,9 @@
                       </div>
                       <div class="form-group">
                           <select name="sort" class="form-control">
-                              <option value="">Sort By</option>
-                              <option value="latest" <?php if ($sort === 'latest') echo 'selected'; ?>>Latest</option>
-                              <option value="oldest" <?php if ($sort === 'oldest') echo 'selected'; ?>>Oldest</option>
+                              <option value="">Filter Berdasarkan</option>
+                              <option value="latest" <?php if ($sort === 'latest') echo 'selected'; ?>>Terbaru</option>
+                              <option value="oldest" <?php if ($sort === 'oldest') echo 'selected'; ?>>Terlama</option>
                               <option value="alphabetical" <?php if ($sort === 'alphabetical') echo 'selected'; ?>>A-Z</option>
                               <option value="reverse_alphabetical" <?php if ($sort === 'reverse_alphabetical') echo 'selected'; ?>>Z-A</option> <!-- New option -->
                           </select>
@@ -236,7 +236,7 @@
                     <div class="aside-block">
                       <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                          <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
+                          <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Terbaru</button>
                         </li>
                       </ul>
     

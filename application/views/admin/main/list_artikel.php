@@ -62,7 +62,7 @@
 					          <th>Foto 1</th>
                     <th>Foto 2</th>
                     <th>Foto 3</th>
-                    <th>Action</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>

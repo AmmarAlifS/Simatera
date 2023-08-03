@@ -31,7 +31,7 @@
     <section class="content-header">
       <h1>
         List Kategori
-        <small>List Table</small>
+        <small>List kategori</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -46,7 +46,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <a class="btn btn-success btn-flat" data-toggle="modal" data-keyboard="false" data-backdrop="static" data-target="#myModal"><span class="fa fa-plus"></span>Add Kategori</a>
+                        <a class="btn btn-success btn-flat" data-toggle="modal" data-keyboard="false" data-backdrop="static" data-target="#myModal"><span class="fa fa-plus"></span>Tambah Kategori</a>
                     </div>
                       <!-- /.box-header -->
                         <div class="box-body">
@@ -96,7 +96,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-          <h4 class="modal-title" id="myModalLabel">Add Kateogri</h4>
+          <h4 class="modal-title" id="myModalLabel">Tambah Kateogri</h4>
         </div>
         <form class="form-horizontal" action="<?php echo base_url(). 'admin/Kategori/tambah_kategori'; ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
@@ -115,7 +115,7 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Tutup</button>
           <button type="submit" class="btn btn-primary btn-flat" id="simpan">Simpan</button>
         </div>
       </form>
@@ -133,7 +133,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Edit Data Genre</h4>
+        <h4 class="modal-title">Edit Data Kategori</h4>
       </div>
       
       <form class="form-horizontal" action="<?php echo base_url(). 'admin/Kategori/update_kategori'; ?>" method="post">

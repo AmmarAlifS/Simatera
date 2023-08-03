@@ -36,7 +36,7 @@
           </div>
 
           <div class="col-lg-6">
-            <h3 class="footer-heading">Recent Posts</h3>
+            <h3 class="footer-heading">Artikel Terbaru</h3>
 
             <ul class="footer-links footer-blog-entry list-unstyled">
               <?php
