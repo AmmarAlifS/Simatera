@@ -125,7 +125,7 @@
                 <div class="post-meta">
                   <span class="date"><?php echo $article->kategori; ?></span>
                   <span class="mx-1">&bullet;</span>
-                  <span><?php echo date('M jS \'y'); ?></span> <!-- Replace with the appropriate date -->
+                  <span><?php echo $article->tanggal; ?></span> <!-- Replace with the appropriate date -->
                 </div>
                 <h2 style="text-align: justify;"><a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>"><?php echo $article->judul; ?></a></h2>
               </div>
@@ -158,7 +158,7 @@
                       <div class="post-meta">
                           <span class="date"><?php echo $row->kategori ?></span>
                           <span class="mx-1">&bullet;</span>
-                          <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span>
+                          <span><?php echo $row->tanggal; ?></span>
                       </div>
                       <h2 class="mb-2">
                           <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a>
@@ -184,7 +184,7 @@
   <div class="container" data-aos="fade-up">
     <div class="section-header d-flex justify-content-between align-items-center mb-5">
       <h2>Museum</h2>
-      <div><a href="category.html" class="more">Lihat Selengkapnya</a></div>
+      <div><a href="list?kategori=Museum" class="more">Lihat Selengkapnya</a></div>
     </div>
 
     <div class="row">
@@ -199,7 +199,7 @@
                 <div class="post-meta">
                   <span class="date"><?php echo $article->kategori ?></span>
                   <span class="mx-1">&bullet;</span>
-                  <span><?php echo date('M jS \'y', strtotime($article->tanggal)); ?></span>
+                  <span><?php echo $article->tanggal; ?></span>
                 </div>
                 <h3><a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>"><?php echo $article->judul ?></a></h3>
                 <p style="text-align: justify;"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 50)); ?>...</p>
@@ -217,7 +217,7 @@
                   <div class="post-meta">
                     <span class="date"><?php echo $article->kategori ?></span>
                     <span class="mx-1">&bullet;</span>
-                    <span><?php echo date('M jS \'y', strtotime($article->tanggal)); ?></span>
+                    <span><?php echo $article->tanggal; ?></span>
                   </div>
                   <h2 class="mb-2"><a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>"><?php echo $article->judul ?></a></h2>
                   <p class="mb-4 d-block" style="text-align: justify;"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 40)); ?>...</p>
@@ -227,16 +227,22 @@
           </div>
 
           <div class="col-lg-8">
+            <?php $foundMuseumPost = false; ?>
             <?php foreach ($art as $index => $article): ?>
-              <?php if ($index > 3 && $article->kategori === 'Museum'): ?> <!-- Third Post -->
+              <?php if ($index > 3 && $article->kategori === 'Museum' && !$foundMuseumPost): ?>
+                <?php $foundMuseumPost = true; ?>
                 <div class="post-entry-1">
-                  <a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>"><img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid"></a>
+                  <a href="<?php echo base_url().'guest/single_post/'.$article->id_artikel;?>">
+                    <img src="<?php echo base_url()?>assets/img/<?php echo $article->Foto ?>" alt="" class="img-fluid">
+                  </a>
                   <div class="post-meta">
                     <span class="date"><?php echo $article->kategori ?></span>
                     <span class="mx-1">&bullet;</span>
-                    <span><?php echo date('M jS \'y', strtotime($article->tanggal)); ?></span>
+                    <span><?php echo $article->tanggal; ?></span>
                   </div>
-                  <h2 class="mb-2"><a href="<?php echo base_url().'user/single_post/'.$article->id_artikel;?>"><?php echo $article->judul ?></a></h2>
+                  <h2 class="mb-2">
+                    <a href="<?php echo base_url().'guest/single_post/'.$article->id_artikel;?>"><?php echo $article->judul ?></a>
+                  </h2>
                   <p class="mb-4 d-block"><?php echo implode(' ', array_slice(explode(' ', $article->artikel), 0, 25)); ?>...</p>
                 </div>
               <?php endif; ?>
@@ -256,7 +262,7 @@
                 <div class="post-meta">
                     <span class="date"><?php echo $row->kategori ?></span>
                     <span class="mx-1">&bullet;</span>
-                    <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span>
+                    <span><?php echo $row->tanggal; ?></span>
                 </div>
                 <h2 class="mb-2">
                     <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><?php echo $row->judul ?></a>
