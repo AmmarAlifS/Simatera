@@ -137,30 +137,11 @@ $html_snippet = '<div class="image-slider">
       </center>
 
 
-
-
-<!-- End Hero Slider Section -->
-              <!-- <p>Sehubung dengan hal tersebut, J. Reijsenbach Presiden ke-10 De Javasche Bank mengirim surat No. 165 pada tanggal 7 Mei 1902 kepada Dewan Militer Hindia Belanda dan surat No. 420 tanggal 16 Juni 1902  kepada pemerintah Hindia-Belanda yang isinya meminta izin untuk membuka Kantor Cabang De Javasche Bank di Bandung. Tanggal 29 Oktober 1906 Direksi De Javasche Bank menerima surat dari Gubernur Jenderal Hindia-Belanda No. 52 tertanggal 24 Oktober 1906 tentang penyerahan sebidang tanah seluas 10.40 m2 di District Oedjoengbroengkoelon, desa Kejaksangirang kepada De Javasche Bank dengan Sertifikat Hak Milik No.103 tanggal 8 Maret 1907 berikut Surat Ukur N0. 153 tanggal 13 Februari 1907 dan No.Kadester 1022.</p>
-              <p>Lahan Gedung De Javasche Bank adalah bekas Gudang tempat penyimpanan garam yang terbakar pada tahun 1901 dan kemudian menjadi sebuah lahan terbuka (plein) tempat pertunjukan sirku, sandiwara, dan pertunjukan seni lainnya. Pada malam minggu, para preanger planters saling jual tampang, bersantai, makan minum dan pamer mobil keluaran anyar milik mereka. Lahan ini terletak di seberang rumah kediaman keluarga belanda kaya soesman, pemilik kuda pacu dan lapangan pacuan kuda Tegallega. Rumah keluarga Siesnab sejarang menjadi Gedung Kerta Mukti.</p>
-              <p>Gedung Javasche Bank (sekarang Gedung Bank Indonesia) dirancang oleh Edward Cuypers, Fermont, dan Hulswit terdiri dari dua buah gedung. Yang pertama disebut dengan Gedung Perintis yang terletak di sisi Jalan Perintis Kemerdekaan. Sedangkan gedung kedua disebut dengan Gedung Braga yang dibangun di ruas Jalan Braga, di depan Gedung Kertamukti</p>
-              <p>Jika dilihat dari bangunannya, Gedung Perintis terlihat lebih baru, hal ini dikarenakan gedung ini sudah pernah mengalami renovasi. Gedung BI ini dibangun pada tahun 1909 dengan nama De Javasche Bank yang kemudian pada tahun 1953 diambil alih dan diresmikan sebagai Bank Indonesia.</p>
-              <p>Ed. Cuypers sebagai perancang BI lebih banyak mengambil unsur-unsur arsitektur Romawi-Yunani yang sangat kental terlihat dengan pemakaian unsur-unsur kolom silindrisnya dengan kepala kolom yang berukir dan menggunakan pediment yang berbentuk segitiga dan berukit pada bagian tengahnya.</p>
-              <p>Selain gaya arsitektur Romawi-Yunani, Cuypers juga mengambil gaya De-Stijl yang diwujudkannya dalam penggunaan kaca patri.kaca patri biasanya digunakan pada bangunan-bangunan yang mahal didaerah Belanda pada zaman dahulu, oleh karena itu dengan hadirnya kaca patri di sini, diharapkan dapat menimbulkan kesan mewah pada bangunan BI ini.</p>
-              <p>Selain itu, gedung BI ini didesain simetris, tidak hanya dalam massanya saja, namun juga simetris dalam pola bukaan jendelanya. Sebagai aksen dari pintu masuk, Cuypers memberikan arc yang tinggi menjulang, maksudnya bukaan yang diberikan bisa setinggi tujuh meter, hal ini membuat fasad yang diasilkan terkesan seimbang.</p> -->
-            </div><!-- End  Halaman Artikel -->
+    </div><!-- End  Halaman Artikel -->
        
        <!-- ======= Comments ======= -->
        <div id="disqus_thread"></div>
           <script>
-              /**
-              *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-              *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-              /*
-              var disqus_config = function () {
-              this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-              this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-              };
-              */
               (function() { // DON'T EDIT BELOW THIS LINE
               var d = document, s = d.createElement('script');
               s.src = 'https://simatera.disqus.com/embed.js';
@@ -199,14 +180,6 @@ $html_snippet = '<div class="image-slider">
         <span class="author d-block"></span>
       </div>
     </div>
-  <!-- <div class="card mb-3">
-    <div class="card-body">
-      <h5 class="card-title mb-0">
-        <span class="trending-number"><?php echo $count ?>.</span> <?php echo $row->judul ?>
-      </h5>
-      <p class="card-text"><small class="text-muted"><?php echo date('F j, Y', strtotime($row->tanggal)); ?></small></p>
-    </div>
-  </div> -->
   <?php $count++; ?>
   <?php endforeach; ?>
 
@@ -237,32 +210,7 @@ $html_snippet = '<div class="image-slider">
           </div>
         
         </div> <!-- End Latest --> 
-       
-        <!-- <div class="aside-block">
-          <h3 class="aside-title">Video</h3>
-          <div class="video-post">
-            
-              
-
-
-
-          </div>
-          
-          </div>
-        </div> --><!-- End Video -->
-
-        <!-- <div class="aside-block">
-          <h3 class="aside-title">Tags</h3>
-          <ul class="aside-tags list-unstyled">
-            <li><a href="category.html">Museum</a></li>
-            <li><a href="category.html">Budaya</a></li>
-            <li><a href="category.html">Sejarah</a></li>
-            <li><a href="category.html">Pariwisata</a></li>
-            <li><a href="category.html">Politics</a></li>
-          </ul>
-        </div>End Tags -->
-
-          </div>
+      </div>
     </section>
   </main>
 

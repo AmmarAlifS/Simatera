@@ -2,7 +2,7 @@
     <div class="wrapper">
         <header class="main-header">
 
-            <a href="index2.html" class="logo">
+            <a href="<?php echo base_url();?>admin/Dashboard" class="logo">
                 <span class="logo-mini"><b>A</b></span>
                 <span class="logo-lg"><b>Admin</b></span>
             </a>
