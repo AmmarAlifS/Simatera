@@ -218,4 +218,15 @@ document.addEventListener('DOMContentLoaded', () => {
     aos_init();
   });
 
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var userLat = position.coords.latitude;
+        var userLng = position.coords.longitude;
+        // Send the user's location data to the server for comparison.
+    });
+} else {
+    // Geolocation is not supported by this browser.
+}
+
+
 });
