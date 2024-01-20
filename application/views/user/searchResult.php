@@ -103,39 +103,44 @@
                   foreach ($artikel as $row) :
                     $post_entry_class = "col-lg-4 col-md-6";
                     // Create shortened description with "read more" button
-                    $words = explode(' ', $row->artikel);
-                    $short_description = '';
-                    $lineCount = 0;
-                    $lineLength = 0;
+                    // $words = explode(' ', $row->artikel);
+                    // $short_description = '';
+                    // $lineCount = 0;
+                    // $lineLength = 0;
 
-                    foreach ($words as $word) {
-                      $short_description .= $word . ' ';
-                      $lineLength += strlen($word) + 1; // +1 for the space after the word
+                    // foreach ($words as $word) {
+                    //   $short_description .= $word . ' ';
+                    //   $lineLength += strlen($word) + 1; // +1 for the space after the word
 
-                      if ($lineLength > 50) { // Adjust the line length limit as per your requirements
-                        $short_description .= '...';
-                        break;
-                      }
+                    //   if ($lineLength > 50) { // Adjust the line length limit as per your requirements
+                    //     $short_description .= '...';
+                    //     break;
+                    //   }
 
-                      if (substr_count($short_description, "\n") >= 2) {
-                        $short_description .= '...';
-                        break;
-                      }
+                    //   if (substr_count($short_description, "\n") >= 2) {
+                    //     $short_description .= '...';
+                    //     break;
+                    //   }
 
-                      if (substr_count($short_description, "\n") > $lineCount) {
-                        $lineCount++;
-                        $lineLength = 0;
-                      }
-                    }
-                    ?>
+                    //   if (substr_count($short_description, "\n") > $lineCount) {
+                    //     $lineCount++;
+                    //     $lineLength = 0;
+                    //   }
+                    // }
+                  ?>
 
                     <div class="<?php echo $post_entry_class ?>">
                       <div class="post-entry-1">
-                        <a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>"><img src="<?php echo base_url()?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
-                        <div class="post-meta"> <span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo date('F j, Y', strtotime($row->tanggal)); ?></span></div>
-                        <h2><a href="<?php echo base_url().'guest/single_post/'.$row->id_artikel;?>" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
-                        <p style="text-align: justify; font-family: serif;"><?php echo $short_description ?></p>
-                        <a href="<?php echo base_url().'user/single_post/'.$row->id_artikel;?>"><button class="btn btn-primary">Read More</button></a>
+                        <a href="<?php echo base_url() . 'guest/single_post/' . $row->id_artikel; ?>"><img src="<?php echo base_url() ?>assets/img/<?php echo $row->Foto ?>" alt="" class="img-fluid post-thumbnail" style="width: 100%; height: 200px;"></a>
+                        <div class="post-meta"> <span class="date"><?php echo $row->kategori ?></span> <span class="mx-1">&bullet;</span> <span><?php echo $row->tanggal; ?></span></div>
+                        <h2><a href="<?php echo base_url() . 'guest/single_post/' . $row->id_artikel; ?>" style="font-family: inherit; font-weight: bold;"><?php echo $row->judul ?></a></h2>
+                        <p style="text-align: justify; font-family: serif;">
+                          <?php $content = $row->artikel;
+                          $words = explode(' ', $content);
+                          $truncatedContent = implode(' ', array_slice($words, 0, 15));
+                          echo $truncatedContent . (count($words) > 15 ? '...' : '');?>
+                        </p>
+                        <a href="<?php echo base_url() . 'guest/single_post/' . $row->id_artikel; ?>"><button class="btn btn-primary">Baca selengkapnya</button></a>
                       </div>
                     </div>
 

@@ -11,6 +11,7 @@ class M_search extends CI_Model {
             $words = explode(' ', $keyword);
             foreach ($words as $word) {
                 $this->db->or_like('judul', $word);
+                $this->db->or_like('artikel', $word);
             }
         }
         if ($kategori) {
@@ -21,6 +22,7 @@ class M_search extends CI_Model {
 
 	public function getTotalResults($keyword) {
 		$this->db->like('judul', $keyword);
+		$this->db->like('keyword', $keyword);
 		$this->db->from('artikel_simatera');
 		return $this->db->count_all_results();
 	}
@@ -34,6 +36,7 @@ class M_search extends CI_Model {
             $words = explode(' ', $keyword);
             foreach ($words as $word) {
                 $this->db->or_like('judul', $word);
+                $this->db->or_like('artikel', $word);
             }
         }
 
@@ -72,6 +75,7 @@ class M_search extends CI_Model {
         $words = explode(' ', $keyword);
         foreach ($words as $word) {
             $this->db->or_like('judul', $word);
+            $this->db->or_like('artikel', $word);
         }
     }
 
